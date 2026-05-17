@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1920">
+<title>詹小奇的每週工作匯報</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@700;900&family=Noto+Sans+TC:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+  font-family: 'Noto Sans TC', sans-serif;
+  background: #0D1610;
+}
+
+.cover {
+  width: 1920px;
+  height: 1080px;
+  display: flex;
+  background: #0D1610;
+}
+
+/* ════ LEFT PANEL — dark ════ */
+.left-panel {
+  width: 730px;
+  flex-shrink: 0;
+  padding: 64px 68px 56px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.left-panel::after {
+  content: '';
+  position: absolute;
+  right: 0; top: 72px; bottom: 72px;
+  width: 1px;
+  background: rgba(255,255,255,0.07);
+}
+
+/* ── badge + series ── */
+.badge-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 52px;
+}
+
+.date-badge {
+  background: #2A6038;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 7px 18px;
+  border-radius: 30px;
+  white-space: nowrap;
+}
+
+.series-text {
+  font-size: 13px;
+  color: rgba(255,255,255,0.3);
+  letter-spacing: 0.04em;
+}
+
+/* ── headline ── */
+.headline { margin-bottom: 28px; }
+
+.headline .line1 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 116px;
+  font-weight: 900;
+  color: #FFFFFF;
+  line-height: 1.05;
+  letter-spacing: 0.05em;
+  display: block;
+}
+
+.headline .line2 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 116px;
+  font-weight: 900;
+  color: #4ADE80;
+  line-height: 1.05;
+  letter-spacing: 0.05em;
+  display: block;
+}
+
+/* ── subtitle ── */
+.subtitle {
+  font-size: 18px;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.95;
+  margin-bottom: 40px;
+}
+
+/* ── data cards ── */
+.data-cards {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+
+.data-card {
+  flex: 1;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.09);
+  border-radius: 14px;
+  padding: 20px 14px;
+  text-align: center;
+}
+
+.data-card .val {
+  font-size: 38px;
+  font-weight: 800;
+  color: #FFFFFF;
+  line-height: 1;
+  margin-bottom: 8px;
+  letter-spacing: -0.02em;
+}
+
+.data-card .lbl {
+  font-size: 11px;
+  color: rgba(255,255,255,0.35);
+  letter-spacing: 0.06em;
+}
+
+/* ── left highlights ── */
+.left-highlights {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: auto;
+}
+
+.left-highlight {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 10px;
+  padding: 13px 18px;
+  font-size: 14px;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.5;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.icon { font-size: 15px; flex-shrink: 0; }
+
+/* ── author ── */
+.author {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 26px;
+}
+
+.avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #2A6038;
+  color: white;
+  font-size: 18px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-family: 'Noto Serif TC', serif;
+}
+
+.author-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.85);
+  margin-bottom: 3px;
+}
+
+.author-title {
+  font-size: 12px;
+  color: rgba(255,255,255,0.3);
+}
+
+/* ════ RIGHT PANEL — floating window ════ */
+.right-panel {
+  flex: 1;
+  padding: 52px 52px 52px 44px;
+  display: flex;
+  align-items: center;
+}
+
+/* The floating window */
+.terminal-window {
+  width: 100%;
+  height: 100%;
+  background: #18201A;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow:
+    0 0 0 1px rgba(0,0,0,0.4),
+    0 40px 100px rgba(0,0,0,0.55);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.terminal-titlebar {
+  background: #222C24;
+  padding: 13px 18px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.traffic { width: 13px; height: 13px; border-radius: 50%; flex-shrink: 0; }
+.traffic.red    { background: #FF5F57; }
+.traffic.yellow { background: #FFBD2E; }
+.traffic.green  { background: #28CA41; }
+
+.terminal-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  color: rgba(255,255,255,0.38);
+  margin-left: 8px;
+}
+
+.terminal-body {
+  flex: 1;
+  padding: 26px 36px 24px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.cmd {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  color: rgba(255,255,255,0.45);
+  margin-bottom: 5px;
+}
+
+.output-comment {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  color: rgba(255,255,255,0.25);
+  margin-bottom: 4px;
+}
+
+.output-check {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  color: #28CA41;
+  margin-bottom: 22px;
+}
+
+/* ── stats row ── */
+.stats-row {
+  display: flex;
+  gap: 0;
+  margin-bottom: 24px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.stat-item { flex: 1; text-align: center; }
+
+.stat-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 30px;
+  font-weight: 700;
+  display: block;
+  line-height: 1;
+  margin-bottom: 7px;
+}
+.stat-num.orange { color: #FF8C42; }
+.stat-num.green  { color: #4ADE80; }
+.stat-num.blue   { color: #60A5FA; }
+.stat-num.pink   { color: #F472B6; }
+.stat-num.yellow { color: #FACC15; }
+
+.stat-lbl {
+  font-size: 11px;
+  color: rgba(255,255,255,0.3);
+  letter-spacing: 0.08em;
+}
+
+.section-header {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 12px;
+  letter-spacing: 0.05em;
+}
+
+/* ── bar chart ── */
+.bars {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 22px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.bar-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.bar-name {
+  font-size: 13px;
+  color: rgba(255,255,255,0.5);
+  width: 88px;
+  flex-shrink: 0;
+  text-align: right;
+}
+
+.bar-track {
+  flex: 1;
+  height: 9px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  border-radius: 5px;
+}
+.bar-fill.orange { background: linear-gradient(to right, #C95E10, #FF8C42); }
+.bar-fill.green  { background: linear-gradient(to right, #15803D, #4ADE80); }
+.bar-fill.blue   { background: linear-gradient(to right, #1D4ED8, #60A5FA); }
+.bar-fill.pink   { background: linear-gradient(to right, #BE185D, #F472B6); }
+.bar-fill.yellow { background: linear-gradient(to right, #A16207, #FACC15); }
+
+.bar-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: rgba(255,255,255,0.28);
+  width: 36px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+/* ── bottom two columns ── */
+.bottom-row {
+  display: flex;
+  gap: 48px;
+  flex: 1;
+}
+
+.bottom-col { flex: 1; }
+
+.good-item, .summary-item {
+  font-size: 13px;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.75;
+  margin-bottom: 4px;
+  padding-left: 20px;
+  position: relative;
+}
+
+.good-item::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #4ADE80;
+  font-weight: 700;
+}
+
+.summary-item.bang::before {
+  content: '!';
+  position: absolute;
+  left: 2px;
+  color: #FF8C42;
+  font-weight: 700;
+}
+
+.summary-item.arrow::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: #60A5FA;
+}
+</style>
+</head>
+<body>
+<div class="cover">
+
+  <!-- ════ LEFT PANEL ════ -->
+  <div class="left-panel">
+
+    <div class="badge-row">
+      <span class="date-badge">0512–0518</span>
+      <span class="series-text">詹小奇的每週工作匯報・AI Agent・Claude Code</span>
+    </div>
+
+    <div class="headline">
+      <span class="line1">打造</span>
+      <span class="line2">系統</span>
+    </div>
+
+    <div class="subtitle">
+      從對話到工具，從工具到系統。<br>
+      一週蓋了五套，還順手修了 Mac。
+    </div>
+
+    <div class="data-cards">
+      <div class="data-card">
+        <div class="val">5</div>
+        <div class="lbl">AI 工具完成</div>
+      </div>
+      <div class="data-card">
+        <div class="val">4</div>
+        <div class="lbl">Skills 上線</div>
+      </div>
+      <div class="data-card">
+        <div class="val">90%</div>
+        <div class="lbl">完成率</div>
+      </div>
+    </div>
+
+    <div class="left-highlights">
+      <div class="left-highlight">
+        <span class="icon">🔗</span>
+        每日早報 + /chi 週報全套系統上線
+      </div>
+      <div class="left-highlight">
+        <span class="icon">🔧</span>
+        MacBook 熱機根因找出，Typeless 排除
+      </div>
+    </div>
+
+    <div class="author">
+      <div class="avatar">詹</div>
+      <div>
+        <div class="author-name">詹小奇</div>
+        <div class="author-title">耳鼻喉科醫師・日和聯合診所・台南鹽水</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ════ RIGHT PANEL — floating window ════ -->
+  <div class="right-panel">
+    <div class="terminal-window">
+
+      <div class="terminal-titlebar">
+        <span class="traffic red"></span>
+        <span class="traffic yellow"></span>
+        <span class="traffic green"></span>
+        <span class="terminal-title">claude — ~/Chi-Agent</span>
+      </div>
+
+      <div class="terminal-body">
+
+        <div class="cmd">$ claude /insights</div>
+        <div class="output-comment"># 正在分析本週 151 筆對話...</div>
+        <div class="output-check">✓ 詹小奇每週工作匯報 第20週 健檢報告</div>
+
+        <div class="stats-row">
+          <div class="stat-item">
+            <span class="stat-num orange">151</span>
+            <div class="stat-lbl">對話筆數</div>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num green">90%</span>
+            <div class="stat-lbl">達成率</div>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num blue">5</span>
+            <div class="stat-lbl">工具完成</div>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num pink">4</span>
+            <div class="stat-lbl">Skills</div>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num yellow">7天</span>
+            <div class="stat-lbl">連續使用</div>
+          </div>
+        </div>
+
+        <div class="section-header">■ 五大工作領域</div>
+        <div class="bars">
+          <div class="bar-row">
+            <span class="bar-name">AI工具開發</span>
+            <div class="bar-track"><div class="bar-fill orange" style="width:100%"></div></div>
+            <span class="bar-num">-5套</span>
+          </div>
+          <div class="bar-row">
+            <span class="bar-name">環境維護</span>
+            <div class="bar-track"><div class="bar-fill green" style="width:80%"></div></div>
+            <span class="bar-num">-4件</span>
+          </div>
+          <div class="bar-row">
+            <span class="bar-name">系統整合</span>
+            <div class="bar-track"><div class="bar-fill blue" style="width:60%"></div></div>
+            <span class="bar-num">-3件</span>
+          </div>
+          <div class="bar-row">
+            <span class="bar-name">工作流設計</span>
+            <div class="bar-track"><div class="bar-fill pink" style="width:40%"></div></div>
+            <span class="bar-num">-2項</span>
+          </div>
+          <div class="bar-row">
+            <span class="bar-name">研究探索</span>
+            <div class="bar-track"><div class="bar-fill yellow" style="width:20%"></div></div>
+            <span class="bar-num">-1項</span>
+          </div>
+        </div>
+
+        <div class="bottom-row">
+          <div class="bottom-col">
+            <div class="section-header">■ 三件做得好的事</div>
+            <div class="good-item">每日早報自動化，連上 Notion + Google Calendar</div>
+            <div class="good-item">/chi 週報系統首跑成功，自動建 Notion 頁面</div>
+            <div class="good-item">MacBook 熱機根因找出，Typeless 關掉後解決</div>
+          </div>
+          <div class="bottom-col">
+            <div class="section-header">■ 主要摘要</div>
+            <div class="summary-item bang">從零建立 Claude Code 全套工作流</div>
+            <div class="summary-item bang">Status Line 彩色顯示模型與配額</div>
+            <div class="summary-item arrow">下週待補：/chi 封面圖自動上傳雲端</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
