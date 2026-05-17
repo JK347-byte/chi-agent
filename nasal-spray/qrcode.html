@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <title>噴鼻器衛教 QR Code｜日和聯合診所</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, "Helvetica Neue", Arial, sans-serif;
+      background: #f5f7fa;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 24px;
+    }
+    .card {
+      background: white;
+      border-radius: 20px;
+      padding: 40px 36px;
+      text-align: center;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+      max-width: 360px;
+      width: 100%;
+    }
+    .clinic { font-size: 12px; letter-spacing: 2px; color: #a0aec0; margin-bottom: 12px; }
+    h1 { font-size: 20px; font-weight: 700; color: #1a365d; margin-bottom: 6px; }
+    p  { font-size: 13px; color: #718096; margin-bottom: 28px; }
+    #qrcode {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+    #qrcode canvas, #qrcode img { border-radius: 8px; }
+    .url {
+      font-size: 11px;
+      color: #a0aec0;
+      word-break: break-all;
+      margin-bottom: 24px;
+    }
+    .btn {
+      display: inline-block;
+      background: #2b6cb0;
+      color: white;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 12px 28px;
+      border-radius: 10px;
+      cursor: pointer;
+      border: none;
+      text-decoration: none;
+    }
+    .btn:hover { background: #2c5282; }
+    @media print {
+      body { background: white; }
+      .btn { display: none; }
+      .card { box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+<div class="card">
+  <div class="clinic">日和聯合診所</div>
+  <h1>噴鼻器正確使用方法</h1>
+  <p>掃描 QR Code 查看完整衛教說明</p>
+  <div id="qrcode"></div>
+  <div class="url">https://jk347-byte.github.io/chi-agent/nasal-spray/</div>
+  <button class="btn" onclick="window.print()">列印 QR Code</button>
+</div>
+
+<script>
+  new QRCode(document.getElementById("qrcode"), {
+    text: "https://jk347-byte.github.io/chi-agent/nasal-spray/",
+    width: 200,
+    height: 200,
+    colorDark: "#1a365d",
+    colorLight: "#ffffff",
+    correctLevel: QRCode.CorrectLevel.H
+  });
+</script>
+</body>
+</html>
