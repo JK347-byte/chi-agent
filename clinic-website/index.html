@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>日和聯合診所｜耳鼻喉科・中醫</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue: #2b6cb0;
+      --blue-light: #4299e1;
+      --green: #276749;
+      --green-light: #48bb78;
+      --gray: #f5f7fa;
+      --text: #2d3748;
+      --muted: #718096;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, "Helvetica Neue", Arial, sans-serif;
+      color: var(--text);
+      background: white;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky;
+      top: 0;
+      background: white;
+      border-bottom: 1px solid #e2e8f0;
+      z-index: 100;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+    }
+    .nav-logo { font-size: 16px; font-weight: 700; color: var(--blue); }
+    .nav-links { display: flex; gap: 24px; }
+    .nav-links a { font-size: 14px; color: var(--muted); text-decoration: none; }
+    .nav-links a:hover { color: var(--blue); }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, #1a365d, #2b6cb0 60%, #4299e1);
+      color: white;
+      text-align: center;
+      padding: 72px 24px 64px;
+    }
+    .hero-tag {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      border-radius: 20px;
+      padding: 4px 14px;
+      font-size: 12px;
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+    }
+    .hero h1 { font-size: 32px; font-weight: 800; margin-bottom: 12px; }
+    .hero p  { font-size: 16px; opacity: 0.85; line-height: 1.7; max-width: 360px; margin: 0 auto 28px; }
+    .hero-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .btn-white {
+      background: white;
+      color: var(--blue);
+      font-size: 14px;
+      font-weight: 700;
+      padding: 12px 24px;
+      border-radius: 10px;
+      text-decoration: none;
+    }
+    .btn-outline {
+      background: transparent;
+      color: white;
+      border: 2px solid rgba(255,255,255,0.6);
+      font-size: 14px;
+      font-weight: 700;
+      padding: 12px 24px;
+      border-radius: 10px;
+      text-decoration: none;
+    }
+
+    /* SECTIONS */
+    section { padding: 56px 24px; }
+    section:nth-child(even) { background: var(--gray); }
+    .section-inner { max-width: 600px; margin: 0 auto; }
+    .section-tag {
+      font-size: 12px;
+      letter-spacing: 2px;
+      color: var(--blue);
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .section-title { font-size: 22px; font-weight: 800; margin-bottom: 8px; }
+    .section-sub   { font-size: 14px; color: var(--muted); line-height: 1.7; margin-bottom: 32px; }
+
+    /* DOCTORS */
+    .doctors { display: flex; flex-direction: column; gap: 16px; }
+    .doctor-card {
+      background: white;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+    .doctor-avatar {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      flex-shrink: 0;
+    }
+    .avatar-blue  { background: #ebf8ff; }
+    .avatar-green { background: #f0fff4; }
+    .doctor-name  { font-size: 18px; font-weight: 700; margin-bottom: 4px; }
+    .doctor-dept  { font-size: 12px; font-weight: 600; padding: 2px 10px; border-radius: 20px; display: inline-block; margin-bottom: 10px; }
+    .dept-blue    { background: #ebf8ff; color: var(--blue); }
+    .dept-green   { background: #f0fff4; color: var(--green); }
+    .doctor-bio   { font-size: 13px; color: var(--muted); line-height: 1.7; }
+
+    /* SERVICES */
+    .services { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .service-card {
+      background: white;
+      border-radius: 14px;
+      padding: 20px 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      text-align: center;
+    }
+    .service-icon { font-size: 28px; margin-bottom: 8px; }
+    .service-name { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
+    .service-desc { font-size: 12px; color: var(--muted); line-height: 1.6; }
+
+    /* HOURS */
+    .hours-table { width: 100%; border-collapse: collapse; }
+    .hours-table td { padding: 10px 0; border-bottom: 1px solid #e2e8f0; font-size: 14px; }
+    .hours-table td:last-child { text-align: right; color: var(--muted); }
+    .badge-open   { color: #276749; font-weight: 600; }
+    .badge-closed { color: #c53030; }
+
+    /* CONTACT */
+    .contact-cards { display: flex; flex-direction: column; gap: 12px; }
+    .contact-card {
+      background: white;
+      border-radius: 14px;
+      padding: 18px 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      text-decoration: none;
+      color: var(--text);
+    }
+    .contact-icon { font-size: 24px; width: 44px; text-align: center; }
+    .contact-label { font-size: 12px; color: var(--muted); margin-bottom: 2px; }
+    .contact-value { font-size: 15px; font-weight: 600; }
+
+    /* FOOTER */
+    footer {
+      background: #1a365d;
+      color: rgba(255,255,255,0.6);
+      text-align: center;
+      padding: 32px 24px;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+    footer strong { color: white; }
+
+    @media (max-width: 400px) {
+      .services { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">日和聯合診所</div>
+  <div class="nav-links">
+    <a href="#doctors">醫師</a>
+    <a href="#services">服務</a>
+    <a href="#hours">時間</a>
+    <a href="#contact">聯絡</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-tag">台南・鹽水</div>
+  <h1>日和聯合診所</h1>
+  <p>耳鼻喉科與中醫的整合醫療，用溫暖與專業，陪你找回健康的日常。</p>
+  <div class="hero-btns">
+    <a href="#hours" class="btn-white">看診時間</a>
+    <a href="#contact" class="btn-outline">聯絡我們</a>
+  </div>
+</div>
+
+<!-- DOCTORS -->
+<section id="doctors">
+  <div class="section-inner">
+    <div class="section-tag">OUR DOCTORS</div>
+    <div class="section-title">醫師介紹</div>
+    <div class="section-sub">來自不同專科、共同理念的醫師團隊</div>
+    <div class="doctors">
+
+      <div class="doctor-card">
+        <div class="doctor-avatar avatar-blue">👨‍⚕️</div>
+        <div>
+          <div class="doctor-name">詹士奇 醫師</div>
+          <span class="doctor-dept dept-blue">耳鼻喉科・頭頸外科</span>
+          <div class="doctor-bio">彰化基督教醫院住院醫師訓練結業，專精耳鼻喉科常見疾病診治，提供患者專業、親切的醫療服務。</div>
+        </div>
+      </div>
+
+      <div class="doctor-card">
+        <div class="doctor-avatar avatar-green">👩‍⚕️</div>
+        <div>
+          <div class="doctor-name">邱汶珊 醫師</div>
+          <span class="doctor-dept dept-green">中醫科</span>
+          <div class="doctor-bio">中醫專科醫師，擅長以傳統中醫調理體質，結合現代醫學思維，提供整合性的健康照護。</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-inner">
+    <div class="section-tag">SERVICES</div>
+    <div class="section-title">看診服務</div>
+    <div class="section-sub">西醫與中醫整合，全方位照顧您的健康</div>
+    <div class="services">
+      <div class="service-card">
+        <div class="service-icon">👂</div>
+        <div class="service-name">耳部疾病</div>
+        <div class="service-desc">中耳炎、耳鳴、聽力問題</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">👃</div>
+        <div class="service-name">鼻部疾病</div>
+        <div class="service-desc">過敏性鼻炎、鼻竇炎、鼻塞</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🗣️</div>
+        <div class="service-name">喉部疾病</div>
+        <div class="service-desc">扁桃腺炎、聲音沙啞、喉嚨痛</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🌿</div>
+        <div class="service-name">中醫調理</div>
+        <div class="service-desc">針灸、體質調理、慢性病照護</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOURS -->
+<section id="hours">
+  <div class="section-inner">
+    <div class="section-tag">HOURS</div>
+    <div class="section-title">看診時間</div>
+    <div class="section-sub">建議來電確認，以免久候</div>
+    <table class="hours-table">
+      <tr><td>週一</td><td class="badge-open">上午・下午</td></tr>
+      <tr><td>週二</td><td class="badge-open">上午・下午</td></tr>
+      <tr><td>週三</td><td class="badge-open">上午・下午</td></tr>
+      <tr><td>週四</td><td class="badge-open">上午・下午</td></tr>
+      <tr><td>週五</td><td class="badge-open">上午・下午</td></tr>
+      <tr><td>週六</td><td class="badge-open">上午</td></tr>
+      <tr><td>週日</td><td class="badge-closed">休診</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="section-tag">CONTACT</div>
+    <div class="section-title">聯絡與地址</div>
+    <div class="section-sub">歡迎來電預約或直接來診</div>
+    <div class="contact-cards">
+      <a href="tel:0666520182" class="contact-card">
+        <div class="contact-icon">📞</div>
+        <div>
+          <div class="contact-label">診所電話</div>
+          <div class="contact-value">06-6520182</div>
+        </div>
+      </a>
+      <div class="contact-card">
+        <div class="contact-icon">📍</div>
+        <div>
+          <div class="contact-label">診所地址</div>
+          <div class="contact-value">台南市鹽水區中正路 45 號</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <strong>日和聯合診所</strong><br>
+  台南市鹽水區中正路 45 號｜06-6520182<br><br>
+  © 2025 日和聯合診所 版權所有
+</footer>
+
+</body>
+</html>
