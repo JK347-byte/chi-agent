@@ -277,21 +277,33 @@
     .cell-appt   { color: #744210; font-size: 11px; font-weight: 600; }
 
     /* CONTACT */
-    .contact-cards { display: flex; flex-direction: column; gap: 12px; }
+    #contact .section-inner { max-width: 460px; }
+    .contact-cards { display: flex; flex-direction: column; gap: 10px; }
     .contact-card {
       background: white;
       border-radius: 14px;
-      padding: 18px 20px;
+      padding: 14px 18px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.06);
       display: flex;
       align-items: center;
-      gap: 16px;
+      gap: 14px;
       text-decoration: none;
       color: var(--text);
     }
-    .contact-icon { font-size: 24px; width: 44px; text-align: center; }
+    .contact-icon { font-size: 22px; width: 38px; text-align: center; }
     .contact-label { font-size: 12px; color: var(--muted); margin-bottom: 2px; }
     .contact-value { font-size: 15px; font-weight: 600; }
+    .social-links { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 4px; }
+    .social-link {
+      display: flex; align-items: center; gap: 7px;
+      background: white; border-radius: 10px;
+      padding: 9px 14px;
+      font-size: 13px; font-weight: 600;
+      text-decoration: none; color: var(--text);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+      flex: 1; min-width: 110px;
+    }
+    .social-link span { font-size: 16px; }
 
     /* REVIEWS */
     .reviews-section {
@@ -658,29 +670,16 @@
           <div class="contact-value">台南市鹽水區中正路 45 號</div>
         </div>
       </div>
-      <a href="https://lin.ee/ubEEzZv" target="_blank" class="contact-card">
-        <div class="contact-icon" style="color:#06C755;">💬</div>
-        <div>
-          <div class="contact-label">LINE 官方帳號</div>
-          <div class="contact-value">日和耳鼻喉科</div>
-        </div>
-        <div style="font-size:11px;color:#a0aec0;margin-left:auto;">開啟 →</div>
+    </div>
+    <div class="social-links">
+      <a href="https://lin.ee/ubEEzZv" target="_blank" class="social-link">
+        <span style="color:#06C755;">💬</span> LINE 耳鼻喉科
       </a>
-      <a href="https://lin.ee/t6T6SqJ" target="_blank" class="contact-card">
-        <div class="contact-icon" style="color:#06C755;">💬</div>
-        <div>
-          <div class="contact-label">LINE 官方帳號</div>
-          <div class="contact-value">日和中醫</div>
-        </div>
-        <div style="font-size:11px;color:#a0aec0;margin-left:auto;">開啟 →</div>
+      <a href="https://lin.ee/t6T6SqJ" target="_blank" class="social-link">
+        <span style="color:#06C755;">💬</span> LINE 中醫
       </a>
-      <a href="https://www.facebook.com/profile.php?id=61584338163667&locale=zh_TW" target="_blank" class="contact-card">
-        <div class="contact-icon" style="color:#1877F2;">📘</div>
-        <div>
-          <div class="contact-label">Facebook 粉絲專頁</div>
-          <div class="contact-value">日和聯合診所</div>
-        </div>
-        <div style="font-size:11px;color:#a0aec0;margin-left:auto;">開啟 →</div>
+      <a href="https://www.facebook.com/profile.php?id=61584338163667&locale=zh_TW" target="_blank" class="social-link">
+        <span style="color:#1877F2;">📘</span> Facebook
       </a>
     </div>
   </div>
