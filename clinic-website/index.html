@@ -48,7 +48,7 @@
       background: #faf8f0;
       color: #2e3318;
       text-align: center;
-      padding: 56px 24px 52px;
+      padding: 48px 24px 64px;
       position: relative;
       overflow: hidden;
     }
@@ -61,11 +61,19 @@
     .hero-deco-right { right: -40px; top: -20px; width: 200px; }
 
     .hero-logo {
-      width: 148px;
-      height: 148px;
+      position: absolute;
+      width: 320px;
+      height: 320px;
       object-fit: contain;
-      margin-bottom: 16px;
-      filter: drop-shadow(0 4px 16px rgba(122,140,92,0.18)) drop-shadow(0 2px 8px rgba(200,168,48,0.12));
+      bottom: -40px;
+      right: -40px;
+      opacity: 0.13;
+      pointer-events: none;
+      filter: drop-shadow(0 4px 16px rgba(122,140,92,0.2));
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
     }
     .hero-tag {
       display: inline-block;
@@ -426,13 +434,16 @@
   </svg>
 
   <img class="hero-logo" src="images/logo.png" alt="日和聯合診所 Logo">
-  <div class="hero-tag">台南・鹽水</div>
-  <h1>日和<span>聯合</span>診所</h1>
-  <div class="hero-divider"></div>
-  <p>耳鼻喉科與中醫的整合醫療<br>用溫暖與專業，陪你找回健康的日常</p>
-  <div class="hero-btns">
-    <a href="#hours" class="btn-primary">看診時間</a>
-    <a href="#contact" class="btn-secondary">聯絡我們</a>
+
+  <div class="hero-content">
+    <div class="hero-tag">台南・鹽水</div>
+    <h1>日和<span>聯合</span>診所</h1>
+    <div class="hero-divider"></div>
+    <p>耳鼻喉科與中醫的整合醫療<br>用溫暖與專業，陪你找回健康的日常</p>
+    <div class="hero-btns">
+      <a href="#hours" class="btn-primary">看診時間</a>
+      <a href="#contact" class="btn-secondary">聯絡我們</a>
+    </div>
   </div>
 </div>
 
