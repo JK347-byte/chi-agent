@@ -38,43 +38,82 @@
       justify-content: space-between;
       height: 56px;
     }
-    .nav-logo { font-size: 16px; font-weight: 700; color: var(--blue); }
+    .nav-logo { font-size: 16px; font-weight: 700; color: #5a6e38; }
     .nav-links { display: flex; gap: 24px; }
     .nav-links a { font-size: 14px; color: var(--muted); text-decoration: none; }
     .nav-links a:hover { color: var(--blue); }
 
     /* HERO */
     .hero {
-      background: linear-gradient(135deg, #1a365d, #2b6cb0 60%, #4299e1);
-      color: white;
+      background: #faf8f0;
+      color: #2e3318;
       text-align: center;
-      padding: 72px 24px 64px;
+      padding: 56px 24px 52px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-deco {
+      position: absolute;
+      opacity: 0.12;
+      pointer-events: none;
+    }
+    .hero-deco-left  { left: -40px; bottom: -20px; width: 220px; transform: scaleX(-1); }
+    .hero-deco-right { right: -40px; top: -20px; width: 200px; }
+
+    .hero-logo {
+      width: 88px;
+      height: 88px;
+      object-fit: contain;
+      margin-bottom: 16px;
     }
     .hero-tag {
       display: inline-block;
-      background: rgba(255,255,255,0.15);
+      background: rgba(122,140,92,0.15);
+      color: #5a6e38;
       border-radius: 20px;
       padding: 4px 14px;
       font-size: 12px;
       letter-spacing: 2px;
-      margin-bottom: 16px;
+      margin-bottom: 12px;
+      font-weight: 600;
     }
-    .hero h1 { font-size: 32px; font-weight: 800; margin-bottom: 12px; }
-    .hero p  { font-size: 16px; opacity: 0.85; line-height: 1.7; max-width: 360px; margin: 0 auto 28px; }
+    .hero h1 {
+      font-size: 30px;
+      font-weight: 800;
+      margin-bottom: 10px;
+      color: #2e3318;
+      letter-spacing: 2px;
+    }
+    .hero h1 span { color: #8a7635; }
+    .hero p {
+      font-size: 15px;
+      color: #5a5a40;
+      line-height: 1.8;
+      max-width: 340px;
+      margin: 0 auto 28px;
+    }
+    .hero-divider {
+      width: 48px;
+      height: 2px;
+      background: linear-gradient(90deg, #7a8c5c, #c8a830);
+      border-radius: 2px;
+      margin: 0 auto 24px;
+    }
     .hero-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-    .btn-white {
-      background: white;
-      color: var(--blue);
+    .btn-primary {
+      background: linear-gradient(135deg, #7a8c5c, #5a6e38);
+      color: white;
       font-size: 14px;
       font-weight: 700;
       padding: 12px 24px;
       border-radius: 10px;
       text-decoration: none;
+      box-shadow: 0 4px 12px rgba(122,140,92,0.3);
     }
-    .btn-outline {
+    .btn-secondary {
       background: transparent;
-      color: white;
-      border: 2px solid rgba(255,255,255,0.6);
+      color: #5a6e38;
+      border: 2px solid #7a8c5c;
       font-size: 14px;
       font-weight: 700;
       padding: 12px 24px;
@@ -275,12 +314,41 @@
 
 <!-- HERO -->
 <div class="hero">
+  <!-- 裝飾橄欖枝 SVG -->
+  <svg class="hero-deco hero-deco-left" viewBox="0 0 200 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M20 140 Q60 100 100 80 Q140 60 170 20" stroke="#7a8c5c" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <ellipse cx="80" cy="110" rx="14" ry="9" transform="rotate(-30 80 110)" fill="#7a8c5c"/>
+    <ellipse cx="110" cy="88" rx="13" ry="8" transform="rotate(-20 110 88)" fill="#7a8c5c"/>
+    <ellipse cx="55" cy="125" rx="12" ry="8" transform="rotate(-40 55 125)" fill="#7a8c5c"/>
+    <path d="M80 110 Q90 95 100 80" stroke="#7a8c5c" stroke-width="1.5" fill="none"/>
+    <path d="M110 88 Q120 75 130 62" stroke="#7a8c5c" stroke-width="1.5" fill="none"/>
+    <path d="M55 125 Q65 110 75 95" stroke="#7a8c5c" stroke-width="1.5" fill="none"/>
+    <!-- 太陽 -->
+    <circle cx="160" cy="30" r="12" fill="#c8a830"/>
+    <line x1="160" y1="10" x2="160" y2="4" stroke="#c8a830" stroke-width="2" stroke-linecap="round"/>
+    <line x1="178" y1="18" x2="183" y2="13" stroke="#c8a830" stroke-width="2" stroke-linecap="round"/>
+    <line x1="180" y1="30" x2="186" y2="30" stroke="#c8a830" stroke-width="2" stroke-linecap="round"/>
+    <line x1="142" y1="18" x2="137" y2="13" stroke="#c8a830" stroke-width="2" stroke-linecap="round"/>
+  </svg>
+  <svg class="hero-deco hero-deco-right" viewBox="0 0 200 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M180 140 Q140 100 100 80 Q60 60 30 20" stroke="#7a8c5c" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <ellipse cx="120" cy="110" rx="14" ry="9" transform="rotate(30 120 110)" fill="#7a8c5c"/>
+    <ellipse cx="90" cy="88" rx="13" ry="8" transform="rotate(20 90 88)" fill="#7a8c5c"/>
+    <ellipse cx="145" cy="125" rx="12" ry="8" transform="rotate(40 145 125)" fill="#7a8c5c"/>
+    <circle cx="40" cy="30" r="10" fill="#c8a830"/>
+    <line x1="40" y1="12" x2="40" y2="6" stroke="#c8a830" stroke-width="2" stroke-linecap="round"/>
+    <line x1="56" y1="18" x2="61" y2="13" stroke="#c8a830" stroke-width="2" stroke-linecap="round"/>
+    <line x1="24" y1="18" x2="19" y2="13" stroke="#c8a830" stroke-width="2" stroke-linecap="round"/>
+  </svg>
+
+  <img class="hero-logo" src="images/logo.jpg" alt="日和聯合診所 Logo">
   <div class="hero-tag">台南・鹽水</div>
-  <h1>日和聯合診所</h1>
-  <p>耳鼻喉科與中醫的整合醫療，用溫暖與專業，陪你找回健康的日常。</p>
+  <h1>日和<span>聯合</span>診所</h1>
+  <div class="hero-divider"></div>
+  <p>耳鼻喉科與中醫的整合醫療<br>用溫暖與專業，陪你找回健康的日常</p>
   <div class="hero-btns">
-    <a href="#hours" class="btn-white">看診時間</a>
-    <a href="#contact" class="btn-outline">聯絡我們</a>
+    <a href="#hours" class="btn-primary">看診時間</a>
+    <a href="#contact" class="btn-secondary">聯絡我們</a>
   </div>
 </div>
 
