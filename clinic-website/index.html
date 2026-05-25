@@ -160,34 +160,45 @@
       border-radius: 14px;
       padding: 20px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      overflow-x: auto;
     }
     .hours-block-title {
       font-size: 14px;
       font-weight: 700;
       margin-bottom: 14px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
     }
-    .hours-table { width: 100%; border-collapse: collapse; }
-    .hours-table th {
+    .schedule-grid {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 320px;
+    }
+    .schedule-grid th {
       font-size: 12px;
-      color: var(--muted);
-      font-weight: 600;
-      padding: 6px 0;
+      font-weight: 700;
+      text-align: center;
+      padding: 8px 4px;
+      background: #f0f4f8;
+      border: 1px solid #e2e8f0;
+    }
+    .schedule-grid td {
+      text-align: center;
+      padding: 8px 4px;
+      border: 1px solid #e2e8f0;
+      font-size: 12px;
+      line-height: 1.4;
+    }
+    .time-cell {
       text-align: left;
-      border-bottom: 1px solid #e2e8f0;
+      padding: 8px 10px;
+      font-size: 11px;
+      color: var(--muted);
+      background: #f8fafc;
+      font-weight: 600;
+      white-space: nowrap;
     }
-    .hours-table td {
-      padding: 8px 0;
-      border-bottom: 1px solid #f0f4f8;
-      font-size: 13px;
-      vertical-align: top;
-    }
-    .hours-table td:first-child { color: var(--muted); width: 80px; }
-    .badge-open   { color: #276749; font-weight: 500; }
-    .badge-closed { color: #c53030; }
-    .badge-appt   { color: #744210; }
+    .cell-open   { color: #276749; font-size: 16px; }
+    .cell-closed { color: #c53030; font-size: 12px; font-weight: 600; }
+    .cell-appt   { color: #744210; font-size: 11px; font-weight: 600; }
 
     /* CONTACT */
     .contact-cards { display: flex; flex-direction: column; gap: 12px; }
@@ -380,47 +391,40 @@
 
       <div class="hours-block">
         <div class="hours-block-title">🔵 耳鼻喉科｜詹士奇醫師</div>
-        <table class="hours-table">
+        <table class="schedule-grid">
           <tr>
-            <th>診次</th>
-            <th>時間</th>
-            <th>看診日</th>
+            <th></th>
+            <th>週一</th><th>週二</th><th>週三</th><th>週四</th><th>週五</th><th>週六</th><th>週日</th>
           </tr>
           <tr>
-            <td>上午診</td>
-            <td>08:30–12:00</td>
-            <td class="badge-open">週一至週六</td>
+            <td class="time-cell">上午<br>08:30<br>12:00</td>
+            <td class="cell-open">✓</td><td class="cell-open">✓</td><td class="cell-open">✓</td><td class="cell-open">✓</td><td class="cell-open">✓</td><td class="cell-open">✓</td><td class="cell-closed">休</td>
           </tr>
           <tr>
-            <td>下午診</td>
-            <td>14:00–17:00</td>
-            <td class="badge-open">週一至週五</td>
+            <td class="time-cell">下午<br>14:00<br>17:00</td>
+            <td class="cell-open">✓</td><td class="cell-open">✓</td><td class="cell-open">✓</td><td class="cell-open">✓</td><td class="cell-open">✓</td><td class="cell-closed">休</td><td class="cell-closed">休</td>
           </tr>
           <tr>
-            <td>夜診</td>
-            <td>17:30–19:30</td>
-            <td class="badge-open">週一、二、四、五</td>
+            <td class="time-cell">夜診<br>17:30<br>19:30</td>
+            <td class="cell-open">✓</td><td class="cell-open">✓</td><td class="cell-closed">休</td><td class="cell-open">✓</td><td class="cell-open">✓</td><td class="cell-closed">休</td><td class="cell-closed">休</td>
           </tr>
         </table>
       </div>
 
       <div class="hours-block">
         <div class="hours-block-title">🟢 中醫科｜邱汶珊醫師</div>
-        <table class="hours-table">
+        <table class="schedule-grid">
           <tr>
-            <th>診次</th>
-            <th>時間</th>
-            <th>看診日</th>
+            <th></th>
+            <th>週一</th><th>週二</th><th>週三</th><th>週四</th><th>週五</th><th>週六</th><th>週日</th>
           </tr>
           <tr>
-            <td>上午診</td>
-            <td>08:30–12:00</td>
-            <td class="badge-open">週一至週五</td>
+            <td class="time-cell">上午<br>08:30<br>12:00</td>
+            <td class="cell-open">✓</td><td class="cell-open">✓</td><td class="cell-open">✓</td><td class="cell-open">✓</td><td class="cell-open">✓</td><td class="cell-closed">休</td><td class="cell-closed">休</td>
           </tr>
           <tr>
-            <td>下午診</td>
-            <td>14:00–16:00</td>
-            <td class="badge-appt">週一、二、四、五（週三約診）</td>
+            <td class="time-cell">下午<br>14:00<br>16:00</td>
+            <td class="cell-open">✓</td><td class="cell-open">✓</td><td class="cell-appt">約診</td><td class="cell-open">✓</td><td class="cell-open">✓</td><td class="cell-closed">休</td><td class="cell-closed">休</td>
           </tr>
         </table>
       </div>
