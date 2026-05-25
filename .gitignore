@@ -2,6 +2,9 @@
 *.png
 *.jpeg
 *.jpg
+# 允許醫師形象照上傳
+!clinic-website/images/*.png
+!clinic-website/images/*.jpg
 .playwright-mcp/
 __pycache__/
 *.pyc
