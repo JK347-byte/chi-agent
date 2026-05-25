@@ -138,17 +138,46 @@
     }
 
     /* SERVICES */
-    .services-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-    .service-card {
-      background: white;
-      border-radius: 14px;
-      padding: 18px 14px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-      text-align: center;
+    .services-wrap { display: flex; flex-direction: column; gap: 32px; }
+
+    .service-banner {
+      border-radius: 20px;
+      padding: 28px 20px;
+      overflow: hidden;
     }
-    .service-icon { font-size: 26px; margin-bottom: 8px; }
-    .service-name { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
-    .service-desc { font-size: 12px; color: var(--muted); line-height: 1.6; }
+    .banner-ent { background: linear-gradient(135deg, #f5f0dc, #ede8c8); }
+    .banner-tcm { background: linear-gradient(135deg, #edf0e8, #e0e8d5); }
+
+    .banner-title {
+      font-size: 16px;
+      font-weight: 800;
+      margin-bottom: 16px;
+      letter-spacing: 1px;
+    }
+    .banner-title-ent { color: #5c4f1a; }
+    .banner-title-tcm { color: #3a4f2a; }
+
+    .badge-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+    .badge {
+      border-radius: 14px;
+      padding: 14px 12px;
+      text-align: center;
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.6;
+    }
+    .badge-ent {
+      background: #8a7635;
+      color: white;
+    }
+    .badge-tcm {
+      background: #7a8c5c;
+      color: white;
+    }
 
     /* HOURS */
     .hours-wrap { display: flex; flex-direction: column; gap: 20px; }
@@ -343,37 +372,41 @@
     <div class="section-tag">SERVICES</div>
     <div class="section-title">特色服務</div>
     <div class="section-sub">西醫精準診療與中醫整體調理，在同一間診所完成</div>
-    <div class="services-grid">
-      <div class="service-card">
-        <div class="service-icon">🔬</div>
-        <div class="service-name">鼻塞微創手術</div>
-        <div class="service-desc">局部麻醉、門診進行，快速改善鼻塞問題</div>
+    <div class="services-wrap">
+
+      <!-- 耳鼻喉科 -->
+      <div class="service-banner banner-ent">
+        <div class="banner-title banner-title-ent">☀️ 日和耳鼻喉科・特色項目</div>
+        <div class="badge-grid">
+          <div class="badge badge-ent">預防保健・成人健檢</div>
+          <div class="badge badge-ent">抽血打針・營養點滴</div>
+          <div class="badge badge-ent">高血壓・糖尿病・高血脂</div>
+          <div class="badge badge-ent">癌症・胃癌・口腔癌篩檢</div>
+          <div class="badge badge-ent">猛健樂・瘦瘦針・燃脂針</div>
+          <div class="badge badge-ent">鼻塞手術・鼻出血手術</div>
+          <div class="badge badge-ent">鼾聲雷動・睡眠生理檢查</div>
+          <div class="badge badge-ent">純音聽力檢查・助聽器選配</div>
+          <div class="badge badge-ent">皮蛇・腸病毒・子宮頸疫苗</div>
+          <div class="badge badge-ent">流感・新冠・呼吸道融合疫苗</div>
+        </div>
       </div>
-      <div class="service-card">
-        <div class="service-icon">💉</div>
-        <div class="service-name">鼻過敏整合治療</div>
-        <div class="service-desc">過敏原檢測搭配點滴療法，根本改善體質</div>
+
+      <!-- 中醫科 -->
+      <div class="service-banner banner-tcm">
+        <div class="banner-title banner-title-tcm">🌿 日和中醫・特色項目</div>
+        <div class="badge-grid">
+          <div class="badge badge-tcm">壽美降脂一號・天然降血脂</div>
+          <div class="badge badge-tcm">中藥薰蒸・傷痛處理</div>
+          <div class="badge badge-tcm">美顏針・預約特診</div>
+          <div class="badge badge-tcm">中醫熱敷</div>
+          <div class="badge badge-tcm">中醫電療・自律神經失調</div>
+          <div class="badge badge-tcm">耳針・埋針</div>
+          <div class="badge badge-tcm">龜鹿二仙膠・顧膝蓋</div>
+          <div class="badge badge-tcm">中醫減重・消脂茶</div>
+          <div class="badge badge-tcm">三伏貼・三九貼</div>
+        </div>
       </div>
-      <div class="service-card">
-        <div class="service-icon">👂</div>
-        <div class="service-name">聽力檢查・助聽器</div>
-        <div class="service-desc">完整聽力評估與助聽器選配服務</div>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">😴</div>
-        <div class="service-name">睡眠呼吸檢查</div>
-        <div class="service-desc">睡眠呼吸生理檢查，改善打鼾與睡眠品質</div>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">🌿</div>
-        <div class="service-name">中醫體質調理</div>
-        <div class="service-desc">內科、婦科、兒科全方位中醫診治</div>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">⚡</div>
-        <div class="service-name">頻率共振・雷射針灸</div>
-        <div class="service-desc">現代化中醫特色療法，無痛舒適</div>
-      </div>
+
     </div>
   </div>
 </section>
