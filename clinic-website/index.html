@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>日和聯合診所｜耳鼻喉科・中醫</title>
+  <title>日和聯合診所｜耳鼻喉科・中醫｜台南鹽水</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -97,16 +97,14 @@
     .section-sub   { font-size: 14px; color: var(--muted); line-height: 1.7; margin-bottom: 32px; }
 
     /* DOCTORS */
-    .doctors { display: flex; flex-direction: column; gap: 16px; }
+    .doctors { display: flex; flex-direction: column; gap: 20px; }
     .doctor-card {
       background: white;
       border-radius: 16px;
       padding: 24px;
       box-shadow: 0 2px 12px rgba(0,0,0,0.07);
-      display: flex;
-      gap: 20px;
-      align-items: flex-start;
     }
+    .doctor-header { display: flex; gap: 16px; align-items: flex-start; margin-bottom: 16px; }
     .doctor-avatar {
       width: 64px;
       height: 64px;
@@ -120,30 +118,76 @@
     .avatar-blue  { background: #ebf8ff; }
     .avatar-green { background: #f0fff4; }
     .doctor-name  { font-size: 18px; font-weight: 700; margin-bottom: 4px; }
-    .doctor-dept  { font-size: 12px; font-weight: 600; padding: 2px 10px; border-radius: 20px; display: inline-block; margin-bottom: 10px; }
+    .doctor-dept  { font-size: 12px; font-weight: 600; padding: 2px 10px; border-radius: 20px; display: inline-block; margin-bottom: 6px; }
     .dept-blue    { background: #ebf8ff; color: var(--blue); }
     .dept-green   { background: #f0fff4; color: var(--green); }
-    .doctor-bio   { font-size: 13px; color: var(--muted); line-height: 1.7; }
+    .doctor-title { font-size: 13px; color: var(--muted); }
+
+    .doctor-section { margin-bottom: 14px; }
+    .doctor-section-title { font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
+    .doctor-section ul { padding-left: 16px; }
+    .doctor-section li { font-size: 13px; color: var(--muted); line-height: 1.8; }
+    .doctor-section p  { font-size: 13px; color: var(--muted); line-height: 1.8; }
+
+    .feature-tag {
+      display: inline-block;
+      background: #fff5f0;
+      color: #c05621;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-top: 4px;
+    }
 
     /* SERVICES */
-    .services { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .services-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
     .service-card {
       background: white;
       border-radius: 14px;
-      padding: 20px 16px;
+      padding: 18px 14px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.06);
       text-align: center;
     }
-    .service-icon { font-size: 28px; margin-bottom: 8px; }
+    .service-icon { font-size: 26px; margin-bottom: 8px; }
     .service-name { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
     .service-desc { font-size: 12px; color: var(--muted); line-height: 1.6; }
 
     /* HOURS */
+    .hours-wrap { display: flex; flex-direction: column; gap: 20px; }
+    .hours-block {
+      background: white;
+      border-radius: 14px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .hours-block-title {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
     .hours-table { width: 100%; border-collapse: collapse; }
-    .hours-table td { padding: 10px 0; border-bottom: 1px solid #e2e8f0; font-size: 14px; }
-    .hours-table td:last-child { text-align: right; color: var(--muted); }
-    .badge-open   { color: #276749; font-weight: 600; }
+    .hours-table th {
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 600;
+      padding: 6px 0;
+      text-align: left;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    .hours-table td {
+      padding: 8px 0;
+      border-bottom: 1px solid #f0f4f8;
+      font-size: 13px;
+      vertical-align: top;
+    }
+    .hours-table td:first-child { color: var(--muted); width: 80px; }
+    .badge-open   { color: #276749; font-weight: 500; }
     .badge-closed { color: #c53030; }
+    .badge-appt   { color: #744210; }
 
     /* CONTACT */
     .contact-cards { display: flex; flex-direction: column; gap: 12px; }
@@ -174,7 +218,7 @@
     footer strong { color: white; }
 
     @media (max-width: 400px) {
-      .services { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: 1fr; }
       .nav-links { display: none; }
     }
   </style>
@@ -208,24 +252,76 @@
   <div class="section-inner">
     <div class="section-tag">OUR DOCTORS</div>
     <div class="section-title">醫師介紹</div>
-    <div class="section-sub">來自不同專科、共同理念的醫師團隊</div>
+    <div class="section-sub">兩位專科醫師，提供耳鼻喉與中醫整合照護</div>
     <div class="doctors">
 
+      <!-- 詹士奇 -->
       <div class="doctor-card">
-        <div class="doctor-avatar avatar-blue">👨‍⚕️</div>
-        <div>
-          <div class="doctor-name">詹士奇 醫師</div>
-          <span class="doctor-dept dept-blue">耳鼻喉科・頭頸外科</span>
-          <div class="doctor-bio">彰化基督教醫院住院醫師訓練結業，專精耳鼻喉科常見疾病診治，提供患者專業、親切的醫療服務。</div>
+        <div class="doctor-header">
+          <div class="doctor-avatar avatar-blue">👨‍⚕️</div>
+          <div>
+            <div class="doctor-name">詹士奇 院長</div>
+            <span class="doctor-dept dept-blue">耳鼻喉科・頭頸外科</span><br>
+            <span class="doctor-title">中華民國耳鼻喉科專科醫師</span>
+          </div>
+        </div>
+        <div class="doctor-section">
+          <div class="doctor-section-title">主治項目</div>
+          <ul>
+            <li>小兒／成人一般耳鼻喉疾病、發燒、久咳不癒、聲音沙啞</li>
+            <li>耳：耳痛癢、耳鳴、眩暈、中耳炎</li>
+            <li>鼻：鼻塞、鼻過敏、鼻竇炎及流鼻血</li>
+            <li>喉：慢性咽喉炎、扁桃腺發炎、打鼾、睡眠呼吸中止症、咽喉異物取出</li>
+            <li>頭頸：甲狀腺疾患、唾液腺疾患、頭頸部腫瘤</li>
+          </ul>
+        </div>
+        <div class="doctor-section">
+          <span class="feature-tag">✦ 特色項目：鼻塞微創手術</span>
+        </div>
+        <div class="doctor-section">
+          <div class="doctor-section-title">學經歷</div>
+          <ul>
+            <li>彰化基督教醫院小兒耳鼻喉科主治醫師</li>
+            <li>彰化基督教醫院耳鼻喉科主治醫師</li>
+            <li>台大醫院頭頸部超音波進修</li>
+            <li>台灣耳鼻喉科醫學會會員</li>
+            <li>台灣小兒耳鼻喉科會員</li>
+            <li>中國醫藥大學醫學系畢業</li>
+          </ul>
         </div>
       </div>
 
+      <!-- 邱汶珊 -->
       <div class="doctor-card">
-        <div class="doctor-avatar avatar-green">👩‍⚕️</div>
-        <div>
-          <div class="doctor-name">邱汶珊 醫師</div>
-          <span class="doctor-dept dept-green">中醫科</span>
-          <div class="doctor-bio">中醫專科醫師，擅長以傳統中醫調理體質，結合現代醫學思維，提供整合性的健康照護。</div>
+        <div class="doctor-header">
+          <div class="doctor-avatar avatar-green">👩‍⚕️</div>
+          <div>
+            <div class="doctor-name">邱汶珊 院長</div>
+            <span class="doctor-dept dept-green">中醫科</span><br>
+            <span class="doctor-title">中醫內科專科醫師</span>
+          </div>
+        </div>
+        <div class="doctor-section">
+          <div class="doctor-section-title">主治項目</div>
+          <ul>
+            <li>內科：感冒、頭痛、慢性咳嗽、胃酸逆流、便秘、睡眠障礙、皮膚疾患、癌症術後調理</li>
+            <li>婦科：經前症候群、月經不調、痛經、不孕調理、產後調理、更年期症候群</li>
+            <li>兒科：小兒過敏性鼻炎、小兒生長發育</li>
+            <li>針灸：顏面神經麻痺、肩頸酸痛、下背痛、膝關節疼痛、中風後遺症</li>
+          </ul>
+        </div>
+        <div class="doctor-section">
+          <span class="feature-tag">✦ 特色治療：頻率共振・雷射針灸</span>
+        </div>
+        <div class="doctor-section">
+          <div class="doctor-section-title">學經歷</div>
+          <ul>
+            <li>彰化秀傳紀念醫院中醫部主治醫師</li>
+            <li>洪宗鄰醫院中醫科主治醫師</li>
+            <li>台灣顏面針灸醫學會會員</li>
+            <li>居家醫療中醫師</li>
+            <li>中國醫藥大學畢業</li>
+          </ul>
         </div>
       </div>
 
@@ -237,28 +333,38 @@
 <section id="services">
   <div class="section-inner">
     <div class="section-tag">SERVICES</div>
-    <div class="section-title">看診服務</div>
-    <div class="section-sub">西醫與中醫整合，全方位照顧您的健康</div>
-    <div class="services">
+    <div class="section-title">特色服務</div>
+    <div class="section-sub">西醫精準診療與中醫整體調理，在同一間診所完成</div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">🔬</div>
+        <div class="service-name">鼻塞微創手術</div>
+        <div class="service-desc">局部麻醉、門診進行，快速改善鼻塞問題</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">💉</div>
+        <div class="service-name">鼻過敏整合治療</div>
+        <div class="service-desc">過敏原檢測搭配點滴療法，根本改善體質</div>
+      </div>
       <div class="service-card">
         <div class="service-icon">👂</div>
-        <div class="service-name">耳部疾病</div>
-        <div class="service-desc">中耳炎、耳鳴、聽力問題</div>
+        <div class="service-name">聽力檢查・助聽器</div>
+        <div class="service-desc">完整聽力評估與助聽器選配服務</div>
       </div>
       <div class="service-card">
-        <div class="service-icon">👃</div>
-        <div class="service-name">鼻部疾病</div>
-        <div class="service-desc">過敏性鼻炎、鼻竇炎、鼻塞</div>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">🗣️</div>
-        <div class="service-name">喉部疾病</div>
-        <div class="service-desc">扁桃腺炎、聲音沙啞、喉嚨痛</div>
+        <div class="service-icon">😴</div>
+        <div class="service-name">睡眠呼吸檢查</div>
+        <div class="service-desc">睡眠呼吸生理檢查，改善打鼾與睡眠品質</div>
       </div>
       <div class="service-card">
         <div class="service-icon">🌿</div>
-        <div class="service-name">中醫調理</div>
-        <div class="service-desc">針灸、體質調理、慢性病照護</div>
+        <div class="service-name">中醫體質調理</div>
+        <div class="service-desc">內科、婦科、兒科全方位中醫診治</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">⚡</div>
+        <div class="service-name">頻率共振・雷射針灸</div>
+        <div class="service-desc">現代化中醫特色療法，無痛舒適</div>
       </div>
     </div>
   </div>
@@ -269,16 +375,57 @@
   <div class="section-inner">
     <div class="section-tag">HOURS</div>
     <div class="section-title">看診時間</div>
-    <div class="section-sub">建議來電確認，以免久候</div>
-    <table class="hours-table">
-      <tr><td>週一</td><td class="badge-open">上午・下午</td></tr>
-      <tr><td>週二</td><td class="badge-open">上午・下午</td></tr>
-      <tr><td>週三</td><td class="badge-open">上午・下午</td></tr>
-      <tr><td>週四</td><td class="badge-open">上午・下午</td></tr>
-      <tr><td>週五</td><td class="badge-open">上午・下午</td></tr>
-      <tr><td>週六</td><td class="badge-open">上午</td></tr>
-      <tr><td>週日</td><td class="badge-closed">休診</td></tr>
-    </table>
+    <div class="section-sub">建議來電預約，以免久候</div>
+    <div class="hours-wrap">
+
+      <div class="hours-block">
+        <div class="hours-block-title">🔵 耳鼻喉科｜詹士奇醫師</div>
+        <table class="hours-table">
+          <tr>
+            <th>診次</th>
+            <th>時間</th>
+            <th>看診日</th>
+          </tr>
+          <tr>
+            <td>上午診</td>
+            <td>08:30–12:00</td>
+            <td class="badge-open">週一至週六</td>
+          </tr>
+          <tr>
+            <td>下午診</td>
+            <td>14:00–17:00</td>
+            <td class="badge-open">週一至週五</td>
+          </tr>
+          <tr>
+            <td>夜診</td>
+            <td>17:30–19:30</td>
+            <td class="badge-open">週一、二、四、五</td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="hours-block">
+        <div class="hours-block-title">🟢 中醫科｜邱汶珊醫師</div>
+        <table class="hours-table">
+          <tr>
+            <th>診次</th>
+            <th>時間</th>
+            <th>看診日</th>
+          </tr>
+          <tr>
+            <td>上午診</td>
+            <td>08:30–12:00</td>
+            <td class="badge-open">週一至週五</td>
+          </tr>
+          <tr>
+            <td>下午診</td>
+            <td>14:00–16:00</td>
+            <td class="badge-appt">週一、二、四、五（週三約診）</td>
+          </tr>
+        </table>
+      </div>
+
+    </div>
   </div>
 </section>
 
