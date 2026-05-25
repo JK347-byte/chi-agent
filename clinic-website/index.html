@@ -337,46 +337,61 @@
       border-radius: 16px;
       padding: 20px;
       width: 280px;
-      height: 200px;
       flex-shrink: 0;
       box-shadow: 0 2px 12px rgba(0,0,0,0.07);
       border: 1px solid #f0ead8;
-      display: flex;
-      flex-direction: column;
     }
-    .review-stars { color: #f5a623; font-size: 14px; margin-bottom: 10px; letter-spacing: 1px; flex-shrink: 0; }
-    .review-text {
-      font-size: 13px;
-      line-height: 1.75;
-      color: #4a5568;
-      margin-bottom: 14px;
-      flex: 1;
-      display: -webkit-box;
-      -webkit-line-clamp: 4;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-    }
-    .review-author {
+    .review-header {
       display: flex;
       align-items: center;
       gap: 10px;
+      margin-bottom: 12px;
     }
     .review-avatar {
-      width: 36px;
-      height: 36px;
+      width: 32px;
+      height: 32px;
       border-radius: 50%;
       background: linear-gradient(135deg, #7a8c5c, #c8a830);
       color: white;
-      font-size: 14px;
+      font-size: 12px;
       font-weight: 700;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
     }
-    .review-name  { font-size: 13px; font-weight: 700; }
+    .review-meta { flex: 1; }
+    .review-name  { font-size: 13px; font-weight: 700; line-height: 1.3; }
+    .review-stars { color: #f5a623; font-size: 12px; letter-spacing: 1px; }
     .review-time  { font-size: 11px; color: var(--muted); }
-    .review-google { margin-left: auto; font-size: 11px; color: #a0aec0; }
+    .review-google { font-size: 11px; color: #a0aec0; flex-shrink: 0; }
+
+    .review-text {
+      font-size: 13px;
+      line-height: 1.75;
+      color: #4a5568;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    .review-text.expanded {
+      display: block;
+      -webkit-line-clamp: unset;
+    }
+    .review-expand {
+      display: inline-block;
+      margin-top: 6px;
+      font-size: 12px;
+      color: #7a8c5c;
+      font-weight: 600;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 0;
+    }
+    .review-expand:hover { color: #5a6e38; }
 
     /* FOOTER */
     footer {
@@ -670,306 +685,59 @@
   </div>
 
   <div class="marquee-wrap">
-    <div class="marquee-track">
+    <div class="marquee-track" id="marqueeTrack">
 
-      <!-- 卡片組 A -->
-      <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <div class="review-text">詹醫師那溫和平穩的語調和親和力，竟然讓我異常的緩解掉我的不安。醫師滿年輕的，但他的專業詢問和詳細評估讓我非常放心。日和聯合診所會是很棒的第一首選！</div>
-        <div class="review-author">
-          <div class="review-avatar">蕭</div>
-          <div>
-            <div class="review-name">蕭詠璇</div>
-            <div class="review-time">4 個月前</div>
-          </div>
-          <div class="review-google">Google</div>
-        </div>
-      </div>
-
-      <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <div class="review-text">日和診所的環境明亮整潔，汶珊醫師總是努力 & 耐心的解決患者問題，讓我們願意開一個多小時車程過來，覺得值回票價！詹醫師手法細緻，親切又有醫術！</div>
-        <div class="review-author">
-          <div class="review-avatar">王</div>
-          <div>
-            <div class="review-name">王淑卿</div>
-            <div class="review-time">2 天前</div>
-          </div>
-          <div class="review-google">Google</div>
-        </div>
-      </div>
-
-      <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <div class="review-text">中藥邱醫師細心溫柔，問診細心。睡眠障礙用藥很有效，舒緩肩頸酸痛，薰洗跟熱敷效果很好，可以來看看喔！</div>
-        <div class="review-author">
-          <div class="review-avatar">J</div>
-          <div>
-            <div class="review-name">Jungwan Yu</div>
-            <div class="review-time">1 週前</div>
-          </div>
-          <div class="review-google">Google</div>
-        </div>
-      </div>
-
-      <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <div class="review-text">診所環境整潔舒適，醫師與護理人員都很親切、專業，說明清楚有耐心，讓人感到安心，是值得信賴的診所。</div>
-        <div class="review-author">
-          <div class="review-avatar">許</div>
-          <div>
-            <div class="review-name">許雅婷</div>
-            <div class="review-time">2 週前</div>
-          </div>
-          <div class="review-google">Google</div>
-        </div>
-      </div>
-
-      <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <div class="review-text">詹醫師看診用心細膩，會先仔細了解病人狀況後對症下藥，並詳細解釋原因。醫師幽默風趣也讓病人在診間能更放鬆，連害怕看醫生的小朋友也不緊張大哭。在鹽水能有這樣醫術與醫德兼具的醫師實屬鹽水之幸。</div>
-        <div class="review-author">
-          <div class="review-avatar">陳</div>
-          <div>
-            <div class="review-name">陳沐恩</div>
-            <div class="review-time">3 個月前</div>
-          </div>
-          <div class="review-google">Google</div>
-        </div>
-      </div>
-
-      <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <div class="review-text">日和的醫生和護士都很有親和力、很溫柔，會針對你的症狀給具體意見，甚至還送了喉糖。第一次踏進來就讓我覺得溫暖的診所，謝謝他們如此體貼。</div>
-        <div class="review-author">
-          <div class="review-avatar">L</div>
-          <div>
-            <div class="review-name">lin lin Hsuan</div>
-            <div class="review-time">4 個月前</div>
-          </div>
-          <div class="review-google">Google</div>
-        </div>
-      </div>
-
-      <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <div class="review-text">家人感冒聲音出不來、卡痰，經介紹來看病，醫師耐心問診及調整用藥，慢慢好轉，並再次回診取藥服用。</div>
-        <div class="review-author">
-          <div class="review-avatar">C</div>
-          <div><div class="review-name">Chiu Chiu</div><div class="review-time">4 個月前</div></div>
-          <div class="review-google">Google</div>
-        </div>
-      </div>
-
-      <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <div class="review-text">醫師溫柔，護理師打針技術厲害！</div>
-        <div class="review-author">
-          <div class="review-avatar">田</div>
-          <div><div class="review-name">田亦蕙</div><div class="review-time">4 個月前</div></div>
-          <div class="review-google">Google</div>
-        </div>
-      </div>
-
-      <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <div class="review-text">中醫邱醫師人超溫柔且很有耐心，問的也很詳細。櫃檯和護士小姐也都很和善，也很棒。</div>
-        <div class="review-author">
-          <div class="review-avatar">陳</div>
-          <div><div class="review-name">陳臻馥</div><div class="review-time">4 個月前</div></div>
-          <div class="review-google">Google</div>
-        </div>
-      </div>
-
-      <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <div class="review-text">醫師親切有耐心，開的藥有效！詹醫師還是鹽水國小畢業的優秀校友喔！護理師親切、讓初診的人很安心，環境也很棒，值得推薦。</div>
-        <div class="review-author">
-          <div class="review-avatar">張</div>
-          <div><div class="review-name">張寧</div><div class="review-time">4 個月前</div></div>
-          <div class="review-google">Google</div>
-        </div>
-      </div>
-
-      <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <div class="review-text">喉嚨癢苦惱已久，詹醫師開的藥非常有效！</div>
-        <div class="review-author">
-          <div class="review-avatar">蕭</div>
-          <div><div class="review-name">蕭坤標</div><div class="review-time">4 個月前</div></div>
-          <div class="review-google">Google</div>
-        </div>
-      </div>
-
-      <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <div class="review-text">詹醫生看診很細心，帥又年輕，親切對待病人。護士人員和藹可親，鹽水人有福了，還有中醫喔！</div>
-        <div class="review-author">
-          <div class="review-avatar">S</div>
-          <div><div class="review-name">Sky Dk</div><div class="review-time">4 個月前</div></div>
-          <div class="review-google">Google</div>
-        </div>
-      </div>
-
-      <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <div class="review-text">整體環境跟設備良好，西醫專業問診面對小孩有耐性，護理人員服務又親切。中醫針灸手法讓我體驗良好不害怕，也舒緩我的手部不適感。</div>
-        <div class="review-author">
-          <div class="review-avatar">段</div>
-          <div><div class="review-name">段忻彤</div><div class="review-time">4 個月前</div></div>
-          <div class="review-google">Google</div>
-        </div>
-      </div>
-
-      <!-- 卡片組 B（無縫循環用複製） -->
-      <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <div class="review-text">詹醫師那溫和平穩的語調和親和力，竟然讓我異常的緩解掉我的不安。醫師滿年輕的，但他的專業詢問和詳細評估讓我非常放心。日和聯合診所會是很棒的第一首選！</div>
-        <div class="review-author">
-          <div class="review-avatar">蕭</div>
-          <div>
-            <div class="review-name">蕭詠璇</div>
-            <div class="review-time">4 個月前</div>
-          </div>
-          <div class="review-google">Google</div>
-        </div>
-      </div>
-
-      <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <div class="review-text">日和診所的環境明亮整潔，汶珊醫師總是努力 & 耐心的解決患者問題，讓我們願意開一個多小時車程過來，覺得值回票價！詹醫師手法細緻，親切又有醫術！</div>
-        <div class="review-author">
-          <div class="review-avatar">王</div>
-          <div>
-            <div class="review-name">王淑卿</div>
-            <div class="review-time">2 天前</div>
-          </div>
-          <div class="review-google">Google</div>
-        </div>
-      </div>
-
-      <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <div class="review-text">中藥邱醫師細心溫柔，問診細心。睡眠障礙用藥很有效，舒緩肩頸酸痛，薰洗跟熱敷效果很好，可以來看看喔！</div>
-        <div class="review-author">
-          <div class="review-avatar">J</div>
-          <div>
-            <div class="review-name">Jungwan Yu</div>
-            <div class="review-time">1 週前</div>
-          </div>
-          <div class="review-google">Google</div>
-        </div>
-      </div>
-
-      <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <div class="review-text">診所環境整潔舒適，醫師與護理人員都很親切、專業，說明清楚有耐心，讓人感到安心，是值得信賴的診所。</div>
-        <div class="review-author">
-          <div class="review-avatar">許</div>
-          <div>
-            <div class="review-name">許雅婷</div>
-            <div class="review-time">2 週前</div>
-          </div>
-          <div class="review-google">Google</div>
-        </div>
-      </div>
-
-      <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <div class="review-text">詹醫師看診用心細膩，會先仔細了解病人狀況後對症下藥，並詳細解釋原因。醫師幽默風趣也讓病人在診間能更放鬆，連害怕看醫生的小朋友也不緊張大哭。在鹽水能有這樣醫術與醫德兼具的醫師實屬鹽水之幸。</div>
-        <div class="review-author">
-          <div class="review-avatar">陳</div>
-          <div>
-            <div class="review-name">陳沐恩</div>
-            <div class="review-time">3 個月前</div>
-          </div>
-          <div class="review-google">Google</div>
-        </div>
-      </div>
-
-      <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <div class="review-text">日和的醫生和護士都很有親和力、很溫柔，會針對你的症狀給具體意見，甚至還送了喉糖。第一次踏進來就讓我覺得溫暖的診所，謝謝他們如此體貼。</div>
-        <div class="review-author">
-          <div class="review-avatar">L</div>
-          <div><div class="review-name">lin lin Hsuan</div><div class="review-time">4 個月前</div></div>
-          <div class="review-google">Google</div>
-        </div>
-      </div>
-
-      <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <div class="review-text">家人感冒聲音出不來、卡痰，經介紹來看病，醫師耐心問診及調整用藥，慢慢好轉，並再次回診取藥服用。</div>
-        <div class="review-author">
-          <div class="review-avatar">C</div>
-          <div><div class="review-name">Chiu Chiu</div><div class="review-time">4 個月前</div></div>
-          <div class="review-google">Google</div>
-        </div>
-      </div>
-
-      <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <div class="review-text">醫師溫柔，護理師打針技術厲害！</div>
-        <div class="review-author">
-          <div class="review-avatar">田</div>
-          <div><div class="review-name">田亦蕙</div><div class="review-time">4 個月前</div></div>
-          <div class="review-google">Google</div>
-        </div>
-      </div>
-
-      <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <div class="review-text">中醫邱醫師人超溫柔且很有耐心，問的也很詳細。櫃檯和護士小姐也都很和善，也很棒。</div>
-        <div class="review-author">
-          <div class="review-avatar">陳</div>
-          <div><div class="review-name">陳臻馥</div><div class="review-time">4 個月前</div></div>
-          <div class="review-google">Google</div>
-        </div>
-      </div>
-
-      <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <div class="review-text">醫師親切有耐心，開的藥有效！詹醫師還是鹽水國小畢業的優秀校友喔！護理師親切、讓初診的人很安心，環境也很棒，值得推薦。</div>
-        <div class="review-author">
-          <div class="review-avatar">張</div>
-          <div><div class="review-name">張寧</div><div class="review-time">4 個月前</div></div>
-          <div class="review-google">Google</div>
-        </div>
-      </div>
-
-      <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <div class="review-text">喉嚨癢苦惱已久，詹醫師開的藥非常有效！</div>
-        <div class="review-author">
-          <div class="review-avatar">蕭</div>
-          <div><div class="review-name">蕭坤標</div><div class="review-time">4 個月前</div></div>
-          <div class="review-google">Google</div>
-        </div>
-      </div>
-
-      <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <div class="review-text">詹醫生看診很細心，帥又年輕，親切對待病人。護士人員和藹可親，鹽水人有福了，還有中醫喔！</div>
-        <div class="review-author">
-          <div class="review-avatar">S</div>
-          <div><div class="review-name">Sky Dk</div><div class="review-time">4 個月前</div></div>
-          <div class="review-google">Google</div>
-        </div>
-      </div>
-
-      <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <div class="review-text">整體環境跟設備良好，西醫專業問診面對小孩有耐性，護理人員服務又親切。中醫針灸手法讓我體驗良好不害怕，也舒緩我的手部不適感。</div>
-        <div class="review-author">
-          <div class="review-avatar">段</div>
-          <div><div class="review-name">段忻彤</div><div class="review-time">4 個月前</div></div>
-          <div class="review-google">Google</div>
-        </div>
-      </div>
 
     </div>
   </div>
 </div>
+
+<script>
+const reviews = [
+  { avatar: '蕭', name: '蕭詠璇', time: '4 個月前', text: '詹醫師那溫和平穩的語調和親和力，竟然讓我異常的緩解掉我的不安。醫師滿年輕的，但他的專業詢問和詳細評估讓我非常放心。日和聯合診所會是很棒的第一首選！' },
+  { avatar: '王', name: '王淑卿', time: '2 天前', text: '日和診所的環境明亮整潔，汶珊醫師總是努力 & 耐心的解決患者問題，讓我們願意開一個多小時車程過來，覺得值回票價！詹醫師手法細緻，親切又有醫術！' },
+  { avatar: 'J', name: 'Jungwan Yu', time: '1 週前', text: '中藥邱醫師細心溫柔，問診細心。睡眠障礙用藥很有效，舒緩肩頸酸痛，薰洗跟熱敷效果很好，可以來看看喔！' },
+  { avatar: '許', name: '許雅婷', time: '2 週前', text: '診所環境整潔舒適，醫師與護理人員都很親切、專業，說明清楚有耐心，讓人感到安心，是值得信賴的診所。' },
+  { avatar: '陳', name: '陳沐恩', time: '3 個月前', text: '詹醫師看診用心細膩，會先仔細了解病人狀況後對症下藥，並詳細解釋原因。醫師幽默風趣也讓病人在診間能更放鬆，連害怕看醫生的小朋友也不緊張大哭。在鹽水能有這樣醫術與醫德兼具的醫師實屬鹽水之幸。' },
+  { avatar: 'L', name: 'lin lin Hsuan', time: '4 個月前', text: '日和的醫生和護士都很有親和力、很溫柔，會針對你的症狀給具體意見，甚至還送了喉糖。第一次踏進來就讓我覺得溫暖的診所，謝謝他們如此體貼。' },
+  { avatar: 'C', name: 'Chiu Chiu', time: '4 個月前', text: '家人感冒聲音出不來、卡痰，經介紹來看病，醫師耐心問診及調整用藥，慢慢好轉，並再次回診取藥服用。' },
+  { avatar: '田', name: '田亦蕙', time: '4 個月前', text: '醫師溫柔，護理師打針技術厲害！' },
+  { avatar: '陳', name: '陳臻馥', time: '4 個月前', text: '中醫邱醫師人超溫柔且很有耐心，問的也很詳細。櫃檯和護士小姐也都很和善，也很棒。' },
+  { avatar: '張', name: '張寧', time: '4 個月前', text: '醫師親切有耐心，開的藥有效！詹醫師還是鹽水國小畢業的優秀校友喔！護理師親切、讓初診的人很安心，環境也很棒，值得推薦。' },
+  { avatar: '蕭', name: '蕭坤標', time: '4 個月前', text: '喉嚨癢苦惱已久，詹醫師開的藥非常有效！' },
+  { avatar: 'S', name: 'Sky Dk', time: '4 個月前', text: '詹醫生看診很細心，帥又年輕，親切對待病人。護士人員和藹可親，鹽水人有福了，還有中醫喔！' },
+  { avatar: '段', name: '段忻彤', time: '4 個月前', text: '整體環境跟設備良好，西醫專業問診面對小孩有耐性，護理人員服務又親切。中醫針灸手法讓我體驗良好不害怕，也舒緩我的手部不適感。' },
+];
+
+function makeCard(r, idx) {
+  return `
+    <div class="review-card">
+      <div class="review-header">
+        <div class="review-avatar">${r.avatar}</div>
+        <div class="review-meta">
+          <div class="review-name">${r.name}</div>
+          <div class="review-stars">★★★★★</div>
+        </div>
+        <div class="review-time">${r.time}</div>
+      </div>
+      <div class="review-text" id="rt-${idx}">${r.text}</div>
+      <button class="review-expand" onclick="toggleReview(${idx})">展開 ▾</button>
+    </div>`;
+}
+
+const track = document.getElementById('marqueeTrack');
+const allCards = [...reviews, ...reviews].map((r, i) => makeCard(r, i)).join('');
+track.innerHTML = allCards;
+
+function toggleReview(idx) {
+  const el = document.getElementById('rt-' + idx);
+  const btn = el.nextElementSibling;
+  const isExpanded = el.classList.toggle('expanded');
+  btn.textContent = isExpanded ? '收起 ▴' : '展開 ▾';
+  if (isExpanded) track.style.animationPlayState = 'paused';
+  else if (!track.querySelector('.review-text.expanded')) track.style.animationPlayState = 'running';
+}
+</script>
 
 <!-- FOOTER -->
 <footer>
