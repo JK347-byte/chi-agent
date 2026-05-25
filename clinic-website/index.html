@@ -284,6 +284,87 @@
     .contact-label { font-size: 12px; color: var(--muted); margin-bottom: 2px; }
     .contact-value { font-size: 15px; font-weight: 600; }
 
+    /* REVIEWS */
+    .reviews-section {
+      padding: 56px 0;
+      background: #faf8f0;
+      overflow: hidden;
+    }
+    .reviews-inner { max-width: 600px; margin: 0 auto; padding: 0 24px; }
+    .reviews-header { text-align: center; margin-bottom: 32px; }
+    .reviews-header .section-tag { justify-content: center; display: block; }
+    .reviews-header .section-title { font-size: 22px; font-weight: 800; }
+    .reviews-header .section-sub { font-size: 14px; color: var(--muted); margin-top: 6px; }
+
+    .marquee-wrap { position: relative; }
+    .marquee-wrap::before,
+    .marquee-wrap::after {
+      content: '';
+      position: absolute;
+      top: 0; bottom: 0;
+      width: 60px;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .marquee-wrap::before { left: 0; background: linear-gradient(to right, #faf8f0, transparent); }
+    .marquee-wrap::after  { right: 0; background: linear-gradient(to left, #faf8f0, transparent); }
+
+    .marquee-track {
+      display: flex;
+      gap: 16px;
+      animation: marquee 40s linear infinite;
+      width: max-content;
+      padding: 8px 0;
+    }
+    .marquee-track:hover { animation-play-state: paused; }
+
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    .review-card {
+      background: white;
+      border-radius: 16px;
+      padding: 20px;
+      width: 280px;
+      flex-shrink: 0;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+      border: 1px solid #f0ead8;
+    }
+    .review-stars { color: #f5a623; font-size: 14px; margin-bottom: 10px; letter-spacing: 1px; }
+    .review-text {
+      font-size: 13px;
+      line-height: 1.75;
+      color: #4a5568;
+      margin-bottom: 14px;
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .review-author {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .review-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #7a8c5c, #c8a830);
+      color: white;
+      font-size: 14px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .review-name  { font-size: 13px; font-weight: 700; }
+    .review-time  { font-size: 11px; color: var(--muted); }
+    .review-google { margin-left: auto; font-size: 11px; color: #a0aec0; }
+
     /* FOOTER */
     footer {
       background: #1a365d;
@@ -561,6 +642,181 @@
     </div>
   </div>
 </section>
+
+<!-- REVIEWS -->
+<div class="reviews-section">
+  <div class="reviews-inner">
+    <div class="reviews-header">
+      <div class="section-tag">REVIEWS</div>
+      <div class="section-title">患者真實評價</div>
+      <div class="section-sub">Google ★★★★★ 好評彙整</div>
+    </div>
+  </div>
+
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+
+      <!-- 卡片組 A -->
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">詹醫師那溫和平穩的語調和親和力，竟然讓我異常的緩解掉我的不安。醫師滿年輕的，但他的專業詢問和詳細評估讓我非常放心。日和聯合診所會是很棒的第一首選！</div>
+        <div class="review-author">
+          <div class="review-avatar">蕭</div>
+          <div>
+            <div class="review-name">蕭詠璇</div>
+            <div class="review-time">4 個月前</div>
+          </div>
+          <div class="review-google">Google</div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">日和診所的環境明亮整潔，汶珊醫師總是努力 & 耐心的解決患者問題，讓我們願意開一個多小時車程過來，覺得值回票價！詹醫師手法細緻，親切又有醫術！</div>
+        <div class="review-author">
+          <div class="review-avatar">王</div>
+          <div>
+            <div class="review-name">王淑卿</div>
+            <div class="review-time">2 天前</div>
+          </div>
+          <div class="review-google">Google</div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">中藥邱醫師細心溫柔，問診細心。睡眠障礙用藥很有效，舒緩肩頸酸痛，薰洗跟熱敷效果很好，可以來看看喔！</div>
+        <div class="review-author">
+          <div class="review-avatar">J</div>
+          <div>
+            <div class="review-name">Jungwan Yu</div>
+            <div class="review-time">1 週前</div>
+          </div>
+          <div class="review-google">Google</div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">診所環境整潔舒適，醫師與護理人員都很親切、專業，說明清楚有耐心，讓人感到安心，是值得信賴的診所。</div>
+        <div class="review-author">
+          <div class="review-avatar">許</div>
+          <div>
+            <div class="review-name">許雅婷</div>
+            <div class="review-time">2 週前</div>
+          </div>
+          <div class="review-google">Google</div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">詹醫師看診用心細膩，會先仔細了解病人狀況後對症下藥，並詳細解釋原因。醫師幽默風趣也讓病人在診間能更放鬆，連害怕看醫生的小朋友也不緊張大哭。在鹽水能有這樣醫術與醫德兼具的醫師實屬鹽水之幸。</div>
+        <div class="review-author">
+          <div class="review-avatar">陳</div>
+          <div>
+            <div class="review-name">陳沐恩</div>
+            <div class="review-time">3 個月前</div>
+          </div>
+          <div class="review-google">Google</div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">日和的醫生和護士都很有親和力、很溫柔，會針對你的症狀給具體意見，甚至還送了喉糖。第一次踏進來就讓我覺得溫暖的診所，謝謝他們如此體貼。</div>
+        <div class="review-author">
+          <div class="review-avatar">L</div>
+          <div>
+            <div class="review-name">lin lin Hsuan</div>
+            <div class="review-time">4 個月前</div>
+          </div>
+          <div class="review-google">Google</div>
+        </div>
+      </div>
+
+      <!-- 卡片組 B（無縫循環用複製） -->
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">詹醫師那溫和平穩的語調和親和力，竟然讓我異常的緩解掉我的不安。醫師滿年輕的，但他的專業詢問和詳細評估讓我非常放心。日和聯合診所會是很棒的第一首選！</div>
+        <div class="review-author">
+          <div class="review-avatar">蕭</div>
+          <div>
+            <div class="review-name">蕭詠璇</div>
+            <div class="review-time">4 個月前</div>
+          </div>
+          <div class="review-google">Google</div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">日和診所的環境明亮整潔，汶珊醫師總是努力 & 耐心的解決患者問題，讓我們願意開一個多小時車程過來，覺得值回票價！詹醫師手法細緻，親切又有醫術！</div>
+        <div class="review-author">
+          <div class="review-avatar">王</div>
+          <div>
+            <div class="review-name">王淑卿</div>
+            <div class="review-time">2 天前</div>
+          </div>
+          <div class="review-google">Google</div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">中藥邱醫師細心溫柔，問診細心。睡眠障礙用藥很有效，舒緩肩頸酸痛，薰洗跟熱敷效果很好，可以來看看喔！</div>
+        <div class="review-author">
+          <div class="review-avatar">J</div>
+          <div>
+            <div class="review-name">Jungwan Yu</div>
+            <div class="review-time">1 週前</div>
+          </div>
+          <div class="review-google">Google</div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">診所環境整潔舒適，醫師與護理人員都很親切、專業，說明清楚有耐心，讓人感到安心，是值得信賴的診所。</div>
+        <div class="review-author">
+          <div class="review-avatar">許</div>
+          <div>
+            <div class="review-name">許雅婷</div>
+            <div class="review-time">2 週前</div>
+          </div>
+          <div class="review-google">Google</div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">詹醫師看診用心細膩，會先仔細了解病人狀況後對症下藥，並詳細解釋原因。醫師幽默風趣也讓病人在診間能更放鬆，連害怕看醫生的小朋友也不緊張大哭。在鹽水能有這樣醫術與醫德兼具的醫師實屬鹽水之幸。</div>
+        <div class="review-author">
+          <div class="review-avatar">陳</div>
+          <div>
+            <div class="review-name">陳沐恩</div>
+            <div class="review-time">3 個月前</div>
+          </div>
+          <div class="review-google">Google</div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">日和的醫生和護士都很有親和力、很溫柔，會針對你的症狀給具體意見，甚至還送了喉糖。第一次踏進來就讓我覺得溫暖的診所，謝謝他們如此體貼。</div>
+        <div class="review-author">
+          <div class="review-avatar">L</div>
+          <div>
+            <div class="review-name">lin lin Hsuan</div>
+            <div class="review-time">4 個月前</div>
+          </div>
+          <div class="review-google">Google</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
 
 <!-- FOOTER -->
 <footer>
