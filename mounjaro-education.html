@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>猛健樂減重衛教｜日和聯合診所</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, "Helvetica Neue", Arial, sans-serif;
+      background: #f5f7fa;
+      color: #2d3748;
+    }
+
+    header {
+      background: linear-gradient(135deg, #2b6cb0, #4299e1);
+      color: white;
+      text-align: center;
+      padding: 36px 24px 32px;
+    }
+    header .clinic { font-size: 12px; letter-spacing: 3px; opacity: 0.8; margin-bottom: 10px; }
+    header h1 { font-size: 24px; font-weight: 700; line-height: 1.3; }
+    header .sub { font-size: 13px; opacity: 0.85; margin-top: 8px; }
+    header .badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.4);
+      border-radius: 20px;
+      font-size: 12px;
+      padding: 4px 14px;
+      margin-top: 12px;
+      letter-spacing: 1px;
+    }
+
+    .container { max-width: 480px; margin: 0 auto; padding: 24px 16px 48px; }
+
+    /* ── 核心公式卡片 ── */
+    .formula-card {
+      background: white;
+      border-radius: 20px;
+      padding: 24px 20px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .formula-card .label {
+      font-size: 12px;
+      color: #718096;
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+    }
+    .formula {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .formula-box {
+      background: #ebf8ff;
+      border: 2px solid #bee3f8;
+      border-radius: 14px;
+      padding: 12px 18px;
+      text-align: center;
+    }
+    .formula-box .num { font-size: 28px; font-weight: 800; color: #2b6cb0; line-height: 1; }
+    .formula-box .desc { font-size: 11px; color: #4a90a4; margin-top: 4px; }
+    .formula-op { font-size: 28px; font-weight: 700; color: #a0aec0; }
+    .formula-result {
+      background: linear-gradient(135deg, #2b6cb0, #4299e1);
+      border-radius: 14px;
+      padding: 12px 18px;
+      text-align: center;
+      color: white;
+    }
+    .formula-result .num { font-size: 28px; font-weight: 800; line-height: 1; }
+    .formula-result .desc { font-size: 11px; opacity: 0.85; margin-top: 4px; }
+    .formula-note {
+      margin-top: 14px;
+      font-size: 13px;
+      color: #4a5568;
+      line-height: 1.6;
+    }
+    .formula-note strong { color: #2b6cb0; }
+
+    /* ── 目標卡 ── */
+    .goal-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .goal-card {
+      background: white;
+      border-radius: 16px;
+      padding: 18px 14px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      text-align: center;
+    }
+    .goal-card .icon { font-size: 28px; margin-bottom: 8px; }
+    .goal-card .big { font-size: 22px; font-weight: 800; color: #2b6cb0; line-height: 1; }
+    .goal-card .unit { font-size: 12px; color: #718096; margin-top: 2px; }
+    .goal-card .desc { font-size: 12px; color: #4a5568; margin-top: 8px; line-height: 1.5; }
+
+    /* ── 步驟卡 ── */
+    .section-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: #718096;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+    }
+    .steps { display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px; }
+    .step {
+      background: white;
+      border-radius: 16px;
+      padding: 18px 18px 18px 14px;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .step-icon {
+      font-size: 26px;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      background: #ebf8ff;
+      border-radius: 12px;
+    }
+    .step-body h2 { font-size: 15px; font-weight: 700; color: #1a365d; margin-bottom: 5px; }
+    .step-body p { font-size: 13px; line-height: 1.7; color: #4a5568; }
+
+    /* ── 劑量階梯 ── */
+    .dose-card {
+      background: white;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      margin-bottom: 20px;
+    }
+    .dose-card h2 { font-size: 15px; font-weight: 700; color: #1a365d; margin-bottom: 14px; }
+    .dose-ladder {
+      display: flex;
+      align-items: flex-end;
+      gap: 8px;
+      justify-content: center;
+    }
+    .dose-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+    .dose-bar {
+      width: 52px;
+      border-radius: 8px 8px 0 0;
+      background: linear-gradient(180deg, #4299e1, #2b6cb0);
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding-bottom: 6px;
+      color: white;
+      font-size: 11px;
+      font-weight: 700;
+    }
+    .dose-label { font-size: 12px; color: #4a5568; font-weight: 600; }
+    .dose-price { font-size: 11px; color: #718096; }
+    .dose-arrow { font-size: 20px; color: #bee3f8; align-self: center; padding-bottom: 20px; }
+
+    /* ── 費用摘要 ── */
+    .cost-card {
+      background: linear-gradient(135deg, #1a365d, #2b6cb0);
+      border-radius: 16px;
+      padding: 20px;
+      color: white;
+      margin-bottom: 20px;
+    }
+    .cost-card h2 { font-size: 15px; font-weight: 700; margin-bottom: 14px; opacity: 0.9; }
+    .cost-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.15);
+      font-size: 13px;
+    }
+    .cost-row:last-of-type { border-bottom: none; }
+    .cost-row .price { font-weight: 700; font-size: 15px; }
+    .cost-total {
+      margin-top: 10px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 10px;
+      padding: 10px 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .cost-total .label { font-size: 13px; }
+    .cost-total .price { font-size: 20px; font-weight: 800; }
+
+    .tip {
+      background: #ebf8ff;
+      border-left: 4px solid #4299e1;
+      border-radius: 0 12px 12px 0;
+      padding: 14px 16px;
+      font-size: 13px;
+      color: #2b6cb0;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .warning {
+      background: #fff5f5;
+      border-left: 4px solid #fc8181;
+      border-radius: 0 12px 12px 0;
+      padding: 14px 16px;
+      font-size: 13px;
+      color: #c53030;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+    .warning strong { display: block; margin-bottom: 4px; font-size: 14px; }
+
+    footer {
+      text-align: center;
+      font-size: 12px;
+      color: #a0aec0;
+      margin-top: 32px;
+      line-height: 2;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="clinic">日 和 聯 合 診 所</div>
+  <h1>猛健樂（Mounjaro）<br>減重療程衛教</h1>
+  <div class="sub">GIP / GLP-1 雙重腸泌素促效劑</div>
+  <div class="badge">Tirzepatide</div>
+</header>
+
+<div class="container">
+
+  <!-- 核心概念 -->
+  <div class="formula-card">
+    <div class="label">減重的核心概念</div>
+    <div class="formula">
+      <div class="formula-box">
+        <div class="num">消耗</div>
+        <div class="desc">基礎代謝＋活動</div>
+      </div>
+      <div class="formula-op">−</div>
+      <div class="formula-box">
+        <div class="num">攝入</div>
+        <div class="desc">每日飲食熱量</div>
+      </div>
+      <div class="formula-op">=</div>
+      <div class="formula-result">
+        <div class="num">赤字</div>
+        <div class="desc">持續為負 = 減重</div>
+      </div>
+    </div>
+    <div class="formula-note">
+      猛健樂的作用：<strong>壓制食慾、延緩胃排空</strong>，<br>讓您更容易維持熱量赤字，而不需要靠意志力硬撐。
+    </div>
+  </div>
+
+  <!-- 治療目標 -->
+  <div class="section-title">治 療 目 標</div>
+  <div class="goal-row">
+    <div class="goal-card">
+      <div class="icon">📉</div>
+      <div class="big">10–15%</div>
+      <div class="unit">體重降幅</div>
+      <div class="desc">3 到 6 個月<br>達到目標</div>
+    </div>
+    <div class="goal-card">
+      <div class="icon">⚖️</div>
+      <div class="big">1–1.5</div>
+      <div class="unit">公斤 / 週</div>
+      <div class="desc">穩定速率<br>健康不過快</div>
+    </div>
+  </div>
+
+  <!-- 猛健樂如何幫助你 -->
+  <div class="section-title">猛 健 樂 如 何 幫 助 您</div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-icon">🧠</div>
+      <div class="step-body">
+        <h2>抑制食慾中樞</h2>
+        <p>作用於大腦飢餓調節中心，自然降低食慾，減少無意識進食與嘴饞衝動。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-icon">🐢</div>
+      <div class="step-body">
+        <h2>延緩胃排空</h2>
+        <p>食物在胃中停留更久，讓飽足感延長，進食量自然下降。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-icon">🏃</div>
+      <div class="step-body">
+        <h2>飲食＋運動必須跟上</h2>
+        <p>藥物是輔助工具，飲食控制與規律運動是預防<strong>停藥後復胖</strong>的關鍵。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 劑量階梯 -->
+  <div class="dose-card">
+    <h2>劑量調整計畫（階梯式遞增）</h2>
+    <div class="dose-ladder">
+      <div class="dose-step">
+        <div class="dose-bar" style="height:44px;">起始</div>
+        <div class="dose-label">2.5 mg</div>
+        <div class="dose-price">1 萬/月</div>
+      </div>
+      <div class="dose-arrow">›</div>
+      <div class="dose-step">
+        <div class="dose-bar" style="height:62px;">調整</div>
+        <div class="dose-label">5 mg</div>
+        <div class="dose-price">1 萬/月</div>
+      </div>
+      <div class="dose-arrow">›</div>
+      <div class="dose-step">
+        <div class="dose-bar" style="height:80px;">加強</div>
+        <div class="dose-label">7.5 mg</div>
+        <div class="dose-price">1.4 萬/月</div>
+      </div>
+      <div class="dose-arrow">›</div>
+      <div class="dose-step">
+        <div class="dose-bar" style="height:98px;">維持</div>
+        <div class="dose-label">10 mg</div>
+        <div class="dose-price">1.4 萬/月</div>
+      </div>
+    </div>
+    <div style="margin-top:14px; font-size:12px; color:#718096; text-align:center;">
+      每月回診追蹤，依體重變化與耐受性調整劑量
+    </div>
+  </div>
+
+  <!-- 費用摘要 -->
+  <div class="cost-card">
+    <h2>療程費用摘要</h2>
+    <div class="cost-row">
+      <span>減重期（3–5 個月）</span>
+      <span class="price">—</span>
+    </div>
+    <div class="cost-row">
+      <span>維持期（減重期 × ½）</span>
+      <span class="price">—</span>
+    </div>
+    <div class="cost-total">
+      <span class="label">完整療程預估</span>
+      <span class="price">5 – 7 萬元</span>
+    </div>
+  </div>
+
+  <!-- 提示 -->
+  <div class="tip">
+    💡 <strong>今日已完成</strong>：抽血 + InBody 身體組成分析（脂肪、肌肉、蛋白質比例）<br>
+    報告約 3–7 天後出爐，回診後一起討論療程細節。
+  </div>
+
+  <!-- 注意事項 -->
+  <div class="warning">
+    <strong>⚠️ 重要提醒</strong>
+    施打期間若出現持續噁心、嘔吐、腹痛，請立即回診。<br>
+    有甲狀腺髓質癌病史或 MEN2 症候群者禁用。<br>
+    請勿自行調整劑量或停針。
+  </div>
+
+  <footer>
+    日和聯合診所｜耳鼻喉科・家醫科・中醫科<br>
+    台南市鹽水區<br>
+    如有疑問，請洽診所醫療團隊
+  </footer>
+
+</div>
+</body>
+</html>
