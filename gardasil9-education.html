@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>嘉喜 9 HPV 疫苗｜日和聯合診所</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, "Helvetica Neue", Arial, sans-serif;
+      background: #f5f7fa;
+      color: #2d3748;
+    }
+
+    header {
+      background: linear-gradient(135deg, #6b21a8, #a855f7);
+      color: white;
+      text-align: center;
+      padding: 36px 24px 32px;
+    }
+    header .clinic { font-size: 12px; letter-spacing: 3px; opacity: 0.8; margin-bottom: 10px; }
+    header h1 { font-size: 26px; font-weight: 700; line-height: 1.3; }
+    header .en { font-size: 14px; opacity: 0.75; margin-top: 4px; letter-spacing: 1px; }
+    header .sub { font-size: 13px; opacity: 0.9; margin-top: 10px; line-height: 1.6; }
+
+    .container { max-width: 480px; margin: 0 auto; padding: 20px 16px 48px; }
+
+    .sec-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: #6b21a8;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin: 28px 0 10px;
+    }
+
+    .hook-card {
+      background: #1a202c;
+      border-radius: 16px;
+      padding: 20px;
+      margin-top: 20px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    }
+    .hook-card .hook-label {
+      font-size: 12px;
+      color: #d8b4fe;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+    }
+    .hook-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .hook-stat {
+      background: rgba(255,255,255,0.07);
+      border-radius: 12px;
+      padding: 14px 10px;
+      text-align: center;
+    }
+    .hook-stat .h-num { font-size: 28px; font-weight: 800; color: #d8b4fe; line-height: 1; }
+    .hook-stat .h-unit { font-size: 14px; font-weight: 700; color: #d8b4fe; }
+    .hook-stat .h-desc { font-size: 11px; color: #cbd5e0; margin-top: 6px; line-height: 1.5; }
+    .hook-note {
+      font-size: 12px;
+      color: #a0aec0;
+      text-align: center;
+      margin-top: 8px;
+      line-height: 1.5;
+    }
+    .hook-note strong { color: #d8b4fe; }
+
+    .vaccine-card {
+      background: white;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .vaccine-card .vc-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: #3b0764;
+      margin-bottom: 14px;
+    }
+    .prot-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+    .prot-box {
+      background: #faf5ff;
+      border-radius: 12px;
+      padding: 14px 10px;
+      text-align: center;
+    }
+    .prot-box .p-num { font-size: 28px; font-weight: 800; color: #6b21a8; line-height: 1; }
+    .prot-box .p-unit { font-size: 14px; font-weight: 700; color: #6b21a8; }
+    .prot-box .p-desc { font-size: 11px; color: #4a5568; margin-top: 5px; line-height: 1.4; }
+    .vc-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+    .vc-tag {
+      background: #faf5ff;
+      color: #6b21a8;
+      font-size: 12px;
+      font-weight: 600;
+      border-radius: 20px;
+      padding: 5px 12px;
+    }
+
+    .checklist-card {
+      background: white;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .checklist-card .cl-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #3b0764;
+      margin-bottom: 4px;
+    }
+    .cl-sub { font-size: 12px; color: #718096; margin-bottom: 14px; }
+    .cl-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 10px 6px;
+      border-bottom: 1px solid #f0f4f8;
+      cursor: pointer;
+      user-select: none;
+      transition: background 0.15s;
+      border-radius: 8px;
+    }
+    .cl-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .cl-item:hover { background: #fdf4ff; }
+    .cl-item.checked { background: #faf5ff; }
+    .cl-box {
+      width: 20px;
+      height: 20px;
+      border: 2px solid #d8b4fe;
+      border-radius: 5px;
+      flex-shrink: 0;
+      margin-top: 1px;
+      background: #faf5ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.15s;
+    }
+    .cl-item.checked .cl-box { background: #6b21a8; border-color: #6b21a8; }
+    .cl-item.checked .cl-box::after {
+      content: '✓';
+      color: white;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1;
+    }
+    .cl-text { font-size: 13px; color: #2d3748; line-height: 1.5; }
+    .cl-text strong { color: #6b21a8; }
+    .cl-footer {
+      margin-top: 14px;
+      background: #faf5ff;
+      border-radius: 10px;
+      padding: 10px 14px;
+      font-size: 12px;
+      color: #6b21a8;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .flow-card {
+      background: white;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .flow-card .fl-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: #3b0764;
+      margin-bottom: 16px;
+    }
+    .flow-steps {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+    .flow-step {
+      flex: 1;
+      background: #faf5ff;
+      border-radius: 12px;
+      padding: 10px 6px;
+      text-align: center;
+    }
+    .flow-step .fs-day { font-size: 10px; color: #9333ea; font-weight: 600; margin-bottom: 4px; }
+    .flow-step .fs-label { font-size: 12px; font-weight: 700; color: #6b21a8; }
+    .flow-step.done { background: linear-gradient(135deg, #6b21a8, #a855f7); }
+    .flow-step.done .fs-day { color: rgba(255,255,255,0.8); }
+    .flow-step.done .fs-label { color: white; }
+    .flow-arrow { font-size: 16px; color: #a0aec0; flex-shrink: 0; }
+
+    .schedule-note {
+      background: #faf5ff;
+      border-radius: 10px;
+      padding: 12px 14px;
+      font-size: 12px;
+      color: #6b21a8;
+      margin-bottom: 14px;
+      line-height: 1.7;
+    }
+    .schedule-note strong { display: block; margin-bottom: 4px; font-size: 13px; }
+
+    .price-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .price-box {
+      border: 2px solid #d8b4fe;
+      border-radius: 12px;
+      padding: 14px 12px;
+      text-align: center;
+      background: #faf5ff;
+    }
+    .price-box.full { border-color: #6b21a8; background: linear-gradient(135deg, #faf5ff, #ede9fe); }
+    .price-box .pl { font-size: 11px; color: #718096; margin-bottom: 4px; }
+    .price-box .pn { font-size: 22px; font-weight: 800; color: #6b21a8; }
+    .price-box .pnote { font-size: 11px; color: #9333ea; margin-top: 2px; }
+
+    .free-badge {
+      background: linear-gradient(135deg, #276749, #38a169);
+      border-radius: 12px;
+      padding: 14px 16px;
+      color: white;
+      font-size: 13px;
+      line-height: 1.6;
+      margin-top: 10px;
+    }
+    .free-badge strong { display: block; font-size: 14px; margin-bottom: 4px; }
+
+    .qa-card {
+      background: white;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .qa-item { padding: 12px 0; border-bottom: 1px solid #f0f4f8; }
+    .qa-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .qa-q { font-size: 13px; font-weight: 700; color: #6b21a8; margin-bottom: 5px; }
+    .qa-a { font-size: 13px; color: #4a5568; line-height: 1.6; }
+
+    .cta-card {
+      background: linear-gradient(135deg, #6b21a8, #a855f7);
+      border-radius: 16px;
+      padding: 22px 20px;
+      text-align: center;
+      color: white;
+      box-shadow: 0 4px 16px rgba(107,33,168,0.3);
+    }
+    .cta-card .cta-main { font-size: 17px; font-weight: 700; margin-bottom: 8px; line-height: 1.4; }
+    .cta-card .cta-sub { font-size: 13px; opacity: 0.9; line-height: 1.6; }
+    .cta-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.4);
+      border-radius: 20px;
+      font-size: 12px;
+      padding: 5px 16px;
+      margin-top: 12px;
+    }
+
+    .fit-banner {
+      display: none;
+      background: linear-gradient(135deg, #276749, #38a169);
+      border-radius: 16px;
+      padding: 20px;
+      text-align: center;
+      color: white;
+      box-shadow: 0 4px 20px rgba(39,103,73,0.35);
+      animation: popIn 0.3s cubic-bezier(0.34,1.56,0.64,1) both;
+    }
+    .fit-banner.visible { display: block; }
+    @keyframes popIn {
+      from { transform: scale(0.85); opacity: 0; }
+      to   { transform: scale(1);    opacity: 1; }
+    }
+    .fit-banner .fb-icon { font-size: 32px; margin-bottom: 8px; }
+    .fit-banner .fb-title { font-size: 18px; font-weight: 800; margin-bottom: 6px; }
+    .fit-banner .fb-sub { font-size: 13px; opacity: 0.9; line-height: 1.6; }
+    .fit-banner .fb-btn {
+      display: inline-block;
+      margin-top: 14px;
+      background: white;
+      color: #276749;
+      font-size: 14px;
+      font-weight: 700;
+      border-radius: 24px;
+      padding: 10px 24px;
+      text-decoration: none;
+    }
+
+    .se-note {
+      font-size: 12px;
+      color: #718096;
+      text-align: center;
+      padding: 14px 10px;
+      line-height: 1.7;
+    }
+    .se-note strong { color: #2d3748; }
+
+    .warning {
+      background: #fff5f5;
+      border-left: 4px solid #fc8181;
+      border-radius: 0 12px 12px 0;
+      padding: 14px 16px;
+      font-size: 13px;
+      color: #c53030;
+      line-height: 1.7;
+    }
+    .warning strong { display: block; margin-bottom: 6px; font-size: 14px; }
+    .warning li { margin-left: 14px; }
+
+    footer {
+      text-align: center;
+      font-size: 12px;
+      color: #a0aec0;
+      margin-top: 32px;
+      line-height: 1.9;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="clinic">日和聯合診所</div>
+  <h1>嘉喜 9 HPV 疫苗</h1>
+  <div class="en">Gardasil 9®</div>
+  <div class="sub">預防子宮頸癌、口咽癌與菜花的全方位保護</div>
+</header>
+
+<div class="container">
+
+  <!-- HOOK -->
+  <div class="hook-card">
+    <div class="hook-label">HPV 不只影響女性</div>
+    <div class="hook-stats">
+      <div class="hook-stat">
+        <div class="h-num">90<span class="h-unit">%</span></div>
+        <div class="h-desc">9 價疫苗對<br><strong style="color:#d8b4fe">子宮頸癌的保護率</strong></div>
+      </div>
+      <div class="hook-stat">
+        <div class="h-num">52<span class="h-unit">/58</span></div>
+        <div class="h-desc">亞洲人常見型別<br><strong style="color:#d8b4fe">唯一全涵蓋</strong></div>
+      </div>
+    </div>
+    <div class="hook-note">
+      HPV 也是<strong>口咽癌、菜花</strong>的主要成因<br>
+      男女皆可感染，男性施打同樣有效保護
+    </div>
+  </div>
+
+  <!-- 疫苗效果 -->
+  <div class="sec-label">嘉喜 9 的保護力</div>
+  <div class="vaccine-card">
+    <div class="vc-title">唯一涵蓋 9 種 HPV 型別，亞洲型別全覆蓋</div>
+    <div class="prot-row">
+      <div class="prot-box">
+        <div class="p-num">90<span class="p-unit">%</span></div>
+        <div class="p-desc">子宮頸癌防護率<br>（較 4 價提升 2 成）</div>
+      </div>
+      <div class="prot-box">
+        <div class="p-num">10<span class="p-unit">年+</span></div>
+        <div class="p-desc">抗體保護持續力</div>
+      </div>
+    </div>
+    <div class="vc-tags">
+      <span class="vc-tag">男女皆可施打</span>
+      <span class="vc-tag">預防口咽癌</span>
+      <span class="vc-tag">2/4 價可升級</span>
+      <span class="vc-tag">9 歲即可接種</span>
+    </div>
+  </div>
+
+  <!-- 適合族群 -->
+  <div class="sec-label">我適合接種嗎？</div>
+  <div class="checklist-card">
+    <div class="cl-title">符合以下任一條件，建議接種</div>
+    <div class="cl-sub">點選後查看您的結果</div>
+
+    <div class="cl-item" onclick="toggleCheck(this)">
+      <div class="cl-box"></div>
+      <div class="cl-text"><strong>9 歲以上男女</strong>皆適合，越早打保護越完整</div>
+    </div>
+    <div class="cl-item" onclick="toggleCheck(this)">
+      <div class="cl-box"></div>
+      <div class="cl-text"><strong>曾打過 2 價或 4 價</strong>，建議間隔 6 個月後升級 9 價</div>
+    </div>
+    <div class="cl-item" onclick="toggleCheck(this)">
+      <div class="cl-box"></div>
+      <div class="cl-text"><strong>家長</strong>希望提前為孩子（9–14 歲）安排，2 劑即完整</div>
+    </div>
+    <div class="cl-item" onclick="toggleCheck(this)">
+      <div class="cl-box"></div>
+      <div class="cl-text"><strong>成人男性</strong>關注口咽癌、菜花預防</div>
+    </div>
+    <div class="cl-item" onclick="toggleCheck(this)">
+      <div class="cl-box"></div>
+      <div class="cl-text"><strong>女性</strong>尚未完成完整療程或希望升級保護</div>
+    </div>
+
+    <div class="cl-footer">符合其中一項？點選後查看您的結果</div>
+  </div>
+
+  <!-- 適合施打提示卡 -->
+  <div class="fit-banner" id="fitBanner">
+    <div class="fb-icon">✅</div>
+    <div class="fb-title">您適合施打疫苗</div>
+    <div class="fb-sub">診所目前<strong style="color:#9ae6b4">現貨充足，可即時施打</strong><br>今天就來電預約，立即完成第一劑保護</div>
+    <a class="fb-btn" href="tel:0666520182">📞 立即來電：06-652-0182</a>
+  </div>
+
+  <!-- 施打流程 -->
+  <div class="sec-label">施打流程與費用</div>
+  <div class="flow-card">
+    <div class="fl-title">依年齡分 2 劑或 3 劑完成</div>
+
+    <div class="schedule-note">
+      <strong>9–14 歲：共 2 劑</strong>
+      第 1 劑 → 間隔 6 個月 → 第 2 劑
+    </div>
+
+    <div class="flow-steps">
+      <div class="flow-step done">
+        <div class="fs-day">今天</div>
+        <div class="fs-label">第 1 劑</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">
+        <div class="fs-day">第 2 個月</div>
+        <div class="fs-label">第 2 劑</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">
+        <div class="fs-day">第 6 個月</div>
+        <div class="fs-label">第 3 劑</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">
+        <div class="fs-day">完成</div>
+        <div class="fs-label">長效防護</div>
+      </div>
+    </div>
+    <div class="schedule-note" style="margin-bottom:14px;margin-top:0;">
+      <strong>15 歲以上：共 3 劑（0–2–6 個月）</strong>
+      建議一年內完成療程
+    </div>
+
+    <div class="price-row">
+      <div class="price-box">
+        <div class="pl">單支</div>
+        <div class="pn">$6,100</div>
+        <div class="pnote">第 1、2 或 3 劑</div>
+      </div>
+      <div class="price-box full">
+        <div class="pl">完整療程（3 劑）</div>
+        <div class="pn">$18,000</div>
+        <div class="pnote">建議一次完成療程</div>
+      </div>
+    </div>
+
+    <div class="free-badge">
+      <strong>🎉 公費接種資格</strong>
+      台南市國一生（男女生）可免費接種 9 價疫苗<br>符合資格者請至學校或本診所確認排程
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div style="margin-top:16px">
+    <div class="cta-card">
+      <div class="cta-main">今天告知診所人員<br>即可安排第一劑</div>
+      <div class="cta-sub">施打後留觀 15–30 分鐘<br>女性接種後仍需定期接受子宮頸抹片檢查</div>
+      <div class="cta-badge">耳鼻喉科特別重視口咽癌預防</div>
+    </div>
+  </div>
+
+  <!-- Q&A -->
+  <div class="sec-label">常見問題</div>
+  <div class="qa-card">
+    <div class="qa-item">
+      <div class="qa-q">學校施打的是幾價疫苗？</div>
+      <div class="qa-a">9 價。台南市女生自 111 年、男生自 114 年開始公費接種。</div>
+    </div>
+    <div class="qa-item">
+      <div class="qa-q">9 價比 4 價好在哪裡？</div>
+      <div class="qa-a">子宮頸癌保護率從 7 成提升至 9 成，並新增對 52、58 型（亞洲人常見）及口咽癌的預防。</div>
+    </div>
+    <div class="qa-item">
+      <div class="qa-q">已打過 2 價或 4 價，還需要補打嗎？</div>
+      <div class="qa-a">建議間隔 6 個月以上後升級施打 9 價，可補足原本未涵蓋的型別保護。</div>
+    </div>
+    <div class="qa-item">
+      <div class="qa-q">打完疫苗還需要做抹片嗎？</div>
+      <div class="qa-a">需要。疫苗無法涵蓋所有 HPV 型別，女性仍應定期接受子宮頸抹片篩檢。</div>
+    </div>
+    <div class="qa-item">
+      <div class="qa-q">2014 年打的是 9 價嗎？</div>
+      <div class="qa-a">不是。9 價（嘉喜 9）於 2016 年才在台灣正式核准上市，建議諮詢醫師是否需要升級。</div>
+    </div>
+  </div>
+
+  <!-- 副作用 -->
+  <div class="se-note">
+    <strong>關於副作用</strong><br>
+    常見局部腫痛、輕微發燒或頭痛，<br>通常於 <strong>2–3 天內自然消退</strong>，屬免疫系統正常啟動的訊號。
+  </div>
+
+  <!-- 禁忌 -->
+  <div class="warning">
+    <strong>⚠️ 以下情況請先告知醫師</strong>
+    <ul>
+      <li>對疫苗成分曾有嚴重過敏反應</li>
+      <li>目前有急性發燒或嚴重感染</li>
+      <li>懷孕中（建議產後再接種）</li>
+    </ul>
+  </div>
+
+  <footer>
+    日和聯合診所｜耳鼻喉科・中醫科<br>
+    台南市鹽水區｜06-652-0182<br>
+    如有疑問請洽診所，或於看診時詢問醫師
+  </footer>
+
+</div>
+
+<script>
+  function toggleCheck(el) {
+    el.classList.toggle('checked');
+    var anyChecked = document.querySelectorAll('.cl-item.checked').length > 0;
+    var banner = document.getElementById('fitBanner');
+    if (anyChecked) {
+      banner.classList.add('visible');
+      banner.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    } else {
+      banner.classList.remove('visible');
+    }
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>欣剋融 RSV 疫苗｜日和聯合診所</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, "Helvetica Neue", Arial, sans-serif;
+      background: #f5f7fa;
+      color: #2d3748;
+    }
+
+    header {
+      background: linear-gradient(135deg, #065f46, #059669);
+      color: white;
+      text-align: center;
+      padding: 36px 24px 32px;
+    }
+    header .clinic { font-size: 12px; letter-spacing: 3px; opacity: 0.8; margin-bottom: 10px; }
+    header h1 { font-size: 26px; font-weight: 700; line-height: 1.3; }
+    header .en { font-size: 14px; opacity: 0.75; margin-top: 4px; letter-spacing: 1px; }
+    header .sub { font-size: 13px; opacity: 0.9; margin-top: 10px; line-height: 1.6; }
+
+    .container { max-width: 480px; margin: 0 auto; padding: 20px 16px 48px; }
+
+    .sec-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: #065f46;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin: 28px 0 10px;
+    }
+
+    .hook-card {
+      background: #1a202c;
+      border-radius: 16px;
+      padding: 20px;
+      margin-top: 20px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    }
+    .hook-card .hook-label {
+      font-size: 12px;
+      color: #6ee7b7;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+    }
+    .hook-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .hook-stat {
+      background: rgba(255,255,255,0.07);
+      border-radius: 12px;
+      padding: 14px 10px;
+      text-align: center;
+    }
+    .hook-stat .h-num { font-size: 28px; font-weight: 800; color: #6ee7b7; line-height: 1; }
+    .hook-stat .h-unit { font-size: 14px; font-weight: 700; color: #6ee7b7; }
+    .hook-stat .h-desc { font-size: 11px; color: #cbd5e0; margin-top: 6px; line-height: 1.5; }
+    .hook-note {
+      font-size: 12px;
+      color: #a0aec0;
+      text-align: center;
+      margin-top: 8px;
+      line-height: 1.5;
+    }
+    .hook-note strong { color: #6ee7b7; }
+
+    .vaccine-card {
+      background: white;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .vaccine-card .vc-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: #064e3b;
+      margin-bottom: 14px;
+    }
+    .prot-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+    .prot-box {
+      background: #ecfdf5;
+      border-radius: 12px;
+      padding: 14px 10px;
+      text-align: center;
+    }
+    .prot-box .p-num { font-size: 28px; font-weight: 800; color: #065f46; line-height: 1; }
+    .prot-box .p-unit { font-size: 14px; font-weight: 700; color: #065f46; }
+    .prot-box .p-desc { font-size: 11px; color: #4a5568; margin-top: 5px; line-height: 1.4; }
+    .vc-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+    .vc-tag {
+      background: #ecfdf5;
+      color: #065f46;
+      font-size: 12px;
+      font-weight: 600;
+      border-radius: 20px;
+      padding: 5px 12px;
+    }
+
+    .checklist-card {
+      background: white;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .checklist-card .cl-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #064e3b;
+      margin-bottom: 4px;
+    }
+    .cl-sub { font-size: 12px; color: #718096; margin-bottom: 14px; }
+    .cl-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 10px 6px;
+      border-bottom: 1px solid #f0f4f8;
+      cursor: pointer;
+      user-select: none;
+      transition: background 0.15s;
+      border-radius: 8px;
+    }
+    .cl-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .cl-item:hover { background: #f0fdf4; }
+    .cl-item.checked { background: #ecfdf5; }
+    .cl-box {
+      width: 20px;
+      height: 20px;
+      border: 2px solid #6ee7b7;
+      border-radius: 5px;
+      flex-shrink: 0;
+      margin-top: 1px;
+      background: #ecfdf5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.15s;
+    }
+    .cl-item.checked .cl-box { background: #065f46; border-color: #065f46; }
+    .cl-item.checked .cl-box::after {
+      content: '✓';
+      color: white;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1;
+    }
+    .cl-text { font-size: 13px; color: #2d3748; line-height: 1.5; }
+    .cl-text strong { color: #065f46; }
+    .cl-footer {
+      margin-top: 14px;
+      background: #ecfdf5;
+      border-radius: 10px;
+      padding: 10px 14px;
+      font-size: 12px;
+      color: #065f46;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .flow-card {
+      background: white;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .flow-card .fl-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: #064e3b;
+      margin-bottom: 16px;
+    }
+    .flow-steps {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+    .flow-step {
+      flex: 1;
+      background: #ecfdf5;
+      border-radius: 12px;
+      padding: 12px 8px;
+      text-align: center;
+    }
+    .flow-step .fs-day { font-size: 11px; color: #059669; font-weight: 600; margin-bottom: 4px; }
+    .flow-step .fs-label { font-size: 13px; font-weight: 700; color: #065f46; }
+    .flow-step.done { background: linear-gradient(135deg, #065f46, #059669); }
+    .flow-step.done .fs-day { color: rgba(255,255,255,0.8); }
+    .flow-step.done .fs-label { color: white; }
+    .flow-arrow { font-size: 18px; color: #a0aec0; flex-shrink: 0; }
+
+    .price-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .price-box {
+      border: 2px solid #6ee7b7;
+      border-radius: 12px;
+      padding: 14px 12px;
+      text-align: center;
+      background: #ecfdf5;
+    }
+    .price-box.full { border-color: #065f46; background: linear-gradient(135deg, #ecfdf5, #d1fae5); }
+    .price-box .pl { font-size: 11px; color: #718096; margin-bottom: 4px; }
+    .price-box .pn { font-size: 22px; font-weight: 800; color: #065f46; }
+    .price-box .pnote { font-size: 11px; color: #059669; margin-top: 2px; }
+
+    .cta-card {
+      background: linear-gradient(135deg, #065f46, #059669);
+      border-radius: 16px;
+      padding: 22px 20px;
+      text-align: center;
+      color: white;
+      box-shadow: 0 4px 16px rgba(6,95,70,0.3);
+    }
+    .cta-card .cta-main { font-size: 17px; font-weight: 700; margin-bottom: 8px; line-height: 1.4; }
+    .cta-card .cta-sub { font-size: 13px; opacity: 0.9; line-height: 1.6; }
+    .cta-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.4);
+      border-radius: 20px;
+      font-size: 12px;
+      padding: 5px 16px;
+      margin-top: 12px;
+    }
+
+    .fit-banner {
+      display: none;
+      background: linear-gradient(135deg, #276749, #38a169);
+      border-radius: 16px;
+      padding: 20px;
+      text-align: center;
+      color: white;
+      box-shadow: 0 4px 20px rgba(39,103,73,0.35);
+      animation: popIn 0.3s cubic-bezier(0.34,1.56,0.64,1) both;
+    }
+    .fit-banner.visible { display: block; }
+    @keyframes popIn {
+      from { transform: scale(0.85); opacity: 0; }
+      to   { transform: scale(1);    opacity: 1; }
+    }
+    .fit-banner .fb-icon { font-size: 32px; margin-bottom: 8px; }
+    .fit-banner .fb-title { font-size: 18px; font-weight: 800; margin-bottom: 6px; }
+    .fit-banner .fb-sub { font-size: 13px; opacity: 0.9; line-height: 1.6; }
+    .fit-banner .fb-btn {
+      display: inline-block;
+      margin-top: 14px;
+      background: white;
+      color: #276749;
+      font-size: 14px;
+      font-weight: 700;
+      border-radius: 24px;
+      padding: 10px 24px;
+      text-decoration: none;
+    }
+
+    .se-note {
+      font-size: 12px;
+      color: #718096;
+      text-align: center;
+      padding: 14px 10px;
+      line-height: 1.7;
+    }
+    .se-note strong { color: #2d3748; }
+
+    .warning {
+      background: #fff5f5;
+      border-left: 4px solid #fc8181;
+      border-radius: 0 12px 12px 0;
+      padding: 14px 16px;
+      font-size: 13px;
+      color: #c53030;
+      line-height: 1.7;
+    }
+    .warning strong { display: block; margin-bottom: 6px; font-size: 14px; }
+    .warning li { margin-left: 14px; }
+
+    footer {
+      text-align: center;
+      font-size: 12px;
+      color: #a0aec0;
+      margin-top: 32px;
+      line-height: 1.9;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="clinic">日和聯合診所</div>
+  <h1>欣剋融 RSV 疫苗</h1>
+  <div class="en">Arexvy®</div>
+  <div class="sub">預防呼吸道融合病毒重症肺炎</div>
+</header>
+
+<div class="container">
+
+  <!-- HOOK -->
+  <div class="hook-card">
+    <div class="hook-label">RSV 是長者重症肺炎的主因之一</div>
+    <div class="hook-stats">
+      <div class="hook-stat">
+        <div class="h-num">90<span class="h-unit">%</span></div>
+        <div class="h-desc">高風險族群<br><strong style="color:#6ee7b7">重症預防效力</strong></div>
+      </div>
+      <div class="hook-stat">
+        <div class="h-num">2<span class="h-unit">年+</span></div>
+        <div class="h-desc">單劑保護力<br><strong style="color:#6ee7b7">持續維持</strong></div>
+      </div>
+    </div>
+    <div class="hook-note">
+      RSV 在長者易引發肺炎、心衰竭惡化<br>
+      慢性心肺疾病患者感染後<strong>重症風險遠高於一般人</strong>
+    </div>
+  </div>
+
+  <!-- 疫苗效果 -->
+  <div class="sec-label">欣剋融的保護力</div>
+  <div class="vaccine-card">
+    <div class="vc-title">佐劑增強型疫苗，針對重症有效防護</div>
+    <div class="prot-row">
+      <div class="prot-box">
+        <div class="p-num">90<span class="p-unit">%</span></div>
+        <div class="p-desc">慢性心肺疾病患者<br>重症預防效力</div>
+      </div>
+      <div class="prot-box">
+        <div class="p-num">1<span class="p-unit">劑</span></div>
+        <div class="p-desc">目前建議單劑<br>即可完成接種</div>
+      </div>
+    </div>
+    <div class="vc-tags">
+      <span class="vc-tag">60 歲以上適用</span>
+      <span class="vc-tag">慢性病高風險</span>
+      <span class="vc-tag">單劑完成</span>
+      <span class="vc-tag">保護 2 年以上</span>
+    </div>
+  </div>
+
+  <!-- 適合族群 -->
+  <div class="sec-label">我適合接種嗎？</div>
+  <div class="checklist-card">
+    <div class="cl-title">符合以下任一條件，建議接種</div>
+    <div class="cl-sub">點選後查看您的結果</div>
+
+    <div class="cl-item" onclick="toggleCheck(this)">
+      <div class="cl-box"></div>
+      <div class="cl-text"><strong>60 歲以上長者</strong>（無年齡上限）</div>
+    </div>
+    <div class="cl-item" onclick="toggleCheck(this)">
+      <div class="cl-box"></div>
+      <div class="cl-text"><strong>50 歲以上</strong>合併氣喘、COPD、慢性心臟病等高風險疾病</div>
+    </div>
+    <div class="cl-item" onclick="toggleCheck(this)">
+      <div class="cl-box"></div>
+      <div class="cl-text"><strong>糖尿病</strong>或腎臟病患者，感染後重症風險較高</div>
+    </div>
+    <div class="cl-item" onclick="toggleCheck(this)">
+      <div class="cl-box"></div>
+      <div class="cl-text"><strong>長者照顧者</strong>或家中有高齡長輩，希望降低傳染風險</div>
+    </div>
+
+    <div class="cl-footer">符合其中一項？點選後查看您的結果</div>
+  </div>
+
+  <!-- 適合施打提示卡 -->
+  <div class="fit-banner" id="fitBanner">
+    <div class="fb-icon">✅</div>
+    <div class="fb-title">您適合施打疫苗</div>
+    <div class="fb-sub">診所目前<strong style="color:#9ae6b4">現貨充足，可即時施打</strong><br>今天就來電預約，一劑完成全程保護</div>
+    <a class="fb-btn" href="tel:0666520182">📞 立即來電：06-652-0182</a>
+  </div>
+
+  <!-- 施打流程 -->
+  <div class="sec-label">施打流程與費用</div>
+  <div class="flow-card">
+    <div class="fl-title">僅需 1 劑，當天即完成</div>
+    <div class="flow-steps">
+      <div class="flow-step done">
+        <div class="fs-day">今天</div>
+        <div class="fs-label">單劑接種</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">
+        <div class="fs-day">完成</div>
+        <div class="fs-label">長效防護</div>
+      </div>
+    </div>
+    <div class="price-row">
+      <div class="price-box full" style="grid-column: 1 / -1;">
+        <div class="pl">單劑（完整療程）</div>
+        <div class="pn">$7,600</div>
+        <div class="pnote">一次完成，保護 2 年以上</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div style="margin-top:16px">
+    <div class="cta-card">
+      <div class="cta-main">今天告知診所人員<br>即可安排接種</div>
+      <div class="cta-sub">施打後留觀 15–30 分鐘，全程快速完成<br>若有發燒不適，可持健保卡回診開立退燒藥（不收掛號費）</div>
+      <div class="cta-badge">佐劑較強，事先備妥退燒藥較安心</div>
+    </div>
+  </div>
+
+  <!-- 副作用 -->
+  <div class="se-note">
+    <strong>關於副作用</strong><br>
+    超過 5 成民眾接種後可能出現疲勞、肌肉痠痛或發燒，<br>通常於 <strong>2–3 天內自然消退</strong>。<br>建議接種前主動告知，診所可協助備妥退燒藥。
+  </div>
+
+  <!-- 禁忌 -->
+  <div class="warning">
+    <strong>⚠️ 以下情況請先告知醫師</strong>
+    <ul>
+      <li>對疫苗成分曾有嚴重過敏反應</li>
+      <li>目前有急性發燒或嚴重感染</li>
+      <li>懷孕中或計劃懷孕</li>
+    </ul>
+  </div>
+
+  <footer>
+    日和聯合診所｜耳鼻喉科・中醫科<br>
+    台南市鹽水區｜06-652-0182<br>
+    如有疑問請洽診所，或於看診時詢問醫師
+  </footer>
+
+</div>
+
+<script>
+  function toggleCheck(el) {
+    el.classList.toggle('checked');
+    var anyChecked = document.querySelectorAll('.cl-item.checked').length > 0;
+    var banner = document.getElementById('fitBanner');
+    if (anyChecked) {
+      banner.classList.add('visible');
+      banner.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    } else {
+      banner.classList.remove('visible');
+    }
+  }
+</script>
+</body>
+</html>
