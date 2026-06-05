@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>欣剋疹帶狀疱疹疫苗｜日和聯合診所</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, "Helvetica Neue", Arial, sans-serif;
+      background: #f5f7fa;
+      color: #2d3748;
+    }
+
+    /* ── Header ── */
+    header {
+      background: linear-gradient(135deg, #2b6cb0, #4299e1);
+      color: white;
+      text-align: center;
+      padding: 36px 24px 32px;
+    }
+    header .clinic { font-size: 12px; letter-spacing: 3px; opacity: 0.8; margin-bottom: 10px; }
+    header h1 { font-size: 26px; font-weight: 700; line-height: 1.3; }
+    header .en { font-size: 14px; opacity: 0.75; margin-top: 4px; letter-spacing: 1px; }
+    header .sub { font-size: 13px; opacity: 0.9; margin-top: 10px; line-height: 1.6; }
+
+    .container { max-width: 480px; margin: 0 auto; padding: 20px 16px 48px; }
+
+    /* ── Section Label ── */
+    .sec-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: #2b6cb0;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin: 28px 0 10px;
+    }
+
+    /* ── Hook：心血管風險 ── */
+    .hook-card {
+      background: #1a202c;
+      border-radius: 16px;
+      padding: 20px;
+      margin-top: 20px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    }
+    .hook-card .hook-label {
+      font-size: 12px;
+      color: #f6c90e;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+    }
+    .hook-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .hook-stat {
+      background: rgba(255,255,255,0.07);
+      border-radius: 12px;
+      padding: 14px 10px;
+      text-align: center;
+    }
+    .hook-stat .h-num {
+      font-size: 28px;
+      font-weight: 800;
+      color: #f6c90e;
+      line-height: 1;
+    }
+    .hook-stat .h-unit { font-size: 14px; font-weight: 700; color: #f6c90e; }
+    .hook-stat .h-desc {
+      font-size: 11px;
+      color: #cbd5e0;
+      margin-top: 6px;
+      line-height: 1.5;
+    }
+    .hook-note {
+      font-size: 12px;
+      color: #a0aec0;
+      text-align: center;
+      margin-top: 8px;
+      line-height: 1.5;
+    }
+    .hook-note strong { color: #f6c90e; }
+
+    /* ── 疫苗效果卡 ── */
+    .vaccine-card {
+      background: white;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .vaccine-card .vc-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: #1a365d;
+      margin-bottom: 14px;
+    }
+    .prot-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+    .prot-box {
+      background: #ebf8ff;
+      border-radius: 12px;
+      padding: 14px 10px;
+      text-align: center;
+    }
+    .prot-box .p-num { font-size: 28px; font-weight: 800; color: #2b6cb0; line-height: 1; }
+    .prot-box .p-unit { font-size: 14px; font-weight: 700; color: #2b6cb0; }
+    .prot-box .p-desc { font-size: 11px; color: #4a5568; margin-top: 5px; line-height: 1.4; }
+    .vc-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+    .vc-tag {
+      background: #f0f4f8;
+      color: #2b6cb0;
+      font-size: 12px;
+      font-weight: 600;
+      border-radius: 20px;
+      padding: 5px 12px;
+    }
+
+    /* ── Checklist ── */
+    .checklist-card {
+      background: white;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .checklist-card .cl-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #1a365d;
+      margin-bottom: 4px;
+    }
+    .cl-sub {
+      font-size: 12px;
+      color: #718096;
+      margin-bottom: 14px;
+    }
+    .cl-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 10px 0;
+      border-bottom: 1px solid #f0f4f8;
+    }
+    .cl-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .cl-box {
+      width: 20px;
+      height: 20px;
+      border: 2px solid #bee3f8;
+      border-radius: 5px;
+      flex-shrink: 0;
+      margin-top: 1px;
+      background: #ebf8ff;
+    }
+    .cl-text {
+      font-size: 13px;
+      color: #2d3748;
+      line-height: 1.5;
+    }
+    .cl-text strong { color: #2b6cb0; }
+    .cl-footer {
+      margin-top: 14px;
+      background: #ebf8ff;
+      border-radius: 10px;
+      padding: 10px 14px;
+      font-size: 12px;
+      color: #2b6cb0;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    /* ── 施打流程 ── */
+    .flow-card {
+      background: white;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .flow-card .fl-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: #1a365d;
+      margin-bottom: 16px;
+    }
+    .flow-steps {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+    .flow-step {
+      flex: 1;
+      background: #ebf8ff;
+      border-radius: 12px;
+      padding: 12px 8px;
+      text-align: center;
+    }
+    .flow-step .fs-day { font-size: 11px; color: #4a90a4; font-weight: 600; margin-bottom: 4px; }
+    .flow-step .fs-label { font-size: 13px; font-weight: 700; color: #2b6cb0; }
+    .flow-step.done { background: linear-gradient(135deg, #2b6cb0, #4299e1); }
+    .flow-step.done .fs-day { color: rgba(255,255,255,0.8); }
+    .flow-step.done .fs-label { color: white; }
+    .flow-arrow { font-size: 18px; color: #a0aec0; flex-shrink: 0; }
+
+    /* 定價 */
+    .price-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .price-box {
+      border: 2px solid #bee3f8;
+      border-radius: 12px;
+      padding: 14px 12px;
+      text-align: center;
+      background: #ebf8ff;
+    }
+    .price-box.full { border-color: #2b6cb0; background: linear-gradient(135deg, #ebf8ff, #dbeafe); }
+    .price-box .pl { font-size: 11px; color: #718096; margin-bottom: 4px; }
+    .price-box .pn { font-size: 22px; font-weight: 800; color: #2b6cb0; }
+    .price-box .pnote { font-size: 11px; color: #4a90a4; margin-top: 2px; }
+
+    /* ── CTA ── */
+    .cta-card {
+      background: linear-gradient(135deg, #2b6cb0, #4299e1);
+      border-radius: 16px;
+      padding: 22px 20px;
+      text-align: center;
+      color: white;
+      box-shadow: 0 4px 16px rgba(43,108,176,0.3);
+    }
+    .cta-card .cta-main {
+      font-size: 17px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+    .cta-card .cta-sub {
+      font-size: 13px;
+      opacity: 0.9;
+      line-height: 1.6;
+    }
+    .cta-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.4);
+      border-radius: 20px;
+      font-size: 12px;
+      padding: 5px 16px;
+      margin-top: 12px;
+    }
+
+    /* ── 副作用小字 ── */
+    .se-note {
+      font-size: 12px;
+      color: #718096;
+      text-align: center;
+      padding: 14px 10px;
+      line-height: 1.7;
+    }
+    .se-note strong { color: #2d3748; }
+
+    /* ── 禁忌 ── */
+    .warning {
+      background: #fff5f5;
+      border-left: 4px solid #fc8181;
+      border-radius: 0 12px 12px 0;
+      padding: 14px 16px;
+      font-size: 13px;
+      color: #c53030;
+      line-height: 1.7;
+    }
+    .warning strong { display: block; margin-bottom: 6px; font-size: 14px; }
+    .warning li { margin-left: 14px; }
+
+    footer {
+      text-align: center;
+      font-size: 12px;
+      color: #a0aec0;
+      margin-top: 32px;
+      line-height: 1.9;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="clinic">日和聯合診所</div>
+  <h1>欣剋疹帶狀疱疹疫苗</h1>
+  <div class="en">Shingrix®</div>
+  <div class="sub">預防「皮蛇」——以及它帶來的連鎖風險</div>
+</header>
+
+<div class="container">
+
+  <!-- HOOK：為什麼要在意 -->
+  <div class="hook-card">
+    <div class="hook-label">皮蛇不只是皮膚病</div>
+    <div class="hook-stats">
+      <div class="hook-stat">
+        <div class="h-num">↑68<span class="h-unit">%</span></div>
+        <div class="h-desc">感染皮蛇後一週內<br><strong style="color:#f6c90e">心肌梗塞風險</strong></div>
+      </div>
+      <div class="hook-stat">
+        <div class="h-num">↑78<span class="h-unit">%</span></div>
+        <div class="h-desc">感染皮蛇後第一個月<br><strong style="color:#f6c90e">中風風險</strong></div>
+      </div>
+    </div>
+    <div class="hook-note">
+      即使皮蛇痊癒，對心血管的威脅仍可持續<strong>超過 10 年</strong><br>
+      50 歲以上有 99.5% 曾感染 VZV，<strong>1/3 的人一生中會發作</strong>
+    </div>
+  </div>
+
+  <!-- 疫苗能做什麼 -->
+  <div class="sec-label">欣剋疹的保護力</div>
+  <div class="vaccine-card">
+    <div class="vc-title">非活性基因重組疫苗，保護力強、持續長</div>
+    <div class="prot-row">
+      <div class="prot-box">
+        <div class="p-num">97<span class="p-unit">%</span></div>
+        <div class="p-desc">整體防護力</div>
+      </div>
+      <div class="prot-box">
+        <div class="p-num">89<span class="p-unit">%</span></div>
+        <div class="p-desc">10 年後仍維持</div>
+      </div>
+    </div>
+    <div class="vc-tags">
+      <span class="vc-tag">免疫低下者可施打</span>
+      <span class="vc-tag">曾得過皮蛇也可打</span>
+      <span class="vc-tag">舊疫苗可升級</span>
+    </div>
+  </div>
+
+  <!-- 適合族群 checklist -->
+  <div class="sec-label">我適合接種嗎？</div>
+  <div class="checklist-card">
+    <div class="cl-title">符合以下任一條件，建議接種</div>
+    <div class="cl-sub">勾選後告知診所人員即可安排</div>
+
+    <div class="cl-item">
+      <div class="cl-box"></div>
+      <div class="cl-text"><strong>50 歲以上</strong>（無年齡上限）</div>
+    </div>
+    <div class="cl-item">
+      <div class="cl-box"></div>
+      <div class="cl-text"><strong>慢性病患者</strong>：糖尿病、高血壓、心血管疾病、腎臟病、COPD</div>
+    </div>
+    <div class="cl-item">
+      <div class="cl-box"></div>
+      <div class="cl-text"><strong>長期高壓或作息不規律</strong>：睡眠不足、工作壓力大、情緒緊繃</div>
+    </div>
+    <div class="cl-item">
+      <div class="cl-box"></div>
+      <div class="cl-text"><strong>免疫低下</strong>：癌症治療中、器官移植、自體免疫疾病、長期使用類固醇</div>
+    </div>
+    <div class="cl-item">
+      <div class="cl-box"></div>
+      <div class="cl-text"><strong>曾得過皮蛇</strong>，或打過舊款疫苗（Zostavax）</div>
+    </div>
+
+    <div class="cl-footer">符合其中一項？今天就可以安排第一劑</div>
+  </div>
+
+  <!-- 施打流程 + 定價 -->
+  <div class="sec-label">施打流程與費用</div>
+  <div class="flow-card">
+    <div class="fl-title">共 2 劑，間隔 2 個月完成</div>
+    <div class="flow-steps">
+      <div class="flow-step done">
+        <div class="fs-day">今天</div>
+        <div class="fs-label">第 1 劑</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">
+        <div class="fs-day">約 2 個月後</div>
+        <div class="fs-label">第 2 劑</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">
+        <div class="fs-day">完成</div>
+        <div class="fs-label">長效防護</div>
+      </div>
+    </div>
+    <div class="price-row">
+      <div class="price-box">
+        <div class="pl">單支</div>
+        <div class="pn">$8,600</div>
+        <div class="pnote">第 1 劑或第 2 劑</div>
+      </div>
+      <div class="price-box full">
+        <div class="pl">完整療程（2 劑）</div>
+        <div class="pn">$17,000</div>
+        <div class="pnote">建議一次完成療程</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div style="margin-top:16px">
+    <div class="cta-card">
+      <div class="cta-main">今天告知診所人員<br>即可安排第一劑</div>
+      <div class="cta-sub">施打後留觀 15 分鐘，全程 30 分鐘內完成<br>若有發燒不適，可持健保卡回診開立退燒藥（不收掛號費）</div>
+      <div class="cta-badge">約 2 個月後回診完成第 2 劑</div>
+    </div>
+  </div>
+
+  <!-- 副作用一句話 -->
+  <div class="se-note">
+    <strong>關於副作用</strong><br>
+    部分民眾接種後可能出現疲勞、肌肉痠痛或輕微發燒，<br>通常於 <strong>2–3 天內自然消退</strong>，屬免疫系統正常啟動的訊號。
+  </div>
+
+  <!-- 禁忌 -->
+  <div class="warning">
+    <strong>⚠️ 以下情況請先告知醫師</strong>
+    <ul>
+      <li>對疫苗成分曾有嚴重過敏反應</li>
+      <li>目前有急性發燒或嚴重感染</li>
+      <li>懷孕中或計劃懷孕</li>
+    </ul>
+  </div>
+
+  <footer>
+    日和聯合診所｜耳鼻喉科・中醫科<br>
+    台南市鹽水區<br>
+    如有疑問請洽診所，或於看診時詢問醫師
+  </footer>
+
+</div>
+</body>
+</html>
