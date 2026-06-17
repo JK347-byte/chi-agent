@@ -256,8 +256,13 @@
   <div class="input-card">
     <div class="card-title">病人實測值</div>
     <div class="field">
-      <label>PEFR</label>
-      <input type="number" id="measured" placeholder="e.g. 450" inputmode="decimal">
+      <label>最高值</label>
+      <input type="number" id="measured-high" placeholder="e.g. 450" inputmode="decimal">
+      <span class="unit">L/min</span>
+    </div>
+    <div class="field">
+      <label>最低值</label>
+      <input type="number" id="measured-low" placeholder="e.g. 380" inputmode="decimal">
       <span class="unit">L/min</span>
     </div>
   </div>
@@ -279,12 +284,20 @@
       <span><span class="r-value" id="predicted-val">—</span><span class="r-unit">L/min</span></span>
     </div>
     <div class="result-row">
-      <span class="r-label">病人實測值</span>
+      <span class="r-label">最高實測值</span>
       <span><span class="r-value" id="measured-val">—</span><span class="r-unit">L/min</span></span>
     </div>
     <div class="result-row">
-      <span class="r-label">百分比</span>
+      <span class="r-label">最低實測值</span>
+      <span><span class="r-value" id="low-val">—</span><span class="r-unit">L/min</span></span>
+    </div>
+    <div class="result-row">
+      <span class="r-label">百分比（最高值）</span>
       <span><span class="r-value" id="pct-val">—</span><span class="r-unit">%</span></span>
+    </div>
+    <div class="result-row">
+      <span class="r-label">變異度</span>
+      <span><span class="r-value" id="variability-val">—</span><span class="r-unit">%</span></span>
     </div>
   </div>
 
@@ -331,7 +344,8 @@
   function calculate() {
     const height = parseFloat(document.getElementById('height').value);
     const age = parseFloat(document.getElementById('age').value);
-    const measured = parseFloat(document.getElementById('measured').value);
+    const high = parseFloat(document.getElementById('measured-high').value);
+    const low = parseFloat(document.getElementById('measured-low').value);
 
     if (!gender) { alert('請先選擇性別'); return; }
     if (!height || !age) { alert('請輸入身高與年齡'); return; }
@@ -349,11 +363,21 @@
     const resultCard = document.getElementById('result-card');
     const pctBlock = document.getElementById('pct-block');
 
-    if (!isNaN(measured) && measured > 0 && predicted > 0) {
-      const pct = (measured / predicted) * 100;
-      document.getElementById('measured-val').textContent = measured.toFixed(0);
+    if (!isNaN(high) && high > 0 && predicted > 0) {
+      const pct = (high / predicted) * 100;
+      document.getElementById('measured-val').textContent = high.toFixed(0);
       document.getElementById('pct-val').textContent = pct.toFixed(1);
       document.getElementById('pct-num').textContent = pct.toFixed(1);
+
+      // 變異度
+      if (!isNaN(low) && low > 0 && high >= low) {
+        const variability = ((high - low) / high) * 100;
+        document.getElementById('low-val').textContent = low.toFixed(0);
+        document.getElementById('variability-val').textContent = variability.toFixed(1);
+      } else {
+        document.getElementById('low-val').textContent = '—';
+        document.getElementById('variability-val').textContent = '—';
+      }
 
       pctBlock.className = 'pct-block show';
       if (pct >= 80) {
@@ -374,7 +398,9 @@
       }
     } else {
       document.getElementById('measured-val').textContent = '—';
+      document.getElementById('low-val').textContent = '—';
       document.getElementById('pct-val').textContent = '—';
+      document.getElementById('variability-val').textContent = '—';
       pctBlock.className = 'pct-block';
     }
 
