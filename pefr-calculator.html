@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>尖峰流速計算機｜日和聯合診所</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, "Helvetica Neue", Arial, sans-serif;
+      background: #f0f4f8;
+      color: #2d3748;
+      min-height: 100vh;
+    }
+
+    header {
+      background: linear-gradient(135deg, #1a365d, #2b6cb0);
+      color: white;
+      text-align: center;
+      padding: 32px 24px 28px;
+    }
+    header .clinic { font-size: 11px; letter-spacing: 3px; opacity: 0.75; margin-bottom: 8px; }
+    header h1 { font-size: 22px; font-weight: 700; line-height: 1.3; }
+    header .sub { font-size: 12px; opacity: 0.8; margin-top: 6px; letter-spacing: 1px; }
+
+    .container { max-width: 480px; margin: 0 auto; padding: 20px 16px 60px; }
+
+    /* ── 性別選擇 ── */
+    .gender-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .gender-btn {
+      border: 2px solid #bee3f8;
+      background: white;
+      border-radius: 14px;
+      padding: 16px 8px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-size: 15px;
+      font-weight: 600;
+      color: #4a5568;
+    }
+    .gender-btn .icon { font-size: 28px; display: block; margin-bottom: 6px; }
+    .gender-btn.active-male {
+      background: #ebf8ff;
+      border-color: #2b6cb0;
+      color: #1a365d;
+    }
+    .gender-btn.active-female {
+      background: #faf5ff;
+      border-color: #805ad5;
+      color: #44337a;
+    }
+
+    /* ── 輸入卡 ── */
+    .input-card {
+      background: white;
+      border-radius: 18px;
+      padding: 22px 20px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+      margin-bottom: 14px;
+    }
+    .input-card .card-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: #718096;
+      margin-bottom: 16px;
+    }
+    .field {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    .field:last-child { margin-bottom: 0; }
+    .field label {
+      width: 70px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #4a5568;
+      flex-shrink: 0;
+    }
+    .field input {
+      flex: 1;
+      border: 2px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 12px 14px;
+      font-size: 18px;
+      font-weight: 700;
+      color: #1a365d;
+      outline: none;
+      transition: border-color 0.2s;
+      -webkit-appearance: none;
+    }
+    .field input:focus { border-color: #4299e1; }
+    .field .unit {
+      font-size: 13px;
+      color: #a0aec0;
+      width: 36px;
+      flex-shrink: 0;
+    }
+    .formula-text {
+      font-size: 11px;
+      color: #a0aec0;
+      margin-top: 12px;
+      line-height: 1.6;
+      padding: 10px 12px;
+      background: #f7fafc;
+      border-radius: 8px;
+    }
+
+    /* ── 計算按鈕 ── */
+    .calc-btn {
+      width: 100%;
+      padding: 16px;
+      background: linear-gradient(135deg, #2b6cb0, #4299e1);
+      color: white;
+      border: none;
+      border-radius: 14px;
+      font-size: 17px;
+      font-weight: 700;
+      cursor: pointer;
+      margin-bottom: 20px;
+      letter-spacing: 1px;
+      transition: opacity 0.2s;
+    }
+    .calc-btn:active { opacity: 0.85; }
+
+    /* ── 結果卡 ── */
+    .result-card {
+      background: white;
+      border-radius: 18px;
+      padding: 22px 20px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+      margin-bottom: 14px;
+      display: none;
+    }
+    .result-card.show { display: block; }
+
+    .result-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid #f0f4f8;
+    }
+    .result-row:last-child { border-bottom: none; }
+    .result-row .r-label { font-size: 13px; color: #718096; }
+    .result-row .r-value { font-size: 20px; font-weight: 800; color: #1a365d; }
+    .result-row .r-unit { font-size: 12px; color: #a0aec0; margin-left: 3px; }
+
+    /* ── 百分比大顯示 ── */
+    .pct-block {
+      border-radius: 16px;
+      padding: 24px 20px;
+      text-align: center;
+      margin-bottom: 14px;
+      display: none;
+    }
+    .pct-block.show { display: block; }
+    .pct-block .pct-label { font-size: 13px; font-weight: 600; opacity: 0.85; margin-bottom: 8px; }
+    .pct-block .pct-num { font-size: 56px; font-weight: 900; line-height: 1; }
+    .pct-block .pct-unit { font-size: 20px; font-weight: 700; opacity: 0.8; }
+    .pct-block .pct-status { font-size: 16px; font-weight: 700; margin-top: 10px; }
+    .pct-block .pct-desc { font-size: 13px; opacity: 0.85; margin-top: 6px; line-height: 1.6; }
+
+    .green-zone { background: #f0fff4; color: #276749; border: 2px solid #9ae6b4; }
+    .yellow-zone { background: #fffff0; color: #744210; border: 2px solid #f6e05e; }
+    .red-zone { background: #fff5f5; color: #9b2c2c; border: 2px solid #fc8181; }
+
+    /* ── 燈號說明 ── */
+    .zones-card {
+      background: white;
+      border-radius: 18px;
+      padding: 18px 20px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+    }
+    .zones-card .card-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: #718096;
+      margin-bottom: 14px;
+    }
+    .zone-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid #f0f4f8;
+    }
+    .zone-row:last-child { border-bottom: none; }
+    .zone-dot {
+      width: 14px; height: 14px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .dot-green { background: #48bb78; }
+    .dot-yellow { background: #ecc94b; }
+    .dot-red { background: #fc8181; }
+    .zone-pct { font-size: 13px; font-weight: 700; width: 70px; flex-shrink: 0; }
+    .zone-desc { font-size: 12px; color: #4a5568; line-height: 1.5; }
+
+    footer {
+      text-align: center;
+      font-size: 11px;
+      color: #a0aec0;
+      margin-top: 28px;
+      line-height: 2;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="clinic">日 和 聯 合 診 所</div>
+  <h1>尖峰流速計算機</h1>
+  <div class="sub">Peak Expiratory Flow Rate (PEFR)</div>
+</header>
+
+<div class="container">
+
+  <!-- 性別 -->
+  <div class="gender-row">
+    <button class="gender-btn" id="btn-male" onclick="selectGender('male')">
+      <span class="icon">♂</span>男性
+    </button>
+    <button class="gender-btn" id="btn-female" onclick="selectGender('female')">
+      <span class="icon">♀</span>女性
+    </button>
+  </div>
+
+  <!-- 基本資料輸入 -->
+  <div class="input-card">
+    <div class="card-title">基本資料</div>
+    <div class="field">
+      <label>身高</label>
+      <input type="number" id="height" placeholder="e.g. 165" inputmode="decimal">
+      <span class="unit">cm</span>
+    </div>
+    <div class="field">
+      <label>年齡</label>
+      <input type="number" id="age" placeholder="e.g. 40" inputmode="decimal">
+      <span class="unit">歲</span>
+    </div>
+    <div class="formula-text" id="formula-text">請先選擇性別</div>
+  </div>
+
+  <!-- 病人實測值 -->
+  <div class="input-card">
+    <div class="card-title">病人實測值</div>
+    <div class="field">
+      <label>PEFR</label>
+      <input type="number" id="measured" placeholder="e.g. 450" inputmode="decimal">
+      <span class="unit">L/min</span>
+    </div>
+  </div>
+
+  <button class="calc-btn" onclick="calculate()">計算</button>
+
+  <!-- 百分比燈號 -->
+  <div class="pct-block" id="pct-block">
+    <div class="pct-label">實測值 / 預估值</div>
+    <div><span class="pct-num" id="pct-num">—</span><span class="pct-unit">%</span></div>
+    <div class="pct-status" id="pct-status"></div>
+    <div class="pct-desc" id="pct-desc"></div>
+  </div>
+
+  <!-- 數值明細 -->
+  <div class="result-card" id="result-card">
+    <div class="result-row">
+      <span class="r-label">預估正常值</span>
+      <span><span class="r-value" id="predicted-val">—</span><span class="r-unit">L/min</span></span>
+    </div>
+    <div class="result-row">
+      <span class="r-label">病人實測值</span>
+      <span><span class="r-value" id="measured-val">—</span><span class="r-unit">L/min</span></span>
+    </div>
+    <div class="result-row">
+      <span class="r-label">百分比</span>
+      <span><span class="r-value" id="pct-val">—</span><span class="r-unit">%</span></span>
+    </div>
+  </div>
+
+  <!-- 燈號說明 -->
+  <div class="zones-card">
+    <div class="card-title">判讀標準</div>
+    <div class="zone-row">
+      <div class="zone-dot dot-green"></div>
+      <div class="zone-pct">≥ 80%</div>
+      <div class="zone-desc"><strong>綠燈</strong>｜氣流正常，維持原治療計畫</div>
+    </div>
+    <div class="zone-row">
+      <div class="zone-dot dot-yellow"></div>
+      <div class="zone-pct">50–79%</div>
+      <div class="zone-desc"><strong>黃燈</strong>｜氣流受限，需評估治療調整</div>
+    </div>
+    <div class="zone-row">
+      <div class="zone-dot dot-red"></div>
+      <div class="zone-pct">&lt; 50%</div>
+      <div class="zone-desc"><strong>紅燈</strong>｜嚴重氣流阻塞，需立即處置</div>
+    </div>
+  </div>
+
+  <footer>
+    日和聯合診所｜詹士奇醫師<br>
+    本工具僅供臨床參考，不取代醫師判斷
+  </footer>
+</div>
+
+<script>
+  let gender = null;
+
+  function selectGender(g) {
+    gender = g;
+    document.getElementById('btn-male').className = 'gender-btn' + (g === 'male' ? ' active-male' : '');
+    document.getElementById('btn-female').className = 'gender-btn' + (g === 'female' ? ' active-female' : '');
+    const formulas = {
+      male: '公式（男）：3.89 × 身高(cm) − 2.95 × 年齡(歲) + 43.59',
+      female: '公式（女）：4.10 × 身高(cm) − 1.61 × 年齡(歲) − 173.55'
+    };
+    document.getElementById('formula-text').textContent = formulas[g];
+  }
+
+  function calculate() {
+    const height = parseFloat(document.getElementById('height').value);
+    const age = parseFloat(document.getElementById('age').value);
+    const measured = parseFloat(document.getElementById('measured').value);
+
+    if (!gender) { alert('請先選擇性別'); return; }
+    if (!height || !age) { alert('請輸入身高與年齡'); return; }
+
+    let predicted;
+    if (gender === 'male') {
+      predicted = 3.89 * height - 2.95 * age + 43.59;
+    } else {
+      predicted = 4.10 * height - 1.61 * age - 173.55;
+    }
+
+    predicted = Math.max(0, predicted);
+    document.getElementById('predicted-val').textContent = predicted.toFixed(1);
+
+    const resultCard = document.getElementById('result-card');
+    const pctBlock = document.getElementById('pct-block');
+
+    if (!isNaN(measured) && measured > 0 && predicted > 0) {
+      const pct = (measured / predicted) * 100;
+      document.getElementById('measured-val').textContent = measured.toFixed(0);
+      document.getElementById('pct-val').textContent = pct.toFixed(1);
+      document.getElementById('pct-num').textContent = pct.toFixed(1);
+
+      pctBlock.className = 'pct-block show';
+      if (pct >= 80) {
+        pctBlock.classList.add('green-zone');
+        pctBlock.classList.remove('yellow-zone', 'red-zone');
+        document.getElementById('pct-status').textContent = '🟢 綠燈';
+        document.getElementById('pct-desc').textContent = '氣流正常，維持原治療計畫';
+      } else if (pct >= 50) {
+        pctBlock.classList.add('yellow-zone');
+        pctBlock.classList.remove('green-zone', 'red-zone');
+        document.getElementById('pct-status').textContent = '🟡 黃燈';
+        document.getElementById('pct-desc').textContent = '氣流受限，請評估是否調整治療';
+      } else {
+        pctBlock.classList.add('red-zone');
+        pctBlock.classList.remove('green-zone', 'yellow-zone');
+        document.getElementById('pct-status').textContent = '🔴 紅燈';
+        document.getElementById('pct-desc').textContent = '嚴重氣流阻塞，需立即處置';
+      }
+    } else {
+      document.getElementById('measured-val').textContent = '—';
+      document.getElementById('pct-val').textContent = '—';
+      pctBlock.className = 'pct-block';
+    }
+
+    resultCard.className = 'result-card show';
+  }
+</script>
+</body>
+</html>
