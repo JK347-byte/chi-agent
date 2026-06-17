@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>點滴療法｜日和聯合診所</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, "Helvetica Neue", Arial, sans-serif;
+      background: #f5f7fa;
+      color: #2d3748;
+      padding-bottom: 80px;
+    }
+
+    header {
+      background: linear-gradient(135deg, #2b6cb0, #4299e1);
+      color: white;
+      text-align: center;
+      padding: 36px 24px 32px;
+    }
+    header .clinic { font-size: 12px; letter-spacing: 3px; opacity: 0.8; margin-bottom: 10px; }
+    header h1 { font-size: 24px; font-weight: 700; line-height: 1.4; }
+    header .sub { font-size: 13px; opacity: 0.85; margin-top: 8px; line-height: 1.6; }
+    header .badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.4);
+      border-radius: 20px;
+      font-size: 12px;
+      padding: 4px 14px;
+      margin-top: 12px;
+      letter-spacing: 1px;
+    }
+
+    .container { max-width: 480px; margin: 0 auto; padding: 24px 16px 32px; }
+
+    /* ── 痛點橫幅 ── */
+    .hook-banner {
+      background: white;
+      border-radius: 16px;
+      padding: 18px 20px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      margin-bottom: 24px;
+      text-align: center;
+    }
+    .hook-banner .hook-q {
+      font-size: 15px;
+      font-weight: 700;
+      color: #2d3748;
+      line-height: 1.6;
+      margin-bottom: 8px;
+    }
+    .hook-banner .hook-a {
+      font-size: 13px;
+      color: #718096;
+      line-height: 1.7;
+    }
+    .hook-banner .hook-a strong { color: #2b6cb0; }
+
+    /* ── 療程卡片 ── */
+    .therapy-card {
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.09);
+      margin-bottom: 18px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* 熱門標籤 */
+    .card-badge {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      padding: 3px 10px;
+      border-radius: 20px;
+    }
+    .badge-hot { background: #fed7d7; color: #c53030; }
+    .badge-rec { background: #c6f6d5; color: #276749; }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 18px 20px 14px;
+    }
+    .drip-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+    .card-title-block { flex: 1; }
+    .card-name { font-size: 18px; font-weight: 700; line-height: 1.2; }
+    .card-claim { font-size: 12px; margin-top: 3px; opacity: 0.75; font-weight: 500; }
+
+    .card-body { padding: 0 20px 20px; }
+
+    /* 痛點共感 */
+    .pain-point {
+      font-size: 13px;
+      font-style: italic;
+      color: #718096;
+      margin-bottom: 12px;
+      padding: 10px 14px;
+      background: #f7fafc;
+      border-radius: 10px;
+      border-left: 3px solid #cbd5e0;
+      line-height: 1.6;
+    }
+
+    .benefit-banner {
+      border-radius: 10px;
+      padding: 10px 14px;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .section-label {
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: #a0aec0;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .ingredients {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 14px;
+    }
+    .ingredient-tag {
+      font-size: 12px;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-weight: 500;
+    }
+
+    /* 頻次資訊 */
+    .freq-row {
+      display: flex;
+      gap: 8px;
+      margin-top: 4px;
+    }
+    .freq-chip {
+      flex: 1;
+      border-radius: 10px;
+      padding: 8px 10px;
+      text-align: center;
+      background: #f7fafc;
+    }
+    .freq-chip .fc-label { font-size: 10px; color: #a0aec0; letter-spacing: 1px; margin-bottom: 3px; }
+    .freq-chip .fc-value { font-size: 13px; font-weight: 700; color: #2d3748; }
+
+    /* ── 顏色主題 ── */
+    .theme-whitening .drip-icon { background: #fef9c3; }
+    .theme-whitening .card-name { color: #b7791f; }
+    .theme-whitening .card-claim { color: #d69e2e; }
+    .theme-whitening .benefit-banner { background: #fefce8; color: #92400e; }
+    .theme-whitening .ingredient-tag { background: #fef3c7; color: #92400e; }
+    .theme-whitening .card-header { border-bottom: 2px solid #fef3c7; }
+    .theme-whitening .pain-point { border-left-color: #f6e05e; }
+
+    .theme-nutrition .drip-icon { background: #d1fae5; }
+    .theme-nutrition .card-name { color: #276749; }
+    .theme-nutrition .card-claim { color: #38a169; }
+    .theme-nutrition .benefit-banner { background: #f0fff4; color: #276749; }
+    .theme-nutrition .ingredient-tag { background: #c6f6d5; color: #276749; }
+    .theme-nutrition .card-header { border-bottom: 2px solid #c6f6d5; }
+    .theme-nutrition .pain-point { border-left-color: #68d391; }
+
+    .theme-warming .drip-icon { background: #fed7aa; }
+    .theme-warming .card-name { color: #c05621; }
+    .theme-warming .card-claim { color: #dd6b20; }
+    .theme-warming .benefit-banner { background: #fffaf0; color: #c05621; }
+    .theme-warming .ingredient-tag { background: #feebc8; color: #c05621; }
+    .theme-warming .card-header { border-bottom: 2px solid #feebc8; }
+    .theme-warming .pain-point { border-left-color: #f6ad55; }
+
+    .theme-detox .drip-icon { background: #e9d8fd; }
+    .theme-detox .card-name { color: #553c9a; }
+    .theme-detox .card-claim { color: #6b46c1; }
+    .theme-detox .benefit-banner { background: #faf5ff; color: #553c9a; }
+    .theme-detox .ingredient-tag { background: #e9d8fd; color: #553c9a; }
+    .theme-detox .card-header { border-bottom: 2px solid #e9d8fd; }
+    .theme-detox .pain-point { border-left-color: #b794f4; }
+
+    .theme-fatburn .drip-icon { background: #fed7e2; }
+    .theme-fatburn .card-name { color: #97266d; }
+    .theme-fatburn .card-claim { color: #d53f8c; }
+    .theme-fatburn .benefit-banner { background: #fff5f7; color: #97266d; }
+    .theme-fatburn .ingredient-tag { background: #fed7e2; color: #97266d; }
+    .theme-fatburn .card-header { border-bottom: 2px solid #fed7e2; }
+    .theme-fatburn .pain-point { border-left-color: #f687b3; }
+
+    /* ── 自評量表 ── */
+  .quiz-card {
+    background: white;
+    border-radius: 20px;
+    padding: 22px 20px 24px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.09);
+    margin-bottom: 24px;
+  }
+  .quiz-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #2d3748;
+    margin-bottom: 4px;
+  }
+  .quiz-subtitle {
+    font-size: 12px;
+    color: #a0aec0;
+    margin-bottom: 16px;
+  }
+  .symptom-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-bottom: 18px;
+  }
+  .symptom-chip {
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 10px 10px;
+    font-size: 13px;
+    color: #4a5568;
+    cursor: pointer;
+    text-align: center;
+    line-height: 1.4;
+    transition: all 0.15s;
+    user-select: none;
+    background: #f7fafc;
+  }
+  .symptom-chip.selected {
+    border-color: #4299e1;
+    background: #ebf8ff;
+    color: #2b6cb0;
+    font-weight: 600;
+  }
+  .quiz-btn {
+    width: 100%;
+    padding: 13px;
+    background: linear-gradient(135deg, #2b6cb0, #4299e1);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+  }
+  .quiz-result {
+    display: none;
+    margin-top: 18px;
+    border-top: 1px solid #e2e8f0;
+    padding-top: 16px;
+  }
+  .quiz-result.show { display: block; }
+  .result-label {
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: #a0aec0;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  .result-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    border-radius: 12px;
+    margin-bottom: 8px;
+    font-size: 13px;
+    font-weight: 600;
+  }
+  .result-item.rank-1 { background: #ebf8ff; color: #2b6cb0; border: 2px solid #bee3f8; }
+  .result-item.rank-2 { background: #f7fafc; color: #4a5568; border: 2px solid #e2e8f0; }
+  .result-icon { font-size: 20px; flex-shrink: 0; }
+  .result-text { flex: 1; }
+  .result-text .rname { font-size: 14px; font-weight: 700; }
+  .result-text .rdesc { font-size: 11px; font-weight: 400; opacity: 0.75; margin-top: 1px; }
+  .result-badge { font-size: 10px; padding: 2px 8px; border-radius: 10px; background: #2b6cb0; color: white; white-space: nowrap; }
+  .result-none {
+    text-align: center;
+    color: #a0aec0;
+    font-size: 13px;
+    padding: 12px 0;
+  }
+  .quiz-reset {
+    display: none;
+    width: 100%;
+    padding: 10px;
+    background: none;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    font-size: 13px;
+    color: #718096;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  .quiz-reset.show { display: block; }
+
+  /* ── 注意事項 ── */
+    .notice-card {
+      background: white;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      margin-top: 8px;
+    }
+    .notice-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #2d3748;
+      margin-bottom: 12px;
+    }
+    .notice-list { list-style: none; }
+    .notice-list li {
+      font-size: 13px;
+      color: #718096;
+      padding: 6px 0 6px 20px;
+      position: relative;
+      border-bottom: 1px solid #f7fafc;
+      line-height: 1.6;
+    }
+    .notice-list li:last-child { border-bottom: none; }
+    .notice-list li::before {
+      content: "·";
+      position: absolute;
+      left: 6px;
+      font-size: 18px;
+      color: #a0aec0;
+      line-height: 1.2;
+    }
+
+    /* ── 固定預約按鈕 ── */
+    .cta-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: white;
+      padding: 12px 16px;
+      box-shadow: 0 -4px 20px rgba(0,0,0,0.12);
+      z-index: 100;
+    }
+    .cta-bar a {
+      display: block;
+      background: linear-gradient(135deg, #2b6cb0, #4299e1);
+      color: white;
+      text-align: center;
+      padding: 14px;
+      border-radius: 14px;
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+      letter-spacing: 1px;
+    }
+    .cta-bar a span { font-size: 12px; font-weight: 400; opacity: 0.85; display: block; margin-top: 2px; }
+
+    /* ── 頁尾 ── */
+    footer {
+      background: linear-gradient(135deg, #2b6cb0, #4299e1);
+      color: white;
+      text-align: center;
+      padding: 28px 24px;
+    }
+    footer .clinic-name { font-size: 16px; font-weight: 700; margin-bottom: 6px; }
+    footer .clinic-info { font-size: 12px; opacity: 0.85; line-height: 1.8; }
+    footer a { color: rgba(255,255,255,0.9); text-decoration: none; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="clinic">日和聯合診所</div>
+  <h1>💉 點滴療法</h1>
+  <div class="sub">吸收率 100%，直接補充、快速有感<br>由醫師評估，為你量身搭配</div>
+</header>
+
+<div class="container">
+
+  <!-- 自評量表 -->
+  <div class="quiz-card">
+    <div class="quiz-title">🩺 我適合哪支針？</div>
+    <div class="quiz-subtitle">勾選最近的身體狀況，系統幫你推薦</div>
+    <div class="symptom-grid">
+      <div class="symptom-chip" data-tags="whitening" onclick="toggleChip(this)">✨ 斑點反覆<br>膚色不均</div>
+      <div class="symptom-chip" data-tags="whitening" onclick="toggleChip(this)">🌥️ 臉色暗沉<br>想要提亮</div>
+      <div class="symptom-chip" data-tags="nutrition" onclick="toggleChip(this)">😴 容易疲勞<br>常常沒精神</div>
+      <div class="symptom-chip" data-tags="nutrition" onclick="toggleChip(this)">🤧 容易感冒<br>免疫力較弱</div>
+      <div class="symptom-chip" data-tags="warming" onclick="toggleChip(this)">🥶 手腳冰冷<br>特別怕冷</div>
+      <div class="symptom-chip" data-tags="warming" onclick="toggleChip(this)">🩸 血液循環差<br>肢體容易僵</div>
+      <div class="symptom-chip" data-tags="detox" onclick="toggleChip(this)">🍻 應酬多<br>飲酒頻繁</div>
+      <div class="symptom-chip" data-tags="detox" onclick="toggleChip(this)">😮‍💨 身體代謝慢<br>感覺累積毒素</div>
+      <div class="symptom-chip" data-tags="fatburn" onclick="toggleChip(this)">⚖️ 體重難下降<br>運動效果有限</div>
+      <div class="symptom-chip" data-tags="fatburn" onclick="toggleChip(this)">🔥 想加速燃脂<br>搭配療程使用</div>
+    </div>
+    <button class="quiz-btn" onclick="showResult()">看推薦結果 →</button>
+    <div class="quiz-result" id="quizResult">
+      <div class="result-label">推薦針劑</div>
+      <div id="resultList"></div>
+    </div>
+    <button class="quiz-reset" id="quizReset" onclick="resetQuiz()">重新選擇</button>
+  </div>
+
+  <!-- 美白針 -->
+  <div class="therapy-card theme-whitening">
+    <div class="card-badge badge-hot">🔥 最多人選</div>
+    <div class="card-header">
+      <div class="drip-icon">✨</div>
+      <div class="card-title-block">
+        <div class="card-name">美白針</div>
+        <div class="card-claim">淡斑・美肌・透亮</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="pain-point">「斑點反覆，保養品塗了還是遮不住？」</div>
+      <div class="benefit-banner">✦ 淡化色斑，提升膚色均勻度與透亮感</div>
+      <div class="section-label">針劑組成</div>
+      <div class="ingredients">
+        <span class="ingredient-tag">Aminogen-X</span>
+        <span class="ingredient-tag">PanNobel</span>
+        <span class="ingredient-tag">Copolamin-B12</span>
+        <span class="ingredient-tag">Lisamin</span>
+        <span class="ingredient-tag">Thioccan</span>
+        <span class="ingredient-tag">Cebonin</span>
+        <span class="ingredient-tag">Soragen-S</span>
+      </div>
+      <div class="section-label">建議療程</div>
+      <div class="freq-row" style="margin-bottom:6px;">
+        <div class="freq-chip">
+          <div class="fc-label">施打時間</div>
+          <div class="fc-value">約 60 分</div>
+        </div>
+      </div>
+      <div class="freq-row">
+        <div class="freq-chip">
+          <div class="fc-label">第 1 個月</div>
+          <div class="fc-value">每週一次</div>
+        </div>
+        <div class="freq-chip">
+          <div class="fc-label">第 2–3 個月</div>
+          <div class="fc-value">每月兩次</div>
+        </div>
+        <div class="freq-chip">
+          <div class="fc-label">第 4 個月</div>
+          <div class="fc-value">每月一次</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 營養針 -->
+  <div class="therapy-card theme-nutrition">
+    <div class="card-badge badge-rec">👨‍⚕️ 入門推薦</div>
+    <div class="card-header">
+      <div class="drip-icon">🌿</div>
+      <div class="card-title-block">
+        <div class="card-name">營養針</div>
+        <div class="card-claim">提升免疫・補充能量</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="pain-point">「容易累、常生病，感覺身體一直在透支？」</div>
+      <div class="benefit-banner">✦ 增強免疫力，全方位補充每日所需營養</div>
+      <div class="section-label">針劑組成</div>
+      <div class="ingredients">
+        <span class="ingredient-tag">Aminogen-X</span>
+        <span class="ingredient-tag">PanNobel</span>
+        <span class="ingredient-tag">Thioccan</span>
+        <span class="ingredient-tag">Soragen-S</span>
+      </div>
+      <div class="section-label">建議療程</div>
+      <div class="freq-row">
+        <div class="freq-chip">
+          <div class="fc-label">施打時間</div>
+          <div class="fc-value">約 60 分</div>
+        </div>
+        <div class="freq-chip">
+          <div class="fc-label">建議頻次</div>
+          <div class="fc-value">每月 1–2 次</div>
+        </div>
+        <div class="freq-chip">
+          <div class="fc-label">適合時機</div>
+          <div class="fc-value">換季加強</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 暖暖針 -->
+  <div class="therapy-card theme-warming">
+    <div class="card-header">
+      <div class="drip-icon">🔥</div>
+      <div class="card-title-block">
+        <div class="card-name">暖暖針</div>
+        <div class="card-claim">促進循環・改善手腳冰冷</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="pain-point">「手腳一年四季冰冷，怎麼穿都不夠暖？」</div>
+      <div class="benefit-banner">✦ 促進末梢血液循環，改善冰冷怕冷體質</div>
+      <div class="section-label">針劑組成</div>
+      <div class="ingredients">
+        <span class="ingredient-tag">Aminogen-X</span>
+        <span class="ingredient-tag">Cebonin</span>
+        <span class="ingredient-tag">PanNobel</span>
+        <span class="ingredient-tag">Copolamin-B12</span>
+      </div>
+      <div class="section-label">建議療程</div>
+      <div class="freq-row">
+        <div class="freq-chip">
+          <div class="fc-label">施打時間</div>
+          <div class="fc-value">約 60 分</div>
+        </div>
+        <div class="freq-chip">
+          <div class="fc-label">建議頻次</div>
+          <div class="fc-value">每 2–4 週</div>
+        </div>
+        <div class="freq-chip">
+          <div class="fc-label">適合時機</div>
+          <div class="fc-value">冬季加密</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 保肝針 -->
+  <div class="therapy-card theme-detox">
+    <div class="card-header">
+      <div class="drip-icon">🛡️</div>
+      <div class="card-title-block">
+        <div class="card-name">保肝針</div>
+        <div class="card-claim">護肝排毒・清除體內廢物</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="pain-point">「應酬多、睡不好，肝一直在超時工作？」</div>
+      <div class="benefit-banner">✦ 支援肝臟代謝功能，加速排除體內毒素</div>
+      <div class="section-label">針劑組成</div>
+      <div class="ingredients">
+        <span class="ingredient-tag">Aminogen-X</span>
+        <span class="ingredient-tag">Soragen-S</span>
+        <span class="ingredient-tag">Thioccan ×2</span>
+        <span class="ingredient-tag">PanNobel</span>
+      </div>
+      <div class="section-label">建議療程</div>
+      <div class="freq-row">
+        <div class="freq-chip">
+          <div class="fc-label">施打時間</div>
+          <div class="fc-value">約 60 分</div>
+        </div>
+        <div class="freq-chip">
+          <div class="fc-label">建議頻次</div>
+          <div class="fc-value">每月 1–2 次</div>
+        </div>
+        <div class="freq-chip">
+          <div class="fc-label">依狀況</div>
+          <div class="fc-value">醫師調整</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 燃脂針 -->
+  <div class="therapy-card theme-fatburn">
+    <div class="card-header">
+      <div class="drip-icon">⚡</div>
+      <div class="card-title-block">
+        <div class="card-name">燃脂針</div>
+        <div class="card-claim">加速代謝・輔助體態管理</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="pain-point">「運動、控食都做了，體重還是卡關？」</div>
+      <div class="benefit-banner">✦ 加速脂肪代謝，搭配體重管理事半功倍</div>
+      <div class="section-label">針劑組成</div>
+      <div class="ingredients">
+        <span class="ingredient-tag">Aminogen-X</span>
+        <span class="ingredient-tag">PanNobel</span>
+        <span class="ingredient-tag">Cebonin</span>
+        <span class="ingredient-tag">Copolamin-B12</span>
+        <span class="ingredient-tag">Thioccan ×2</span>
+      </div>
+      <div class="section-label">建議療程</div>
+      <div class="freq-row">
+        <div class="freq-chip">
+          <div class="fc-label">施打時間</div>
+          <div class="fc-value">約 60 分</div>
+        </div>
+        <div class="freq-chip">
+          <div class="fc-label">建議頻次</div>
+          <div class="fc-value">每月 1–2 次</div>
+        </div>
+        <div class="freq-chip">
+          <div class="fc-label">搭配建議</div>
+          <div class="fc-value">猛健樂療程</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 注意事項 -->
+  <div class="notice-card">
+    <div class="notice-title">⚠️ 施打前請注意</div>
+    <ul class="notice-list">
+      <li>請告知醫師目前用藥、過敏史及慢性病史</li>
+      <li>建議施打前正常進食，避免空腹</li>
+      <li>施打後建議留觀 10–15 分鐘再離開</li>
+      <li>施打部位若出現紅腫熱痛，請立即回診</li>
+      <li>孕婦、哺乳中或對成分過敏者，請先諮詢醫師</li>
+    </ul>
+  </div>
+
+</div>
+
+<footer>
+  <div class="clinic-name">日和聯合診所</div>
+  <div class="clinic-info">
+    台南市鹽水區 ｜ 預約專線：<a href="tel:066520182">06-6520182</a>
+  </div>
+</footer>
+
+<!-- 固定預約按鈕 -->
+<div class="cta-bar">
+  <a href="tel:066520182">
+    📞 立即電話諮詢預約
+    <span>06-6520182｜醫師評估，量身搭配最適針劑</span>
+  </a>
+</div>
+
+<script>
+  const ivInfo = {
+    whitening: { name: '美白針', icon: '✨', desc: '淡斑・美肌・透亮' },
+    nutrition:  { name: '營養針', icon: '🌿', desc: '提升免疫・補充能量' },
+    warming:    { name: '暖暖針', icon: '🔥', desc: '促進循環・改善手腳冰冷' },
+    detox:      { name: '保肝針', icon: '🛡️', desc: '護肝排毒・清除體內廢物' },
+    fatburn:    { name: '燃脂針／男子針', icon: '⚡', desc: '加速代謝・輔助體態管理' },
+  };
+
+  function toggleChip(el) {
+    el.classList.toggle('selected');
+  }
+
+  function showResult() {
+    const chips = document.querySelectorAll('.symptom-chip.selected');
+    const scores = {};
+    chips.forEach(c => {
+      c.dataset.tags.split(',').forEach(t => {
+        scores[t] = (scores[t] || 0) + 1;
+      });
+    });
+
+    const sorted = Object.entries(scores).sort((a, b) => b[1] - a[1]);
+    const list = document.getElementById('resultList');
+    list.innerHTML = '';
+
+    if (sorted.length === 0) {
+      list.innerHTML = '<div class="result-none">請先勾選你的身體狀況 ☝️</div>';
+    } else {
+      sorted.forEach(([key, score], i) => {
+        const iv = ivInfo[key];
+        const div = document.createElement('div');
+        div.className = 'result-item ' + (i === 0 ? 'rank-1' : 'rank-2');
+        div.innerHTML = `
+          <div class="result-icon">${iv.icon}</div>
+          <div class="result-text">
+            <div class="rname">${iv.name}</div>
+            <div class="rdesc">${iv.desc}</div>
+          </div>
+          ${i === 0 ? '<span class="result-badge">首選推薦</span>' : ''}
+        `;
+        list.appendChild(div);
+      });
+    }
+
+    document.getElementById('quizResult').classList.add('show');
+    document.getElementById('quizReset').classList.add('show');
+  }
+
+  function resetQuiz() {
+    document.querySelectorAll('.symptom-chip').forEach(c => c.classList.remove('selected'));
+    document.getElementById('quizResult').classList.remove('show');
+    document.getElementById('quizReset').classList.remove('show');
+  }
+</script>
+</body>
+</html>
