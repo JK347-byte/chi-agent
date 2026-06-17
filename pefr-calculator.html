@@ -299,6 +299,9 @@
       <span class="r-label">變異度</span>
       <span><span class="r-value" id="variability-val">—</span><span class="r-unit">%</span></span>
     </div>
+    <div id="variability-warn" style="display:none; margin-top:12px; background:#fff5f5; border-left:4px solid #fc8181; border-radius:0 10px 10px 0; padding:12px 14px; font-size:13px; color:#c53030; line-height:1.6;">
+      ⚠️ <strong>變異度 &gt; 20%</strong>｜氣流變異顯著，需考慮可逆性氣流阻塞（如氣喘）
+    </div>
   </div>
 
   <!-- 燈號說明 -->
@@ -374,9 +377,16 @@
         const variability = ((high - low) / high) * 100;
         document.getElementById('low-val').textContent = low.toFixed(0);
         document.getElementById('variability-val').textContent = variability.toFixed(1);
+        const varWarn = document.getElementById('variability-warn');
+        if (variability > 20) {
+          varWarn.style.display = 'block';
+        } else {
+          varWarn.style.display = 'none';
+        }
       } else {
         document.getElementById('low-val').textContent = '—';
         document.getElementById('variability-val').textContent = '—';
+        document.getElementById('variability-warn').style.display = 'none';
       }
 
       pctBlock.className = 'pct-block show';
