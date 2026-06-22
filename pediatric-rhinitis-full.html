@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>小兒鼻過敏完整衛教｜日和聯合診所</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, "Helvetica Neue", Arial, sans-serif;
+      background: #f0fdf4;
+      color: #1a2e1a;
+    }
+
+    header {
+      background: linear-gradient(135deg, #065f46, #059669);
+      color: white;
+      text-align: center;
+      padding: 36px 24px 32px;
+    }
+    header .clinic { font-size: 11px; letter-spacing: 3px; opacity: 0.75; margin-bottom: 8px; }
+    header .tag {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.35);
+      border-radius: 20px;
+      font-size: 11px;
+      padding: 3px 12px;
+      margin-bottom: 12px;
+      letter-spacing: 1px;
+    }
+    header h1 { font-size: 24px; font-weight: 800; line-height: 1.3; }
+    header .sub { font-size: 13px; opacity: 0.85; margin-top: 8px; line-height: 1.6; }
+
+    .container { max-width: 480px; margin: 0 auto; padding: 20px 16px 60px; }
+
+    /* ── 區塊標題 ── */
+    .sec-label {
+      font-size: 11px; font-weight: 700; letter-spacing: 2px;
+      color: #065f46; margin: 28px 0 10px;
+    }
+
+    /* ── 白色卡片 ── */
+    .card {
+      background: white;
+      border-radius: 18px;
+      padding: 20px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+      margin-bottom: 14px;
+    }
+
+    /* ── 治療步驟 ── */
+    .step-list { display: flex; flex-direction: column; gap: 10px; }
+    .step-item {
+      display: flex; align-items: flex-start; gap: 14px;
+      background: #f0fdf4; border-radius: 14px; padding: 14px;
+    }
+    .step-num {
+      width: 32px; height: 32px; border-radius: 50%;
+      background: linear-gradient(135deg, #059669, #10b981);
+      color: white; font-size: 15px; font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .step-body h3 { font-size: 14px; font-weight: 700; color: #065f46; margin-bottom: 4px; }
+    .step-body p { font-size: 13px; color: #4b5563; line-height: 1.6; }
+
+    /* ── 益生菌 ── */
+    .probiotic-list { display: flex; flex-direction: column; gap: 8px; margin-top: 4px; }
+    .probiotic-item {
+      display: flex; align-items: flex-start; gap: 10px;
+      padding: 12px; background: #f0fdf4; border-radius: 12px;
+    }
+    .probiotic-icon { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
+    .probiotic-name { font-size: 13px; font-weight: 700; color: #065f46; }
+    .probiotic-zh { font-size: 12px; color: #6b7280; margin-top: 2px; }
+    .probiotic-tag {
+      display: inline-block; background: #d1fae5;
+      color: #065f46; font-size: 11px; font-weight: 700;
+      border-radius: 8px; padding: 2px 8px; margin-top: 4px;
+    }
+
+    /* ── 免疫力四柱 ── */
+    .immune-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+    }
+    .immune-card {
+      background: #f0fdf4; border-radius: 14px;
+      padding: 16px 12px; text-align: center;
+    }
+    .immune-card .icon { font-size: 28px; margin-bottom: 8px; }
+    .immune-card .title { font-size: 13px; font-weight: 700; color: #065f46; margin-bottom: 4px; }
+    .immune-card .desc { font-size: 11px; color: #4b5563; line-height: 1.5; }
+
+    /* ── 飲食建議 ── */
+    .diet-tip {
+      background: #ecfdf5; border-left: 4px solid #10b981;
+      border-radius: 0 12px 12px 0; padding: 14px 16px;
+      font-size: 13px; color: #065f46; line-height: 1.7;
+      margin-bottom: 10px;
+    }
+    .diet-tip strong { display: block; margin-bottom: 4px; font-size: 14px; }
+
+    /* ── 過敏原 ── */
+    .allergen-section { margin-bottom: 10px; }
+    .allergen-title {
+      font-size: 12px; font-weight: 700; color: #059669;
+      letter-spacing: 1px; margin-bottom: 8px;
+    }
+    .allergen-chips {
+      display: flex; flex-wrap: wrap; gap: 6px;
+    }
+    .chip {
+      background: #d1fae5; color: #065f46;
+      font-size: 12px; font-weight: 600;
+      border-radius: 20px; padding: 5px 12px;
+    }
+    .smoke-tip {
+      margin-top: 10px; background: #fef3c7;
+      border-left: 4px solid #f59e0b;
+      border-radius: 0 10px 10px 0; padding: 12px 14px;
+      font-size: 12px; color: #92400e; line-height: 1.6;
+    }
+    .divider {
+      height: 1px; background: #d1fae5; margin: 14px 0;
+    }
+
+    /* ── 食物過敏處理 ── */
+    .food-allergy-row {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+    }
+    .allergy-card {
+      border-radius: 14px; padding: 14px 12px;
+    }
+    .allergy-card.mild { background: #fef9c3; }
+    .allergy-card.severe { background: #fee2e2; }
+    .allergy-card .badge {
+      font-size: 11px; font-weight: 700; border-radius: 8px;
+      padding: 2px 8px; margin-bottom: 8px; display: inline-block;
+    }
+    .allergy-card.mild .badge { background: #fde047; color: #713f12; }
+    .allergy-card.severe .badge { background: #fca5a5; color: #7f1d1d; }
+    .allergy-card p { font-size: 12px; line-height: 1.6; color: #374151; }
+    .emergency {
+      margin-top: 10px; background: #fee2e2;
+      border-left: 4px solid #ef4444;
+      border-radius: 0 10px 10px 0; padding: 12px 14px;
+      font-size: 13px; color: #991b1b; line-height: 1.6;
+    }
+    .emergency strong { display: block; margin-bottom: 3px; font-size: 14px; }
+
+    /* ── 療程時間 ── */
+    .timeline-row {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+    }
+    .timeline-card {
+      background: #f0fdf4; border-radius: 14px; padding: 16px 12px; text-align: center;
+    }
+    .timeline-card .duration {
+      font-size: 28px; font-weight: 900; color: #059669; line-height: 1;
+    }
+    .timeline-card .unit { font-size: 13px; color: #6b7280; margin-top: 2px; }
+    .timeline-card .label { font-size: 12px; color: #4b5563; margin-top: 8px; line-height: 1.5; }
+
+    /* ── 效益 ── */
+    .benefit-list {
+      display: flex; flex-direction: column; gap: 8px;
+    }
+    .benefit-item {
+      display: flex; align-items: center; gap: 10px;
+      background: #f0fdf4; border-radius: 12px; padding: 12px 14px;
+    }
+    .benefit-icon { font-size: 22px; flex-shrink: 0; }
+    .benefit-text { font-size: 13px; font-weight: 600; color: #065f46; }
+
+    /* ── CTA ── */
+    .cta-card {
+      background: linear-gradient(135deg, #065f46, #059669);
+      border-radius: 18px; padding: 24px 20px;
+      text-align: center; color: white; margin-top: 20px;
+    }
+    .cta-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+    .cta-card p { font-size: 13px; opacity: 0.9; line-height: 1.6; margin-bottom: 16px; }
+    .cta-phone {
+      display: block; background: white; color: #065f46;
+      font-size: 17px; font-weight: 800;
+      border-radius: 12px; padding: 12px;
+      text-decoration: none; letter-spacing: 1px;
+    }
+
+    footer {
+      text-align: center; font-size: 11px;
+      color: #9ca3af; margin-top: 28px; line-height: 2;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="clinic">日 和 聯 合 診 所</div>
+  <div class="tag">兒科衛教</div>
+  <h1>🌿 小兒鼻過敏<br>完整治療指南</h1>
+  <div class="sub">詹士奇醫師｜耳鼻喉科</div>
+</header>
+
+<div class="container">
+
+  <!-- 治療步驟 -->
+  <div class="sec-label">TREATMENT　治療方式</div>
+  <div class="card">
+    <div class="step-list">
+      <div class="step-item">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <h3>藥水與口服藥物</h3>
+          <p>輕度鼻過敏的第一線治療，緩解流鼻水、鼻癢等症狀。</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <h3>鼻噴劑</h3>
+          <p>症狀較嚴重時使用，直接作用於鼻腔黏膜，效果穩定持久。</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <h3>益生菌輔助</h3>
+          <p>搭配藥物使用，調節腸道免疫，有助改善過敏體質。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 益生菌 -->
+  <div class="sec-label">PROBIOTICS　實證益生菌菌屬</div>
+  <div class="card">
+    <div class="probiotic-list">
+      <div class="probiotic-item">
+        <div class="probiotic-icon">🦠</div>
+        <div>
+          <div class="probiotic-name">Lactobacillus　乳酸桿菌屬</div>
+          <div class="probiotic-zh">調節免疫、改善過敏反應</div>
+          <div class="probiotic-tag">如景岳 LP33</div>
+        </div>
+      </div>
+      <div class="probiotic-item">
+        <div class="probiotic-icon">🦠</div>
+        <div>
+          <div class="probiotic-name">Bifidobacterium　雙歧桿菌屬</div>
+          <div class="probiotic-zh">強化腸道屏障、抑制過敏發炎</div>
+        </div>
+      </div>
+      <div class="probiotic-item">
+        <div class="probiotic-icon">🦠</div>
+        <div>
+          <div class="probiotic-name">Saccharomyces　酵母菌屬</div>
+          <div class="probiotic-zh">S. boulardii，調節腸道免疫</div>
+        </div>
+      </div>
+      <div class="probiotic-item">
+        <div class="probiotic-icon">🦠</div>
+        <div>
+          <div class="probiotic-name">Streptococcus　鏈球菌屬</div>
+          <div class="probiotic-zh">S. thermophilus，維持腸道菌相平衡</div>
+        </div>
+      </div>
+      <div class="probiotic-item">
+        <div class="probiotic-icon">🦠</div>
+        <div>
+          <div class="probiotic-name">Bacillus　芽孢桿菌屬</div>
+          <div class="probiotic-zh">耐熱耐酸，穩定到達腸道發揮作用</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 增強免疫力 -->
+  <div class="sec-label">IMMUNITY　增強免疫力</div>
+  <div class="card">
+    <div class="immune-grid">
+      <div class="immune-card">
+        <div class="icon">☀️</div>
+        <div class="title">戶外運動</div>
+        <div class="desc">多到戶外曬太陽，增強免疫調節</div>
+      </div>
+      <div class="immune-card">
+        <div class="icon">😴</div>
+        <div class="title">充足睡眠</div>
+        <div class="desc">睡眠是免疫力最重要的基礎</div>
+      </div>
+      <div class="immune-card">
+        <div class="icon">😊</div>
+        <div class="title">減少壓力</div>
+        <div class="desc">不給孩子過大的學業與生活壓力</div>
+      </div>
+      <div class="immune-card">
+        <div class="icon">🥦</div>
+        <div class="title">均衡飲食</div>
+        <div class="desc">以原始食物為主，避免加工食品</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 飲食細節 -->
+  <div class="sec-label">DIET　兒童飲食原則</div>
+  <div class="card">
+    <div class="diet-tip">
+      <strong>🍚 三天均衡就夠了</strong>
+      孩子不需要像大人一樣每餐嚴格均衡，澱粉、蛋白質、蔬菜只要三天內都有攝取到即可。單天全吃蛋、全吃白飯、用水果取代蔬菜，都完全沒問題。
+    </div>
+    <div class="diet-tip">
+      <strong>🚫 避免零食，保有飢餓感</strong>
+      挑食的孩子，關鍵在「不給零食」。讓孩子保有飢餓感，正餐自然會越吃越多，不需要強迫或焦慮。
+    </div>
+    <div class="diet-tip" style="margin-bottom:0">
+      <strong>😋 讓吃飯是快樂的事</strong>
+      飲食規範做到基本就好，最重要的是讓孩子對吃東西保有正向感受，不要因為強迫而造成排斥。
+    </div>
+  </div>
+
+  <!-- 遠離過敏原 -->
+  <div class="sec-label">ALLERGENS　遠離過敏原</div>
+  <div class="card">
+    <div class="allergen-section">
+      <div class="allergen-title">💨 呼吸道過敏原（與氣喘、鼻過敏最相關）</div>
+      <div class="allergen-chips">
+        <span class="chip">🪲 塵蟎</span>
+        <span class="chip">🍄 黴菌</span>
+        <span class="chip">🐱 貓皮屑</span>
+        <span class="chip">🐶 狗皮屑</span>
+        <span class="chip">🪳 蟑螂</span>
+      </div>
+      <div class="smoke-tip">
+        ⚠️ <strong>煙霧環境另外注意：</strong>香煙、燃香（廟宇、線香）等煙霧屬於呼吸道刺激物，應盡量避免。
+      </div>
+    </div>
+    <div class="divider"></div>
+    <div class="allergen-section" style="margin-bottom:0">
+      <div class="allergen-title">🍽️ 食物過敏原</div>
+      <p style="font-size:13px; color:#4b5563; line-height:1.7;">
+        食物過敏因人而異，需要實際試吃才能確認。建議每次<strong>少量嘗試</strong>，不要一次吃太多，觀察身體反應後再決定是否繼續。
+      </p>
+    </div>
+  </div>
+
+  <!-- 食物過敏處理 -->
+  <div class="sec-label">FOOD ALLERGY　食物過敏處理</div>
+  <div class="card">
+    <div class="food-allergy-row">
+      <div class="allergy-card mild">
+        <div class="badge">輕微過敏</div>
+        <p>症狀輕微，下次可繼續少量嘗試，讓腸胃逐漸建立耐受性。</p>
+      </div>
+      <div class="allergy-card severe">
+        <div class="badge">明顯過敏</div>
+        <p>先停兩週，之後再少量嘗試，觀察腸胃耐受情況。</p>
+      </div>
+    </div>
+    <div class="emergency">
+      <strong>🚨 出現呼吸喘、嚴重症狀：立即就醫</strong>
+      若過敏反應導致呼吸困難或全身性症狀，請立即停止嘗試並送醫急救，切勿自行觀察等待。
+    </div>
+  </div>
+
+  <!-- 療程時間 -->
+  <div class="sec-label">DURATION　治療療程</div>
+  <div class="card">
+    <div class="timeline-row">
+      <div class="timeline-card">
+        <div class="duration">2–3</div>
+        <div class="unit">個月</div>
+        <div class="label">季節性或<br>溫差型鼻過敏</div>
+      </div>
+      <div class="timeline-card">
+        <div class="duration">更長</div>
+        <div class="unit">持續控制</div>
+        <div class="label">常年性鼻過敏<br>需較長療程</div>
+      </div>
+    </div>
+    <div class="smoke-tip" style="margin-top:12px;">
+      💡 季節性鼻過敏建議在<strong>下一個秋冬前</strong>提早給予控制藥物，預防發作。
+    </div>
+  </div>
+
+  <!-- 治療效益 -->
+  <div class="sec-label">BENEFITS　控制好了，孩子會⋯</div>
+  <div class="card">
+    <div class="benefit-list">
+      <div class="benefit-item">
+        <div class="benefit-icon">😴</div>
+        <div class="benefit-text">睡眠品質明顯改善，不再夜間鼻塞</div>
+      </div>
+      <div class="benefit-item">
+        <div class="benefit-icon">📚</div>
+        <div class="benefit-text">注意力與學習力提升</div>
+      </div>
+      <div class="benefit-item">
+        <div class="benefit-icon">🌱</div>
+        <div class="benefit-text">整體健康成長更有活力</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-card">
+    <h3>需要評估或回診？</h3>
+    <p>歡迎電話預約，由詹士奇醫師為孩子<br>擬定個人化治療計畫。</p>
+    <a class="cta-phone" href="tel:0666520182">📞 06-6520182</a>
+  </div>
+
+  <footer>
+    日和聯合診所｜台南市鹽水區<br>
+    本衛教內容僅供參考，實際治療請依醫師診斷為準
+  </footer>
+</div>
+</body>
+</html>
