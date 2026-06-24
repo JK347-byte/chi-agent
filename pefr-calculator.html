@@ -299,9 +299,7 @@
       <span class="r-label">變異度</span>
       <span><span class="r-value" id="variability-val">—</span><span class="r-unit">%</span></span>
     </div>
-    <div id="variability-warn" style="display:none; margin-top:12px; background:#fff5f5; border-left:4px solid #fc8181; border-radius:0 10px 10px 0; padding:12px 14px; font-size:13px; color:#c53030; line-height:1.6;">
-      ⚠️ <strong>變異度 &gt; 20%</strong>｜氣流變異顯著，需考慮可逆性氣流阻塞（如氣喘）
-    </div>
+    <div id="variability-warn" style="display:none; margin-top:12px; border-left:4px solid; border-radius:0 10px 10px 0; padding:12px 14px; font-size:13px; line-height:1.6;"></div>
   </div>
 
   <!-- 燈號說明 -->
@@ -310,17 +308,17 @@
     <div class="zone-row">
       <div class="zone-dot dot-green"></div>
       <div class="zone-pct">≥ 80%</div>
-      <div class="zone-desc"><strong>綠燈</strong>｜氣流正常，維持原治療計畫</div>
+      <div class="zone-desc"><strong>綠燈</strong>｜情況穩定，氣喘控制良好，幾乎無症狀（變異度 &lt; 20%）</div>
     </div>
     <div class="zone-row">
       <div class="zone-dot dot-yellow"></div>
-      <div class="zone-pct">50–79%</div>
-      <div class="zone-desc"><strong>黃燈</strong>｜氣流受限，需評估治療調整</div>
+      <div class="zone-pct">60–79%</div>
+      <div class="zone-desc"><strong>黃燈</strong>｜要小心，出現夜咳、喘鳴、胸悶等症狀，需評估調整治療（變異度 20–30%）</div>
     </div>
     <div class="zone-row">
       <div class="zone-dot dot-red"></div>
-      <div class="zone-pct">&lt; 50%</div>
-      <div class="zone-desc"><strong>紅燈</strong>｜嚴重氣流阻塞，需立即處置</div>
+      <div class="zone-pct">&lt; 60%</div>
+      <div class="zone-desc"><strong>紅燈</strong>｜情況危險，立即使用支氣管擴張劑；若仍未改善，立即就醫（變異度 &gt; 30%）</div>
     </div>
   </div>
 
@@ -378,8 +376,18 @@
         document.getElementById('low-val').textContent = low.toFixed(0);
         document.getElementById('variability-val').textContent = variability.toFixed(1);
         const varWarn = document.getElementById('variability-warn');
-        if (variability > 20) {
+        if (variability > 30) {
           varWarn.style.display = 'block';
+          varWarn.style.background = '#fff5f5';
+          varWarn.style.borderColor = '#fc8181';
+          varWarn.style.color = '#c53030';
+          varWarn.innerHTML = '🔴 <strong>變異度 &gt; 30%</strong>｜紅燈區，情況危險，立即使用支氣管擴張劑';
+        } else if (variability >= 20) {
+          varWarn.style.display = 'block';
+          varWarn.style.background = '#fffff0';
+          varWarn.style.borderColor = '#f6e05e';
+          varWarn.style.color = '#744210';
+          varWarn.innerHTML = '🟡 <strong>變異度 20–30%</strong>｜黃燈區，需評估調整治療';
         } else {
           varWarn.style.display = 'none';
         }
@@ -394,17 +402,17 @@
         pctBlock.classList.add('green-zone');
         pctBlock.classList.remove('yellow-zone', 'red-zone');
         document.getElementById('pct-status').textContent = '🟢 綠燈';
-        document.getElementById('pct-desc').textContent = '氣流正常，維持原治療計畫';
-      } else if (pct >= 50) {
+        document.getElementById('pct-desc').textContent = '情況穩定，氣喘控制良好，維持原治療計畫';
+      } else if (pct >= 60) {
         pctBlock.classList.add('yellow-zone');
         pctBlock.classList.remove('green-zone', 'red-zone');
         document.getElementById('pct-status').textContent = '🟡 黃燈';
-        document.getElementById('pct-desc').textContent = '氣流受限，請評估是否調整治療';
+        document.getElementById('pct-desc').textContent = '要小心，請評估是否調整治療，必要時使用支氣管擴張劑';
       } else {
         pctBlock.classList.add('red-zone');
         pctBlock.classList.remove('green-zone', 'yellow-zone');
         document.getElementById('pct-status').textContent = '🔴 紅燈';
-        document.getElementById('pct-desc').textContent = '嚴重氣流阻塞，需立即處置';
+        document.getElementById('pct-desc').textContent = '情況危險，立即使用支氣管擴張劑，未改善請立即就醫';
       }
     } else {
       document.getElementById('measured-val').textContent = '—';
