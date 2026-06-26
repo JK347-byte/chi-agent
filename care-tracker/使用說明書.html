@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>照護追蹤系統｜使用說明書</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, "PingFang TC", "Microsoft JhengHei", sans-serif;
+    font-size: 15px; line-height: 1.8; color: #1a1a2e;
+    background: #f5f7fa; padding: 24px 16px;
+  }
+  .container { max-width: 860px; margin: 0 auto; }
+
+  /* 封面 */
+  .cover {
+    background: linear-gradient(135deg, #1a4f8a 0%, #2471c8 100%);
+    color: white; border-radius: 16px; padding: 48px 40px; margin-bottom: 32px;
+    text-align: center;
+  }
+  .cover .title { font-size: 28px; font-weight: 700; margin-bottom: 8px; }
+  .cover .subtitle { font-size: 16px; opacity: .85; margin-bottom: 24px; }
+  .cover .meta { font-size: 13px; opacity: .7; }
+  .badge {
+    display: inline-block; background: rgba(255,255,255,.2);
+    border-radius: 20px; padding: 4px 16px; font-size: 13px; margin: 4px;
+  }
+
+  /* 目錄 */
+  .toc {
+    background: white; border-radius: 12px; padding: 24px 32px;
+    margin-bottom: 24px; box-shadow: 0 2px 8px rgba(0,0,0,.06);
+  }
+  .toc h2 { font-size: 16px; color: #1a4f8a; margin-bottom: 12px; }
+  .toc ol { padding-left: 20px; }
+  .toc li { margin: 6px 0; }
+  .toc a { color: #2471c8; text-decoration: none; }
+  .toc a:hover { text-decoration: underline; }
+
+  /* 章節 */
+  .section {
+    background: white; border-radius: 12px; padding: 32px;
+    margin-bottom: 24px; box-shadow: 0 2px 8px rgba(0,0,0,.06);
+  }
+  .section-header {
+    display: flex; align-items: center; gap: 12px;
+    border-bottom: 2px solid #e8f0fe; padding-bottom: 14px; margin-bottom: 24px;
+  }
+  .section-number {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: linear-gradient(135deg, #1a4f8a, #2471c8);
+    color: white; font-weight: 700; font-size: 16px;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .section-title { font-size: 20px; font-weight: 700; color: #1a4f8a; }
+
+  h3 { font-size: 16px; color: #2471c8; margin: 20px 0 10px; }
+  p { margin-bottom: 10px; color: #333; }
+  ul, ol { padding-left: 20px; margin-bottom: 12px; }
+  li { margin: 6px 0; }
+
+  /* 表格 */
+  table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+  th {
+    background: #1a4f8a; color: white; padding: 10px 14px;
+    text-align: left; font-weight: 600;
+  }
+  td { padding: 10px 14px; border-bottom: 1px solid #e8edf5; }
+  tr:hover td { background: #f0f4ff; }
+  tr:last-child td { border-bottom: none; }
+
+  /* 提示框 */
+  .tip {
+    border-left: 4px solid #2471c8; background: #e8f0fe;
+    padding: 12px 16px; border-radius: 0 8px 8px 0; margin: 16px 0;
+    font-size: 14px;
+  }
+  .tip.warn {
+    border-color: #f59e0b; background: #fef9e7;
+  }
+  .tip.success {
+    border-color: #22c55e; background: #f0fdf4;
+  }
+  .tip strong { display: block; margin-bottom: 4px; }
+
+  /* 步驟 */
+  .steps { counter-reset: step; margin: 16px 0; }
+  .step {
+    display: flex; gap: 16px; margin-bottom: 16px; align-items: flex-start;
+  }
+  .step-num {
+    counter-increment: step;
+    width: 28px; height: 28px; border-radius: 50%;
+    background: #2471c8; color: white; font-size: 13px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .step-num::before { content: counter(step); }
+  .step-content { flex: 1; padding-top: 3px; }
+  .step-content strong { color: #1a1a2e; }
+
+  /* 按鈕樣式示意 */
+  .btn-demo {
+    display: inline-block; padding: 6px 14px; border-radius: 6px;
+    font-size: 13px; font-weight: 600; margin: 2px;
+  }
+  .btn-green { background: #dcfce7; color: #166534; }
+  .btn-gray  { background: #f1f5f9; color: #475569; }
+  .btn-blue  { background: #dbeafe; color: #1e40af; }
+
+  /* 指令框 */
+  .cmd {
+    background: #1e2d40; color: #7dd3fc; font-family: monospace;
+    padding: 10px 16px; border-radius: 8px; margin: 8px 0;
+    font-size: 14px; display: inline-block;
+  }
+
+  /* 流程圖 */
+  .flow {
+    display: flex; align-items: center; flex-wrap: wrap; gap: 8px;
+    margin: 16px 0;
+  }
+  .flow-box {
+    background: #e8f0fe; border: 1.5px solid #2471c8;
+    border-radius: 8px; padding: 8px 14px; font-size: 13px;
+    font-weight: 600; color: #1a4f8a;
+  }
+  .flow-arrow { color: #2471c8; font-size: 18px; font-weight: 700; }
+
+  /* 頁尾 */
+  .footer {
+    text-align: center; font-size: 12px; color: #94a3b8;
+    margin-top: 32px; padding: 16px;
+  }
+
+  @media print {
+    body { background: white; padding: 0; }
+    .section { box-shadow: none; border: 1px solid #e0e0e0; page-break-inside: avoid; }
+    .cover { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- 封面 -->
+<div class="cover">
+  <div class="title">照護追蹤系統</div>
+  <div class="subtitle">使用說明書 · 內部人員版</div>
+  <div>
+    <span class="badge">🏥 日和聯合診所</span>
+    <span class="badge">📅 2026 年 6 月</span>
+  </div>
+</div>
+
+<!-- 目錄 -->
+<div class="toc">
+  <h2>📋 目錄</h2>
+  <ol>
+    <li><a href="#s1">系統概述</a></li>
+    <li><a href="#s2">加入群組（新成員）</a></li>
+    <li><a href="#s3">Google Sheets 操作</a></li>
+    <li><a href="#s4">Telegram Bot 操作</a></li>
+    <li><a href="#s5">每日工作流程</a></li>
+    <li><a href="#s6">狀態說明</a></li>
+    <li><a href="#s7">常見問題</a></li>
+  </ol>
+</div>
+
+<!-- 1. 系統概述 -->
+<div class="section" id="s1">
+  <div class="section-header">
+    <div class="section-number">1</div>
+    <div class="section-title">系統概述</div>
+  </div>
+
+  <p>照護追蹤系統由兩個部分組成，協助診所管理 NHI 改善計畫個案的回診追蹤：</p>
+
+  <table>
+    <tr><th>工具</th><th>用途</th></tr>
+    <tr><td>📊 Google Sheets（試算表）</td><td>個案主資料庫：新增個案、填寫資料、查詢紀錄</td></tr>
+    <tr><td>📱 Telegram 群組</td><td>每日自動提醒、回診確認、逾期警示</td></tr>
+  </table>
+
+  <h3>目前追蹤的計畫</h3>
+  <table>
+    <tr><th>計畫名稱</th><th>說明</th></tr>
+    <tr><td>代謝症候群</td><td>代謝症候群防治計畫</td></tr>
+    <tr><td>氣喘</td><td>氣喘醫療給付改善方案</td></tr>
+    <tr><td>疫苗</td><td>疫苗施打追蹤</td></tr>
+    <tr><td>口腔篩檢</td><td>口腔健康篩檢追蹤</td></tr>
+  </table>
+
+  <div class="tip success">
+    <strong>✅ 系統自動幫你做的事</strong>
+    每天早上 8:00，Bot 自動掃描今日預計回診的個案並發送提醒到 Telegram 群組。
+  </div>
+</div>
+
+<!-- 2. 加入群組 -->
+<div class="section" id="s2">
+  <div class="section-header">
+    <div class="section-number">2</div>
+    <div class="section-title">加入群組（新成員）</div>
+  </div>
+
+  <h3>第一次加入的步驟</h3>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num"></div>
+      <div class="step-content">
+        <strong>下載 Telegram</strong><br>
+        到 App Store（iPhone）或 Google Play（Android）搜尋「Telegram」並安裝，以手機號碼註冊。
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num"></div>
+      <div class="step-content">
+        <strong>點開邀請連結</strong><br>
+        請管理員傳送群組邀請連結，點擊後選擇「加入群組」即可。
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num"></div>
+      <div class="step-content">
+        <strong>在群組傳送 /start</strong><br>
+        輸入並傳送 <span class="cmd">/start</span>，Bot 會回覆確認訊息。
+      </div>
+    </div>
+  </div>
+
+  <div class="tip">
+    <strong>💡 提示</strong>
+    只要在群組裡，所有成員都能看到 Bot 的提醒，並且都能點擊按鈕操作——不需要個別設定。
+  </div>
+</div>
+
+<!-- 3. Google Sheets 操作 -->
+<div class="section" id="s3">
+  <div class="section-header">
+    <div class="section-number">3</div>
+    <div class="section-title">Google Sheets 操作</div>
+  </div>
+
+  <h3>新增個案</h3>
+  <p>在「個案總表」工作表填入以下欄位：</p>
+
+  <table>
+    <tr><th>欄位</th><th>說明</th><th>備註</th></tr>
+    <tr><td>A 病歷號</td><td>診所病歷號碼</td><td>必填，唯一識別碼</td></tr>
+    <tr><td>B 姓名</td><td>患者姓名</td><td>必填</td></tr>
+    <tr><td>C 專案</td><td>所屬計畫</td><td>下拉選單選取</td></tr>
+    <tr><td>D 收案日期</td><td>收入計畫的日期</td><td>點格子出現日曆選取</td></tr>
+    <tr><td>E 最近回診日</td><td>最後一次實際回診日</td><td>點格子出現日曆選取</td></tr>
+    <tr><td>F 追蹤間隔（天）</td><td>下次回診距上次的天數</td><td>填數字，例如：70</td></tr>
+    <tr><td>G 下次最早可回診日</td><td>自動換算，不需手填</td><td>= E欄 + F欄，自動顯示</td></tr>
+    <tr><td>H 狀態</td><td>個案目前狀態</td><td>下拉選單選取</td></tr>
+    <tr><td>I 備註</td><td>補充說明</td><td>選填</td></tr>
+  </table>
+
+  <div class="tip warn">
+    <strong>⚠️ 注意</strong>
+    G 欄（下次最早可回診日）是自動公式，請勿手動修改。只要填好 E（最近回診日）和 F（追蹤間隔），系統會自動計算。
+  </div>
+
+  <h3>使用篩選檢視（依計畫分開看）</h3>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num"></div>
+      <div class="step-content">點選 Google Sheets 工具列的漏斗圖示（篩選器）旁的下拉箭頭</div>
+    </div>
+    <div class="step">
+      <div class="step-num"></div>
+      <div class="step-content">選擇「代謝症候群」、「氣喘」、「疫苗」或「口腔篩檢」</div>
+    </div>
+    <div class="step">
+      <div class="step-num"></div>
+      <div class="step-content">畫面只會顯示該計畫的個案，可直接編輯</div>
+    </div>
+  </div>
+
+  <h3>日期選擇器</h3>
+  <p>點擊 D 欄（收案日期）或 E 欄（最近回診日）的格子，右下角會出現日曆圖示，點選即可用日曆選擇日期，不需手動輸入。</p>
+</div>
+
+<!-- 4. Telegram Bot 操作 -->
+<div class="section" id="s4">
+  <div class="section-header">
+    <div class="section-number">4</div>
+    <div class="section-title">Telegram Bot 操作</div>
+  </div>
+
+  <h3>Bot 指令</h3>
+  <table>
+    <tr><th>指令</th><th>功能</th></tr>
+    <tr><td><span class="cmd">/test</span></td><td>立即觸發今日提醒（不等早上 8 點）</td></tr>
+    <tr><td><span class="cmd">/status</span></td><td>顯示目前各狀態個案人數統計</td></tr>
+    <tr><td><span class="cmd">/start</span></td><td>顯示使用說明</td></tr>
+  </table>
+
+  <h3>回診提醒卡片</h3>
+  <p>每天早上 8:00，Bot 自動傳送今日預計回診的個案卡片，樣式如下：</p>
+
+  <div style="background:#f0f4ff; border-radius:10px; padding:16px; font-size:14px; margin:12px 0; font-family:monospace; line-height:2;">
+    👤 王小明（A123456789）<br>
+    🏥 代謝症候群<br>
+    📅 最近回診：2026-04-01<br>
+    ⏱ 追蹤間隔：70 天<br>
+    📆 下次預計：2026-06-10<br>
+    🟢 本年度：1/3 次（年度至 2026-12-31）<br><br>
+    <span class="btn-demo btn-green">✅ 已回診</span>
+    <span class="btn-demo btn-gray">⏸ 暫停追蹤</span>
+  </div>
+
+  <h3>按鈕操作流程</h3>
+
+  <p><strong>當患者當天有來：按「✅ 已回診」</strong></p>
+  <div class="flow">
+    <div class="flow-box">按「✅ 已回診」</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-box">Bot 詢問追蹤間隔天數</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-box">按建議值 或 輸入天數</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-box">資料自動更新到試算表</div>
+  </div>
+
+  <p><strong>當患者需要暫停：按「⏸ 暫停追蹤」</strong></p>
+  <p>狀態變更為「暫停追蹤」，Bot 停止發送此個案的提醒，直到手動改回「追蹤中」。</p>
+
+  <div class="tip">
+    <strong>💡 手動設定追蹤間隔</strong>
+    如果需要補改某個案的追蹤間隔，可在群組輸入：<br>
+    <span class="cmd">設定間隔 病歷號 專案 天數</span><br>
+    例如：<span class="cmd">設定間隔 A123456789 代謝症候群 70</span>
+  </div>
+
+  <h3>逾期未回診</h3>
+  <p>若個案預定回診日已過但尚未記錄回診，Bot 每日早上會發出逾期警示：</p>
+  <div style="background:#fff7ed; border-left:4px solid #f59e0b; padding:12px 16px; border-radius:0 8px 8px 0; font-size:14px; margin:12px 0;">
+    ⚠️ <strong>逾期未回診</strong> — 以下個案已超過追蹤日<br>
+    • 王小明（A123456789）｜代謝症候群<br>
+    &nbsp;&nbsp;預定：2026-06-10｜已逾 5 天
+  </div>
+</div>
+
+<!-- 5. 每日工作流程 -->
+<div class="section" id="s5">
+  <div class="section-header">
+    <div class="section-number">5</div>
+    <div class="section-title">每日工作流程</div>
+  </div>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num"></div>
+      <div class="step-content">
+        <strong>早上 8:00 — Bot 自動發送提醒</strong><br>
+        查看 Telegram 群組，確認今日有哪些個案預計回診。
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num"></div>
+      <div class="step-content">
+        <strong>患者實際回診後 — 按「✅ 已回診」</strong><br>
+        在提醒卡片上點按鈕，確認追蹤間隔天數（可使用建議值），資料自動回寫到試算表。
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num"></div>
+      <div class="step-content">
+        <strong>患者未到診 — 不需操作</strong><br>
+        Bot 隔天會自動標記為逾期。若需要聯繫患者，可在試算表的「狀態」欄改為「爽約-待聯繫」。
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num"></div>
+      <div class="step-content">
+        <strong>新收案 — 在試算表新增一列</strong><br>
+        填入病歷號、姓名、專案、收案日期、最近回診日、追蹤間隔，並設定狀態為「追蹤中」。
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 6. 狀態說明 -->
+<div class="section" id="s6">
+  <div class="section-header">
+    <div class="section-number">6</div>
+    <div class="section-title">狀態說明</div>
+  </div>
+
+  <table>
+    <tr><th>狀態</th><th>意義</th><th>Bot 是否發提醒</th></tr>
+    <tr><td>🟢 追蹤中</td><td>正常追蹤中，預計按時回診</td><td>✅ 會</td></tr>
+    <tr><td>❌ 爽約-待聯繫</td><td>逾期未回診，需電話聯繫重新約診</td><td>✅ 會</td></tr>
+    <tr><td>⏸ 暫停追蹤</td><td>暫時停止（如出國、住院、手術）</td><td>❌ 不會</td></tr>
+    <tr><td>🔴 停案</td><td>永久結案（如轉院、拒絕追蹤）</td><td>❌ 不會</td></tr>
+  </table>
+
+  <div class="tip">
+    <strong>💡 狀態修改方式</strong>
+    直接在 Google Sheets「狀態」欄（H 欄）點下拉選單選取，Bot 下次掃描時自動套用。
+  </div>
+</div>
+
+<!-- 7. 常見問題 -->
+<div class="section" id="s7">
+  <div class="section-header">
+    <div class="section-number">7</div>
+    <div class="section-title">常見問題</div>
+  </div>
+
+  <h3>Q：早上沒有收到提醒，怎麼辦？</h3>
+  <p>可能是今日沒有預計回診的個案，或電腦未開機導致 Bot 未執行。在群組傳 <span class="cmd">/test</span> 可立即手動觸發。</p>
+
+  <h3>Q：G 欄（下次最早可回診日）顯示空白？</h3>
+  <p>請確認 E 欄（最近回診日）和 F 欄（追蹤間隔）都有填入資料，公式才會自動計算。</p>
+
+  <h3>Q：按了 Telegram 按鈕沒反應？</h3>
+  <p>診所電腦可能在休眠或關機，Bot 需要電腦維持開機才能運作。請確認執行 Bot 的電腦已開機並連上網路。</p>
+
+  <h3>Q：同一個患者可以同時在兩個計畫嗎？</h3>
+  <p>可以。在試算表新增兩列，病歷號相同但「專案」欄填不同計畫，Bot 會分開追蹤。</p>
+
+  <h3>Q：如何讓新護理師加入群組？</h3>
+  <p>請管理員傳送 Telegram 群組邀請連結，對方點擊後下載 Telegram 並加入即可，5 分鐘完成。</p>
+
+  <h3>Q：不小心按錯按鈕怎麼辦？</h3>
+  <p>直接在 Google Sheets 找到該個案，手動修改相關欄位（如最近回診日、追蹤間隔、狀態）即可覆蓋。</p>
+</div>
+
+<div class="footer">
+  日和聯合診所｜照護追蹤系統使用說明書｜內部文件，請勿外流<br>
+  如有問題請聯繫系統管理員
+</div>
+
+</div>
+</body>
+</html>
