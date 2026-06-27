@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>疫苗衛教｜日和聯合診所</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, "Helvetica Neue", Arial, sans-serif;
+      background: #f5f7fa;
+      color: #2d3748;
+      min-height: 100vh;
+    }
+    header {
+      background: linear-gradient(135deg, #1a365d, #2b6cb0);
+      color: white;
+      text-align: center;
+      padding: 32px 24px 28px;
+    }
+    header .clinic { font-size: 11px; letter-spacing: 3px; opacity: 0.75; margin-bottom: 8px; }
+    header h1 { font-size: 22px; font-weight: 800; }
+    header .sub { font-size: 12px; opacity: 0.8; margin-top: 6px; }
+
+    .container { max-width: 480px; margin: 0 auto; padding: 24px 16px 60px; }
+
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+    .card {
+      border-radius: 18px;
+      padding: 24px 16px;
+      text-align: center;
+      text-decoration: none;
+      display: block;
+      transition: transform 0.15s, box-shadow 0.15s;
+      border: 2px solid transparent;
+    }
+    .card:hover { transform: translateY(-3px); }
+    .card .icon { font-size: 38px; margin-bottom: 12px; }
+    .card .name { font-size: 16px; font-weight: 800; margin-bottom: 4px; }
+    .card .brand { font-size: 12px; opacity: 0.7; margin-bottom: 8px; }
+    .card .desc { font-size: 12px; line-height: 1.5; opacity: 0.85; }
+
+    .c-shingrix { background: #ebf8ff; border-color: #bee3f8; color: #1a365d; }
+    .c-shingrix:hover { box-shadow: 0 8px 24px rgba(43,108,176,0.25); }
+    .c-envavac  { background: #fffff0; border-color: #f6e05e; color: #744210; }
+    .c-envavac:hover  { box-shadow: 0 8px 24px rgba(236,201,75,0.3); }
+    .c-gardasil { background: #faf5ff; border-color: #d6bcfa; color: #44337a; }
+    .c-gardasil:hover { box-shadow: 0 8px 24px rgba(128,90,213,0.25); }
+    .c-arexvy   { background: #f0fff4; border-color: #9ae6b4; color: #276749; }
+    .c-arexvy:hover   { box-shadow: 0 8px 24px rgba(72,187,120,0.25); }
+
+    .hint { text-align: center; font-size: 12px; color: #a0aec0; margin-top: 28px; }
+
+    footer {
+      text-align: center; font-size: 11px;
+      color: #a0aec0; margin-top: 32px; line-height: 2;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="clinic">日 和 聯 合 診 所</div>
+  <h1>💉 疫苗衛教資訊</h1>
+  <div class="sub">點選疫苗查看完整衛教說明</div>
+</header>
+
+<div class="container">
+  <div class="grid">
+    <a class="card c-shingrix" href="shingrix-education.html" target="_blank">
+      <div class="icon">🩹</div>
+      <div class="name">欣剋疹</div>
+      <div class="brand">Shingrix®</div>
+      <div class="desc">帶狀疱疹<br>（皮蛇）疫苗</div>
+    </a>
+    <a class="card c-envavac" href="envavac-education.html" target="_blank">
+      <div class="icon">🧒</div>
+      <div class="name">Envavac</div>
+      <div class="brand">Envavac®</div>
+      <div class="desc">腸病毒 71 型<br>（EV71）疫苗</div>
+    </a>
+    <a class="card c-gardasil" href="gardasil9-education.html" target="_blank">
+      <div class="icon">💜</div>
+      <div class="name">嘉喜 9</div>
+      <div class="brand">Gardasil 9®</div>
+      <div class="desc">HPV 九價<br>子宮頸癌疫苗</div>
+    </a>
+    <a class="card c-arexvy" href="arexvy-education.html" target="_blank">
+      <div class="icon">🫁</div>
+      <div class="name">欣剋融</div>
+      <div class="brand">Arexvy®</div>
+      <div class="desc">呼吸道融合病毒<br>（RSV）疫苗</div>
+    </a>
+  </div>
+
+  <div class="hint">點選疫苗卡片，即可查看完整衛教說明</div>
+
+  <footer>
+    日和聯合診所｜台南市鹽水區<br>
+    📞 06-6520182
+  </footer>
+</div>
+</body>
+</html>

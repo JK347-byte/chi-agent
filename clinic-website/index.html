@@ -229,6 +229,92 @@
       box-shadow: 0 3px 10px rgba(58,173,106,0.35);
     }
 
+    /* 可點擊 badge */
+    .badge-link {
+      cursor: pointer;
+      border: 2px solid rgba(255,255,255,0.55);
+      transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s;
+      position: relative;
+    }
+    .badge-link:hover {
+      transform: translateY(-3px);
+      border-color: rgba(255,255,255,0.95);
+    }
+    .badge-link.badge-ent:hover { box-shadow: 0 8px 22px rgba(212,146,26,0.55); }
+    .badge-link::after {
+      content: '點擊了解 →';
+      display: block;
+      font-size: 10px;
+      margin-top: 5px;
+      opacity: 0.75;
+      letter-spacing: 0.5px;
+    }
+
+    /* Modal */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.72);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal-box {
+      background: white;
+      border-radius: 20px;
+      width: 100%;
+      max-width: 500px;
+      height: 88vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    }
+    .modal-header {
+      padding: 14px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #e2e8f0;
+      flex-shrink: 0;
+    }
+    .modal-header-title { font-size: 15px; font-weight: 700; color: #1a2e1a; }
+    .modal-close {
+      background: #f0f4f8; border: none; border-radius: 50%;
+      width: 32px; height: 32px; font-size: 16px;
+      cursor: pointer; color: #4a5568; display: flex;
+      align-items: center; justify-content: center;
+    }
+    .modal-iframe { flex: 1; border: none; width: 100%; }
+    .modal-loading {
+      flex: 1; display: flex; align-items: center; justify-content: center;
+      font-size: 14px; color: #a0aec0;
+    }
+
+    /* 疫苗選單 */
+    .vaccine-grid {
+      flex: 1; overflow-y: auto;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 12px; padding: 16px;
+    }
+    .vaccine-card {
+      border-radius: 14px; padding: 16px 12px;
+      text-align: center; cursor: pointer;
+      border: 2px solid transparent;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .vaccine-card:hover { transform: translateY(-2px); }
+    .vaccine-card .v-icon { font-size: 28px; margin-bottom: 8px; }
+    .vaccine-card .v-name { font-size: 13px; font-weight: 700; margin-bottom: 4px; }
+    .vaccine-card .v-sub { font-size: 11px; opacity: 0.75; line-height: 1.4; }
+    .vc-shingrix { background: #ebf8ff; border-color: #bee3f8; color: #2b6cb0; }
+    .vc-envavac  { background: #fffff0; border-color: #f6e05e; color: #744210; }
+    .vc-gardasil { background: #faf5ff; border-color: #d6bcfa; color: #553c9a; }
+    .vc-arexvy   { background: #f0fff4; border-color: #9ae6b4; color: #276749; }
+
     /* HOURS */
     .hours-wrap { display: flex; flex-direction: column; gap: 20px; }
     .hours-block {
@@ -561,15 +647,14 @@
         <div class="banner-title banner-title-ent">☀️ 日和耳鼻喉科・特色項目</div>
         <div class="badge-grid">
           <div class="badge badge-ent">預防保健・成人健檢</div>
-          <div class="badge badge-ent">抽血打針・營養點滴</div>
+          <div class="badge badge-ent badge-link" onclick="window.open('../iv-therapy-education.html','_blank')">抽血打針・營養點滴</div>
           <div class="badge badge-ent">高血壓・糖尿病・高血脂</div>
           <div class="badge badge-ent">癌症・胃癌・口腔癌篩檢</div>
-          <div class="badge badge-ent">猛健樂・瘦瘦針・燃脂針</div>
+          <div class="badge badge-ent badge-link" onclick="window.open('../mounjaro-education.html','_blank')">猛健樂・瘦瘦針・燃脂針</div>
           <div class="badge badge-ent">鼻塞手術・鼻出血手術</div>
           <div class="badge badge-ent">鼾聲雷動・睡眠生理檢查</div>
           <div class="badge badge-ent">純音聽力檢查・助聽器選配</div>
-          <div class="badge badge-ent">皮蛇・腸病毒・子宮頸疫苗</div>
-          <div class="badge badge-ent">流感・新冠・呼吸道融合疫苗</div>
+          <div class="badge badge-ent badge-link" onclick="window.open('../vaccine-menu.html','_blank')">疫苗衛教・四種可選</div>
         </div>
       </div>
 
