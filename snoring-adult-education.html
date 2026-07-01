@@ -20,7 +20,7 @@
     }
     header .clinic { font-size: 11px; letter-spacing: 3px; opacity: 0.75; margin-bottom: 8px; }
     header h1 { font-size: 23px; font-weight: 800; line-height: 1.3; }
-    header .sub { font-size: 12px; opacity: 0.82; margin-top: 8px; line-height: 1.6; }
+    header .sub { font-size: 12px; opacity: 0.82; margin-top: 8px; }
 
     .container { max-width: 480px; margin: 0 auto; padding: 20px 16px 60px; }
 
@@ -35,112 +35,153 @@
       margin-bottom: 14px;
     }
 
-    /* ── 打鼾類型 ── */
-    .snore-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    /* ── 打鼾類型（純 icon） ── */
+    .snore-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
     .snore-cell {
-      background: #ebf8ff; border-radius: 14px;
-      padding: 14px 10px; text-align: center;
+      background: #ebf8ff; border-radius: 12px;
+      padding: 12px 6px; text-align: center;
     }
     .snore-cell.danger { background: #fff5f5; }
-    .snore-cell .s-icon { font-size: 26px; margin-bottom: 6px; }
-    .snore-cell .s-name { font-size: 13px; font-weight: 700; color: #1a365d; }
+    .snore-cell .s-icon { font-size: 24px; margin-bottom: 5px; }
+    .snore-cell .s-name { font-size: 11px; font-weight: 700; color: #1a365d; line-height: 1.3; }
     .snore-cell.danger .s-name { color: #9b2c2c; }
-    .snore-cell .s-desc { font-size: 11px; color: #4a5568; margin-top: 4px; line-height: 1.4; }
 
-    /* ── 對話框 ── */
-    .dialog-wrap { display: flex; flex-direction: column; gap: 10px; }
-    .bubble {
-      max-width: 85%; padding: 12px 14px;
-      border-radius: 16px; font-size: 13px; line-height: 1.6;
+    /* ── 治療流程軸線 ── */
+    .flow { display: flex; flex-direction: column; gap: 0; }
+    .flow-step {
+      display: flex; gap: 14px; align-items: flex-start;
+      position: relative;
     }
-    .bubble.patient {
-      background: #ebf8ff; color: #1a365d;
-      border-bottom-left-radius: 4px; align-self: flex-start;
+    .flow-left {
+      display: flex; flex-direction: column; align-items: center;
+      flex-shrink: 0; width: 36px;
     }
-    .bubble.doctor {
-      background: #1a365d; color: white;
-      border-bottom-right-radius: 4px; align-self: flex-end;
+    .flow-num {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: linear-gradient(135deg, #2b6cb0, #4299e1);
+      color: white; font-size: 16px; font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; z-index: 1;
     }
-    .bubble-label { font-size: 10px; color: #a0aec0; margin-bottom: 4px; }
-    .bubble-label.right { text-align: right; }
+    .flow-line {
+      width: 2px; flex: 1; background: #bee3f8;
+      min-height: 20px; margin: 4px 0;
+    }
+    .flow-body {
+      background: #ebf8ff; border-radius: 14px;
+      padding: 14px 16px; flex: 1; margin-bottom: 8px;
+    }
+    .flow-body h3 { font-size: 14px; font-weight: 700; color: #1a365d; margin-bottom: 4px; }
+    .flow-body p { font-size: 12px; color: #4a5568; line-height: 1.6; }
+    .flow-arrow {
+      text-align: center; font-size: 18px; color: #bee3f8;
+      margin: 2px 0 2px 50px;
+    }
+
+    /* ── 睡眠檢查卡 ── */
+    .sleep-card {
+      background: linear-gradient(135deg, #1a365d, #2b6cb0);
+      border-radius: 16px; padding: 20px; color: white;
+      margin-bottom: 14px;
+    }
+    .sleep-card h3 { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
+    .sleep-card .when {
+      font-size: 12px; opacity: 0.85; margin-bottom: 14px; line-height: 1.5;
+    }
+    .sleep-card .when span {
+      background: rgba(255,255,255,0.2); border-radius: 6px;
+      padding: 2px 8px; font-weight: 700;
+    }
+    .data-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
+    .data-cell {
+      background: rgba(255,255,255,0.12);
+      border-radius: 12px; padding: 12px 8px; text-align: center;
+    }
+    .data-cell .d-icon { font-size: 20px; margin-bottom: 6px; }
+    .data-cell .d-name { font-size: 11px; opacity: 0.85; margin-bottom: 6px; line-height: 1.3; }
+    .data-cell .d-std {
+      font-size: 11px; font-weight: 700;
+      background: rgba(255,255,255,0.2);
+      border-radius: 6px; padding: 3px 6px; display: inline-block;
+    }
 
     /* ── AHI 嚴重度 ── */
-    .ahi-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
-    .ahi-cell {
-      border-radius: 14px; padding: 14px 8px; text-align: center;
+    .ahi-bar {
+      display: flex; border-radius: 12px; overflow: hidden;
+      margin-bottom: 10px; height: 44px;
     }
-    .ahi-cell.mild { background: #f0fff4; }
-    .ahi-cell.moderate { background: #fffff0; }
-    .ahi-cell.severe { background: #fff5f5; }
-    .ahi-cell .ahi-dot {
-      width: 12px; height: 12px; border-radius: 50%;
-      margin: 0 auto 8px;
+    .ahi-seg {
+      flex: 1; display: flex; align-items: center;
+      justify-content: center; flex-direction: column;
     }
-    .mild .ahi-dot { background: #48bb78; }
-    .moderate .ahi-dot { background: #ecc94b; }
-    .severe .ahi-dot { background: #fc8181; }
-    .ahi-cell .ahi-label { font-size: 12px; font-weight: 700; margin-bottom: 4px; }
-    .mild .ahi-label { color: #276749; }
-    .moderate .ahi-label { color: #744210; }
-    .severe .ahi-label { color: #9b2c2c; }
-    .ahi-cell .ahi-val { font-size: 16px; font-weight: 900; margin-bottom: 2px; }
-    .ahi-cell .ahi-unit { font-size: 10px; color: #718096; }
+    .ahi-seg .seg-label { font-size: 10px; font-weight: 700; color: white; }
+    .ahi-seg .seg-val { font-size: 10px; color: rgba(255,255,255,0.8); }
+    .seg-normal   { background: #48bb78; }
+    .seg-mild     { background: #68d391; }
+    .seg-moderate { background: #ecc94b; }
+    .seg-severe   { background: #fc8181; }
+    .ahi-labels {
+      display: grid; grid-template-columns: 1fr 1fr 1fr;
+      gap: 6px; font-size: 11px; color: #4a5568;
+    }
+    .ahi-label-item { text-align: center; }
+    .ahi-label-item strong { display: block; font-size: 13px; color: #1a365d; }
 
-    /* ── 治療表格 ── */
-    .tx-section { margin-bottom: 14px; }
-    .tx-title {
-      font-size: 12px; font-weight: 700; letter-spacing: 1px;
-      color: #2b6cb0; margin-bottom: 8px;
-    }
-    .tx-row {
-      display: flex; align-items: flex-start; gap: 10px;
-      padding: 10px 0; border-bottom: 1px solid #e2e8f0;
-      font-size: 13px;
-    }
-    .tx-row:last-child { border-bottom: none; padding-bottom: 0; }
-    .tx-name { font-weight: 700; min-width: 110px; color: #1a365d; }
-    .tx-indicate { color: #4a5568; font-size: 12px; flex: 1; }
-    .tx-note {
-      font-size: 11px; color: #a0aec0;
-      background: #f7fafc; border-radius: 6px;
-      padding: 2px 6px; white-space: nowrap;
-    }
+    /* ── 兩大治療 ── */
+    .tx-twin { display: flex; flex-direction: column; gap: 12px; }
 
-    /* ── 減重數據 ── */
-    .weight-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px; }
-    .weight-cell {
-      background: #ebf8ff; border-radius: 14px;
-      padding: 16px 12px; text-align: center;
-    }
-    .weight-cell .big { font-size: 32px; font-weight: 900; color: #2b6cb0; line-height: 1; }
-    .weight-cell .desc { font-size: 12px; color: #4a5568; margin-top: 6px; line-height: 1.5; }
-    .weight-note {
-      background: #f7fafc; border-left: 3px solid #4299e1;
-      border-radius: 0 10px 10px 0; padding: 10px 12px;
-      font-size: 12px; color: #2b6cb0; line-height: 1.6;
-    }
-
-    /* ── 睡眠檢查 ── */
-    .sleep-study {
-      background: linear-gradient(135deg, #1a365d, #2b6cb0);
-      border-radius: 16px; padding: 20px; color: white; margin-bottom: 14px;
-    }
-    .sleep-study h3 { font-size: 15px; font-weight: 700; margin-bottom: 10px; }
-    .sleep-study p { font-size: 13px; opacity: 0.9; line-height: 1.7; }
-    .sleep-study .highlight {
-      display: inline-block; background: rgba(255,255,255,0.2);
-      border-radius: 8px; padding: 2px 10px; font-weight: 700; margin-top: 8px;
-    }
-
-    /* ── CPAP ── */
     .cpap-card {
       background: #1a365d; border-radius: 16px;
-      padding: 20px; color: white; margin-bottom: 14px; text-align: center;
+      padding: 20px; color: white;
+      display: flex; align-items: center; gap: 16px;
     }
-    .cpap-card .icon { font-size: 40px; margin-bottom: 10px; }
-    .cpap-card h3 { font-size: 16px; font-weight: 800; margin-bottom: 6px; }
-    .cpap-card .gold { color: #fbd38d; font-size: 12px; margin-bottom: 10px; }
-    .cpap-card p { font-size: 13px; opacity: 0.85; line-height: 1.6; }
+    .cpap-card .icon { font-size: 38px; flex-shrink: 0; }
+    .cpap-card .gold-badge {
+      display: inline-block; background: #f6ad55;
+      color: #744210; font-size: 10px; font-weight: 700;
+      border-radius: 6px; padding: 2px 8px; margin-bottom: 6px;
+    }
+    .cpap-card h3 { font-size: 15px; font-weight: 800; margin-bottom: 4px; }
+    .cpap-card p { font-size: 12px; opacity: 0.85; line-height: 1.5; }
+
+    .weight-card {
+      background: white; border-radius: 16px;
+      border: 2px solid #bee3f8; padding: 18px;
+    }
+    .weight-card .w-title {
+      font-size: 14px; font-weight: 700; color: #1a365d; margin-bottom: 12px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .weight-stat-row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 10px; }
+    .weight-stat {
+      background: #ebf8ff; border-radius: 12px;
+      padding: 14px 10px; text-align: center;
+    }
+    .weight-stat .big { font-size: 30px; font-weight: 900; color: #2b6cb0; line-height: 1; }
+    .weight-stat .desc { font-size: 11px; color: #4a5568; margin-top: 5px; line-height: 1.4; }
+    .weight-note {
+      background: #ebf8ff; border-radius: 10px;
+      padding: 10px 12px; font-size: 12px; color: #2b6cb0; line-height: 1.6;
+    }
+
+    /* ── 完整治療表 ── */
+    .tx-title-sm {
+      font-size: 12px; font-weight: 700; color: #2b6cb0;
+      letter-spacing: 1px; margin-bottom: 8px;
+    }
+    .tx-row {
+      display: flex; align-items: center; gap: 10px;
+      padding: 9px 0; border-bottom: 1px solid #e2e8f0;
+      font-size: 12px;
+    }
+    .tx-row:last-child { border-bottom: none; padding-bottom: 0; }
+    .tx-name { font-weight: 700; min-width: 108px; color: #1a365d; }
+    .tx-indicate { color: #4a5568; flex: 1; }
+    .tx-note {
+      font-size: 10px; color: #a0aec0;
+      background: #f7fafc; border-radius: 6px; padding: 2px 6px; white-space: nowrap;
+    }
+    .tx-divider { height: 1px; background: #e2e8f0; margin: 12px 0; }
 
     /* ── CTA ── */
     .cta-card {
@@ -173,177 +214,210 @@
 
 <div class="container">
 
-  <!-- 打鼾類型 -->
+  <!-- 打鼾類型（純圖示） -->
   <div class="sec-label">TYPES　打鼾的四種類型</div>
   <div class="card">
     <div class="snore-grid">
       <div class="snore-cell">
         <div class="s-icon">👃</div>
         <div class="s-name">鼻鼾</div>
-        <div class="s-desc">鼻塞或鼻中隔彎曲導致</div>
       </div>
       <div class="snore-cell">
         <div class="s-icon">👄</div>
         <div class="s-name">口鼾</div>
-        <div class="s-desc">軟顎鬆弛、懸壅垂過長</div>
       </div>
       <div class="snore-cell">
         <div class="s-icon">👅</div>
         <div class="s-name">舌鼾</div>
-        <div class="s-desc">舌根後墜阻塞氣道</div>
       </div>
       <div class="snore-cell danger">
         <div class="s-icon">⚠️</div>
-        <div class="s-name">致命性打呼</div>
-        <div class="s-desc">呼吸中止，需積極治療</div>
+        <div class="s-name">致命性<br>打呼</div>
       </div>
     </div>
   </div>
 
-  <!-- 診間對話 -->
-  <div class="sec-label">CLINIC　診間對話</div>
+  <!-- 治療流程 -->
+  <div class="sec-label">FLOW　治療流程</div>
   <div class="card">
-    <div class="dialog-wrap">
-      <div>
-        <div class="bubble-label">病患</div>
-        <div class="bubble patient">醫生，你有看打鼾嗎？</div>
+    <div class="flow">
+
+      <div class="flow-step">
+        <div class="flow-left">
+          <div class="flow-num">1</div>
+          <div class="flow-line"></div>
+        </div>
+        <div class="flow-body">
+          <h3>先處理鼻塞</h3>
+          <p>藥物或鼻噴劑緩解鼻塞，改善睡眠時的呼吸。部分患者僅此步驟即可大幅改善。</p>
+        </div>
       </div>
-      <div>
-        <div class="bubble-label right">詹醫師</div>
-        <div class="bubble doctor">有，我幫你看看。你平常睡覺會睡到一半突然醒來嗎？或是最近有沒有變嚴重？</div>
+
+      <div class="flow-arrow">↓ 若效果不佳</div>
+
+      <div class="flow-step">
+        <div class="flow-left">
+          <div class="flow-num">2</div>
+          <div class="flow-line"></div>
+        </div>
+        <div class="flow-body">
+          <h3>安排睡眠生理檢查</h3>
+          <p>居家使用儀器過夜監測，隔天還回診所，報告顯示三個關鍵數值。</p>
+        </div>
       </div>
-      <div>
-        <div class="bubble-label">詹醫師</div>
-        <div class="bubble patient" style="background:#f7fafc; color:#2d3748;">（理學檢查：鼻子、口咽、舌頭，詢問體重）</div>
+
+      <div class="flow-arrow">↓ 依報告數值</div>
+
+      <div class="flow-step">
+        <div class="flow-left">
+          <div class="flow-num">3</div>
+        </div>
+        <div class="flow-body">
+          <h3>對症治療</h3>
+          <p>根據 AHI 嚴重度與個人狀況，選擇最合適的治療方式。</p>
+        </div>
       </div>
-      <div>
-        <div class="bubble-label right">詹醫師</div>
-        <div class="bubble doctor">初步看起來是鼻塞，或是體重有點過重造成的。<br><br>減輕體重可以改善口咽和舌頭的問題；鼻子的部分最好處理，先吃點藥試試看。<br><br>如果效果不好，下一步我會安排睡眠生理檢查。</div>
-      </div>
+
     </div>
   </div>
 
   <!-- 睡眠生理檢查 -->
-  <div class="sec-label">SLEEP STUDY　睡眠生理檢查</div>
-  <div class="sleep-study">
+  <div class="sec-label">SLEEP STUDY　睡眠生理檢查報告</div>
+  <div class="sleep-card">
     <h3>🛌 怎麼安排？</h3>
-    <p>我們診所提供居家睡眠生理檢查儀器租借服務，讓你在家進行檢測，不需住院。</p>
-    <div class="highlight">📅 週二下午 來診租借</div>
-    <p style="margin-top:10px;">或請診所專人與您聯絡安排。</p>
+    <div class="when">
+      <span>📅 週二下午</span> 來診租借，或請診所專人聯絡安排。
+    </div>
+    <div class="data-grid">
+      <div class="data-cell">
+        <div class="d-icon">📊</div>
+        <div class="d-name">AHI 數值<br>每小時呼吸中止次數</div>
+        <div class="d-std">&lt; 5 次／時</div>
+      </div>
+      <div class="data-cell">
+        <div class="d-icon">🩸</div>
+        <div class="d-name">最低血氧<br>飽和度</div>
+        <div class="d-std">&gt; 90%</div>
+      </div>
+      <div class="data-cell">
+        <div class="d-icon">💤</div>
+        <div class="d-name">當晚<br>打鼾次數</div>
+        <div class="d-std">越少越好</div>
+      </div>
+    </div>
   </div>
 
   <!-- AHI 嚴重度 -->
-  <div class="sec-label">AHI　睡眠呼吸中止症嚴重度</div>
+  <div class="sec-label">AHI　嚴重度分級</div>
   <div class="card">
-    <div class="ahi-row">
-      <div class="ahi-cell mild">
-        <div class="ahi-dot"></div>
-        <div class="ahi-label">輕度</div>
-        <div class="ahi-val">5–15</div>
-        <div class="ahi-unit">次／小時</div>
+    <div class="ahi-bar">
+      <div class="ahi-seg seg-normal">
+        <div class="seg-label">正常</div>
+        <div class="seg-val">&lt; 5</div>
       </div>
-      <div class="ahi-cell moderate">
-        <div class="ahi-dot"></div>
-        <div class="ahi-label">中度</div>
-        <div class="ahi-val">15–30</div>
-        <div class="ahi-unit">次／小時</div>
+      <div class="ahi-seg seg-mild">
+        <div class="seg-label">輕度</div>
+        <div class="seg-val">5–15</div>
       </div>
-      <div class="ahi-cell severe">
-        <div class="ahi-dot"></div>
-        <div class="ahi-label">重度</div>
-        <div class="ahi-val">&gt; 30</div>
-        <div class="ahi-unit">次／小時</div>
+      <div class="ahi-seg seg-moderate">
+        <div class="seg-label">中度</div>
+        <div class="seg-val">15–30</div>
       </div>
+      <div class="ahi-seg seg-severe">
+        <div class="seg-label">重度</div>
+        <div class="seg-val">&gt; 30</div>
+      </div>
+    </div>
+    <div class="ahi-labels">
+      <div class="ahi-label-item"><strong>輕度</strong>觀察 ＋ 生活調整</div>
+      <div class="ahi-label-item"><strong>中度</strong>積極介入治療</div>
+      <div class="ahi-label-item"><strong>重度</strong>正壓呼吸器優先</div>
     </div>
   </div>
 
-  <!-- CPAP -->
-  <div class="sec-label">GOLD STANDARD　黃金治療</div>
-  <div class="cpap-card">
-    <div class="icon">💨</div>
-    <h3>正壓呼吸器（CPAP）</h3>
-    <div class="gold">★ 目前治療睡眠呼吸中止症的黃金標準</div>
-    <p>持續正壓氣流撐開睡眠時塌陷的氣道，有效防止呼吸中止，改善睡眠品質與白天精神。</p>
+  <!-- 兩大核心治療 -->
+  <div class="sec-label">TREATMENT　兩大核心治療</div>
+  <div class="tx-twin">
+
+    <div class="cpap-card">
+      <div class="icon">💨</div>
+      <div>
+        <div class="gold-badge">★ 黃金治療標準</div>
+        <h3>正壓呼吸器（CPAP）</h3>
+        <p>持續正壓氣流撐開睡眠時塌陷的氣道，有效防止呼吸中止，適合中重度患者。</p>
+      </div>
+    </div>
+
+    <div class="weight-card">
+      <div class="w-title">⚖️ 減重——非手術中最核心的改變</div>
+      <div class="weight-stat-row">
+        <div class="weight-stat">
+          <div class="big">50%</div>
+          <div class="desc">體重降 15–20%<br>→ 完全恢復正常</div>
+        </div>
+        <div class="weight-stat">
+          <div class="big">50%</div>
+          <div class="desc">從重度<br>→ 改善至輕度</div>
+        </div>
+      </div>
+      <div class="weight-note">
+        💡 猛健樂適應症之一：BMI &gt; 30 且合併睡眠呼吸中止症
+      </div>
+    </div>
+
   </div>
 
-  <!-- 治療方式 -->
-  <div class="sec-label">TREATMENT　治療方式一覽</div>
+  <!-- 完整治療參考表 -->
+  <div class="sec-label">REFERENCE　完整治療方式參考</div>
   <div class="card">
-    <div class="tx-section">
-      <div class="tx-title">💊 非手術方式</div>
-      <div class="tx-row">
-        <span class="tx-name">藥物 ／ 鼻噴劑</span>
-        <span class="tx-indicate">緩解鼻塞</span>
-      </div>
-      <div class="tx-row">
-        <span class="tx-name">猛健樂減重針</span>
-        <span class="tx-indicate">肥胖合併呼吸中止</span>
-        <span class="tx-note">自費</span>
-      </div>
-      <div class="tx-row">
-        <span class="tx-name">止鼾牙套</span>
-        <span class="tx-indicate">輕度 OSA</span>
-        <span class="tx-note">轉介牙科</span>
-      </div>
-      <div class="tx-row">
-        <span class="tx-name">口咽運動</span>
-        <span class="tx-indicate">輕度 OSA</span>
-      </div>
-      <div class="tx-row">
-        <span class="tx-name">正壓呼吸器</span>
-        <span class="tx-indicate">中重度 OSA</span>
-      </div>
+    <div class="tx-title-sm">💊 非手術方式</div>
+    <div class="tx-row">
+      <span class="tx-name">藥物 ／ 鼻噴劑</span>
+      <span class="tx-indicate">緩解鼻塞</span>
     </div>
-    <div style="height:1px;background:#e2e8f0;margin:14px 0;"></div>
-    <div class="tx-section" style="margin-bottom:0">
-      <div class="tx-title">🔧 手術方式</div>
-      <div class="tx-row">
-        <span class="tx-name">鼻塞手術</span>
-        <span class="tx-indicate">下鼻甲肥大</span>
-      </div>
-      <div class="tx-row">
-        <span class="tx-name">鼻竇炎手術</span>
-        <span class="tx-indicate">鼻竇炎</span>
-      </div>
-      <div class="tx-row">
-        <span class="tx-name">腺樣體切除術</span>
-        <span class="tx-indicate">腺樣體肥大</span>
-      </div>
-      <div class="tx-row">
-        <span class="tx-name">扁桃腺切除術</span>
-        <span class="tx-indicate">扁桃腺肥大</span>
-      </div>
-      <div class="tx-row">
-        <span class="tx-name">懸壅顎咽成形術</span>
-        <span class="tx-indicate">軟顎塌陷</span>
-      </div>
-      <div class="tx-row">
-        <span class="tx-name">MMA 上下顎前移</span>
-        <span class="tx-indicate">下顎短小後縮</span>
-      </div>
-      <div class="tx-row">
-        <span class="tx-name">舌根切除術</span>
-        <span class="tx-indicate">舌根肥大</span>
-      </div>
+    <div class="tx-row">
+      <span class="tx-name">減重（含猛健樂）</span>
+      <span class="tx-indicate">肥胖合併 OSA</span>
+      <span class="tx-note">自費</span>
     </div>
-  </div>
-
-  <!-- 減重數據 -->
-  <div class="sec-label">WEIGHT LOSS　減重的驚人效果</div>
-  <div class="card">
-    <p style="font-size:13px;color:#4a5568;margin-bottom:12px;line-height:1.6;">體重降低 <strong>15–20%</strong> 後，睡眠呼吸中止症患者：</p>
-    <div class="weight-row">
-      <div class="weight-cell">
-        <div class="big">50%</div>
-        <div class="desc">完全恢復正常</div>
-      </div>
-      <div class="weight-cell">
-        <div class="big">50%</div>
-        <div class="desc">從重度改善至輕度</div>
-      </div>
+    <div class="tx-row">
+      <span class="tx-name">止鼾牙套</span>
+      <span class="tx-indicate">輕度 OSA</span>
+      <span class="tx-note">轉介牙科</span>
     </div>
-    <div class="weight-note">
-      💡 猛健樂適應症之一：BMI &gt; 30 且合併睡眠呼吸中止症的患者
+    <div class="tx-row">
+      <span class="tx-name">口咽運動</span>
+      <span class="tx-indicate">輕度 OSA</span>
+    </div>
+    <div class="tx-row">
+      <span class="tx-name">正壓呼吸器</span>
+      <span class="tx-indicate">中重度 OSA</span>
+    </div>
+    <div class="tx-divider"></div>
+    <div class="tx-title-sm">🔧 手術方式</div>
+    <div class="tx-row">
+      <span class="tx-name">鼻塞手術</span>
+      <span class="tx-indicate">下鼻甲肥大</span>
+    </div>
+    <div class="tx-row">
+      <span class="tx-name">鼻竇炎手術</span>
+      <span class="tx-indicate">鼻竇炎</span>
+    </div>
+    <div class="tx-row">
+      <span class="tx-name">腺樣體 ／ 扁桃腺切除</span>
+      <span class="tx-indicate">腺體肥大</span>
+    </div>
+    <div class="tx-row">
+      <span class="tx-name">懸壅顎咽成形術</span>
+      <span class="tx-indicate">軟顎塌陷</span>
+    </div>
+    <div class="tx-row">
+      <span class="tx-name">MMA 上下顎前移</span>
+      <span class="tx-indicate">下顎短小後縮</span>
+    </div>
+    <div class="tx-row">
+      <span class="tx-name">舌根切除術</span>
+      <span class="tx-indicate">舌根肥大</span>
     </div>
   </div>
 
