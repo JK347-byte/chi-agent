@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>小兒打鼾與睡眠呼吸中止症｜日和聯合診所</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, "Helvetica Neue", Arial, sans-serif;
+      background: #f0fdf4;
+      color: #1a2e1a;
+    }
+
+    header {
+      background: linear-gradient(135deg, #065f46, #059669);
+      color: white;
+      text-align: center;
+      padding: 36px 24px 30px;
+    }
+    header .clinic { font-size: 11px; letter-spacing: 3px; opacity: 0.75; margin-bottom: 8px; }
+    header .tag {
+      display: inline-block; background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.35);
+      border-radius: 20px; font-size: 11px;
+      padding: 3px 12px; margin-bottom: 10px; letter-spacing: 1px;
+    }
+    header h1 { font-size: 23px; font-weight: 800; line-height: 1.3; }
+    header .sub { font-size: 12px; opacity: 0.82; margin-top: 8px; }
+
+    .container { max-width: 480px; margin: 0 auto; padding: 20px 16px 60px; }
+
+    .sec-label {
+      font-size: 11px; font-weight: 700; letter-spacing: 2px;
+      color: #065f46; margin: 26px 0 10px;
+    }
+
+    .card {
+      background: white; border-radius: 18px;
+      padding: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+      margin-bottom: 14px;
+    }
+
+    /* ── 打鼾類型 ── */
+    .snore-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .snore-cell {
+      background: #f0fdf4; border-radius: 14px;
+      padding: 14px 10px; text-align: center;
+    }
+    .snore-cell.danger { background: #fff5f5; }
+    .snore-cell .s-icon { font-size: 26px; margin-bottom: 6px; }
+    .snore-cell .s-name { font-size: 13px; font-weight: 700; color: #065f46; }
+    .snore-cell.danger .s-name { color: #9b2c2c; }
+    .snore-cell .s-desc { font-size: 11px; color: #4b5563; margin-top: 4px; line-height: 1.4; }
+
+    /* ── 三大原因 ── */
+    .cause-list { display: flex; flex-direction: column; gap: 10px; }
+    .cause-item {
+      display: flex; align-items: flex-start; gap: 14px;
+      background: #f0fdf4; border-radius: 14px; padding: 14px;
+    }
+    .cause-num {
+      width: 32px; height: 32px; border-radius: 50%;
+      background: linear-gradient(135deg, #059669, #10b981);
+      color: white; font-size: 15px; font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .cause-body h3 { font-size: 14px; font-weight: 700; color: #065f46; margin-bottom: 4px; }
+    .cause-body p { font-size: 12px; color: #4b5563; line-height: 1.6; }
+
+    /* ── 治療對應 ── */
+    .tx-match { display: flex; flex-direction: column; gap: 10px; }
+    .tx-item {
+      border-radius: 14px; padding: 14px 16px;
+    }
+    .tx-item.med { background: #f0fdf4; border-left: 4px solid #10b981; }
+    .tx-item.surg { background: #ebf8ff; border-left: 4px solid #4299e1; }
+    .tx-item .tx-cause { font-size: 11px; font-weight: 700; letter-spacing: 1px; margin-bottom: 4px; }
+    .tx-item.med .tx-cause { color: #065f46; }
+    .tx-item.surg .tx-cause { color: #2b6cb0; }
+    .tx-item .tx-action { font-size: 13px; font-weight: 700; color: #1a2e1a; margin-bottom: 4px; }
+    .tx-item .tx-detail { font-size: 12px; color: #4b5563; line-height: 1.5; }
+
+    /* ── A+T 手術 ── */
+    .surgery-header {
+      background: linear-gradient(135deg, #065f46, #059669);
+      border-radius: 16px 16px 0 0; padding: 20px;
+      color: white; text-align: center;
+    }
+    .surgery-header .surg-badge {
+      display: inline-block; background: rgba(255,255,255,0.2);
+      border-radius: 20px; font-size: 11px; padding: 3px 12px; margin-bottom: 8px;
+    }
+    .surgery-header h3 { font-size: 17px; font-weight: 800; margin-bottom: 6px; }
+    .surgery-header p { font-size: 12px; opacity: 0.88; line-height: 1.6; }
+
+    .surgery-body {
+      background: white; border-radius: 0 0 18px 18px;
+      padding: 20px; box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+      margin-bottom: 14px;
+    }
+    .surg-section { margin-bottom: 16px; }
+    .surg-section:last-child { margin-bottom: 0; }
+    .surg-section-title {
+      font-size: 11px; font-weight: 700; color: #065f46;
+      letter-spacing: 1px; margin-bottom: 8px;
+    }
+
+    .indication-list { display: flex; flex-direction: column; gap: 8px; }
+    .indication-item {
+      background: #f0fdf4; border-radius: 12px; padding: 12px 14px;
+    }
+    .indication-item .i-title { font-size: 13px; font-weight: 700; color: #065f46; margin-bottom: 3px; }
+    .indication-item .i-desc { font-size: 12px; color: #4b5563; line-height: 1.5; }
+
+    .feature-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
+    .feature-cell {
+      background: #f0fdf4; border-radius: 12px;
+      padding: 12px 8px; text-align: center;
+    }
+    .feature-cell .f-icon { font-size: 22px; margin-bottom: 6px; }
+    .feature-cell .f-text { font-size: 11px; font-weight: 700; color: #065f46; }
+
+    .effect-list { display: flex; flex-direction: column; gap: 8px; }
+    .effect-item {
+      display: flex; align-items: flex-start; gap: 10px;
+      padding: 12px; background: #f0fdf4; border-radius: 12px;
+    }
+    .effect-icon { font-size: 20px; flex-shrink: 0; }
+    .effect-body .e-title { font-size: 13px; font-weight: 700; color: #065f46; margin-bottom: 3px; }
+    .effect-body .e-desc { font-size: 12px; color: #4b5563; line-height: 1.5; }
+
+    .note-bar {
+      background: #fef3c7; border-left: 4px solid #f59e0b;
+      border-radius: 0 10px 10px 0; padding: 12px 14px;
+      font-size: 12px; color: #92400e; line-height: 1.6;
+    }
+
+    /* ── CTA ── */
+    .cta-card {
+      background: linear-gradient(135deg, #065f46, #059669);
+      border-radius: 18px; padding: 22px 20px;
+      text-align: center; color: white; margin-top: 20px;
+    }
+    .cta-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
+    .cta-card p { font-size: 12px; opacity: 0.88; margin-bottom: 14px; }
+    .cta-phone {
+      display: block; background: white; color: #065f46;
+      font-size: 17px; font-weight: 800;
+      border-radius: 12px; padding: 12px;
+      text-decoration: none; letter-spacing: 1px;
+    }
+
+    footer {
+      text-align: center; font-size: 11px;
+      color: #9ca3af; margin-top: 28px; line-height: 2;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="clinic">日 和 聯 合 診 所</div>
+  <div class="tag">兒科衛教</div>
+  <h1>😴 小兒打鼾與<br>睡眠呼吸中止症</h1>
+  <div class="sub">詹士奇醫師｜耳鼻喉科</div>
+</header>
+
+<div class="container">
+
+  <!-- 打鼾類型 -->
+  <div class="sec-label">TYPES　打鼾的四種類型</div>
+  <div class="card">
+    <div class="snore-grid">
+      <div class="snore-cell">
+        <div class="s-icon">👃</div>
+        <div class="s-name">鼻鼾</div>
+        <div class="s-desc">鼻塞或腺樣體肥大</div>
+      </div>
+      <div class="snore-cell">
+        <div class="s-icon">👄</div>
+        <div class="s-name">口鼾</div>
+        <div class="s-desc">扁桃腺肥大、口呼吸</div>
+      </div>
+      <div class="snore-cell">
+        <div class="s-icon">👅</div>
+        <div class="s-name">舌鼾</div>
+        <div class="s-desc">舌根後墜阻塞氣道</div>
+      </div>
+      <div class="snore-cell danger">
+        <div class="s-icon">⚠️</div>
+        <div class="s-name">致命性打呼</div>
+        <div class="s-desc">呼吸中止，需積極治療</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 三大原因 -->
+  <div class="sec-label">CAUSES　小孩打鼾三大原因</div>
+  <div class="card">
+    <div class="cause-list">
+      <div class="cause-item">
+        <div class="cause-num">1</div>
+        <div class="cause-body">
+          <h3>鼻塞・下鼻甲肥大</h3>
+          <p>鼻腔通道狹窄，導致睡眠時用嘴呼吸、打鼾，影響睡眠品質。</p>
+        </div>
+      </div>
+      <div class="cause-item">
+        <div class="cause-num">2</div>
+        <div class="cause-body">
+          <h3>腺樣體肥大</h3>
+          <p>位於鼻咽後方的腺體，肥大時阻塞後鼻孔，造成張口呼吸與打鼾。</p>
+        </div>
+      </div>
+      <div class="cause-item">
+        <div class="cause-num">3</div>
+        <div class="cause-body">
+          <h3>扁桃腺肥大</h3>
+          <p>口咽兩側扁桃腺過大，縮小氣道空間，是小孩睡眠呼吸中止的主因之一。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 治療方式 -->
+  <div class="sec-label">TREATMENT　對應治療方式</div>
+  <div class="card">
+    <div class="tx-match">
+      <div class="tx-item med">
+        <div class="tx-cause">👃 鼻塞 ／ 下鼻甲肥大</div>
+        <div class="tx-action">藥物治療為主</div>
+        <div class="tx-detail">藥水、口服藥物、鼻噴劑緩解鼻塞，改善睡眠時的呼吸狀況。</div>
+      </div>
+      <div class="tx-item surg">
+        <div class="tx-cause">🔬 腺樣體 ／ 扁桃腺肥大</div>
+        <div class="tx-action">考慮微創手術</div>
+        <div class="tx-detail">A+T 扁桃腺與腺樣體微創手術，直接解除氣道阻塞，效果立竿見影。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- A+T 手術 -->
+  <div class="sec-label">SURGERY　A+T 微創手術</div>
+  <div class="surgery-header">
+    <div class="surg-badge">扁桃腺 ＋ 腺樣體</div>
+    <h3>A+T 微創切除術</h3>
+    <p>切除肥大的扁桃腺與腺樣體，暢通呼吸道，改善睡眠品質與成長發育，並減少反覆感染。</p>
+  </div>
+  <div class="surgery-body">
+
+    <div class="surg-section">
+      <div class="surg-section-title">手術適應症</div>
+      <div class="indication-list">
+        <div class="indication-item">
+          <div class="i-title">🫁 呼吸障礙</div>
+          <div class="i-desc">腺體肥大阻塞氣流，導致張口呼吸、打鼾、睡眠呼吸中止。</div>
+        </div>
+        <div class="indication-item">
+          <div class="i-title">🦠 反覆感染</div>
+          <div class="i-desc">頻繁的扁桃腺炎（一年 7 次以上）或中耳炎、鼻竇炎等相關感染。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="surg-section">
+      <div class="surg-section-title">手術特色</div>
+      <div class="feature-row">
+        <div class="feature-cell">
+          <div class="f-icon">⏱️</div>
+          <div class="f-text">時間短</div>
+        </div>
+        <div class="feature-cell">
+          <div class="f-icon">🚀</div>
+          <div class="f-text">恢復快</div>
+        </div>
+        <div class="feature-cell">
+          <div class="f-icon">✨</div>
+          <div class="f-text">無傷口</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="surg-section">
+      <div class="surg-section-title">手術後三大改變</div>
+      <div class="effect-list">
+        <div class="effect-item">
+          <div class="effect-icon">🌬️</div>
+          <div class="effect-body">
+            <div class="e-title">呼吸順暢（立竿見影）</div>
+            <div class="e-desc">術後立即解除呼吸道阻塞，改善睡眠中的吐氣品質，第一選擇治療。</div>
+          </div>
+        </div>
+        <div class="effect-item">
+          <div class="effect-icon">😴</div>
+          <div class="effect-body">
+            <div class="e-title">睡眠品質改善</div>
+            <div class="e-desc">情緒穩定，改善因睡眠不足導致的疲憊與情緒不穩，加強專注力。</div>
+          </div>
+        </div>
+        <div class="effect-item">
+          <div class="effect-icon">🌱</div>
+          <div class="effect-body">
+            <div class="e-title">容貌發育改善</div>
+            <div class="e-desc">矯正長期口呼吸，促進身高發育，改善「腺樣體面容」。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="surg-section" style="margin-bottom:0">
+      <div class="surg-section-title">注意事項</div>
+      <div class="note-bar">
+        ⚠️ 住院期間中度疼痛，出院後輕度疼痛。<br>
+        術後整體出血率約 2.0%，需再次手術率 0.7%。
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-card">
+    <h3>孩子有打鼾問題？</h3>
+    <p>歡迎電話預約，由詹士奇醫師評估是否需要手術</p>
+    <a class="cta-phone" href="tel:0666520182">📞 06-6520182</a>
+  </div>
+
+  <footer>
+    日和聯合診所｜台南市鹽水區<br>
+    本衛教內容僅供參考，實際治療請依醫師診斷為準
+  </footer>
+</div>
+</body>
+</html>
