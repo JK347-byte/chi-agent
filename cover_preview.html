@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<title>封面預覽</title>
+<style>
+  body {
+    margin: 0;
+    background: #222;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    font-family: sans-serif;
+  }
+  .label {
+    color: #aaa;
+    font-size: 13px;
+    margin-bottom: 12px;
+    letter-spacing: 0.1em;
+  }
+  .scale-wrapper {
+    transform-origin: top center;
+    transform: scale(0.6);
+    margin-bottom: -480px; /* compensate for scale(0.6) on 1200px */
+  }
+  iframe {
+    width: 1200px;
+    height: 1200px;
+    border: none;
+    display: block;
+  }
+  .open-link {
+    margin-top: 24px;
+    color: #81c784;
+    font-size: 13px;
+    text-decoration: none;
+    letter-spacing: 0.05em;
+  }
+</style>
+</head>
+<body>
+  <div class="label">封面圖預覽（縮小至 60%）</div>
+  <div class="scale-wrapper">
+    <iframe src="cover_demo.html"></iframe>
+  </div>
+  <a class="open-link" href="cover_demo.html" target="_blank">→ 開原始尺寸（需要 1920px 螢幕）</a>
+</body>
+</html>

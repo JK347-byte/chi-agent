@@ -2,33 +2,30 @@
 <html lang="zh-TW">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=1080">
+<meta name="viewport" content="width=1200">
 <title>日和聯合診所 資訊圖表</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   body {
-    width: 1080px;
-    height: 1080px;
+    width: 1200px;
+    height: 1200px;
     overflow: hidden;
     font-family: 'Noto Serif TC', 'Noto Sans TC', serif;
-    background: #f5f9f0;
   }
 
   .card {
-    width: 1080px;
-    height: 1080px;
+    width: 1200px;
+    height: 1200px;
     display: flex;
     flex-direction: column;
-    background: #ffffff;
-    position: relative;
-    overflow: hidden;
+    background: #f7faf7;
   }
 
-  /* ── 頂部 Header ── */
+  /* ── Header ── */
   .header {
-    background: linear-gradient(135deg, #1a4a22 0%, #2e7d32 100%);
-    padding: 32px 48px 28px;
+    background: linear-gradient(135deg, #14391a 0%, #2e7d32 100%);
+    padding: 20px 44px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -42,22 +39,22 @@
   }
 
   .logo-img {
-    width: 44px;
-    height: 44px;
+    width: 42px;
+    height: 42px;
     object-fit: contain;
     filter: brightness(0) invert(1);
   }
 
   .clinic-name-zh {
-    font-size: 20px;
+    font-size: 24px;
     font-weight: 700;
-    color: #ffffff;
-    letter-spacing: 0.1em;
+    color: #fff;
+    letter-spacing: 0.08em;
   }
 
   .clinic-name-en {
-    font-size: 10px;
-    color: rgba(255,255,255,0.6);
+    font-size: 11px;
+    color: rgba(255,255,255,0.5);
     letter-spacing: 0.18em;
     margin-top: 2px;
   }
@@ -66,33 +63,35 @@
     background: rgba(255,255,255,0.15);
     border: 1px solid rgba(255,255,255,0.3);
     color: #c8e6c9;
-    font-size: 13px;
-    letter-spacing: 0.15em;
-    padding: 5px 16px;
-    border-radius: 20px;
+    font-size: 15px;
+    letter-spacing: 0.12em;
+    padding: 7px 20px;
+    border-radius: 24px;
   }
 
-  /* ── 標題區 ── */
+  /* ── Title section ── */
   .title-section {
-    padding: 28px 48px 20px;
-    border-bottom: 2px solid #e8f5e9;
+    padding: 22px 44px 16px;
+    background: #fff;
+    border-bottom: 3px solid #c8e6c9;
     flex-shrink: 0;
   }
 
   .infographic-type {
-    font-size: 12px;
-    letter-spacing: 0.2em;
-    color: #81c784;
-    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 0.28em;
+    color: #66bb6a;
     margin-bottom: 8px;
+    font-weight: 600;
+    text-transform: uppercase;
   }
 
   .main-title {
-    font-size: 30px;
+    font-size: 40px;
     font-weight: 800;
     color: #1a4a22;
-    line-height: 1.3;
-    letter-spacing: 0.03em;
+    line-height: 1.25;
+    letter-spacing: 0.02em;
   }
 
   /* ══════════════════════════════════
@@ -102,75 +101,77 @@
     flex: 1;
     display: flex;
     flex-direction: column;
-    padding: 20px 48px 0;
-    gap: 14px;
+    padding: 16px 44px 14px;
+    gap: 10px;
   }
 
   .mf-header-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 12px;
+    gap: 10px;
     flex-shrink: 0;
   }
 
   .mf-col-label {
     text-align: center;
-    font-size: 15px;
+    font-size: 22px;
     font-weight: 700;
-    letter-spacing: 0.15em;
-    padding: 8px;
+    letter-spacing: 0.1em;
+    padding: 11px;
     border-radius: 8px;
   }
 
-  .mf-col-label.myth { background: #fce4ec; color: #c62828; }
-  .mf-col-label.fact { background: #e8f5e9; color: #2e7d32; }
+  .mf-col-label.myth {
+    background: #c62828;
+    color: #fff;
+  }
+  .mf-col-label.fact {
+    background: #1b5e20;
+    color: #fff;
+  }
 
   .mf-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 12px;
+    gap: 10px;
     flex: 1;
   }
 
   .mf-cell {
-    border-radius: 12px;
-    padding: 20px 22px;
+    border-radius: 10px;
+    padding: 18px 22px 16px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 8px;
+    justify-content: flex-start;
+    gap: 10px;
   }
 
   .mf-cell.myth-cell {
-    background: #fff5f5;
-    border: 1.5px solid #ffcdd2;
+    background: #fff8f8;
+    border: 1.5px solid #ef9a9a;
+    border-left: 6px solid #c62828;
   }
 
   .mf-cell.fact-cell {
-    background: #f1f8f2;
-    border: 1.5px solid #c8e6c9;
-  }
-
-  .mf-icon {
-    font-size: 20px;
-    line-height: 1;
+    background: #f2f9f2;
+    border: 1.5px solid #a5d6a7;
+    border-left: 6px solid #1b5e20;
   }
 
   .mf-text {
-    font-size: 17px;
-    line-height: 1.5;
-    font-weight: 600;
+    font-size: 30px;
+    line-height: 1.35;
+    font-weight: 700;
   }
 
   .mf-cell.myth-cell .mf-text { color: #b71c1c; }
-  .mf-cell.fact-cell .mf-text { color: #1b5e20; }
+  .mf-cell.fact-cell .mf-text  { color: #1b5e20; }
 
   .mf-sub {
-    font-size: 14px;
-    line-height: 1.5;
-    color: #555;
+    font-size: 22px;
+    line-height: 1.55;
     font-weight: 400;
+    color: #555;
   }
 
   /* ══════════════════════════════════
@@ -180,49 +181,52 @@
     flex: 1;
     display: flex;
     flex-direction: column;
-    padding: 20px 48px 0;
-    gap: 16px;
+    padding: 18px 44px 14px;
+    gap: 14px;
   }
 
   .kp-card {
     flex: 1;
     border-radius: 14px;
-    padding: 20px 24px;
+    padding: 22px 28px;
     display: flex;
-    align-items: center;
-    gap: 20px;
-    border: 1.5px solid #c8e6c9;
-    background: linear-gradient(135deg, #f9fffe 0%, #f1f8f2 100%);
+    align-items: flex-start;
+    gap: 22px;
+    border-left: 6px solid #2e7d32;
+    background: #fff;
+    box-shadow: 0 2px 14px rgba(46,125,50,0.09);
   }
 
   .kp-number {
-    width: 52px;
-    height: 52px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #2e7d32, #388e3c);
-    color: white;
-    font-size: 24px;
+    background: linear-gradient(135deg, #14391a, #2e7d32);
+    color: #fff;
+    font-size: 30px;
     font-weight: 800;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
+    margin-top: 2px;
   }
 
   .kp-content { flex: 1; }
 
   .kp-title {
-    font-size: 20px;
+    font-size: 32px;
     font-weight: 700;
     color: #1a4a22;
-    margin-bottom: 6px;
+    margin-bottom: 8px;
+    line-height: 1.3;
     letter-spacing: 0.02em;
   }
 
   .kp-desc {
-    font-size: 16px;
+    font-size: 24px;
     color: #444;
-    line-height: 1.6;
+    line-height: 1.55;
   }
 
   /* ══════════════════════════════════
@@ -232,32 +236,30 @@
     flex: 1;
     display: flex;
     flex-direction: column;
-    padding: 20px 48px 0;
-    position: relative;
+    padding: 18px 44px 14px;
   }
 
   .step-item {
     display: flex;
-    gap: 20px;
+    gap: 22px;
     flex: 1;
-    position: relative;
   }
 
   .step-left {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 52px;
+    width: 60px;
     flex-shrink: 0;
   }
 
   .step-circle {
-    width: 52px;
-    height: 52px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #1a4a22, #2e7d32);
-    color: white;
-    font-size: 22px;
+    background: linear-gradient(135deg, #14391a, #2e7d32);
+    color: #fff;
+    font-size: 28px;
     font-weight: 800;
     display: flex;
     align-items: center;
@@ -268,53 +270,52 @@
   }
 
   .step-line {
-    width: 2px;
+    width: 3px;
     flex: 1;
-    background: linear-gradient(to bottom, #81c784, rgba(129,199,132,0.1));
-    margin: 4px 0;
+    background: linear-gradient(to bottom, #81c784, rgba(129,199,132,0.08));
+    margin: 6px 0;
   }
 
   .step-content {
     flex: 1;
-    padding: 8px 0 16px;
+    padding: 8px 0 14px;
   }
 
   .step-title {
-    font-size: 20px;
+    font-size: 30px;
     font-weight: 700;
     color: #1a4a22;
-    margin-bottom: 6px;
+    margin-bottom: 8px;
+    line-height: 1.3;
   }
 
   .step-desc {
-    font-size: 16px;
+    font-size: 22px;
     color: #444;
     line-height: 1.6;
   }
 
-  /* ── 底部 Footer ── */
+  /* ── Footer ── */
   .footer {
-    background: #f5f9f0;
-    border-top: 1px solid #c8e6c9;
-    padding: 16px 48px;
+    background: #14391a;
+    padding: 15px 44px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-shrink: 0;
-    margin-top: 20px;
   }
 
   .footer-clinic {
-    font-size: 14px;
-    color: #2e7d32;
+    font-size: 17px;
+    color: #a5d6a7;
     font-weight: 600;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.06em;
   }
 
   .footer-phone {
-    font-size: 14px;
-    color: #555;
-    letter-spacing: 0.05em;
+    font-size: 17px;
+    color: rgba(255,255,255,0.7);
+    letter-spacing: 0.06em;
   }
 </style>
 </head>
@@ -330,13 +331,13 @@
         <div class="clinic-name-en">RIHE INTEGRATED CLINIC</div>
       </div>
     </div>
-    <div class="category-pill" id="category-pill">耳鼻喉健康知識</div>
+    <div class="category-pill" id="category-pill">偏頭痛生活管理</div>
   </div>
 
   <!-- Title -->
   <div class="title-section">
     <div class="infographic-type" id="type-label">迷思 VS 事實</div>
-    <div class="main-title" id="main-title">關於耳垢，你可能搞錯了這些事</div>
+    <div class="main-title" id="main-title">預防偏頭痛，你可能搞錯了這些事</div>
   </div>
 
   <!-- ════ TYPE A：迷思 vs 事實 ════ -->
@@ -349,34 +350,34 @@
 
     <div class="mf-row">
       <div class="mf-cell myth-cell">
-        <div class="mf-text" id="myth-1">耳垢很髒，要定期清除</div>
-        <div class="mf-sub" id="myth-1-sub">很多人習慣每週清耳道，覺得不清會感染</div>
+        <div class="mf-text" id="myth-1">壓力大才偏頭痛，放假就會好</div>
+        <div class="mf-sub" id="myth-1-sub">放假了應該不會再頭痛了吧？</div>
       </div>
       <div class="mf-cell fact-cell">
-        <div class="mf-text" id="fact-1">耳垢是天然保護屏障，有抗菌功能</div>
-        <div class="mf-sub" id="fact-1-sub">皮脂腺與耵聹腺共同分泌，可防水、防菌、防昆蟲</div>
+        <div class="mf-text" id="fact-1">壓力「突然解除」也是誘發地雷</div>
+        <div class="mf-sub" id="fact-1-sub">過年放假、考試結束後反而容易發作，壓力波動才是關鍵</div>
       </div>
     </div>
 
     <div class="mf-row">
       <div class="mf-cell myth-cell">
-        <div class="mf-text" id="myth-2">棉花棒是清耳道的好工具</div>
-        <div class="mf-sub" id="myth-2-sub">棉花棒看起來軟，應該不會傷到耳道吧？</div>
+        <div class="mf-text" id="myth-2">偏頭痛只要忍過去就好</div>
+        <div class="mf-sub" id="myth-2-sub">忍一下就過了，不需要特別處理</div>
       </div>
       <div class="mf-cell fact-cell">
-        <div class="mf-text" id="fact-2">棉花棒只會把耳垢推更深</div>
-        <div class="mf-sub" id="fact-2-sub">破皮後引發外耳炎，嚴重恐導致膽脂瘤</div>
+        <div class="mf-text" id="fact-2">長期忍耐會讓大腦更敏感</div>
+        <div class="mf-sub" id="fact-2-sub">規律作息 ＋ 正念減壓能降低神經敏感度，越早介入越好</div>
       </div>
     </div>
 
     <div class="mf-row">
       <div class="mf-cell myth-cell">
-        <div class="mf-text" id="myth-3">耳朵癢痛是耳垢太多</div>
-        <div class="mf-sub" id="myth-3-sub">趕快挖一挖，清乾淨就不癢了</div>
+        <div class="mf-text" id="myth-3">針灸只是安慰效果，沒有實質幫助</div>
+        <div class="mf-sub" id="myth-3-sub">中醫感覺比較「玄」，偏頭痛應該只靠西藥</div>
       </div>
       <div class="mf-cell fact-cell">
-        <div class="mf-text" id="fact-3">耳癢耳痛多半是感染，需要就醫</div>
-        <div class="mf-sub" id="fact-3-sub">自行挖耳只會讓狀況更複雜</div>
+        <div class="mf-text" id="fact-3">針灸有助放鬆肌肉、降低發作頻率</div>
+        <div class="mf-sub" id="fact-3-sub">中西醫搭配療效更全面，慢性偏頭痛尤其適合</div>
       </div>
     </div>
 
@@ -417,8 +418,8 @@
         <div class="step-line"></div>
       </div>
       <div class="step-content">
-        <div class="step-title" id="step-title-1">步驟一標題</div>
-        <div class="step-desc" id="step-desc-1">說明文字</div>
+        <div class="step-title" id="step-title-1">急性發作：立即滅火</div>
+        <div class="step-desc" id="step-desc-1">使用止痛藥 ＋ 止吐藥壓制症狀；無法吞嚥時改用鼻噴劑，快速吸收、緩解頭暈頭痛</div>
       </div>
     </div>
     <div class="step-item">
@@ -427,8 +428,8 @@
         <div class="step-line"></div>
       </div>
       <div class="step-content">
-        <div class="step-title" id="step-title-2">步驟二標題</div>
-        <div class="step-desc" id="step-desc-2">說明文字</div>
+        <div class="step-title" id="step-title-2">慢性預防：長期調體質</div>
+        <div class="step-desc" id="step-desc-2">每月發作逾 4 天或嚴重失能，啟動預防用藥，療程 3–12 個月，穩定後再評估停藥</div>
       </div>
     </div>
     <div class="step-item">
@@ -437,8 +438,8 @@
         <div class="step-line"></div>
       </div>
       <div class="step-content">
-        <div class="step-title" id="step-title-3">步驟三標題</div>
-        <div class="step-desc" id="step-desc-3">說明文字</div>
+        <div class="step-title" id="step-title-3">中西醫搭配：加強輔助</div>
+        <div class="step-desc" id="step-desc-3">針灸幫助放鬆肌肉、疏通經絡，可搭配邱汶珊中醫師一同診療，效果更全面</div>
       </div>
     </div>
   </div>
@@ -446,7 +447,7 @@
 
   <!-- Footer -->
   <div class="footer">
-    <div class="footer-clinic">日和醫療健康誌　Health Notes</div>
+    <div class="footer-clinic">日和醫療健康誌 · Health Notes</div>
     <div class="footer-phone">預約專線：06-6520182</div>
   </div>
 

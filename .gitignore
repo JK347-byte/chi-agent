@@ -1,4 +1,8 @@
 .DS_Store
+.env
+900_Agent/.env
+care-tracker/credentials.json
+care-tracker/*.json
 *.png
 *.jpeg
 *.jpg

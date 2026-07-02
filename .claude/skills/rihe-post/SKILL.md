@@ -2,8 +2,8 @@
 name: rihe-post
 description: >
   日和聯合診所醫療衛教內容創作工具。使用者提供文章主題、副標、三個重點後，
-  自動搜尋最新醫學文獻、撰寫去 AI 化的 Facebook 貼文，生成 1920x1080 封面圖，
-  並生成 1080x1080 資訊圖表（自動選擇迷思 vs 事實 / 重點整理卡 / 步驟流程三種版型）。
+  自動搜尋最新醫學文獻、撰寫去 AI 化的 Facebook 貼文，生成 1200x1200 封面圖，
+  並生成 1200x1200 資訊圖表（自動選擇迷思 vs 事實 / 重點整理卡 / 步驟流程三種版型）。
   觸發時機：使用者提供文章構想（主題、副標、重點）；說「幫我寫文章」「做封面」
   「衛教文章」「FB 貼文」；以及任何耳鼻喉科 / 家醫科 / 小兒科的內容創作需求。
 ---
@@ -124,24 +124,18 @@ description: >
 模板：`/Users/janskey/Downloads/Chi-Agent/cover_demo.html`
 圖片：`/Users/janskey/Downloads/Chi-Agent/assets/photos/`
 
-更新四個欄位（只改文字內容，不動 CSS）：
+更新以下欄位（只改文字內容，不動 CSS）：
 
 | HTML 元素 | 填入內容 |
 |-----------|---------|
 | `.category-tag` | 文章分類（例：耳鼻喉健康知識） |
-| `.image-caption` | 同分類，格式：`✦ [分類名稱]` |
 | `.article-title` | 標題，`<br>` 在自然斷句處分兩行 |
 | `.article-subtitle` | 核心主張一句話，簡短有力 |
-| 三個 `.key-points span` | 三個重點，各 20 字以內 |
+| 三個 `.stat-num` | 三個統計數字，含 `<span class="stat-unit">` 單位 |
+| 三個 `.stat-desc` | 每個數字的說明，15–20 字 |
+| 三個 `.key-point span` | 每張卡片的行動建議，各 15–20 字 |
 
-形象照依情境選擇：
-
-| 情境 | 照片 |
-|------|------|
-| 輕鬆衛教 | `jk_stand_smile.jpg` |
-| 嚴肅主題（手術、慢性病）| `jk_sit_confident.jpg` |
-| 重點導讀 | `jk_stand_present.jpg` |
-| 診所介紹 | `jk_stand_welcome.jpg` |
+封面為純文字設計，無形象照，不需選擇或更換照片。
 
 ---
 
@@ -154,7 +148,7 @@ lsof -i :8765 | grep LISTEN
 ```
 
 Playwright 截圖：
-- 視窗：1920 × 1080
+- 視窗：1200 × 1200
 - 網址：`http://localhost:8765/cover_demo.html`
 - 輸出：`/Users/janskey/Downloads/Chi-Agent/cover_output.jpeg`
 
@@ -218,11 +212,53 @@ Playwright 截圖：
 
 #### Playwright 截圖
 
-- 視窗：1080 × 1080
+- 視窗：1200 × 1200
 - 網址：`http://localhost:8765/infographic.html`
 - 輸出：`/Users/janskey/Downloads/Chi-Agent/infographic_output.jpeg`
 
 截圖後讀取圖片顯示給使用者確認。
+
+---
+
+### Step 6｜存檔至 009_Social
+
+貼文產出並確認後，依序執行三個動作：
+
+#### 6-1｜複製圖片至 assets
+
+```bash
+cp /Users/janskey/Downloads/Chi-Agent/cover_output.jpeg \
+   "/Users/janskey/Documents/Obsidian Vault/NumbersOffice/009_Social/assets/YYYY-MM-DD_主題_cover.jpeg"
+
+cp /Users/janskey/Downloads/Chi-Agent/infographic_output.jpeg \
+   "/Users/janskey/Documents/Obsidian Vault/NumbersOffice/009_Social/assets/YYYY-MM-DD_主題_infographic.jpeg"
+```
+
+#### 6-2｜建立貼文 markdown
+
+- **路徑**：`/Users/janskey/Documents/Obsidian Vault/NumbersOffice/009_Social/posts/`
+- **檔名**：`YYYY-MM-DD_主標題_副標題.md`
+- **內容結構**：
+
+```
+# [標題]
+
+## 視覺素材
+
+![[YYYY-MM-DD_主題_cover.jpeg]]
+![[YYYY-MM-DD_主題_infographic.jpeg]]
+
+---
+
+[完整貼文正文，含 hashtag，不含內部備註]
+```
+
+#### 6-3｜回報完成
+
+```
+✅ 已存入 009_Social/posts/YYYY-MM-DD_主題.md
+✅ 封面圖、資訊圖表已複製至 009_Social/assets/
+```
 
 ---
 
@@ -242,3 +278,6 @@ Playwright 截圖：
 - [ ] 資訊圖表版型選擇合理（A/B/C）
 - [ ] infographic.html 三個版型只顯示一個
 - [ ] 資訊圖表截圖已輸出 `infographic_output.jpeg`
+- [ ] 封面圖已複製至 `009_Social/assets/YYYY-MM-DD_主題_cover.jpeg`
+- [ ] 資訊圖表已複製至 `009_Social/assets/YYYY-MM-DD_主題_infographic.jpeg`
+- [ ] markdown 內含 `![[cover]]` 與 `![[infographic]]` 圖片連結
