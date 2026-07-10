@@ -225,6 +225,76 @@
     }
     .warning strong { display: block; margin-bottom: 4px; font-size: 14px; }
 
+    /* ── 理想體重計算器 ── */
+    .calc-card {
+      background: white;
+      border-radius: 20px;
+      padding: 22px 20px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      margin-bottom: 20px;
+    }
+    .calc-card .calc-title {
+      font-size: 15px; font-weight: 800; color: #1a365d;
+      margin-bottom: 4px;
+    }
+    .calc-card .calc-sub {
+      font-size: 12px; color: #718096; margin-bottom: 18px;
+    }
+    .calc-row {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 12px;
+    }
+    .calc-field label {
+      display: block; font-size: 11px; font-weight: 700;
+      color: #4a5568; margin-bottom: 5px; letter-spacing: 0.5px;
+    }
+    .calc-field input, .calc-field select {
+      width: 100%; border: 2px solid #e2e8f0; border-radius: 10px;
+      padding: 10px 12px; font-size: 15px; font-weight: 700;
+      color: #2d3748; background: #f7fafc;
+      outline: none; -webkit-appearance: none; appearance: none;
+    }
+    .calc-field input:focus, .calc-field select:focus {
+      border-color: #4299e1; background: #ebf8ff;
+    }
+    .calc-field .unit-wrap { position: relative; }
+    .calc-field .unit {
+      position: absolute; right: 12px; top: 50%;
+      transform: translateY(-50%);
+      font-size: 12px; color: #718096; font-weight: 600; pointer-events: none;
+    }
+    .calc-btn {
+      width: 100%; background: linear-gradient(135deg, #2b6cb0, #4299e1);
+      color: white; border: none; border-radius: 12px;
+      padding: 13px; font-size: 15px; font-weight: 800;
+      cursor: pointer; margin-top: 6px; letter-spacing: 1px;
+    }
+    .calc-result {
+      display: none; margin-top: 16px;
+      background: #f0f7ff; border-radius: 14px; padding: 16px;
+    }
+    .calc-result.show { display: block; }
+    .result-row {
+      display: flex; justify-content: space-between;
+      align-items: center; padding: 8px 0;
+      border-bottom: 1px solid #bee3f8; font-size: 13px;
+    }
+    .result-row:last-child { border-bottom: none; }
+    .result-row .r-label { color: #4a5568; }
+    .result-row .r-val { font-weight: 800; color: #2b6cb0; font-size: 15px; }
+    .result-highlight {
+      margin-top: 12px; background: linear-gradient(135deg, #2b6cb0, #4299e1);
+      border-radius: 12px; padding: 14px 16px;
+      display: flex; justify-content: space-between; align-items: center;
+      color: white;
+    }
+    .result-highlight .h-label { font-size: 12px; opacity: 0.9; }
+    .result-highlight .h-val { font-size: 22px; font-weight: 900; }
+    .result-hint {
+      margin-top: 10px; font-size: 12px; color: #2b6cb0;
+      background: #ebf8ff; border-radius: 10px; padding: 10px 12px;
+      line-height: 1.6;
+    }
+
     footer {
       text-align: center;
       font-size: 12px;
@@ -266,6 +336,69 @@
     </div>
     <div class="formula-note">
       猛健樂的作用：<strong>壓制食慾、延緩胃排空</strong>，<br>讓您更容易維持熱量赤字，而不需要靠意志力硬撐。
+    </div>
+  </div>
+
+  <!-- 理想體重計算器 -->
+  <div class="calc-card">
+    <div class="calc-title">⚖️ 我的理想體重計算</div>
+    <div class="calc-sub">依亞洲人標準 BMI 22 計算</div>
+    <div class="calc-row">
+      <div class="calc-field">
+        <label>性別</label>
+        <select id="gender">
+          <option value="both">選擇性別</option>
+          <option value="both">男 / 女（統一）</option>
+        </select>
+      </div>
+      <div class="calc-field">
+        <label>身高</label>
+        <div class="unit-wrap">
+          <input type="number" id="height" placeholder="165" min="100" max="250">
+          <span class="unit">cm</span>
+        </div>
+      </div>
+    </div>
+    <div class="calc-row">
+      <div class="calc-field">
+        <label>目前體重</label>
+        <div class="unit-wrap">
+          <input type="number" id="weight" placeholder="75" min="30" max="300" step="0.1">
+          <span class="unit">kg</span>
+        </div>
+      </div>
+      <div class="calc-field">
+        <label>目標 BMI</label>
+        <select id="targetBmi">
+          <option value="22">22（亞洲理想）</option>
+          <option value="23.9">23.9（正常上限）</option>
+          <option value="18.5">18.5（正常下限）</option>
+        </select>
+      </div>
+    </div>
+    <button class="calc-btn" onclick="calcWeight()">計算我的目標</button>
+
+    <div class="calc-result" id="calcResult">
+      <div class="result-row">
+        <span class="r-label">目前 BMI</span>
+        <span class="r-val" id="rCurrentBmi">—</span>
+      </div>
+      <div class="result-row">
+        <span class="r-label">理想體重（BMI <span id="rTargetBmiLabel">22</span>）</span>
+        <span class="r-val" id="rIdealWeight">—</span>
+      </div>
+      <div class="result-row">
+        <span class="r-label">需減去體重</span>
+        <span class="r-val" id="rGap">—</span>
+      </div>
+      <div class="result-highlight">
+        <div>
+          <div class="h-label">猛健樂預期降幅</div>
+          <div class="h-label">（10–15% 體重）</div>
+        </div>
+        <div class="h-val" id="rRange">—</div>
+      </div>
+      <div class="result-hint" id="rHint"></div>
     </div>
   </div>
 
@@ -383,5 +516,62 @@
   </footer>
 
 </div>
+
+<script>
+function calcWeight() {
+  var h = parseFloat(document.getElementById('height').value);
+  var w = parseFloat(document.getElementById('weight').value);
+  var bmi = parseFloat(document.getElementById('targetBmi').value);
+
+  if (!h || !w || h < 100 || h > 250 || w < 30 || w > 300) {
+    alert('請輸入正確的身高與體重');
+    return;
+  }
+
+  var hM = h / 100;
+  var currentBmi = (w / (hM * hM)).toFixed(1);
+  var idealWeight = (bmi * hM * hM).toFixed(1);
+  var gap = (w - idealWeight).toFixed(1);
+  var drop10 = (w * 0.10).toFixed(1);
+  var drop15 = (w * 0.15).toFixed(1);
+
+  document.getElementById('rCurrentBmi').textContent = currentBmi;
+  document.getElementById('rIdealWeight').textContent = idealWeight + ' kg';
+  document.getElementById('rTargetBmiLabel').textContent = bmi;
+
+  if (gap > 0) {
+    document.getElementById('rGap').textContent = gap + ' kg';
+  } else {
+    document.getElementById('rGap').textContent = '已達理想範圍';
+    document.getElementById('rGap').style.color = '#38a169';
+  }
+
+  document.getElementById('rRange').textContent = drop10 + '–' + drop15 + ' kg';
+
+  var weeks10 = Math.ceil(drop10 / 1);
+  var weeks20 = Math.ceil(drop10 / 0.5);
+  var hint = '';
+  if (gap > 0) {
+    if (parseFloat(drop15) >= parseFloat(gap)) {
+      hint = '✅ 猛健樂療程降幅（' + drop10 + '–' + drop15 + ' kg）有機會讓您達到或接近理想體重 ' + idealWeight + ' kg。';
+    } else {
+      hint = '💡 猛健樂療程預期降幅約 ' + drop10 + '–' + drop15 + ' kg，距理想體重 ' + idealWeight + ' kg 仍有差距，可搭配飲食與運動進一步改善。';
+    }
+    hint += '以每週 0.5–1 kg 速率估算，約需 ' + weeks10 + '–' + weeks20 + ' 週。';
+  } else {
+    hint = '✅ 您目前體重已在理想範圍內！療程重點可放在體態維持與代謝改善。';
+  }
+  document.getElementById('rHint').textContent = hint;
+
+  document.getElementById('calcResult').classList.add('show');
+}
+
+document.getElementById('height').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') calcWeight();
+});
+document.getElementById('weight').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') calcWeight();
+});
+</script>
 </body>
 </html>
