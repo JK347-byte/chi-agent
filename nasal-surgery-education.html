@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>鼻塞手術專區｜日和聯合診所</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, "Helvetica Neue", Arial, sans-serif;
+      background: #f5f7fa;
+      color: #2d3748;
+    }
+
+    header {
+      background: linear-gradient(135deg, #1a365d, #2b6cb0);
+      color: white;
+      text-align: center;
+      padding: 36px 24px 32px;
+    }
+    header .clinic { font-size: 11px; letter-spacing: 3px; opacity: 0.75; margin-bottom: 10px; }
+    header h1 { font-size: 26px; font-weight: 900; line-height: 1.2; }
+    header .sub { font-size: 13px; opacity: 0.85; margin-top: 8px; }
+    header .badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.4);
+      border-radius: 20px;
+      font-size: 12px;
+      padding: 4px 14px;
+      margin-top: 12px;
+      letter-spacing: 1px;
+    }
+
+    .container { max-width: 480px; margin: 0 auto; padding: 24px 16px 56px; }
+
+    .section-title {
+      font-size: 12px; font-weight: 700; color: #718096;
+      letter-spacing: 2px; margin-bottom: 12px;
+    }
+
+    /* ── 適應症卡 ── */
+    .indication-card {
+      background: white; border-radius: 20px;
+      padding: 22px 20px; box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      margin-bottom: 20px;
+    }
+    .ind-header { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+    .ind-icon {
+      width: 46px; height: 46px; border-radius: 14px;
+      background: linear-gradient(135deg, #2b6cb0, #4299e1);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px; flex-shrink: 0;
+    }
+    .ind-title { font-size: 16px; font-weight: 800; color: #1a365d; }
+    .ind-sub { font-size: 12px; color: #718096; margin-top: 2px; }
+    .sym-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .sym-chip {
+      background: #ebf8ff; border-radius: 12px;
+      padding: 10px 12px; text-align: center;
+    }
+    .sym-chip .s-icon { font-size: 20px; margin-bottom: 4px; }
+    .sym-chip .s-text { font-size: 12px; font-weight: 700; color: #1a365d; }
+
+    /* ── 手術卡 ── */
+    .surgery-card {
+      background: white; border-radius: 20px;
+      padding: 0; box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      margin-bottom: 14px; overflow: hidden;
+    }
+    .surgery-header {
+      background: linear-gradient(135deg, #2b6cb0, #4299e1);
+      padding: 16px 20px; display: flex; align-items: center; gap: 12px;
+    }
+    .surgery-num {
+      width: 32px; height: 32px; border-radius: 50%;
+      background: rgba(255,255,255,0.25); color: white;
+      font-size: 16px; font-weight: 900;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .surgery-title-wrap .s-name { font-size: 17px; font-weight: 800; color: white; }
+    .surgery-title-wrap .s-en { font-size: 11px; color: rgba(255,255,255,0.75); margin-top: 2px; }
+    .surgery-body { padding: 18px 20px; }
+    .surgery-body .s-for {
+      font-size: 12px; font-weight: 700; color: #4299e1;
+      letter-spacing: 0.5px; margin-bottom: 8px;
+    }
+    .surgery-body p { font-size: 13px; line-height: 1.75; color: #4a5568; }
+    .surgery-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+    .tag {
+      background: #ebf8ff; color: #2b6cb0;
+      font-size: 11px; font-weight: 700;
+      border-radius: 20px; padding: 4px 12px;
+    }
+    .tag.green { background: #f0fff4; color: #276749; }
+
+    /* ── 流程時間軸 ── */
+    .timeline { display: flex; flex-direction: column; gap: 0; margin-bottom: 20px; }
+    .tl-item {
+      display: flex; gap: 14px; align-items: flex-start;
+    }
+    .tl-left { display: flex; flex-direction: column; align-items: center; }
+    .tl-dot {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: linear-gradient(135deg, #2b6cb0, #4299e1);
+      color: white; font-size: 13px; font-weight: 800;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .tl-line { width: 2px; flex: 1; background: #bee3f8; min-height: 20px; }
+    .tl-item:last-child .tl-line { display: none; }
+    .tl-body {
+      background: white; border-radius: 14px;
+      padding: 14px 16px; margin-bottom: 10px; flex: 1;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .tl-body h3 { font-size: 14px; font-weight: 800; color: #1a365d; margin-bottom: 4px; }
+    .tl-body p { font-size: 13px; color: #4a5568; line-height: 1.65; }
+
+    /* ── 恢復期卡 ── */
+    .recovery-card {
+      background: white; border-radius: 20px;
+      padding: 22px 20px; box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      margin-bottom: 20px;
+    }
+    .recovery-card .rc-title { font-size: 15px; font-weight: 800; color: #1a365d; margin-bottom: 14px; }
+    .recover-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .recover-cell {
+      background: #ebf8ff; border-radius: 12px;
+      padding: 14px 10px; text-align: center;
+    }
+    .recover-cell .big { font-size: 22px; font-weight: 900; color: #2b6cb0; line-height: 1; }
+    .recover-cell .unit { font-size: 11px; color: #718096; margin-top: 2px; }
+    .recover-cell .label { font-size: 11px; color: #4a5568; margin-top: 6px; line-height: 1.4; }
+
+    /* ── 注意事項 ── */
+    .warning {
+      background: #fff5f5; border-left: 4px solid #fc8181;
+      border-radius: 0 12px 12px 0; padding: 14px 16px;
+      font-size: 13px; color: #c53030; line-height: 1.7; margin-bottom: 20px;
+    }
+    .warning strong { display: block; margin-bottom: 4px; font-size: 14px; }
+
+    .tip {
+      background: #ebf8ff; border-left: 4px solid #4299e1;
+      border-radius: 0 12px 12px 0; padding: 14px 16px;
+      font-size: 13px; color: #2b6cb0; line-height: 1.7; margin-bottom: 20px;
+    }
+
+    /* ── CTA ── */
+    .cta-card {
+      background: linear-gradient(135deg, #1a365d, #2b6cb0);
+      border-radius: 20px; padding: 24px 20px;
+      text-align: center; color: white; margin-top: 20px;
+    }
+    .cta-card h3 { font-size: 16px; font-weight: 800; margin-bottom: 6px; }
+    .cta-card p { font-size: 13px; opacity: 0.88; margin-bottom: 16px; line-height: 1.6; }
+    .cta-phone {
+      display: block; background: white; color: #1a365d;
+      font-size: 17px; font-weight: 900; border-radius: 12px;
+      padding: 13px; text-decoration: none; letter-spacing: 1px;
+    }
+
+    footer {
+      text-align: center; font-size: 11px;
+      color: #a0aec0; margin-top: 32px; line-height: 2;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="clinic">日 和 聯 合 診 所</div>
+  <h1>👃 鼻塞手術專區</h1>
+  <div class="sub">詹士奇醫師｜耳鼻喉科・頭頸外科</div>
+  <div class="badge">功能性鼻部手術</div>
+</header>
+
+<div class="container">
+
+  <!-- 適應症 -->
+  <div class="section-title">這 些 症 狀 可 考 慮 手 術</div>
+  <div class="indication-card">
+    <div class="ind-header">
+      <div class="ind-icon">🔍</div>
+      <div>
+        <div class="ind-title">藥物無效？手術有解</div>
+        <div class="ind-sub">症狀持續 3 個月以上、藥物控制不佳時</div>
+      </div>
+    </div>
+    <div class="sym-grid">
+      <div class="sym-chip">
+        <div class="s-icon">😮‍💨</div>
+        <div class="s-text">長期鼻塞<br>張口呼吸</div>
+      </div>
+      <div class="sym-chip">
+        <div class="s-icon">😴</div>
+        <div class="s-text">睡眠品質差<br>夜間打鼾</div>
+      </div>
+      <div class="sym-chip">
+        <div class="s-icon">🤧</div>
+        <div class="s-text">反覆鼻竇炎<br>頭痛臉脹</div>
+      </div>
+      <div class="sym-chip">
+        <div class="s-icon">👃</div>
+        <div class="s-text">鼻中隔偏曲<br>單側長期塞</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 三大手術 -->
+  <div class="section-title">三 大 手 術 選 項</div>
+
+  <div class="surgery-card">
+    <div class="surgery-header">
+      <div class="surgery-num">1</div>
+      <div class="surgery-title-wrap">
+        <div class="s-name">下鼻甲手術</div>
+        <div class="s-en">Inferior Turbinoplasty</div>
+      </div>
+    </div>
+    <div class="surgery-body">
+      <div class="s-for">適合：過敏性鼻炎、鼻甲肥厚</div>
+      <p>以微創方式縮減肥大的下鼻甲，保留黏膜功能，改善鼻道通暢。為鼻過敏手術中最常執行的術式。</p>
+      <div class="surgery-tags">
+        <span class="tag">門診手術</span>
+        <span class="tag green">恢復快</span>
+        <span class="tag">局部麻醉可行</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="surgery-card">
+    <div class="surgery-header">
+      <div class="surgery-num">2</div>
+      <div class="surgery-title-wrap">
+        <div class="s-name">鼻中隔矯正術</div>
+        <div class="s-en">Septoplasty</div>
+      </div>
+    </div>
+    <div class="surgery-body">
+      <div class="s-for">適合：鼻中隔偏曲、單側長期鼻塞</div>
+      <p>矯正偏曲的鼻中隔軟骨，恢復兩側鼻腔對稱通暢。不影響外觀，常與下鼻甲手術合併執行。</p>
+      <div class="surgery-tags">
+        <span class="tag">全身麻醉</span>
+        <span class="tag">住院 1–2 天</span>
+        <span class="tag green">效果持久</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="surgery-card" style="margin-bottom:20px;">
+    <div class="surgery-header">
+      <div class="surgery-num">3</div>
+      <div class="surgery-title-wrap">
+        <div class="s-name">功能性內視鏡鼻竇手術</div>
+        <div class="s-en">FESS</div>
+      </div>
+    </div>
+    <div class="surgery-body">
+      <div class="s-for">適合：慢性鼻竇炎、鼻息肉</div>
+      <p>以內視鏡清除鼻竇內的息肉與阻塞組織，打通竇口引流，大幅降低反覆感染。</p>
+      <div class="surgery-tags">
+        <span class="tag">全身麻醉</span>
+        <span class="tag">住院 2–3 天</span>
+        <span class="tag green">根本改善</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 手術流程 -->
+  <div class="section-title">手 術 流 程</div>
+  <div class="timeline" style="margin-bottom:20px;">
+    <div class="tl-item">
+      <div class="tl-left">
+        <div class="tl-dot">1</div>
+        <div class="tl-line"></div>
+      </div>
+      <div class="tl-body">
+        <h3>門診評估</h3>
+        <p>鼻腔內視鏡檢查、鼻塞程度評估，確認適合術式並討論期望與風險。</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-left">
+        <div class="tl-dot">2</div>
+        <div class="tl-line"></div>
+      </div>
+      <div class="tl-body">
+        <h3>術前準備</h3>
+        <p>抽血、心電圖等基本檢查。術前 8 小時禁食，停用抗凝血藥物（請告知醫師）。</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-left">
+        <div class="tl-dot">3</div>
+        <div class="tl-line"></div>
+      </div>
+      <div class="tl-body">
+        <h3>手術執行</h3>
+        <p>依術式 20–90 分鐘不等，內視鏡輔助精準操作，無外部傷口。</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-left">
+        <div class="tl-dot">4</div>
+        <div class="tl-line"></div>
+      </div>
+      <div class="tl-body">
+        <h3>術後恢復</h3>
+        <p>鼻腔填塞紗條約 1–2 天，出院後定期回診清理，2 週後鼻道通暢感明顯改善。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 恢復期 -->
+  <div class="recovery-card">
+    <div class="rc-title">📅 術後恢復時程</div>
+    <div class="recover-grid">
+      <div class="recover-cell">
+        <div class="big">1–2</div>
+        <div class="unit">天</div>
+        <div class="label">鼻腔紗條<br>拆除</div>
+      </div>
+      <div class="recover-cell">
+        <div class="big">3–5</div>
+        <div class="unit">天</div>
+        <div class="label">返回工作<br>（輕度活動）</div>
+      </div>
+      <div class="recover-cell">
+        <div class="big">2–4</div>
+        <div class="unit">週</div>
+        <div class="label">鼻塞明顯<br>改善</div>
+      </div>
+      <div class="recover-cell">
+        <div class="big">1–3</div>
+        <div class="unit">個月</div>
+        <div class="label">恢復完全<br>穩定</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 術後注意 -->
+  <div class="warning">
+    <strong>⚠️ 術後注意事項</strong>
+    術後一週避免擤鼻、劇烈運動；出現大量出血、發高燒請立即回診。<br>
+    按時回診清理鼻痂是恢復良好的關鍵，請勿自行省略。
+  </div>
+
+  <div class="tip">
+    💡 <strong>健保給付說明</strong><br>
+    鼻中隔矯正術與 FESS 符合條件者可申請健保給付；下鼻甲手術依術式與診斷而異，建議門診評估後確認。
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-card">
+    <h3>想了解您是否適合手術？</h3>
+    <p>詹士奇醫師門診提供完整內視鏡評估<br>量身規劃最適合的治療方案</p>
+    <a class="cta-phone" href="tel:0666520182">📞 06-6520182</a>
+  </div>
+
+  <footer>
+    日和聯合診所｜耳鼻喉科・頭頸外科<br>
+    台南市鹽水區<br>
+    本衛教內容僅供參考，實際治療請依醫師診斷為準
+  </footer>
+
+</div>
+</body>
+</html>
