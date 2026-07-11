@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>鼻塞自我評估｜日和聯合診所</title>
+  <style>
+    :root {
+      --bg:           #F4F7FB;
+      --surface:      #FFFFFF;
+      --surface-2:    #EDF2F9;
+      --border:       #D4DFF0;
+      --ink:          #1A2740;
+      --ink-2:        #4A5E7A;
+      --ink-3:        #8A9DB8;
+      --accent:       #1A5FA8;
+      --accent-light: #EBF3FF;
+      --green:        #0E6B42;
+      --green-bg:     #E8F5EF;
+      --amber:        #A85A00;
+      --amber-bg:     #FEF3E2;
+      --blue-mid:     #1A5FA8;
+      --blue-mid-bg:  #EBF3FF;
+      --shadow:       0 2px 14px rgba(26,95,168,0.09);
+      --shadow-lg:    0 8px 36px rgba(26,95,168,0.14);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg:           #0A1828;
+        --surface:      #102035;
+        --surface-2:    #162840;
+        --border:       #1E3558;
+        --ink:          #D0E4F8;
+        --ink-2:        #7A9EC0;
+        --ink-3:        #3A5878;
+        --accent:       #4A9EE0;
+        --accent-light: #0C2240;
+        --green:        #3AB87A;
+        --green-bg:     #081E12;
+        --amber:        #E09030;
+        --amber-bg:     #1C1000;
+        --blue-mid:     #4A9EE0;
+        --blue-mid-bg:  #0C2240;
+        --shadow:       0 2px 14px rgba(0,0,0,0.45);
+        --shadow-lg:    0 8px 36px rgba(0,0,0,0.55);
+      }
+    }
+    :root[data-theme="dark"] {
+      --bg:           #0A1828;
+      --surface:      #102035;
+      --surface-2:    #162840;
+      --border:       #1E3558;
+      --ink:          #D0E4F8;
+      --ink-2:        #7A9EC0;
+      --ink-3:        #3A5878;
+      --accent:       #4A9EE0;
+      --accent-light: #0C2240;
+      --green:        #3AB87A;
+      --green-bg:     #081E12;
+      --amber:        #E09030;
+      --amber-bg:     #1C1000;
+      --blue-mid:     #4A9EE0;
+      --blue-mid-bg:  #0C2240;
+      --shadow:       0 2px 14px rgba(0,0,0,0.45);
+      --shadow-lg:    0 8px 36px rgba(0,0,0,0.55);
+    }
+    :root[data-theme="light"] {
+      --bg:           #F4F7FB;
+      --surface:      #FFFFFF;
+      --surface-2:    #EDF2F9;
+      --border:       #D4DFF0;
+      --ink:          #1A2740;
+      --ink-2:        #4A5E7A;
+      --ink-3:        #8A9DB8;
+      --accent:       #1A5FA8;
+      --accent-light: #EBF3FF;
+      --green:        #0E6B42;
+      --green-bg:     #E8F5EF;
+      --amber:        #A85A00;
+      --amber-bg:     #FEF3E2;
+      --blue-mid:     #1A5FA8;
+      --blue-mid-bg:  #EBF3FF;
+      --shadow:       0 2px 14px rgba(26,95,168,0.09);
+      --shadow-lg:    0 8px 36px rgba(26,95,168,0.14);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    header {
+      background: linear-gradient(150deg, #0A2040 0%, #1A5FA8 100%);
+      color: white;
+      text-align: center;
+      padding: 38px 24px 34px;
+    }
+    header .clinic { font-size: 11px; letter-spacing: 3.5px; opacity: 0.65; margin-bottom: 12px; }
+    header h1 { font-size: 23px; font-weight: 900; line-height: 1.25; letter-spacing: -0.3px; }
+    header .sub {
+      font-size: 13px; opacity: 0.78; margin-top: 10px;
+      line-height: 1.7; max-width: 320px; margin-left: auto; margin-right: auto;
+    }
+
+    .container { max-width: 520px; margin: 0 auto; padding: 22px 16px 64px; }
+
+    /* ── Progress ── */
+    .progress-bar-wrap {
+      background: var(--surface);
+      border-radius: 14px;
+      padding: 13px 16px;
+      box-shadow: var(--shadow);
+      margin-bottom: 18px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .progress-track {
+      flex: 1; height: 7px;
+      background: var(--surface-2); border-radius: 999px; overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%; border-radius: 999px;
+      background: linear-gradient(90deg, #1A5FA8, #5AB0F0);
+      width: 0%; transition: width 0.35s ease;
+    }
+    .progress-text { font-size: 12px; font-weight: 700; color: var(--accent); white-space: nowrap; }
+
+    /* ── Section card ── */
+    .section-card {
+      background: var(--surface);
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+      margin-bottom: 16px;
+      overflow: hidden;
+    }
+    .section-header {
+      background: linear-gradient(150deg, #0A2040 0%, #1A5FA8 100%);
+      padding: 16px 20px;
+      color: white;
+    }
+    .sh-eyebrow { font-size: 10px; letter-spacing: 2px; opacity: 0.65; margin-bottom: 4px; text-transform: uppercase; }
+    .sh-title { font-size: 17px; font-weight: 900; letter-spacing: -0.2px; }
+    .sh-sub { font-size: 12px; opacity: 0.78; margin-top: 4px; }
+
+    .section-body { padding: 18px 16px; }
+
+    /* ── Question ── */
+    .q-item { margin-bottom: 20px; }
+    .q-item:last-of-type { margin-bottom: 0; }
+
+    .q-label {
+      font-size: 14px; font-weight: 700;
+      color: var(--ink); margin-bottom: 11px; line-height: 1.45;
+    }
+    .q-label em { font-style: normal; font-size: 12px; font-weight: 400; color: var(--ink-3); margin-left: 4px; }
+
+    /* Rating buttons */
+    .rating-row { display: grid; gap: 6px; }
+    .rating-row.r4 { grid-template-columns: repeat(4, 1fr); }
+    .rating-row.r5 { grid-template-columns: repeat(5, 1fr); }
+
+    .rb {
+      border: 2px solid var(--border);
+      border-radius: 12px;
+      padding: 10px 4px 9px;
+      background: var(--surface-2);
+      cursor: pointer;
+      text-align: center;
+      transition: border-color 0.15s, background 0.15s;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+    }
+    .rb .rb-num {
+      font-size: 17px; font-weight: 800;
+      color: var(--ink-2); display: block; line-height: 1;
+      margin-bottom: 4px;
+      font-variant-numeric: tabular-nums;
+    }
+    .rb .rb-label { font-size: 9.5px; color: var(--ink-3); line-height: 1.25; display: block; }
+    .rb:hover { border-color: var(--accent); background: var(--accent-light); }
+    .rb.sel { border-color: var(--accent); background: var(--accent); }
+    .rb.sel .rb-num { color: #fff; }
+    .rb.sel .rb-label { color: rgba(255,255,255,0.82); }
+
+    /* Live score chip */
+    .live-score {
+      display: flex; justify-content: space-between; align-items: center;
+      background: var(--accent-light);
+      border-radius: 11px; padding: 10px 14px;
+      margin-top: 16px;
+    }
+    .ls-label { font-size: 12px; color: var(--accent); font-weight: 600; }
+    .ls-right { display: flex; align-items: baseline; gap: 2px; }
+    .ls-val { font-size: 20px; font-weight: 900; color: var(--accent); font-variant-numeric: tabular-nums; }
+    .ls-max { font-size: 12px; color: var(--ink-3); }
+
+    /* ── Submit ── */
+    .submit-wrap { margin-top: 18px; }
+    .submit-btn {
+      width: 100%;
+      background: linear-gradient(150deg, #0A2040, #1A5FA8);
+      color: white; border: none; border-radius: 15px;
+      padding: 16px; font-size: 16px; font-weight: 800;
+      cursor: pointer; letter-spacing: 0.3px;
+      transition: opacity 0.2s;
+    }
+    .submit-btn:disabled { opacity: 0.38; cursor: not-allowed; }
+    .submit-hint { text-align: center; font-size: 12px; color: var(--ink-3); margin-top: 8px; }
+
+    /* ── Result ── */
+    .result-card {
+      background: var(--surface);
+      border-radius: 22px;
+      box-shadow: var(--shadow-lg);
+      overflow: hidden;
+      margin-top: 22px;
+      display: none;
+    }
+    .result-card.show { display: block; }
+
+    .result-scores {
+      padding: 20px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+    .score-tile {
+      background: var(--surface-2);
+      border-radius: 15px; padding: 16px 12px; text-align: center;
+    }
+    .score-tile .st-label {
+      font-size: 11px; font-weight: 700; color: var(--ink-3);
+      letter-spacing: 1px; text-transform: uppercase; margin-bottom: 8px;
+    }
+    .st-num-wrap { display: flex; align-items: baseline; justify-content: center; gap: 2px; }
+    .st-num { font-size: 38px; font-weight: 900; color: var(--accent); line-height: 1; font-variant-numeric: tabular-nums; }
+    .st-denom { font-size: 14px; color: var(--ink-3); }
+    .st-bar-track { height: 6px; background: var(--border); border-radius: 999px; overflow: hidden; margin-top: 10px; }
+    .st-bar-fill { height: 100%; border-radius: 999px; background: linear-gradient(90deg,#1A5FA8,#5AB0F0); transition: width 0.7s ease; width: 0%; }
+    .st-cat { font-size: 12px; font-weight: 700; margin-top: 7px; }
+
+    /* Recommendation */
+    .result-rec { padding: 20px 20px 6px; }
+    .rec-box {
+      border-radius: 16px; padding: 20px;
+      display: flex; gap: 14px; align-items: flex-start;
+    }
+    .rec-box.surgery  { background: var(--green-bg); }
+    .rec-box.medication { background: var(--amber-bg); }
+    .rec-box.mild     { background: var(--blue-mid-bg); }
+    .rec-icon { font-size: 30px; flex-shrink: 0; margin-top: 2px; }
+    .rec-title { font-size: 16px; font-weight: 800; margin-bottom: 7px; line-height: 1.3; }
+    .rec-box.surgery .rec-title   { color: var(--green); }
+    .rec-box.medication .rec-title { color: var(--amber); }
+    .rec-box.mild .rec-title      { color: var(--blue-mid); }
+    .rec-desc { font-size: 13px; color: var(--ink-2); line-height: 1.75; }
+
+    .result-disclaimer {
+      font-size: 11px; color: var(--ink-3); line-height: 1.65;
+      text-align: center; padding: 14px 20px 18px;
+    }
+
+    .result-cta {
+      background: linear-gradient(150deg, #0A2040, #1A5FA8);
+      padding: 22px 20px; text-align: center; color: white;
+    }
+    .result-cta p { font-size: 13px; opacity: 0.82; margin-bottom: 13px; }
+    .cta-phone {
+      display: block; background: white; color: #0A2040;
+      font-size: 16px; font-weight: 900; border-radius: 12px;
+      padding: 13px; text-decoration: none; letter-spacing: 0.5px;
+    }
+
+    footer {
+      text-align: center; font-size: 11px;
+      color: var(--ink-3); margin-top: 32px; line-height: 2.2;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .progress-fill, .st-bar-fill { transition: none; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="clinic">日 和 聯 合 診 所</div>
+  <h1>👃 鼻塞自我評估</h1>
+  <div class="sub">根據國際標準量表評估鼻塞嚴重程度<br>完成後提供是否建議手術之參考建議</div>
+</header>
+
+<div class="container">
+
+  <div class="progress-bar-wrap">
+    <div class="progress-track"><div class="progress-fill" id="pFill"></div></div>
+    <div class="progress-text" id="pText">已完成 0 / 9</div>
+  </div>
+
+  <!-- Part 1: rTNSS -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="sh-eyebrow">Part 1 · 鼻部症狀測驗</div>
+      <div class="sh-title">24-h rTNSS</div>
+      <div class="sh-sub">過去 24 小時中，以下症狀的嚴重程度？</div>
+    </div>
+    <div class="section-body">
+
+      <div class="q-item">
+        <div class="q-label">1. 鼻塞 <em>Nasal Obstruction</em></div>
+        <div class="rating-row r4" data-grp="t" data-idx="0">
+          <button class="rb" data-v="0" onclick="pick(this)"><span class="rb-num">0</span><span class="rb-label">沒有問題</span></button>
+          <button class="rb" data-v="1" onclick="pick(this)"><span class="rb-num">1</span><span class="rb-label">輕微</span></button>
+          <button class="rb" data-v="2" onclick="pick(this)"><span class="rb-num">2</span><span class="rb-label">中度</span></button>
+          <button class="rb" data-v="3" onclick="pick(this)"><span class="rb-num">3</span><span class="rb-label">嚴重</span></button>
+        </div>
+      </div>
+
+      <div class="q-item">
+        <div class="q-label">2. 鼻水 <em>Rhinorrhea</em></div>
+        <div class="rating-row r4" data-grp="t" data-idx="1">
+          <button class="rb" data-v="0" onclick="pick(this)"><span class="rb-num">0</span><span class="rb-label">沒有問題</span></button>
+          <button class="rb" data-v="1" onclick="pick(this)"><span class="rb-num">1</span><span class="rb-label">輕微</span></button>
+          <button class="rb" data-v="2" onclick="pick(this)"><span class="rb-num">2</span><span class="rb-label">中度</span></button>
+          <button class="rb" data-v="3" onclick="pick(this)"><span class="rb-num">3</span><span class="rb-label">嚴重</span></button>
+        </div>
+      </div>
+
+      <div class="q-item">
+        <div class="q-label">3. 鼻、咽喉癢 <em>Itchy</em></div>
+        <div class="rating-row r4" data-grp="t" data-idx="2">
+          <button class="rb" data-v="0" onclick="pick(this)"><span class="rb-num">0</span><span class="rb-label">沒有問題</span></button>
+          <button class="rb" data-v="1" onclick="pick(this)"><span class="rb-num">1</span><span class="rb-label">輕微</span></button>
+          <button class="rb" data-v="2" onclick="pick(this)"><span class="rb-num">2</span><span class="rb-label">中度</span></button>
+          <button class="rb" data-v="3" onclick="pick(this)"><span class="rb-num">3</span><span class="rb-label">嚴重</span></button>
+        </div>
+      </div>
+
+      <div class="q-item">
+        <div class="q-label">4. 打噴嚏 <em>Sneezing</em></div>
+        <div class="rating-row r4" data-grp="t" data-idx="3">
+          <button class="rb" data-v="0" onclick="pick(this)"><span class="rb-num">0</span><span class="rb-label">沒有問題</span></button>
+          <button class="rb" data-v="1" onclick="pick(this)"><span class="rb-num">1</span><span class="rb-label">輕微</span></button>
+          <button class="rb" data-v="2" onclick="pick(this)"><span class="rb-num">2</span><span class="rb-label">中度</span></button>
+          <button class="rb" data-v="3" onclick="pick(this)"><span class="rb-num">3</span><span class="rb-label">嚴重</span></button>
+        </div>
+      </div>
+
+      <div class="live-score">
+        <span class="ls-label">rTNSS 即時分數</span>
+        <div class="ls-right">
+          <span class="ls-val" id="tnssLive">—</span>
+          <span class="ls-max">&nbsp;/ 12</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Part 2: NOSE -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="sh-eyebrow">Part 2 · 生活影響評估</div>
+      <div class="sh-title">NOSE 量表</div>
+      <div class="sh-sub">過去一個月，以下情況對生活造成的影響？</div>
+    </div>
+    <div class="section-body">
+
+      <div class="q-item">
+        <div class="q-label">1. 鼻子阻塞</div>
+        <div class="rating-row r5" data-grp="n" data-idx="0">
+          <button class="rb" data-v="0" onclick="pick(this)"><span class="rb-num">0</span><span class="rb-label">沒有</span></button>
+          <button class="rb" data-v="1" onclick="pick(this)"><span class="rb-num">1</span><span class="rb-label">輕微</span></button>
+          <button class="rb" data-v="2" onclick="pick(this)"><span class="rb-num">2</span><span class="rb-label">中度</span></button>
+          <button class="rb" data-v="3" onclick="pick(this)"><span class="rb-num">3</span><span class="rb-label">重度</span></button>
+          <button class="rb" data-v="4" onclick="pick(this)"><span class="rb-num">4</span><span class="rb-label">無法忍受</span></button>
+        </div>
+      </div>
+
+      <div class="q-item">
+        <div class="q-label">2. 鼻子充血或腫脹</div>
+        <div class="rating-row r5" data-grp="n" data-idx="1">
+          <button class="rb" data-v="0" onclick="pick(this)"><span class="rb-num">0</span><span class="rb-label">沒有</span></button>
+          <button class="rb" data-v="1" onclick="pick(this)"><span class="rb-num">1</span><span class="rb-label">輕微</span></button>
+          <button class="rb" data-v="2" onclick="pick(this)"><span class="rb-num">2</span><span class="rb-label">中度</span></button>
+          <button class="rb" data-v="3" onclick="pick(this)"><span class="rb-num">3</span><span class="rb-label">重度</span></button>
+          <button class="rb" data-v="4" onclick="pick(this)"><span class="rb-num">4</span><span class="rb-label">無法忍受</span></button>
+        </div>
+      </div>
+
+      <div class="q-item">
+        <div class="q-label">3. 難以經由鼻子呼吸</div>
+        <div class="rating-row r5" data-grp="n" data-idx="2">
+          <button class="rb" data-v="0" onclick="pick(this)"><span class="rb-num">0</span><span class="rb-label">沒有</span></button>
+          <button class="rb" data-v="1" onclick="pick(this)"><span class="rb-num">1</span><span class="rb-label">輕微</span></button>
+          <button class="rb" data-v="2" onclick="pick(this)"><span class="rb-num">2</span><span class="rb-label">中度</span></button>
+          <button class="rb" data-v="3" onclick="pick(this)"><span class="rb-num">3</span><span class="rb-label">重度</span></button>
+          <button class="rb" data-v="4" onclick="pick(this)"><span class="rb-num">4</span><span class="rb-label">無法忍受</span></button>
+        </div>
+      </div>
+
+      <div class="q-item">
+        <div class="q-label">4. 難以入睡或睡眠不佳</div>
+        <div class="rating-row r5" data-grp="n" data-idx="3">
+          <button class="rb" data-v="0" onclick="pick(this)"><span class="rb-num">0</span><span class="rb-label">沒有</span></button>
+          <button class="rb" data-v="1" onclick="pick(this)"><span class="rb-num">1</span><span class="rb-label">輕微</span></button>
+          <button class="rb" data-v="2" onclick="pick(this)"><span class="rb-num">2</span><span class="rb-label">中度</span></button>
+          <button class="rb" data-v="3" onclick="pick(this)"><span class="rb-num">3</span><span class="rb-label">重度</span></button>
+          <button class="rb" data-v="4" onclick="pick(this)"><span class="rb-num">4</span><span class="rb-label">無法忍受</span></button>
+        </div>
+      </div>
+
+      <div class="q-item">
+        <div class="q-label">5. 運動或活動中，無法由鼻子得到足夠空氣</div>
+        <div class="rating-row r5" data-grp="n" data-idx="4">
+          <button class="rb" data-v="0" onclick="pick(this)"><span class="rb-num">0</span><span class="rb-label">沒有</span></button>
+          <button class="rb" data-v="1" onclick="pick(this)"><span class="rb-num">1</span><span class="rb-label">輕微</span></button>
+          <button class="rb" data-v="2" onclick="pick(this)"><span class="rb-num">2</span><span class="rb-label">中度</span></button>
+          <button class="rb" data-v="3" onclick="pick(this)"><span class="rb-num">3</span><span class="rb-label">重度</span></button>
+          <button class="rb" data-v="4" onclick="pick(this)"><span class="rb-num">4</span><span class="rb-label">無法忍受</span></button>
+        </div>
+      </div>
+
+      <div class="live-score">
+        <span class="ls-label">NOSE 即時分數</span>
+        <div class="ls-right">
+          <span class="ls-val" id="noseLive">—</span>
+          <span class="ls-max">&nbsp;/ 100</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Submit -->
+  <div class="submit-wrap">
+    <button class="submit-btn" id="submitBtn" disabled onclick="showResult()">查看評估結果</button>
+    <div class="submit-hint" id="submitHint">請完成全部 9 題後查看結果</div>
+  </div>
+
+  <!-- Result -->
+  <div class="result-card" id="resultCard">
+
+    <div class="result-scores">
+      <div class="score-tile">
+        <div class="st-label">rTNSS</div>
+        <div class="st-num-wrap">
+          <span class="st-num" id="rTnss">0</span>
+          <span class="st-denom">/12</span>
+        </div>
+        <div class="st-bar-track"><div class="st-bar-fill" id="tnssBar"></div></div>
+        <div class="st-cat" id="tnssCat"></div>
+      </div>
+      <div class="score-tile">
+        <div class="st-label">NOSE</div>
+        <div class="st-num-wrap">
+          <span class="st-num" id="rNose">0</span>
+          <span class="st-denom">/100</span>
+        </div>
+        <div class="st-bar-track"><div class="st-bar-fill" id="noseBar"></div></div>
+        <div class="st-cat" id="noseCat"></div>
+      </div>
+    </div>
+
+    <div class="result-rec">
+      <div class="rec-box" id="recBox">
+        <div class="rec-icon" id="recIcon"></div>
+        <div>
+          <div class="rec-title" id="recTitle"></div>
+          <div class="rec-desc" id="recDesc"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="result-disclaimer">
+      ※ 本評估結果僅供參考，最終建議以詹士奇醫師門診評估為準
+    </div>
+
+    <div class="result-cta">
+      <p>想進一步了解是否適合手術？預約門診評估</p>
+      <a class="cta-phone" href="tel:0666520182">📞 06-6520182 預約諮詢</a>
+    </div>
+
+  </div>
+
+  <footer>
+    日和聯合診所｜耳鼻喉科・頭頸外科<br>
+    台南市鹽水區
+  </footer>
+
+</div>
+
+<script>
+  var tScores = [null, null, null, null];
+  var nScores = [null, null, null, null, null];
+
+  function pick(btn) {
+    var row = btn.parentElement;
+    row.querySelectorAll('.rb').forEach(function(b) { b.classList.remove('sel'); });
+    btn.classList.add('sel');
+
+    var grp = row.dataset.grp;
+    var idx = parseInt(row.dataset.idx);
+    var val = parseInt(btn.dataset.v);
+
+    if (grp === 't') tScores[idx] = val;
+    else nScores[idx] = val;
+
+    update();
+  }
+
+  function sum(arr) { return arr.reduce(function(a, b) { return a + (b === null ? 0 : b); }, 0); }
+  function answered(arr) { return arr.filter(function(v) { return v !== null; }).length; }
+
+  function update() {
+    var tDone = answered(tScores);
+    var nDone = answered(nScores);
+    var total = tDone + nDone;
+
+    document.getElementById('pFill').style.width = (total / 9 * 100) + '%';
+    document.getElementById('pText').textContent = '已完成 ' + total + ' / 9';
+
+    if (tDone > 0) document.getElementById('tnssLive').textContent = sum(tScores);
+    if (nDone > 0) document.getElementById('noseLive').textContent = sum(nScores) * 5;
+
+    var done = total === 9;
+    document.getElementById('submitBtn').disabled = !done;
+    document.getElementById('submitHint').textContent = done
+      ? '全部完成，點擊查看結果 ✓'
+      : '請完成全部 9 題後查看結果（剩餘 ' + (9 - total) + ' 題）';
+  }
+
+  function showResult() {
+    var t = sum(tScores);
+    var nRaw = sum(nScores);
+    var n = nRaw * 5;
+
+    document.getElementById('rTnss').textContent = t;
+    document.getElementById('rNose').textContent = n;
+
+    setTimeout(function() {
+      document.getElementById('tnssBar').style.width = (t / 12 * 100) + '%';
+      document.getElementById('noseBar').style.width = n + '%';
+    }, 80);
+
+    function tCatLabel(s) { return s <= 4 ? '輕微' : s <= 8 ? '中度' : '嚴重'; }
+    function nCatLabel(s) { return s <= 25 ? '輕微' : s <= 50 ? '中度' : s <= 75 ? '嚴重' : '極嚴重'; }
+
+    var tCat = tCatLabel(t);
+    var nCat = nCatLabel(n);
+
+    var tEl = document.getElementById('tnssCat');
+    tEl.textContent = tCat;
+    tEl.style.color = t <= 4 ? 'var(--blue-mid)' : t <= 8 ? 'var(--amber)' : 'var(--green)';
+
+    var nEl = document.getElementById('noseCat');
+    nEl.textContent = nCat;
+    nEl.style.color = n <= 25 ? 'var(--blue-mid)' : n <= 50 ? 'var(--amber)' : 'var(--green)';
+
+    var box = document.getElementById('recBox');
+    var icon = document.getElementById('recIcon');
+    var title = document.getElementById('recTitle');
+    var desc = document.getElementById('recDesc');
+    box.classList.remove('surgery', 'medication', 'mild');
+
+    if (n >= 55 || t >= 9) {
+      box.classList.add('surgery');
+      icon.textContent = '🔬';
+      title.textContent = '建議安排手術評估';
+      desc.textContent = '您的評估顯示鼻塞已對生活造成嚴重影響，藥物控制可能已不足夠。建議至門診進行鼻腔內視鏡評估，由詹士奇醫師判斷是否適合下鼻甲無線射頻手術。';
+    } else if (n >= 30 || t >= 5) {
+      box.classList.add('medication');
+      icon.textContent = '💊';
+      title.textContent = '建議先積極進行藥物治療';
+      desc.textContent = '您的症狀屬中度。建議以鼻用類固醇噴劑搭配口服抗組織胺積極治療 2–3 個月。若藥物效果不佳，可進一步評估手術選項。';
+    } else {
+      box.classList.add('mild');
+      icon.textContent = '🌿';
+      title.textContent = '症狀輕微，環境控制為主';
+      desc.textContent = '目前症狀屬輕微，優先建議遠離過敏原、改善居家環境，必要時搭配輕度藥物控制。建議定期追蹤症狀變化。';
+    }
+
+    var card = document.getElementById('resultCard');
+    card.classList.add('show');
+    setTimeout(function() {
+      card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 100);
+  }
+</script>
+</body>
+</html>
