@@ -24,46 +24,7 @@
       --shadow:       0 2px 14px rgba(26,95,168,0.09);
       --shadow-lg:    0 8px 36px rgba(26,95,168,0.14);
     }
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg:           #0A1828;
-        --surface:      #102035;
-        --surface-2:    #162840;
-        --border:       #1E3558;
-        --ink:          #D0E4F8;
-        --ink-2:        #7A9EC0;
-        --ink-3:        #3A5878;
-        --accent:       #4A9EE0;
-        --accent-light: #0C2240;
-        --green:        #3AB87A;
-        --green-bg:     #081E12;
-        --amber:        #E09030;
-        --amber-bg:     #1C1000;
-        --blue-mid:     #4A9EE0;
-        --blue-mid-bg:  #0C2240;
-        --shadow:       0 2px 14px rgba(0,0,0,0.45);
-        --shadow-lg:    0 8px 36px rgba(0,0,0,0.55);
-      }
-    }
-    :root[data-theme="dark"] {
-      --bg:           #0A1828;
-      --surface:      #102035;
-      --surface-2:    #162840;
-      --border:       #1E3558;
-      --ink:          #D0E4F8;
-      --ink-2:        #7A9EC0;
-      --ink-3:        #3A5878;
-      --accent:       #4A9EE0;
-      --accent-light: #0C2240;
-      --green:        #3AB87A;
-      --green-bg:     #081E12;
-      --amber:        #E09030;
-      --amber-bg:     #1C1000;
-      --blue-mid:     #4A9EE0;
-      --blue-mid-bg:  #0C2240;
-      --shadow:       0 2px 14px rgba(0,0,0,0.45);
-      --shadow-lg:    0 8px 36px rgba(0,0,0,0.55);
-    }
+    /* 強制亮色模式：醫療評估工具永遠保持高可讀性 */
     :root[data-theme="light"] {
       --bg:           #F4F7FB;
       --surface:      #FFFFFF;
@@ -84,6 +45,7 @@
       --shadow-lg:    0 8px 36px rgba(26,95,168,0.14);
     }
 
+    html { color-scheme: light; }
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
