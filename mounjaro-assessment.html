@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>猛健樂用藥評估｜日和聯合診所</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, "Helvetica Neue", Arial, sans-serif;
+      background: #f5f7fa;
+      color: #2d3748;
+      padding-bottom: 84px;
+    }
+
+    header {
+      background: linear-gradient(135deg, #2b6cb0, #4299e1);
+      color: white;
+      text-align: center;
+      padding: 36px 24px 32px;
+    }
+    header .clinic { font-size: 12px; letter-spacing: 3px; opacity: 0.8; margin-bottom: 10px; }
+    header h1 { font-size: 24px; font-weight: 700; line-height: 1.4; }
+    header .sub { font-size: 13px; opacity: 0.85; margin-top: 8px; line-height: 1.6; }
+    header .badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.4);
+      border-radius: 20px;
+      font-size: 12px;
+      padding: 4px 14px;
+      margin-top: 12px;
+      letter-spacing: 1px;
+    }
+
+    .container { max-width: 480px; margin: 0 auto; padding: 24px 16px 32px; }
+
+    .hook-banner {
+      background: white;
+      border-radius: 16px;
+      padding: 16px 20px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      margin-bottom: 20px;
+      text-align: center;
+      font-size: 13px;
+      color: #718096;
+      line-height: 1.7;
+    }
+    .hook-banner strong { color: #2b6cb0; }
+
+    .section-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: #718096;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+      margin-top: 4px;
+    }
+
+    /* ── BMI 計算卡 ── */
+    .calc-card {
+      background: white;
+      border-radius: 20px;
+      padding: 22px 20px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      margin-bottom: 22px;
+    }
+    .calc-card .calc-title { font-size: 15px; font-weight: 800; color: #1a365d; margin-bottom: 4px; }
+    .calc-card .calc-sub { font-size: 12px; color: #718096; margin-bottom: 16px; }
+    .calc-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .calc-field label {
+      display: block; font-size: 11px; font-weight: 700;
+      color: #4a5568; margin-bottom: 5px; letter-spacing: 0.5px;
+    }
+    .calc-field .unit-wrap { position: relative; }
+    .calc-field input {
+      width: 100%; border: 2px solid #e2e8f0; border-radius: 10px;
+      padding: 10px 12px; font-size: 15px; font-weight: 700;
+      color: #2d3748; background: #f7fafc; outline: none;
+    }
+    .calc-field input:focus { border-color: #4299e1; background: #ebf8ff; }
+    .calc-field .unit {
+      position: absolute; right: 12px; top: 50%; transform: translateY(-50%);
+      font-size: 12px; color: #718096; font-weight: 600; pointer-events: none;
+    }
+    .bmi-readout {
+      margin-top: 14px;
+      background: #f0f7ff;
+      border-radius: 12px;
+      padding: 12px 14px;
+      display: none;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .bmi-readout.show { display: flex; }
+    .bmi-readout .b-label { font-size: 12px; color: #4a5568; }
+    .bmi-readout .b-val { font-size: 20px; font-weight: 800; color: #2b6cb0; }
+
+    /* ── 勾選區塊 ── */
+    .quiz-card {
+      background: white;
+      border-radius: 20px;
+      padding: 20px 20px 22px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      margin-bottom: 18px;
+    }
+    .quiz-card .quiz-title { font-size: 15px; font-weight: 800; color: #1a365d; margin-bottom: 3px; }
+    .quiz-card .quiz-sub { font-size: 12px; color: #a0aec0; margin-bottom: 14px; }
+    .symptom-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+    .symptom-chip {
+      border: 2px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 10px 10px;
+      font-size: 13px;
+      color: #4a5568;
+      cursor: pointer;
+      text-align: center;
+      line-height: 1.4;
+      transition: all 0.15s;
+      user-select: none;
+      background: #f7fafc;
+    }
+    .symptom-chip.selected {
+      border-color: #4299e1;
+      background: #ebf8ff;
+      color: #2b6cb0;
+      font-weight: 600;
+    }
+    .quiz-card.danger-zone .symptom-chip.selected {
+      border-color: #fc8181;
+      background: #fff5f5;
+      color: #c53030;
+    }
+    .quiz-card.caution-zone .symptom-chip.selected {
+      border-color: #f6ad55;
+      background: #fffaf0;
+      color: #c05621;
+    }
+
+    .quiz-btn {
+      width: 100%;
+      padding: 14px;
+      background: linear-gradient(135deg, #2b6cb0, #4299e1);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      letter-spacing: 1px;
+      margin-top: 4px;
+    }
+
+    /* ── 結果卡 ── */
+    .result-card {
+      display: none;
+      border-radius: 20px;
+      padding: 22px 20px;
+      margin-bottom: 18px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.1);
+    }
+    .result-card.show { display: block; }
+    .result-card .r-icon { font-size: 30px; margin-bottom: 8px; }
+    .result-card .r-verdict { font-size: 17px; font-weight: 800; margin-bottom: 8px; }
+    .result-card .r-detail { font-size: 13px; line-height: 1.8; }
+    .result-card .r-detail ul { margin: 8px 0 0 18px; }
+    .result-card .r-detail li { margin-bottom: 4px; }
+
+    .result-ok { background: #f0fff4; border: 2px solid #9ae6b4; }
+    .result-ok .r-verdict, .result-ok .r-icon { color: #276749; }
+    .result-ok .r-detail { color: #2f855a; }
+
+    .result-no { background: #fff5f5; border: 2px solid #fc8181; }
+    .result-no .r-verdict, .result-no .r-icon { color: #c53030; }
+    .result-no .r-detail { color: #c53030; }
+
+    .result-consider { background: #ebf8ff; border: 2px solid #90cdf4; }
+    .result-consider .r-verdict, .result-consider .r-icon { color: #2b6cb0; }
+    .result-consider .r-detail { color: #2c5282; }
+
+    .quiz-reset {
+      display: none;
+      width: 100%;
+      padding: 10px;
+      background: none;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      font-size: 13px;
+      color: #718096;
+      cursor: pointer;
+      margin-bottom: 18px;
+    }
+    .quiz-reset.show { display: block; }
+
+    /* ── 免責聲明 ── */
+    .notice-card {
+      background: white;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      margin-top: 4px;
+    }
+    .notice-title { font-size: 14px; font-weight: 700; color: #2d3748; margin-bottom: 10px; }
+    .notice-list { list-style: none; }
+    .notice-list li {
+      font-size: 12.5px;
+      color: #718096;
+      padding: 6px 0 6px 20px;
+      position: relative;
+      border-bottom: 1px solid #f7fafc;
+      line-height: 1.6;
+    }
+    .notice-list li:last-child { border-bottom: none; }
+    .notice-list li::before {
+      content: "·";
+      position: absolute;
+      left: 6px;
+      font-size: 18px;
+      color: #a0aec0;
+      line-height: 1.2;
+    }
+
+    .cta-bar {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      background: white;
+      padding: 12px 16px;
+      box-shadow: 0 -4px 20px rgba(0,0,0,0.12);
+      z-index: 100;
+    }
+    .cta-bar a {
+      display: block;
+      background: linear-gradient(135deg, #2b6cb0, #4299e1);
+      color: white;
+      text-align: center;
+      padding: 14px;
+      border-radius: 14px;
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+      letter-spacing: 1px;
+    }
+    .cta-bar a span { font-size: 12px; font-weight: 400; opacity: 0.85; display: block; margin-top: 2px; }
+
+    footer {
+      text-align: center;
+      font-size: 12px;
+      color: #a0aec0;
+      margin-top: 28px;
+      line-height: 1.8;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="clinic">日 和 聯 合 診 所</div>
+  <h1>猛健樂用藥評估</h1>
+  <div class="sub">初步了解自己是否適合施打<br>最終仍須由醫師當面評估</div>
+  <div class="badge">Tirzepatide 適應症自我檢測</div>
+</header>
+
+<div class="container">
+
+  <div class="hook-banner">
+    「聽說猛健樂很有效，但不確定自己適不適合？」<br>
+    先花 <strong>1 分鐘</strong>完成以下評估，看看你屬於哪一種狀況。
+  </div>
+
+  <!-- BMI 計算 -->
+  <div class="calc-card">
+    <div class="calc-title">① 先算出你的 BMI</div>
+    <div class="calc-sub">身高體重是判斷適應症的第一步</div>
+    <div class="calc-row">
+      <div class="calc-field">
+        <label>身高</label>
+        <div class="unit-wrap">
+          <input type="number" id="height" placeholder="165" min="100" max="250">
+          <span class="unit">cm</span>
+        </div>
+      </div>
+      <div class="calc-field">
+        <label>體重</label>
+        <div class="unit-wrap">
+          <input type="number" id="weight" placeholder="75" min="30" max="300" step="0.1">
+          <span class="unit">kg</span>
+        </div>
+      </div>
+    </div>
+    <div class="bmi-readout" id="bmiReadout">
+      <span class="b-label">你的 BMI</span>
+      <span class="b-val" id="bmiVal">—</span>
+    </div>
+  </div>
+
+  <!-- 共病史 -->
+  <div class="quiz-card">
+    <div class="quiz-title">② 是否有以下共病 / 病史</div>
+    <div class="quiz-sub">影響是否符合醫療適應症，可複選</div>
+    <div class="symptom-grid">
+      <div class="symptom-chip" data-group="comorbid" data-value="htn" onclick="toggleChip(this)">高血壓</div>
+      <div class="symptom-chip" data-group="comorbid" data-value="lipid" onclick="toggleChip(this)">血脂異常</div>
+      <div class="symptom-chip" data-group="comorbid" data-value="prediabetes" onclick="toggleChip(this)">糖尿病前期</div>
+      <div class="symptom-chip" data-group="comorbid" data-value="t2dm" onclick="toggleChip(this)">第二型糖尿病</div>
+      <div class="symptom-chip" data-group="comorbid" data-value="osa" onclick="toggleChip(this)">睡眠呼吸中止<br>（打鼾／嗜睡）</div>
+      <div class="symptom-chip" data-group="comorbid" data-value="none_comorbid" onclick="toggleChip(this)">以上皆無</div>
+    </div>
+  </div>
+
+  <!-- 絕對禁忌 -->
+  <div class="quiz-card danger-zone">
+    <div class="quiz-title">③ 是否符合以下狀況（禁用）</div>
+    <div class="quiz-sub">符合任一項，不建議使用</div>
+    <div class="symptom-grid">
+      <div class="symptom-chip" data-group="absolute" data-value="mtc" onclick="toggleChip(this)">本人有甲狀腺<br>髓質癌病史</div>
+      <div class="symptom-chip" data-group="absolute" data-value="men2" onclick="toggleChip(this)">家族有 MEN2<br>症候群病史</div>
+      <div class="symptom-chip" data-group="absolute" data-value="allergy" onclick="toggleChip(this)">對本藥物成分<br>曾有過敏反應</div>
+      <div class="symptom-chip" data-group="absolute" data-value="pregnancy" onclick="toggleChip(this)">目前懷孕<br>或哺乳中</div>
+      <div class="symptom-chip" data-group="absolute" data-value="none_absolute" onclick="toggleChip(this)">以上皆無</div>
+    </div>
+  </div>
+
+  <!-- 相對禁忌／需謹慎評估 -->
+  <div class="quiz-card caution-zone">
+    <div class="quiz-title">④ 是否符合以下狀況（需謹慎評估）</div>
+    <div class="quiz-sub">符合任一項，需醫師進一步評估後才能使用</div>
+    <div class="symptom-grid">
+      <div class="symptom-chip" data-group="relative" data-value="pancreatitis" onclick="toggleChip(this)">曾有胰臟炎<br>病史</div>
+      <div class="symptom-chip" data-group="relative" data-value="gi" onclick="toggleChip(this)">嚴重腸胃道疾病<br>（如胃輕癱）</div>
+      <div class="symptom-chip" data-group="relative" data-value="gallbladder" onclick="toggleChip(this)">膽囊疾病<br>病史</div>
+      <div class="symptom-chip" data-group="relative" data-value="t1dm" onclick="toggleChip(this)">第一型<br>糖尿病</div>
+      <div class="symptom-chip" data-group="relative" data-value="organ" onclick="toggleChip(this)">嚴重肝腎<br>功能不全</div>
+      <div class="symptom-chip" data-group="relative" data-value="retinopathy" onclick="toggleChip(this)">糖尿病<br>視網膜病變</div>
+      <div class="symptom-chip" data-group="relative" data-value="none_relative" onclick="toggleChip(this)">以上皆無</div>
+    </div>
+  </div>
+
+  <button class="quiz-btn" onclick="showResult()">看我的評估結果 →</button>
+
+  <div class="result-card" id="resultCard"></div>
+  <button class="quiz-reset" id="quizReset" onclick="resetQuiz()">重新評估</button>
+
+  <!-- 免責聲明 -->
+  <div class="notice-card">
+    <div class="notice-title">⚠️ 使用說明</div>
+    <ul class="notice-list">
+      <li>本表為初步自我篩檢工具，不能取代醫師的當面診斷</li>
+      <li>所有評估結果都建議回診由醫師確認後再決定是否用藥</li>
+      <li>用藥期間如出現持續噁心、嘔吐、腹痛，請立即回診</li>
+      <li>請勿自行調整劑量或自行停藥</li>
+    </ul>
+  </div>
+
+  <footer>
+    日和聯合診所｜耳鼻喉科・家醫科・中醫科<br>
+    台南市鹽水區<br>
+    如有疑問，請洽診所醫療團隊
+  </footer>
+
+</div>
+
+<div class="cta-bar">
+  <a href="tel:066520182">
+    📞 預約醫師評估
+    <span>06-6520182｜帶著評估結果來門診討論</span>
+  </a>
+</div>
+
+<script>
+function toggleChip(el) {
+  const group = el.dataset.group;
+  const isNone = el.dataset.value.startsWith('none_');
+  const groupChips = document.querySelectorAll('.symptom-chip[data-group="' + group + '"]');
+
+  if (isNone) {
+    groupChips.forEach(c => c.classList.remove('selected'));
+    el.classList.add('selected');
+  } else {
+    groupChips.forEach(c => {
+      if (c.dataset.value.startsWith('none_')) c.classList.remove('selected');
+    });
+    el.classList.toggle('selected');
+  }
+}
+
+function getSelected(group) {
+  return Array.from(document.querySelectorAll('.symptom-chip[data-group="' + group + '"].selected'))
+    .map(c => c.dataset.value)
+    .filter(v => !v.startsWith('none_'));
+}
+
+function calcBmi() {
+  const h = parseFloat(document.getElementById('height').value);
+  const w = parseFloat(document.getElementById('weight').value);
+  if (!h || !w || h < 100 || h > 250 || w < 30 || w > 300) return null;
+  const hm = h / 100;
+  return w / (hm * hm);
+}
+
+function showResult() {
+  const bmi = calcBmi();
+  const readout = document.getElementById('bmiReadout');
+  const bmiVal = document.getElementById('bmiVal');
+
+  if (bmi === null) {
+    alert('請先輸入正確的身高與體重');
+    return;
+  }
+  bmiVal.textContent = bmi.toFixed(1);
+  readout.classList.add('show');
+
+  const comorbid = getSelected('comorbid');
+  const absolute = getSelected('absolute');
+  const relative = getSelected('relative');
+
+  const label = {
+    mtc: '甲狀腺髓質癌病史', men2: '家族 MEN2 症候群病史',
+    allergy: '藥物過敏反應', pregnancy: '懷孕／哺乳中',
+    pancreatitis: '胰臟炎病史', gi: '嚴重腸胃道疾病',
+    gallbladder: '膽囊疾病病史', t1dm: '第一型糖尿病',
+    organ: '嚴重肝腎功能不全', retinopathy: '糖尿病視網膜病變'
+  };
+
+  const card = document.getElementById('resultCard');
+  let cls, icon, verdict, detail;
+
+  const disqualifying = absolute.concat(relative);
+  const underweight = bmi < 18.5;
+
+  if (underweight || disqualifying.length > 0) {
+    cls = 'result-no';
+    icon = '❌';
+    verdict = '不建議使用猛健樂';
+    const parts = [];
+    if (underweight) {
+      parts.push('你的 BMI 為 ' + bmi.toFixed(1) + '，屬於體重過輕範圍（BMI < 18.5）。免疫力可能較低，不建議使用猛健樂，建議加強營養攝取與阻力訓練。');
+    }
+    if (disqualifying.length > 0) {
+      parts.push('你勾選的以下狀況為用藥禁忌或需謹慎評估項目：<ul>' +
+        disqualifying.map(v => '<li>' + label[v] + '</li>').join('') +
+        '</ul>請務必主動告知醫師，不建議自行使用，由醫師協助評估其他減重方式。');
+    }
+    detail = parts.join('<br><br>');
+  } else {
+    const meetsIndication = bmi >= 30 || (bmi >= 27 && comorbid.length > 0);
+
+    if (meetsIndication) {
+      cls = 'result-ok';
+      icon = '✅';
+      verdict = '符合醫療適應症，可安排諮詢';
+      detail = '你的 BMI 為 ' + bmi.toFixed(1) + '，' +
+        (bmi >= 30 ? '已達 BMI ≥ 30 的用藥標準。' : '合併共病史，符合 BMI ≥ 27 的用藥標準。') +
+        '建議預約門診，由醫師確認用藥細節與劑量規劃。';
+    } else {
+      cls = 'result-consider';
+      icon = '🔵';
+      verdict = '未達標準適應症，但可與醫師討論';
+      detail = '你的 BMI 為 ' + bmi.toFixed(1) + '，目前未達健保／醫療適應症標準（BMI ≥ 30，或 BMI ≥ 27 合併共病）。<br><br>' +
+        '若仍希望以藥物輔助減重達到目標體重，需經醫師個別評估，並且告知風險與效益。';
+    }
+  }
+
+  card.className = 'result-card show ' + cls;
+  card.innerHTML = '<div class="r-icon">' + icon + '</div>' +
+    '<div class="r-verdict">' + verdict + '</div>' +
+    '<div class="r-detail">' + detail + '</div>';
+
+  document.getElementById('quizReset').classList.add('show');
+  card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+function resetQuiz() {
+  document.querySelectorAll('.symptom-chip').forEach(c => c.classList.remove('selected'));
+  document.getElementById('bmiReadout').classList.remove('show');
+  document.getElementById('resultCard').classList.remove('show');
+  document.getElementById('quizReset').classList.remove('show');
+  document.getElementById('height').value = '';
+  document.getElementById('weight').value = '';
+}
+</script>
+</body>
+</html>
