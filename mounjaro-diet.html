@@ -153,24 +153,37 @@
     .di-dot.green { background: #0E6B42; }
     .di-dot.purple{ background: #553C9A; }
 
-    /* 高血脂雙欄 */
-    .lipid-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 4px; }
-    .lipid-col {
-      border-radius: 14px; padding: 14px 12px;
+    /* ── 少/多 chip 佈局 ── */
+    .diet-diff { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .diff-col { border-radius: 14px; padding: 13px 12px; }
+    .diff-col.less { background: #FFF2F2; border: 1.5px solid #FED7D7; }
+    .diff-col.more { background: #F0FFF4; border: 1.5px solid #9AE6B4; }
+    .diff-col .dc-head {
+      font-size: 12px; font-weight: 800; margin-bottom: 10px;
+      display: flex; align-items: center; gap: 5px;
     }
-    .lipid-col.tg  { background: #FFF5F0; border: 1.5px solid #FED7C3; }
-    .lipid-col.ldl { background: #FAF5FF; border: 1.5px solid #D6BCFA; }
-    .lipid-col .lc-label {
-      font-size: 11px; font-weight: 800; margin-bottom: 10px;
-      display: flex; align-items: center; gap: 6px;
+    .diff-col.less .dc-head { color: #C53030; }
+    .diff-col.more .dc-head { color: #276749; }
+    .chip-grid { display: flex; flex-wrap: wrap; gap: 6px; }
+    .food-chip {
+      background: white; border-radius: 20px;
+      padding: 5px 10px; font-size: 12px; font-weight: 600;
+      display: flex; align-items: center; gap: 4px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.07);
     }
-    .lipid-col.tg  .lc-label { color: #C05621; }
-    .lipid-col.ldl .lc-label { color: #553C9A; }
-    .lipid-col .lc-items { display: flex; flex-direction: column; gap: 6px; }
-    .lipid-col .lc-item { font-size: 12px; color: #4A5568; line-height: 1.55; padding-left: 12px; position: relative; }
-    .lipid-col .lc-item::before { content: '·'; position: absolute; left: 2px; font-weight: 900; }
-    .lipid-col.tg  .lc-item::before { color: #C05621; }
-    .lipid-col.ldl .lc-item::before { color: #553C9A; }
+    .diff-col.less .food-chip { color: #742A2A; }
+    .diff-col.more .food-chip { color: #22543D; }
+
+    /* 高血脂雙區塊 */
+    .lipid-type { border-radius: 14px; padding: 14px; margin-bottom: 10px; }
+    .lipid-type.tg  { background: #FFF7F0; border: 1.5px solid #FBD38D; }
+    .lipid-type.ldl { background: #FAF5FF; border: 1.5px solid #D6BCFA; }
+    .lipid-type .lt-label {
+      font-size: 12px; font-weight: 800; margin-bottom: 10px;
+      padding-bottom: 8px; border-bottom: 1px solid rgba(0,0,0,0.07);
+    }
+    .lipid-type.tg  .lt-label { color: #C05621; }
+    .lipid-type.ldl .lt-label { color: #553C9A; }
 
     /* ── CTA ── */
     .cta-card {
@@ -310,29 +323,29 @@
         <div class="dc-icon bp">❤️</div>
         <div>
           <div class="dc-name">高血壓</div>
-          <div class="dc-sub">建議採用得舒飲食（DASH Diet）</div>
+          <div class="dc-sub">得舒飲食（DASH）— 每日鹽 &lt; 5g</div>
         </div>
       </div>
-      <div class="diet-list">
-        <div class="diet-item">
-          <div class="di-dot blue">鈉</div>
-          <div>每日鹽分 &lt; 5g（鈉 &lt; 2000mg）。外食盡量選清淡、少醬料，避免醃漬、加工食品</div>
+      <div class="diet-diff">
+        <div class="diff-col less">
+          <div class="dc-head">❌ 少吃這些</div>
+          <div class="chip-grid">
+            <span class="food-chip">🧂 重鹹料理</span>
+            <span class="food-chip">🥩 紅肉</span>
+            <span class="food-chip">🍟 油炸食物</span>
+            <span class="food-chip">🥫 加工食品</span>
+            <span class="food-chip">🍜 重口味湯</span>
+          </div>
         </div>
-        <div class="diet-item">
-          <div class="di-dot blue">鉀</div>
-          <div>多吃高鉀蔬果：菠菜、地瓜葉、香蕉、奇異果，有助降低血壓</div>
-        </div>
-        <div class="diet-item">
-          <div class="di-dot blue">鈣</div>
-          <div>每日一份低脂乳製品（低脂牛奶、無糖優格），補充鈣與鎂</div>
-        </div>
-        <div class="diet-item">
-          <div class="di-dot blue">穀</div>
-          <div>以全穀（糙米、燕麥）取代白飯、白麵，穩定血壓並增加飽足感</div>
-        </div>
-        <div class="diet-item">
-          <div class="di-dot blue">脂</div>
-          <div>以橄欖油、堅果取代動物油脂；避免油炸、紅肉過量</div>
+        <div class="diff-col more">
+          <div class="dc-head">✅ 多吃這些</div>
+          <div class="chip-grid">
+            <span class="food-chip">🥬 深色蔬菜</span>
+            <span class="food-chip">🍌 高鉀水果</span>
+            <span class="food-chip">🥛 低脂乳品</span>
+            <span class="food-chip">🌾 全穀雜糧</span>
+            <span class="food-chip">🥜 堅果</span>
+          </div>
         </div>
       </div>
     </div>
@@ -345,29 +358,29 @@
         <div class="dc-icon dm">🩸</div>
         <div>
           <div class="dc-name">糖尿病</div>
-          <div class="dc-sub">控醣飲食 ＋ 低升糖指數（低 GI）</div>
+          <div class="dc-sub">控醣 ＋ 低GI — 飯量定量、三餐均勻</div>
         </div>
       </div>
-      <div class="diet-list">
-        <div class="diet-item">
-          <div class="di-dot green">醣</div>
-          <div>每餐澱粉定量（半碗飯為目標），三餐均勻分配，避免血糖忽高忽低</div>
+      <div class="diet-diff">
+        <div class="diff-col less">
+          <div class="dc-head">❌ 少吃這些</div>
+          <div class="chip-grid">
+            <span class="food-chip">🍚 白飯白麵</span>
+            <span class="food-chip">🧃 含糖飲料</span>
+            <span class="food-chip">🍰 甜點</span>
+            <span class="food-chip">🍞 白麵包</span>
+            <span class="food-chip">🧋 手搖飲</span>
+          </div>
         </div>
-        <div class="diet-item">
-          <div class="di-dot green">GI</div>
-          <div>選低 GI 食物：糙米、燕麥、地瓜取代白飯白麵包；避免精緻糖、含糖飲料</div>
-        </div>
-        <div class="diet-item">
-          <div class="di-dot green">順</div>
-          <div>飲食順序（肉→菜→飯）對糖尿病患者控制餐後血糖效果最為顯著</div>
-        </div>
-        <div class="diet-item">
-          <div class="di-dot green">蛋</div>
-          <div>每餐優先攝取足夠蛋白質（每公斤 1–1.2g），增加飽足感、穩定血糖</div>
-        </div>
-        <div class="diet-item">
-          <div class="di-dot green">水</div>
-          <div>以白開水、無糖茶取代含糖飲料；避免果汁（即使是現榨）</div>
+        <div class="diff-col more">
+          <div class="dc-head">✅ 多吃這些</div>
+          <div class="chip-grid">
+            <span class="food-chip">🌾 糙米燕麥</span>
+            <span class="food-chip">🥦 高纖蔬菜</span>
+            <span class="food-chip">🥚 蛋白質</span>
+            <span class="food-chip">🍠 地瓜</span>
+            <span class="food-chip">💧 白開水</span>
+          </div>
         </div>
       </div>
     </div>
@@ -380,29 +393,54 @@
         <div class="dc-icon lip">🧬</div>
         <div>
           <div class="dc-name">高血脂</div>
-          <div class="dc-sub">依類型不同，飲食調整方向不一樣</div>
+          <div class="dc-sub">依類型不同，注意的食物不一樣</div>
         </div>
       </div>
-      <div class="lipid-cols">
-        <div class="lipid-col tg">
-          <div class="lc-label">🔶 高三酸甘油酯</div>
-          <div class="lc-items">
-            <div class="lc-item">減少精緻澱粉與糖（白飯、麵包、含糖飲料）</div>
-            <div class="lc-item">完全戒酒（酒精直接提高 TG）</div>
-            <div class="lc-item">多吃深海魚：鮭魚、鯖魚、沙丁魚（Omega-3）</div>
-            <div class="lc-item">以全穀取代精緻澱粉</div>
+
+      <div class="lipid-type tg">
+        <div class="lt-label">🔶 高三酸甘油酯（TG）</div>
+        <div class="diet-diff">
+          <div class="diff-col less">
+            <div class="dc-head">❌ 少</div>
+            <div class="chip-grid">
+              <span class="food-chip">🍚 精緻澱粉</span>
+              <span class="food-chip">🍬 甜食糖分</span>
+              <span class="food-chip">🍺 酒精</span>
+            </div>
           </div>
-        </div>
-        <div class="lipid-col ldl">
-          <div class="lc-label">🔷 高 LDL 膽固醇</div>
-          <div class="lc-items">
-            <div class="lc-item">減少飽和脂肪：少紅肉、奶油、全脂乳品</div>
-            <div class="lc-item">避免反式脂肪：拒絕酥皮、速食炸物</div>
-            <div class="lc-item">多可溶性纖維：燕麥、秋葵、豆類（降 LDL 有實證）</div>
-            <div class="lc-item">以橄欖油、酪梨取代動物油</div>
+          <div class="diff-col more">
+            <div class="dc-head">✅ 多</div>
+            <div class="chip-grid">
+              <span class="food-chip">🐟 深海魚</span>
+              <span class="food-chip">🌾 全穀</span>
+              <span class="food-chip">🥦 蔬菜</span>
+            </div>
           </div>
         </div>
       </div>
+
+      <div class="lipid-type ldl">
+        <div class="lt-label">🔷 高 LDL 膽固醇</div>
+        <div class="diet-diff">
+          <div class="diff-col less">
+            <div class="dc-head">❌ 少</div>
+            <div class="chip-grid">
+              <span class="food-chip">🥩 飽和脂肪</span>
+              <span class="food-chip">🍟 炸物酥皮</span>
+              <span class="food-chip">🧈 奶油</span>
+            </div>
+          </div>
+          <div class="diff-col more">
+            <div class="dc-head">✅ 多</div>
+            <div class="chip-grid">
+              <span class="food-chip">🌾 燕麥</span>
+              <span class="food-chip">🫑 秋葵豆類</span>
+              <span class="food-chip">🫒 橄欖油</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 
