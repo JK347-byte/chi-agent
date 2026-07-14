@@ -153,6 +153,38 @@
     .di-dot.green { background: #0E6B42; }
     .di-dot.purple{ background: #553C9A; }
 
+    /* ── 展開區塊 ── */
+    .expand-toggle {
+      width: 100%; background: none; border: none;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 12px 0 2px; cursor: pointer;
+      font-size: 12px; font-weight: 700; color: #1A5FA8;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .expand-toggle .et-arrow {
+      font-size: 14px; transition: transform 0.25s ease;
+      display: inline-block;
+    }
+    .expand-toggle.open .et-arrow { transform: rotate(180deg); }
+    .expand-body {
+      overflow: hidden; max-height: 0;
+      transition: max-height 0.35s ease, padding 0.25s;
+      padding-top: 0;
+    }
+    .expand-body.open { max-height: 600px; padding-top: 10px; }
+    .expand-divider { border: none; border-top: 1px solid #EDF2F9; margin: 10px 0 0; }
+
+    .detail-list { display: flex; flex-direction: column; gap: 9px; padding-bottom: 2px; }
+    .detail-item { display: flex; align-items: flex-start; gap: 9px; font-size: 13px; color: #2D3748; line-height: 1.65; }
+    .di-kw {
+      flex-shrink: 0; background: #EBF3FF; color: #1A5FA8;
+      font-size: 11px; font-weight: 800; border-radius: 6px;
+      padding: 2px 7px; margin-top: 2px; white-space: nowrap;
+    }
+    .di-kw.green  { background: #E8F5EF; color: #0E6B42; }
+    .di-kw.orange { background: #FFF5F0; color: #C05621; }
+    .di-kw.purple { background: #FAF5FF; color: #553C9A; }
+
     /* ── 少/多 chip 佈局 ── */
     .diet-diff { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
     .diff-col { border-radius: 14px; padding: 13px 12px; }
@@ -348,6 +380,20 @@
           </div>
         </div>
       </div>
+      <hr class="expand-divider">
+      <button class="expand-toggle" onclick="toggleExpand(this)">
+        為什麼這樣吃？了解詳細原因
+        <span class="et-arrow">▾</span>
+      </button>
+      <div class="expand-body">
+        <div class="detail-list">
+          <div class="detail-item"><span class="di-kw">鈉</span>每日鹽分 &lt; 5g（鈉 &lt; 2000mg）。外食選清淡、少醬料，避免醃漬與加工食品</div>
+          <div class="detail-item"><span class="di-kw">鉀</span>多吃菠菜、地瓜葉、香蕉、奇異果等高鉀蔬果，有助自然降低血壓</div>
+          <div class="detail-item"><span class="di-kw">鈣</span>每日一份低脂乳製品（低脂牛奶、無糖優格），補充鈣與鎂</div>
+          <div class="detail-item"><span class="di-kw">全穀</span>糙米、燕麥取代白飯白麵，穩定血壓並增加飽足感</div>
+          <div class="detail-item"><span class="di-kw">油脂</span>橄欖油、堅果取代動物油脂，避免油炸、紅肉過量</div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -381,6 +427,20 @@
             <span class="food-chip">🍠 地瓜</span>
             <span class="food-chip">💧 白開水</span>
           </div>
+        </div>
+      </div>
+      <hr class="expand-divider">
+      <button class="expand-toggle" onclick="toggleExpand(this)">
+        為什麼這樣吃？了解詳細原因
+        <span class="et-arrow">▾</span>
+      </button>
+      <div class="expand-body">
+        <div class="detail-list">
+          <div class="detail-item"><span class="di-kw green">定量</span>每餐澱粉定量（半碗飯為目標），三餐均勻分配，避免血糖忽高忽低</div>
+          <div class="detail-item"><span class="di-kw green">低GI</span>糙米、燕麥、地瓜取代白飯白麵包；GI 值低，血糖上升較緩慢</div>
+          <div class="detail-item"><span class="di-kw green">順序</span>飲食順序（肉→菜→飯）對控制餐後血糖效果最為顯著</div>
+          <div class="detail-item"><span class="di-kw green">蛋白質</span>每餐先吃蛋白質，增加飽足感、穩定血糖，避免過量進食</div>
+          <div class="detail-item"><span class="di-kw green">飲料</span>以白開水、無糖茶取代含糖飲料；避免果汁（即使是現榨）</div>
         </div>
       </div>
     </div>
@@ -417,9 +477,21 @@
             </div>
           </div>
         </div>
+        <button class="expand-toggle" onclick="toggleExpand(this)" style="margin-top:8px;">
+          為什麼這樣吃？了解詳細原因
+          <span class="et-arrow">▾</span>
+        </button>
+        <div class="expand-body">
+          <div class="detail-list">
+            <div class="detail-item"><span class="di-kw orange">澱粉</span>精緻澱粉（白飯、麵包）與糖直接轉化為三酸甘油酯，是 TG 升高的主因</div>
+            <div class="detail-item"><span class="di-kw orange">酒精</span>酒精會直接提高 TG，建議完全戒酒</div>
+            <div class="detail-item"><span class="di-kw orange">魚油</span>深海魚（鮭魚、鯖魚、沙丁魚）富含 Omega-3，有效降低 TG</div>
+            <div class="detail-item"><span class="di-kw orange">全穀</span>以糙米、燕麥取代白飯，減少血糖波動，間接降低 TG</div>
+          </div>
+        </div>
       </div>
 
-      <div class="lipid-type ldl">
+      <div class="lipid-type ldl" style="margin-top:10px;">
         <div class="lt-label">🔷 高 LDL 膽固醇</div>
         <div class="diet-diff">
           <div class="diff-col less">
@@ -437,6 +509,18 @@
               <span class="food-chip">🫑 秋葵豆類</span>
               <span class="food-chip">🫒 橄欖油</span>
             </div>
+          </div>
+        </div>
+        <button class="expand-toggle" onclick="toggleExpand(this)" style="margin-top:8px;">
+          為什麼這樣吃？了解詳細原因
+          <span class="et-arrow">▾</span>
+        </button>
+        <div class="expand-body">
+          <div class="detail-list">
+            <div class="detail-item"><span class="di-kw purple">飽和脂肪</span>紅肉、奶油、全脂乳品中的飽和脂肪是 LDL 升高的主因，需控制攝取量</div>
+            <div class="detail-item"><span class="di-kw purple">反式脂肪</span>酥皮、速食炸物含反式脂肪，直接升高 LDL 並降低好膽固醇（HDL）</div>
+            <div class="detail-item"><span class="di-kw purple">纖維</span>燕麥、秋葵、豆類的可溶性纖維能在腸道中結合膽固醇並排出，降 LDL 有實證</div>
+            <div class="detail-item"><span class="di-kw purple">好油</span>橄欖油、酪梨取代動物油，提供單元不飽和脂肪酸，有助降低 LDL</div>
           </div>
         </div>
       </div>
@@ -465,6 +549,14 @@
     document.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
     document.getElementById('tab-' + id).classList.add('active');
     event.currentTarget.classList.add('active');
+  }
+
+  function toggleExpand(btn) {
+    var body = btn.nextElementSibling;
+    var isOpen = body.classList.contains('open');
+    body.classList.toggle('open', !isOpen);
+    btn.classList.toggle('open', !isOpen);
+    btn.querySelector('.et-arrow').style.transform = isOpen ? '' : 'rotate(180deg)';
   }
 </script>
 </body>
