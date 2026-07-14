@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>猛健樂減重飲食指南｜日和聯合診所</title>
+  <style>
+    html { color-scheme: light; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, "Helvetica Neue", Arial, sans-serif;
+      background: #F4F7FB;
+      color: #1A2740;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    header {
+      background: linear-gradient(150deg, #1A5FA8 0%, #4AAEE8 100%);
+      color: white; text-align: center; padding: 36px 24px 32px;
+    }
+    header .clinic { font-size: 11px; letter-spacing: 3px; opacity: 0.7; margin-bottom: 10px; }
+    header h1 { font-size: 22px; font-weight: 900; line-height: 1.3; }
+    header .sub { font-size: 13px; opacity: 0.82; margin-top: 8px; line-height: 1.6; }
+
+    .container { max-width: 480px; margin: 0 auto; padding: 22px 16px 60px; }
+
+    .section-title {
+      font-size: 11px; font-weight: 700; color: #8A9DB8;
+      letter-spacing: 2px; text-transform: uppercase;
+      margin-bottom: 12px; margin-top: 24px;
+    }
+
+    /* ── Part 1: 份量卡 ── */
+    .portion-grid { display: flex; flex-direction: column; gap: 10px; margin-bottom: 4px; }
+    .portion-card {
+      background: white; border-radius: 18px;
+      padding: 18px 18px; box-shadow: 0 2px 12px rgba(26,95,168,0.08);
+      display: flex; align-items: center; gap: 16px;
+    }
+    .portion-visual {
+      width: 64px; height: 64px; border-radius: 16px;
+      display: flex; flex-direction: column; align-items: center;
+      justify-content: center; flex-shrink: 0; gap: 2px;
+    }
+    .portion-visual.meat { background: #FFF0ED; }
+    .portion-visual.veg  { background: #F0FFF4; }
+    .portion-visual.rice { background: #FFFFF0; }
+    .portion-visual .pv-icon { font-size: 28px; line-height: 1; }
+    .portion-visual .pv-sub  { font-size: 9px; font-weight: 700; opacity: 0.6; }
+    .portion-body {}
+    .portion-body .pb-cat { font-size: 11px; font-weight: 700; letter-spacing: 1px; color: #8A9DB8; margin-bottom: 3px; }
+    .portion-body .pb-name { font-size: 16px; font-weight: 900; color: #1A2740; margin-bottom: 4px; }
+    .portion-body .pb-desc { font-size: 13px; color: #4A5E7A; line-height: 1.55; }
+    .portion-body .pb-tag {
+      display: inline-block; margin-top: 6px;
+      background: #EBF3FF; color: #1A5FA8;
+      font-size: 11px; font-weight: 700;
+      border-radius: 20px; padding: 3px 10px;
+    }
+    .portion-body .pb-tag.green { background: #E8F5EF; color: #0E6B42; }
+    .portion-body .pb-tag.yellow { background: #FFFFF0; color: #7A6000; }
+
+    /* ── Part 2: 猛健樂飲食調整 ── */
+    .protein-alert {
+      background: linear-gradient(135deg, #1A5FA8, #4AAEE8);
+      border-radius: 16px; padding: 16px 18px;
+      color: white; margin-bottom: 14px;
+      display: flex; align-items: flex-start; gap: 12px;
+    }
+    .protein-alert .pa-icon { font-size: 28px; flex-shrink: 0; }
+    .protein-alert .pa-title { font-size: 14px; font-weight: 800; margin-bottom: 4px; }
+    .protein-alert .pa-desc { font-size: 12px; opacity: 0.88; line-height: 1.65; }
+
+    .order-card {
+      background: white; border-radius: 18px;
+      padding: 18px 18px; box-shadow: 0 2px 12px rgba(26,95,168,0.08);
+      margin-bottom: 14px;
+    }
+    .order-card .oc-title { font-size: 14px; font-weight: 800; color: #1A2740; margin-bottom: 14px; }
+    .order-steps { display: flex; align-items: center; gap: 8px; }
+    .order-step { flex: 1; text-align: center; }
+    .os-circle {
+      width: 52px; height: 52px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 26px; margin: 0 auto 8px;
+    }
+    .os-circle.s1 { background: #FFF0ED; }
+    .os-circle.s2 { background: #F0FFF4; }
+    .os-circle.s3 { background: #FFFFF0; }
+    .os-num {
+      width: 20px; height: 20px; border-radius: 50%;
+      background: #1A5FA8; color: white;
+      font-size: 11px; font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 4px;
+    }
+    .os-label { font-size: 13px; font-weight: 800; color: #1A2740; }
+    .os-reason { font-size: 10px; color: #8A9DB8; margin-top: 3px; line-height: 1.4; }
+    .order-arrow { font-size: 20px; color: #BDD5F0; flex-shrink: 0; }
+
+    .tip-bar {
+      background: #EBF3FF; border-left: 4px solid #4AAEE8;
+      border-radius: 0 12px 12px 0; padding: 12px 14px;
+      font-size: 13px; color: #1A5FA8; line-height: 1.65;
+      margin-bottom: 14px;
+    }
+
+    /* ── Part 3: 三高 Tabs ── */
+    .tab-nav {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 6px; margin-bottom: 14px;
+    }
+    .tab-btn {
+      background: white; border: 2px solid #D4DFF0;
+      border-radius: 12px; padding: 10px 6px;
+      font-size: 12px; font-weight: 700; color: #8A9DB8;
+      cursor: pointer; text-align: center;
+      transition: all 0.18s; -webkit-tap-highlight-color: transparent;
+    }
+    .tab-btn .tb-icon { font-size: 18px; display: block; margin-bottom: 4px; }
+    .tab-btn.active { border-color: #1A5FA8; background: #1A5FA8; color: white; }
+
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    .disease-card {
+      background: white; border-radius: 18px;
+      padding: 20px; box-shadow: 0 2px 12px rgba(26,95,168,0.08);
+    }
+    .dc-header { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+    .dc-icon {
+      width: 46px; height: 46px; border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px; flex-shrink: 0;
+    }
+    .dc-icon.bp  { background: #FFF0ED; }
+    .dc-icon.dm  { background: #F0FFF4; }
+    .dc-icon.lip { background: #FAF5FF; }
+    .dc-name { font-size: 16px; font-weight: 900; color: #1A2740; }
+    .dc-sub  { font-size: 12px; color: #8A9DB8; margin-top: 2px; }
+
+    .diet-list { display: flex; flex-direction: column; gap: 8px; }
+    .diet-item {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 13px; color: #2D3748; line-height: 1.6;
+    }
+    .di-dot {
+      width: 20px; height: 20px; border-radius: 50%; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 11px; font-weight: 800; color: white; margin-top: 1px;
+    }
+    .di-dot.blue  { background: #1A5FA8; }
+    .di-dot.green { background: #0E6B42; }
+    .di-dot.purple{ background: #553C9A; }
+
+    /* 高血脂雙欄 */
+    .lipid-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 4px; }
+    .lipid-col {
+      border-radius: 14px; padding: 14px 12px;
+    }
+    .lipid-col.tg  { background: #FFF5F0; border: 1.5px solid #FED7C3; }
+    .lipid-col.ldl { background: #FAF5FF; border: 1.5px solid #D6BCFA; }
+    .lipid-col .lc-label {
+      font-size: 11px; font-weight: 800; margin-bottom: 10px;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .lipid-col.tg  .lc-label { color: #C05621; }
+    .lipid-col.ldl .lc-label { color: #553C9A; }
+    .lipid-col .lc-items { display: flex; flex-direction: column; gap: 6px; }
+    .lipid-col .lc-item { font-size: 12px; color: #4A5568; line-height: 1.55; padding-left: 12px; position: relative; }
+    .lipid-col .lc-item::before { content: '·'; position: absolute; left: 2px; font-weight: 900; }
+    .lipid-col.tg  .lc-item::before { color: #C05621; }
+    .lipid-col.ldl .lc-item::before { color: #553C9A; }
+
+    /* ── CTA ── */
+    .cta-card {
+      background: linear-gradient(150deg, #1A5FA8, #4AAEE8);
+      border-radius: 20px; padding: 22px 20px;
+      text-align: center; color: white; margin-top: 20px;
+    }
+    .cta-card h3 { font-size: 15px; font-weight: 800; margin-bottom: 6px; }
+    .cta-card p  { font-size: 13px; opacity: 0.88; margin-bottom: 14px; line-height: 1.65; }
+    .cta-phone {
+      display: block; background: white; color: #1A5FA8;
+      font-size: 16px; font-weight: 900; border-radius: 12px;
+      padding: 13px; text-decoration: none; letter-spacing: 0.5px;
+    }
+
+    footer {
+      text-align: center; font-size: 11px;
+      color: #A0B0C4; margin-top: 32px; line-height: 2.2;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="clinic">日 和 聯 合 診 所</div>
+  <h1>🥗 猛健樂減重<br>飲食控制指南</h1>
+  <div class="sub">吃對順序、吃對份量<br>讓猛健樂的效果最大化</div>
+</header>
+
+<div class="container">
+
+  <!-- ── Part 1: 份量 ── -->
+  <div class="section-title">Part 1 · 份量這樣抓</div>
+  <div class="portion-grid">
+
+    <div class="portion-card">
+      <div class="portion-visual meat">
+        <div class="pv-icon">🤌</div>
+        <div class="pv-sub">三指</div>
+      </div>
+      <div class="portion-body">
+        <div class="pb-cat">蛋白質</div>
+        <div class="pb-name">肉類</div>
+        <div class="pb-desc">三指寬、一指厚的大小，約 35g</div>
+        <span class="pb-tag">一份蛋白質</span>
+      </div>
+    </div>
+
+    <div class="portion-card">
+      <div class="portion-visual veg">
+        <div class="pv-icon">🥣</div>
+        <div class="pv-sub">一碗</div>
+      </div>
+      <div class="portion-body">
+        <div class="pb-cat">蔬菜</div>
+        <div class="pb-name">煮熟蔬菜</div>
+        <div class="pb-desc">炒熟或燙熟一碗（約 200g）</div>
+        <span class="pb-tag green">兩份蔬菜</span>
+      </div>
+    </div>
+
+    <div class="portion-card">
+      <div class="portion-visual rice">
+        <div class="pv-icon">🍚</div>
+        <div class="pv-sub">半碗～一碗</div>
+      </div>
+      <div class="portion-body">
+        <div class="pb-cat">澱粉</div>
+        <div class="pb-name">飯（主食）</div>
+        <div class="pb-desc">一餐建議半碗到一碗，減重期以半碗為目標</div>
+        <span class="pb-tag yellow">一餐份量</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ── Part 2: 猛健樂飲食調整 ── -->
+  <div class="section-title" style="margin-top:28px;">Part 2 · 施打猛健樂後的飲食調整</div>
+
+  <div class="protein-alert">
+    <div class="pa-icon">💪</div>
+    <div>
+      <div class="pa-title">最重要的飲食守則：蛋白質不能少</div>
+      <div class="pa-desc">食慾下降時最大的風險是肌肉流失。<br>每公斤體重每天至少攝取 <strong>1–1.2g 蛋白質</strong>，才能確保減掉的是脂肪，而非肌肉。</div>
+    </div>
+  </div>
+
+  <div class="order-card">
+    <div class="oc-title">🍽️ 進食順序：這個順序讓你吃得少、吸收好</div>
+    <div class="order-steps">
+      <div class="order-step">
+        <div class="os-circle s1"><span>🥩</span></div>
+        <div class="os-num">1</div>
+        <div class="os-label">先吃肉</div>
+        <div class="os-reason">補蛋白質<br>維持肌肉量</div>
+      </div>
+      <div class="order-arrow">›</div>
+      <div class="order-step">
+        <div class="os-circle s2"><span>🥦</span></div>
+        <div class="os-num">2</div>
+        <div class="os-label">再吃菜</div>
+        <div class="os-reason">纖維降低<br>血糖波動</div>
+      </div>
+      <div class="order-arrow">›</div>
+      <div class="order-step">
+        <div class="os-circle s3"><span>🍚</span></div>
+        <div class="os-num">3</div>
+        <div class="os-label">最後吃飯</div>
+        <div class="os-reason">此時已有<br>飽足感</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tip-bar">
+    🚫 <strong>零食</strong>：施打期間食慾自然下降，正是戒除零食的最好時機。加工零食熱量高、營養密度低，是減重最大的阻力。
+  </div>
+
+  <!-- ── Part 3: 三高飲食 ── -->
+  <div class="section-title" style="margin-top:28px;">Part 3 · 三高患者飲食調整</div>
+
+  <div class="tab-nav">
+    <button class="tab-btn active" onclick="switchTab('bp')">
+      <span class="tb-icon">❤️</span>高血壓
+    </button>
+    <button class="tab-btn" onclick="switchTab('dm')">
+      <span class="tb-icon">🩸</span>糖尿病
+    </button>
+    <button class="tab-btn" onclick="switchTab('lip')">
+      <span class="tb-icon">🧬</span>高血脂
+    </button>
+  </div>
+
+  <!-- 高血壓 -->
+  <div class="tab-panel active" id="tab-bp">
+    <div class="disease-card">
+      <div class="dc-header">
+        <div class="dc-icon bp">❤️</div>
+        <div>
+          <div class="dc-name">高血壓</div>
+          <div class="dc-sub">建議採用得舒飲食（DASH Diet）</div>
+        </div>
+      </div>
+      <div class="diet-list">
+        <div class="diet-item">
+          <div class="di-dot blue">鈉</div>
+          <div>每日鹽分 &lt; 5g（鈉 &lt; 2000mg）。外食盡量選清淡、少醬料，避免醃漬、加工食品</div>
+        </div>
+        <div class="diet-item">
+          <div class="di-dot blue">鉀</div>
+          <div>多吃高鉀蔬果：菠菜、地瓜葉、香蕉、奇異果，有助降低血壓</div>
+        </div>
+        <div class="diet-item">
+          <div class="di-dot blue">鈣</div>
+          <div>每日一份低脂乳製品（低脂牛奶、無糖優格），補充鈣與鎂</div>
+        </div>
+        <div class="diet-item">
+          <div class="di-dot blue">穀</div>
+          <div>以全穀（糙米、燕麥）取代白飯、白麵，穩定血壓並增加飽足感</div>
+        </div>
+        <div class="diet-item">
+          <div class="di-dot blue">脂</div>
+          <div>以橄欖油、堅果取代動物油脂；避免油炸、紅肉過量</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 糖尿病 -->
+  <div class="tab-panel" id="tab-dm">
+    <div class="disease-card">
+      <div class="dc-header">
+        <div class="dc-icon dm">🩸</div>
+        <div>
+          <div class="dc-name">糖尿病</div>
+          <div class="dc-sub">控醣飲食 ＋ 低升糖指數（低 GI）</div>
+        </div>
+      </div>
+      <div class="diet-list">
+        <div class="diet-item">
+          <div class="di-dot green">醣</div>
+          <div>每餐澱粉定量（半碗飯為目標），三餐均勻分配，避免血糖忽高忽低</div>
+        </div>
+        <div class="diet-item">
+          <div class="di-dot green">GI</div>
+          <div>選低 GI 食物：糙米、燕麥、地瓜取代白飯白麵包；避免精緻糖、含糖飲料</div>
+        </div>
+        <div class="diet-item">
+          <div class="di-dot green">順</div>
+          <div>飲食順序（肉→菜→飯）對糖尿病患者控制餐後血糖效果最為顯著</div>
+        </div>
+        <div class="diet-item">
+          <div class="di-dot green">蛋</div>
+          <div>每餐優先攝取足夠蛋白質（每公斤 1–1.2g），增加飽足感、穩定血糖</div>
+        </div>
+        <div class="diet-item">
+          <div class="di-dot green">水</div>
+          <div>以白開水、無糖茶取代含糖飲料；避免果汁（即使是現榨）</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 高血脂 -->
+  <div class="tab-panel" id="tab-lip">
+    <div class="disease-card">
+      <div class="dc-header">
+        <div class="dc-icon lip">🧬</div>
+        <div>
+          <div class="dc-name">高血脂</div>
+          <div class="dc-sub">依類型不同，飲食調整方向不一樣</div>
+        </div>
+      </div>
+      <div class="lipid-cols">
+        <div class="lipid-col tg">
+          <div class="lc-label">🔶 高三酸甘油酯</div>
+          <div class="lc-items">
+            <div class="lc-item">減少精緻澱粉與糖（白飯、麵包、含糖飲料）</div>
+            <div class="lc-item">完全戒酒（酒精直接提高 TG）</div>
+            <div class="lc-item">多吃深海魚：鮭魚、鯖魚、沙丁魚（Omega-3）</div>
+            <div class="lc-item">以全穀取代精緻澱粉</div>
+          </div>
+        </div>
+        <div class="lipid-col ldl">
+          <div class="lc-label">🔷 高 LDL 膽固醇</div>
+          <div class="lc-items">
+            <div class="lc-item">減少飽和脂肪：少紅肉、奶油、全脂乳品</div>
+            <div class="lc-item">避免反式脂肪：拒絕酥皮、速食炸物</div>
+            <div class="lc-item">多可溶性纖維：燕麥、秋葵、豆類（降 LDL 有實證）</div>
+            <div class="lc-item">以橄欖油、酪梨取代動物油</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── CTA ── -->
+  <div class="cta-card">
+    <h3>🧑‍⚕️ 需要專業營養諮詢？</h3>
+    <p>日和聯合診所提供專業營養師諮詢<br>依您的體重目標與病史，量身規劃個人化飲食計畫</p>
+    <a class="cta-phone" href="tel:0666520182">📞 06-6520182 預約諮詢</a>
+  </div>
+
+  <footer>
+    日和聯合診所｜耳鼻喉科・家醫科・中醫科<br>
+    台南市鹽水區<br>
+    本衛教內容僅供參考，實際治療請依醫師建議為準
+  </footer>
+
+</div>
+
+<script>
+  function switchTab(id) {
+    document.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.remove('active'); });
+    document.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
+    document.getElementById('tab-' + id).classList.add('active');
+    event.currentTarget.classList.add('active');
+  }
+</script>
+</body>
+</html>
