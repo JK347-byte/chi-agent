@@ -475,6 +475,75 @@
     ctx.quadraticCurveTo((hipX+rPX)/2+8,(hipYr+rPY)/2+10,rPX,rPY); ctx.stroke();
   }
 
+  // Combined: cycling (left) + strength (right), both scaled down
+  function drawCombined(gy, t, col) {
+    var lX = W * 0.28;  // left figure center (cycling)
+    var rX = W * 0.72;  // right figure center (strength)
+
+    // Divider
+    ctx.strokeStyle = '#E2E8F0'; ctx.lineWidth = 1;
+    ctx.setLineDash([4, 4]);
+    ln(W/2, 14, W/2, gy - 2);
+    ctx.setLineDash([]);
+
+    // Labels
+    ctx.fillStyle = '#8A9DB8';
+    ctx.font = '10px -apple-system, sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('有氧', lX, 18);
+    ctx.fillText('肌力', rX, 18);
+
+    // Scale down both figures by drawing at 0.78x
+    // We fake scale by reducing all measurements
+    drawCyclingScaled(lX, gy, t, col, 0.78);
+    drawStrengthScaled(rX, gy, t + Math.PI * 0.5, col, 0.78);
+  }
+
+  function drawCyclingScaled(cx, gy, t, col, sc) {
+    var wR=Math.round(28*sc), rwX=cx-Math.round(28*sc), fwX=cx+Math.round(28*sc), wY=gy-wR;
+    setStyle(col, 2.5);
+    circ(rwX, wY, wR, false);
+    circ(fwX, wY, wR, false);
+    var bbX=cx-Math.round(4*sc), bbY=wY,
+        stX=cx-Math.round(18*sc), stY=wY-Math.round(30*sc),
+        htX=cx+Math.round(20*sc), htY=wY-Math.round(36*sc);
+    ln(rwX,wY,bbX,bbY); ln(bbX,bbY,stX,stY); ln(stX,stY,rwX,wY);
+    ln(stX,stY,htX,htY); ln(bbX,bbY,htX,htY); ln(htX,htY,fwX,wY);
+    ln(htX,htY,htX-3,htY-5); ln(htX-3,htY-5,htX+6,htY-5);
+    setStyle(col, 3);
+    var hR=Math.round(13*sc), hipX=stX, hipYr=stY-Math.round(4*sc),
+        shX=hipX+Math.round(11*sc), shYr=hipYr-Math.round(26*sc),
+        hdX=shX+Math.round(5*sc), hdY=shYr-hR-2;
+    circ(hdX, hdY, hR, true);
+    ln(shX,shYr,hipX,hipYr);
+    ln(shX,shYr,htX-3,htY+8);
+    var crank=Math.round(16*sc);
+    var lPX=bbX+Math.cos(t)*crank, lPY=bbY+Math.sin(t)*crank;
+    var rPX=bbX+Math.cos(t+Math.PI)*crank, rPY=bbY+Math.sin(t+Math.PI)*crank;
+    ctx.beginPath(); ctx.moveTo(hipX,hipYr);
+    ctx.quadraticCurveTo((hipX+lPX)/2-6,(hipYr+lPY)/2+8,lPX,lPY); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(hipX,hipYr);
+    ctx.quadraticCurveTo((hipX+rPX)/2+6,(hipYr+rPY)/2+8,rPX,rPY); ctx.stroke();
+  }
+
+  function drawStrengthScaled(cx, gy, t, col, sc) {
+    setStyle(col, 3);
+    var hR=Math.round(15*sc), bL=Math.round(38*sc), legL=Math.round(36*sc);
+    var hY=gy-legL-bL-hR, shY=hY+hR+2, hipY=shY+bL;
+    circ(cx, hY, hR, true);
+    ln(cx,shY,cx,hipY);
+    ln(cx,hipY,cx-Math.round(14*sc),gy);
+    ln(cx,hipY,cx+Math.round(14*sc),gy);
+    var press=(Math.sin(t)+1)/2;
+    var armY=shY+8-press*Math.round(38*sc);
+    var armX=Math.round(22*sc);
+    ln(cx,shY+6,cx-armX,armY);
+    ln(cx,shY+6,cx+armX,armY);
+    ctx.lineWidth=5;
+    ln(cx-armX-Math.round(7*sc),armY,cx-armX+Math.round(7*sc),armY);
+    ln(cx+armX-Math.round(7*sc),armY,cx+armX+Math.round(7*sc),armY);
+  }
+
   // ── Main loop ──
   function loop() {
     ctx.clearRect(0, 0, W, H);
@@ -488,9 +557,9 @@
     var cX  = W / 2;
 
     if      (currentEx === 'walk')     drawWalk(cX, gY, phase, col);
-    else if (currentEx === 'aerobic')  drawRun(cX, gY, phase, col);
+    else if (currentEx === 'aerobic')  drawCycling(cX, gY, phase, col);
     else if (currentEx === 'strength') drawStrength(cX, gY, phase, col);
-    else                               drawCycling(cX, gY, phase, col);
+    else                               drawCombined(gY, phase, col);
 
     // Animate metrics toward target
     ['fat','muscle','bmr','weight'].forEach(function(k){
