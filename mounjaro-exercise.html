@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>猛健樂運動習慣指南｜日和聯合診所</title>
+  <style>
+    html { color-scheme: light; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, "Helvetica Neue", Arial, sans-serif;
+      background: #F4F7FB; color: #1A2740;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    header {
+      background: linear-gradient(150deg, #1A5FA8 0%, #4AAEE8 100%);
+      color: white; text-align: center; padding: 36px 24px 32px;
+    }
+    header .clinic { font-size: 11px; letter-spacing: 3px; opacity: 0.7; margin-bottom: 10px; }
+    header h1 { font-size: 22px; font-weight: 900; line-height: 1.3; }
+    header .sub { font-size: 13px; opacity: 0.82; margin-top: 8px; line-height: 1.6; }
+
+    .container { max-width: 480px; margin: 0 auto; padding: 22px 16px 60px; }
+
+    .section-title {
+      font-size: 11px; font-weight: 700; color: #8A9DB8;
+      letter-spacing: 2px; text-transform: uppercase;
+      margin-bottom: 12px; margin-top: 24px;
+    }
+
+    /* ── 核心概念 ── */
+    .concept-card {
+      background: white; border-radius: 18px;
+      padding: 18px 18px; box-shadow: 0 2px 12px rgba(26,95,168,0.08);
+      display: flex; align-items: center; gap: 14px;
+    }
+    .concept-arrow {
+      display: flex; align-items: center; gap: 6px; flex: 1;
+    }
+    .con-box {
+      flex: 1; border-radius: 12px; padding: 12px 10px; text-align: center;
+    }
+    .con-box.q { background: #EBF3FF; }
+    .con-box.i { background: #F0FFF4; }
+    .con-box .cb-icon { font-size: 24px; margin-bottom: 4px; }
+    .con-box .cb-main { font-size: 14px; font-weight: 900; color: #1A2740; }
+    .con-box .cb-sub  { font-size: 11px; color: #8A9DB8; margin-top: 2px; }
+    .con-sep { font-size: 22px; color: #BDD5F0; flex-shrink: 0; }
+
+    /* ── 三階段 ── */
+    .stage-wrap { display: flex; flex-direction: column; gap: 0; }
+    .stage-row { display: flex; gap: 0; }
+    .stage-axis { display: flex; flex-direction: column; align-items: center; width: 48px; flex-shrink: 0; }
+    .stage-dot {
+      width: 40px; height: 40px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; font-weight: 900; color: white; flex-shrink: 0;
+    }
+    .stage-dot.s1 { background: linear-gradient(135deg, #4ADE80, #22C55E); }
+    .stage-dot.s2 { background: linear-gradient(135deg, #FB923C, #F97316); }
+    .stage-dot.s3 { background: linear-gradient(135deg, #A78BFA, #7C3AED); }
+    .stage-dot.sf { background: linear-gradient(135deg, #1A5FA8, #4AAEE8); }
+    .stage-vline { width: 2px; flex: 1; min-height: 12px; background: #D4DFF0; }
+    .stage-row:last-child .stage-vline { display: none; }
+    .stage-body {
+      flex: 1; padding: 0 0 16px 12px;
+    }
+    .stage-body .sb-label {
+      font-size: 11px; font-weight: 700; color: #8A9DB8;
+      letter-spacing: 1px; margin-bottom: 3px; margin-top: 8px;
+    }
+    .stage-body .sb-title { font-size: 15px; font-weight: 800; color: #1A2740; margin-bottom: 5px; }
+    .stage-body .sb-desc { font-size: 13px; color: #4A5E7A; line-height: 1.65; }
+    .stage-body .sb-pill {
+      display: inline-block; margin-top: 7px;
+      border-radius: 20px; padding: 4px 12px;
+      font-size: 11px; font-weight: 700;
+    }
+    .sb-pill.green  { background: #F0FFF4; color: #16A34A; }
+    .sb-pill.orange { background: #FFF7ED; color: #EA580C; }
+    .sb-pill.purple { background: #F5F3FF; color: #7C3AED; }
+    .sb-pill.blue   { background: #EBF3FF; color: #1A5FA8; }
+
+    /* ── 互動動畫區 ── */
+    .anim-card {
+      background: white; border-radius: 22px;
+      box-shadow: 0 2px 16px rgba(26,95,168,0.10);
+      overflow: hidden; margin-bottom: 4px;
+    }
+    .ex-selector {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
+      border-bottom: 1px solid #EDF2F9;
+    }
+    .ex-btn {
+      padding: 12px 4px; border: none; background: white;
+      cursor: pointer; text-align: center;
+      font-size: 10px; font-weight: 700; color: #8A9DB8;
+      transition: background 0.18s, color 0.18s;
+      -webkit-tap-highlight-color: transparent;
+      border-right: 1px solid #EDF2F9;
+    }
+    .ex-btn:last-child { border-right: none; }
+    .ex-btn .eb-icon { font-size: 22px; display: block; margin-bottom: 4px; }
+    .ex-btn.active { background: #F0F7FF; color: #1A5FA8; }
+
+    .canvas-wrap {
+      padding: 10px 16px 4px;
+      display: flex; flex-direction: column; align-items: center;
+    }
+    .ex-name-label {
+      font-size: 13px; font-weight: 800; margin-bottom: 8px;
+      transition: color 0.3s;
+    }
+    canvas#exCanvas {
+      display: block; width: 100%; border-radius: 12px;
+      background: #F8FAFB;
+    }
+
+    /* ── 指標列 ── */
+    .metrics-wrap { padding: 14px 16px 18px; }
+    .metric-row { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+    .metric-row:last-child { margin-bottom: 0; }
+    .m-label { font-size: 12px; font-weight: 700; color: #4A5E7A; width: 72px; flex-shrink: 0; }
+    .m-track {
+      flex: 1; height: 14px; background: #EDF2F9;
+      border-radius: 999px; overflow: hidden;
+    }
+    .m-fill {
+      height: 100%; border-radius: 999px; width: 0%;
+      transition: width 0.5s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    .m-fill.fat      { background: linear-gradient(90deg, #FB923C, #F97316); }
+    .m-fill.muscle   { background: linear-gradient(90deg, #1A5FA8, #4AAEE8); }
+    .m-fill.bmr      { background: linear-gradient(90deg, #A78BFA, #7C3AED); }
+    .m-fill.weight   { background: linear-gradient(90deg, #4ADE80, #16A34A); }
+    .m-val { font-size: 12px; font-weight: 800; width: 32px; text-align: right; font-variant-numeric: tabular-nums; }
+    .m-val.fat    { color: #F97316; }
+    .m-val.muscle { color: #1A5FA8; }
+    .m-val.bmr    { color: #7C3AED; }
+    .m-val.weight { color: #16A34A; }
+
+    /* ── 目標卡 ── */
+    .goal-card {
+      background: linear-gradient(150deg, #1A5FA8, #4AAEE8);
+      border-radius: 20px; padding: 20px 20px;
+      color: white; margin-top: 20px;
+    }
+    .goal-card .gc-title { font-size: 15px; font-weight: 800; margin-bottom: 14px; }
+    .goal-nums { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 14px; }
+    .goal-num {
+      background: rgba(255,255,255,0.18); border-radius: 14px;
+      padding: 14px 12px; text-align: center;
+    }
+    .goal-num .gn-big { font-size: 30px; font-weight: 900; line-height: 1; }
+    .goal-num .gn-unit { font-size: 11px; opacity: 0.8; margin-top: 2px; }
+    .goal-num .gn-desc { font-size: 11px; opacity: 0.7; margin-top: 5px; line-height: 1.4; }
+    .goal-tip { font-size: 12px; opacity: 0.85; line-height: 1.7; }
+
+    /* ── CTA ── */
+    .cta-card {
+      background: linear-gradient(150deg, #1A5FA8, #4AAEE8);
+      border-radius: 20px; padding: 22px 20px;
+      text-align: center; color: white; margin-top: 18px;
+    }
+    .cta-card h3 { font-size: 15px; font-weight: 800; margin-bottom: 6px; }
+    .cta-card p  { font-size: 13px; opacity: 0.88; margin-bottom: 14px; line-height: 1.65; }
+    .cta-phone {
+      display: block; background: white; color: #1A5FA8;
+      font-size: 16px; font-weight: 900; border-radius: 12px;
+      padding: 13px; text-decoration: none; letter-spacing: 0.5px;
+    }
+
+    footer {
+      text-align: center; font-size: 11px;
+      color: #A0B0C4; margin-top: 32px; line-height: 2.2;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="clinic">日 和 聯 合 診 所</div>
+  <h1>🏃 猛健樂減重<br>運動習慣指南</h1>
+  <div class="sub">先有量，再有質<br>循序漸進，讓運動成為習慣</div>
+</header>
+
+<div class="container">
+
+  <!-- 核心概念 -->
+  <div class="section-title">核心框架</div>
+  <div class="concept-card">
+    <div class="concept-arrow">
+      <div class="con-box q">
+        <div class="cb-icon">⏱️</div>
+        <div class="cb-main">先有量</div>
+        <div class="cb-sub">累積運動時間</div>
+      </div>
+      <div class="con-sep">→</div>
+      <div class="con-box i">
+        <div class="cb-icon">💪</div>
+        <div class="cb-main">再有質</div>
+        <div class="cb-sub">提升運動強度</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 三階段 -->
+  <div class="section-title" style="margin-top:28px;">三階段進展</div>
+  <div class="stage-wrap">
+
+    <div class="stage-row">
+      <div class="stage-axis">
+        <div class="stage-dot s1">1</div>
+        <div class="stage-vline"></div>
+      </div>
+      <div class="stage-body">
+        <div class="sb-label">起步期 — 先求有</div>
+        <div class="sb-title">散步 ／ 超慢跑</div>
+        <div class="sb-desc">不限強度，重點是讓身體開始動起來。每次20–30分鐘，只要心跳稍微加快、可以說話即可。</div>
+        <span class="sb-pill green">🚶 每天30分鐘開始</span>
+      </div>
+    </div>
+
+    <div class="stage-row">
+      <div class="stage-axis">
+        <div class="stage-dot s2">2</div>
+        <div class="stage-vline"></div>
+      </div>
+      <div class="stage-body">
+        <div class="sb-label">進階期 — 提升有氧</div>
+        <div class="sb-title">慢跑 ／ 騎腳踏車</div>
+        <div class="sb-desc">心肺功能逐漸提升後，加入中強度有氧運動，加速脂肪燃燒、改善心肺耐力。</div>
+        <span class="sb-pill orange">🚴 每週累積 150 分鐘</span>
+      </div>
+    </div>
+
+    <div class="stage-row">
+      <div class="stage-axis">
+        <div class="stage-dot s3">3</div>
+        <div class="stage-vline"></div>
+      </div>
+      <div class="stage-body">
+        <div class="sb-label">強化期 — 加入肌力</div>
+        <div class="sb-title">重量訓練</div>
+        <div class="sb-desc">肌肉量提升 → 基礎代謝率提高 → 每天消耗更多熱量。這是維持體重、防止復胖的關鍵。</div>
+        <span class="sb-pill purple">🏋️ 每週 2 次肌力訓練</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 互動動畫 -->
+  <div class="section-title" style="margin-top:28px;">各運動對身體的影響</div>
+  <div class="anim-card">
+
+    <div class="ex-selector">
+      <button class="ex-btn active" data-ex="walk" onclick="selectEx('walk', this)">
+        <span class="eb-icon">🚶</span>散步
+      </button>
+      <button class="ex-btn" data-ex="aerobic" onclick="selectEx('aerobic', this)">
+        <span class="eb-icon">🏃</span>有氧運動
+      </button>
+      <button class="ex-btn" data-ex="strength" onclick="selectEx('strength', this)">
+        <span class="eb-icon">🏋️</span>肌力訓練
+      </button>
+      <button class="ex-btn" data-ex="combined" onclick="selectEx('combined', this)">
+        <span class="eb-icon">🏆</span>有氧＋肌力
+      </button>
+    </div>
+
+    <div class="canvas-wrap">
+      <div class="ex-name-label" id="exLabel" style="color:#22C55E;">散步</div>
+      <canvas id="exCanvas" height="180"></canvas>
+    </div>
+
+    <div class="metrics-wrap">
+      <div class="metric-row">
+        <span class="m-label">🔥 脂肪消耗</span>
+        <div class="m-track"><div class="m-fill fat" id="bar-fat"></div></div>
+        <span class="m-val fat" id="val-fat">0%</span>
+      </div>
+      <div class="metric-row">
+        <span class="m-label">💪 肌肉成長</span>
+        <div class="m-track"><div class="m-fill muscle" id="bar-muscle"></div></div>
+        <span class="m-val muscle" id="val-muscle">0%</span>
+      </div>
+      <div class="metric-row">
+        <span class="m-label">⚡ 基礎代謝</span>
+        <div class="m-track"><div class="m-fill bmr" id="bar-bmr"></div></div>
+        <span class="m-val bmr" id="val-bmr">0%</span>
+      </div>
+      <div class="metric-row">
+        <span class="m-label">⬇️ 減重效果</span>
+        <div class="m-track"><div class="m-fill weight" id="bar-weight"></div></div>
+        <span class="m-val weight" id="val-weight">0%</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 最終目標 -->
+  <div class="goal-card" style="margin-top:20px;">
+    <div class="gc-title">🎯 最終目標</div>
+    <div class="goal-nums">
+      <div class="goal-num">
+        <div class="gn-big">150</div>
+        <div class="gn-unit">分鐘 / 週</div>
+        <div class="gn-desc">中強度有氧運動（每天約30分鐘）</div>
+      </div>
+      <div class="goal-num">
+        <div class="gn-big">2</div>
+        <div class="gn-unit">次 / 週</div>
+        <div class="gn-desc">全身肌力訓練（每次30–45分鐘）</div>
+      </div>
+    </div>
+    <div class="goal-tip">
+      ✅ 達到此目標後，基礎代謝率提升、脂肪持續燃燒，停藥後也能有效維持體重、預防復胖。
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-card">
+    <h3>需要個人化運動建議？</h3>
+    <p>詹士奇醫師搭配專業評估<br>依您的體能狀況規劃適合的運動計畫</p>
+    <a class="cta-phone" href="tel:0666520182">📞 06-6520182 預約諮詢</a>
+  </div>
+
+  <footer>
+    日和聯合診所｜耳鼻喉科・中醫科<br>
+    台南市鹽水區<br>
+    本衛教內容僅供參考，實際治療請依醫師建議為準
+  </footer>
+
+</div>
+
+<script>
+  // ── 資料 ──
+  var exData = {
+    walk:     { fat:28,  muscle:8,  bmr:18,  weight:30,  speed:0.035, color:'#22C55E', label:'散步' },
+    aerobic:  { fat:72,  muscle:32, bmr:52,  weight:68,  speed:0.07,  color:'#F97316', label:'有氧運動' },
+    strength: { fat:48,  muscle:92, bmr:88,  weight:52,  speed:0.05,  color:'#7C3AED', label:'肌力訓練' },
+    combined: { fat:95,  muscle:92, bmr:96,  weight:96,  speed:0.075, color:'#1A5FA8', label:'有氧＋肌力' }
+  };
+
+  var currentEx = 'walk';
+  var phase = 0;
+  var target = { fat:28, muscle:8, bmr:18, weight:30 };
+  var current = { fat:0, muscle:0, bmr:0, weight:0 };
+
+  // ── Canvas ──
+  var canvas = document.getElementById('exCanvas');
+  var ctx = canvas.getContext('2d');
+  var W, H;
+
+  function setupCanvas() {
+    var dpr = window.devicePixelRatio || 1;
+    var w = canvas.parentElement.clientWidth - 32;
+    H = 170; W = w;
+    canvas.width  = w * dpr;
+    canvas.height = H * dpr;
+    canvas.style.width  = w + 'px';
+    canvas.style.height = H + 'px';
+    ctx.scale(dpr, dpr);
+  }
+
+  // ── Drawing helpers ──
+  function ln(x1,y1,x2,y2){ ctx.beginPath(); ctx.moveTo(x1,y1); ctx.lineTo(x2,y2); ctx.stroke(); }
+  function circ(x,y,r,fill){ ctx.beginPath(); ctx.arc(x,y,r,0,Math.PI*2); fill ? ctx.fill() : ctx.stroke(); }
+
+  function setStyle(color, lw) {
+    ctx.strokeStyle = color; ctx.fillStyle = color;
+    ctx.lineWidth = lw || 4; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+  }
+
+  // Walking figure
+  function drawWalk(cx, gy, t, col) {
+    setStyle(col, 4);
+    var hR=15, bL=36, limbL=30;
+    var bob = Math.abs(Math.sin(t*2)) * 2;
+    var hY = gy - limbL*1.6 - bL - hR - bob;
+    var shY = hY + hR + 2;
+    var hipY = shY + bL;
+    circ(cx, hY, hR, true);
+    ln(cx, shY, cx, hipY);
+    var sw = Math.sin(t) * 0.42;
+    // Left leg
+    var lkX = cx + Math.sin(sw)*limbL*0.6,  lkY = hipY + limbL*0.5;
+    var lfX = lkX + Math.sin(sw*0.4)*limbL*0.5, lfY = gy;
+    ctx.beginPath(); ctx.moveTo(cx,hipY); ctx.lineTo(lkX,lkY); ctx.lineTo(lfX,lfY); ctx.stroke();
+    // Right leg
+    var rkX = cx + Math.sin(-sw)*limbL*0.6, rkY = hipY + limbL*0.5;
+    var rfX = rkX + Math.sin(-sw*0.4)*limbL*0.5, rfY = gy;
+    ctx.beginPath(); ctx.moveTo(cx,hipY); ctx.lineTo(rkX,rkY); ctx.lineTo(rfX,rfY); ctx.stroke();
+    // Arms
+    var as = -sw*0.6;
+    ln(cx, shY+8, cx+Math.sin(as)*22, shY+8+Math.abs(Math.cos(as))*18+8);
+    ln(cx, shY+8, cx+Math.sin(-as)*22, shY+8+Math.abs(Math.cos(-as))*18+8);
+  }
+
+  // Running figure
+  function drawRun(cx, gy, t, col) {
+    setStyle(col, 4);
+    var hR=14, bL=33, limbL=32, lean=7;
+    var bob = Math.abs(Math.sin(t*2)) * 5;
+    var hY = gy - limbL*1.6 - bL - hR - bob;
+    var shY = hY + hR + 2;
+    var hipY = shY + bL;
+    circ(cx+lean*0.3, hY, hR, true);
+    ln(cx, shY+4, cx+lean, hipY);
+    var sw = Math.sin(t) * 0.65;
+    // Legs
+    var lkX=cx+lean+Math.sin(sw)*limbL*0.7,  lkY=hipY+limbL*0.45;
+    var lfX=lkX-Math.sin(sw*0.6)*limbL*0.6,  lfY=gy;
+    ctx.beginPath(); ctx.moveTo(cx+lean,hipY); ctx.lineTo(lkX,lkY); ctx.lineTo(lfX,lfY); ctx.stroke();
+    var rkX=cx+lean+Math.sin(-sw)*limbL*0.7, rkY=hipY+limbL*0.45;
+    var rfX=rkX-Math.sin(-sw*0.6)*limbL*0.6, rfY=gy;
+    ctx.beginPath(); ctx.moveTo(cx+lean,hipY); ctx.lineTo(rkX,rkY); ctx.lineTo(rfX,rfY); ctx.stroke();
+    // Arms pumping
+    var as=Math.sin(t)*0.75;
+    ln(cx,shY+6, cx-14+Math.sin(as)*20,  shY+6+Math.cos(as)*16+10);
+    ln(cx,shY+6, cx+14+Math.sin(-as)*20, shY+6+Math.cos(-as)*16+10);
+  }
+
+  // Strength — overhead press
+  function drawStrength(cx, gy, t, col) {
+    setStyle(col, 4);
+    var hR=15, bL=38, legL=36;
+    var hY = gy - legL - bL - hR;
+    var shY = hY + hR + 2;
+    var hipY = shY + bL;
+    circ(cx, hY, hR, true);
+    ln(cx, shY, cx, hipY);
+    ln(cx, hipY, cx-14, gy);
+    ln(cx, hipY, cx+14, gy);
+    // Arms press up/down
+    var press = (Math.sin(t)+1)/2;  // 0..1
+    var armY = shY + 10 - press * 38;
+    var armX = 26;
+    ln(cx, shY+8, cx-armX, armY);
+    ln(cx, shY+8, cx+armX, armY);
+    // Dumbbells
+    ctx.lineWidth = 7;
+    ln(cx-armX-8, armY, cx-armX+8, armY);
+    ln(cx+armX-8, armY, cx+armX+8, armY);
+    ctx.lineWidth = 4;
+  }
+
+  // Cycling figure
+  function drawCycling(cx, gy, t, col) {
+    var wR=28, rwX=cx-28, fwX=cx+28, wY=gy-wR;
+    setStyle(col, 3);
+    // Wheels
+    circ(rwX, wY, wR, false);
+    circ(fwX, wY, wR, false);
+    // Frame
+    var bbX=cx-4, bbY=wY, stX=cx-18, stY=wY-30, htX=cx+20, htY=wY-36;
+    ln(rwX,wY, bbX,bbY); ln(bbX,bbY, stX,stY); ln(stX,stY,rwX,wY);
+    ln(stX,stY, htX,htY); ln(bbX,bbY, htX,htY); ln(htX,htY,fwX,wY);
+    // Handlebar
+    ln(htX,htY, htX-4,htY-6); ln(htX-4,htY-6, htX+8,htY-6);
+    // Rider
+    setStyle(col, 4);
+    var hR=13, hipX=stX, hipYr=stY-4, shX=hipX+11, shYr=hipYr-26, hdX=shX+5, hdY=shYr-hR-2;
+    circ(hdX, hdY, hR, true);
+    ln(shX,shYr, hipX,hipYr);
+    ln(shX,shYr, htX-3,htY+10);
+    // Pedaling
+    var crank=16;
+    var lPX=bbX+Math.cos(t)*crank, lPY=bbY+Math.sin(t)*crank;
+    var rPX=bbX+Math.cos(t+Math.PI)*crank, rPY=bbY+Math.sin(t+Math.PI)*crank;
+    ctx.beginPath(); ctx.moveTo(hipX,hipYr);
+    ctx.quadraticCurveTo((hipX+lPX)/2-8,(hipYr+lPY)/2+10,lPX,lPY); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(hipX,hipYr);
+    ctx.quadraticCurveTo((hipX+rPX)/2+8,(hipYr+rPY)/2+10,rPX,rPY); ctx.stroke();
+  }
+
+  // ── Main loop ──
+  function loop() {
+    ctx.clearRect(0, 0, W, H);
+
+    // Ground line
+    ctx.strokeStyle = '#E2E8F0'; ctx.lineWidth = 1.5;
+    ln(16, H-18, W-16, H-18);
+
+    var col = exData[currentEx].color;
+    var gY  = H - 18;
+    var cX  = W / 2;
+
+    if      (currentEx === 'walk')     drawWalk(cX, gY, phase, col);
+    else if (currentEx === 'aerobic')  drawRun(cX, gY, phase, col);
+    else if (currentEx === 'strength') drawStrength(cX, gY, phase, col);
+    else                               drawCycling(cX, gY, phase, col);
+
+    // Animate metrics toward target
+    ['fat','muscle','bmr','weight'].forEach(function(k){
+      current[k] += (target[k] - current[k]) * 0.09;
+      var v = Math.round(current[k]);
+      document.getElementById('bar-'+k).style.width = v+'%';
+      document.getElementById('val-'+k).textContent = v+'%';
+    });
+
+    phase += exData[currentEx].speed;
+    requestAnimationFrame(loop);
+  }
+
+  function selectEx(type, btn) {
+    currentEx = type;
+    var d = exData[type];
+    target = { fat:d.fat, muscle:d.muscle, bmr:d.bmr, weight:d.weight };
+    document.querySelectorAll('.ex-btn').forEach(function(b){ b.classList.remove('active'); });
+    btn.classList.add('active');
+    var lbl = document.getElementById('exLabel');
+    lbl.textContent = d.label;
+    lbl.style.color = d.color;
+    phase = 0;
+  }
+
+  setupCanvas();
+  // Kick off with walk
+  document.getElementById('exLabel').textContent = exData['walk'].label;
+  document.getElementById('exLabel').style.color  = exData['walk'].color;
+  target = { fat:28, muscle:8, bmr:18, weight:30 };
+  loop();
+</script>
+</body>
+</html>
