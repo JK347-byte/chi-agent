@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>醫學筆記｜日和聯合診所</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --sage: #7a8c5c;
+      --sage-dark: #5a6e38;
+      --gold: #c8a830;
+      --olive: #2e3318;
+      --cream: #faf8f0;
+      --text: #2d3748;
+      --muted: #718096;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, "Helvetica Neue", Arial, sans-serif;
+      color: var(--text);
+      background: white;
+    }
+
+    /* NAV — 與首頁共用同一套樣式 */
+    nav {
+      position: sticky;
+      top: 0;
+      background: white;
+      border-bottom: 1px solid #e2e8f0;
+      z-index: 100;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+    }
+    .nav-logo { font-size: 16px; font-weight: 700; color: #5a6e38; }
+    .nav-links { display: flex; gap: 24px; }
+    .nav-links a { font-size: 14px; color: var(--muted); text-decoration: none; }
+    .nav-links a:hover { color: var(--sage-dark); }
+    .nav-links a.active { color: var(--sage-dark); font-weight: 700; }
+
+    /* HERO */
+    .hero {
+      background: var(--cream);
+      color: var(--olive);
+      text-align: center;
+      padding: 48px 24px 40px;
+    }
+    .hero-tag {
+      display: inline-block;
+      background: rgba(122,140,92,0.15);
+      color: var(--sage-dark);
+      border-radius: 20px;
+      padding: 4px 14px;
+      font-size: 12px;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+    .hero h1 {
+      font-size: 28px;
+      font-weight: 800;
+      margin-bottom: 10px;
+      letter-spacing: 2px;
+    }
+    .hero-divider {
+      width: 48px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--sage), var(--gold));
+      border-radius: 2px;
+      margin: 0 auto 20px;
+    }
+    .hero p {
+      font-size: 14px;
+      color: #5a5a40;
+      line-height: 1.8;
+    }
+
+    .container { max-width: 640px; margin: 0 auto; padding: 32px 20px 60px; }
+
+    /* 分類篩選 */
+    .filter-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 28px;
+    }
+    .filter-pill {
+      border: 1px solid #e2e8f0;
+      background: white;
+      color: var(--muted);
+      font-size: 13px;
+      padding: 6px 16px;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .filter-pill:hover { border-color: var(--sage); color: var(--sage-dark); }
+    .filter-pill.active {
+      background: var(--sage-dark);
+      border-color: var(--sage-dark);
+      color: white;
+    }
+
+    /* 筆記列表 */
+    .notes-list { display: flex; flex-direction: column; }
+    .note-item {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      padding: 20px 4px;
+      border-bottom: 1px solid #f0f0e8;
+      text-decoration: none;
+      color: inherit;
+    }
+    .note-item:first-child { padding-top: 0; }
+    .note-item:hover .note-title { color: var(--sage-dark); }
+    .note-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .note-tag {
+      background: rgba(122,140,92,0.12);
+      color: var(--sage-dark);
+      border-radius: 10px;
+      padding: 2px 10px;
+      font-weight: 600;
+    }
+    .note-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.5;
+      transition: color 0.15s;
+    }
+    .note-excerpt {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    /* 空狀態 */
+    .empty-state {
+      text-align: center;
+      padding: 60px 20px;
+    }
+    .empty-icon { font-size: 40px; margin-bottom: 14px; }
+    .empty-title { font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 8px; }
+    .empty-desc { font-size: 13px; color: var(--muted); line-height: 1.8; }
+
+    footer {
+      background: #1a365d;
+      color: rgba(255,255,255,0.6);
+      text-align: center;
+      padding: 32px 24px;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+    footer strong { color: white; }
+
+    @media (max-width: 400px) {
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">日和聯合診所</div>
+  <div class="nav-links">
+    <a href="clinic-website/index.html#doctors">醫師</a>
+    <a href="clinic-website/index.html#services">服務</a>
+    <a href="clinic-website/index.html#hours">時間</a>
+    <a href="clinic-website/index.html#contact">聯絡</a>
+    <a href="medical-notes.html" class="active">筆記</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-tag">MEDICAL NOTES</div>
+  <h1>醫學筆記</h1>
+  <div class="hero-divider"></div>
+  <p>醫師的閱讀與臨床思考紀錄<br>不定期更新，與想吸收知識的你分享</p>
+</div>
+
+<div class="container">
+
+  <div class="filter-row" id="filterRow">
+    <button class="filter-pill active" data-cat="all">全部</button>
+    <button class="filter-pill" data-cat="ear">耳科</button>
+    <button class="filter-pill" data-cat="nose">鼻科</button>
+    <button class="filter-pill" data-cat="throat">喉科</button>
+    <button class="filter-pill" data-cat="head-neck">頭頸</button>
+    <button class="filter-pill" data-cat="chronic">慢性病</button>
+    <button class="filter-pill" data-cat="pediatric">小兒常見疾病</button>
+  </div>
+
+  <!--
+    新增筆記時，在 .notes-list 裡複製一個 .note-item 區塊：
+    <a class="note-item" data-cat="ear" href="notes/檔名.html">
+      <div class="note-meta"><span class="note-tag">耳科</span><span>2026-01-01</span></div>
+      <div class="note-title">標題</div>
+      <div class="note-excerpt">一句話摘要</div>
+    </a>
+    data-cat 對應上方篩選按鈕的 data-cat 值：ear／nose／throat／head-neck／chronic／pediatric
+  -->
+  <div class="notes-list" id="notesList"></div>
+
+  <div class="empty-state" id="emptyState">
+    <div class="empty-icon">📖</div>
+    <div class="empty-title">第一篇筆記即將上架</div>
+    <div class="empty-desc">這裡會持續累積醫師的閱讀筆記與臨床思考，<br>敬請期待。</div>
+  </div>
+
+</div>
+
+<footer>
+  <strong>日和聯合診所</strong>｜耳鼻喉科・中醫<br>
+  台南市鹽水區｜06-6520182
+</footer>
+
+<script>
+  var pills = document.querySelectorAll('.filter-pill');
+  pills.forEach(function (p) {
+    p.addEventListener('click', function () {
+      pills.forEach(function (x) { x.classList.remove('active'); });
+      p.classList.add('active');
+      var cat = p.dataset.cat;
+      document.querySelectorAll('.note-item').forEach(function (item) {
+        item.style.display = (cat === 'all' || item.dataset.cat === cat) ? 'flex' : 'none';
+      });
+    });
+  });
+</script>
+</body>
+</html>
