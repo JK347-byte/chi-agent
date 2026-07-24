@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{文章標題}}｜日和聯合診所</title>
+  <meta name="description" content="{{140字內的文章摘要，含核心結論，用於搜尋結果與AI引擎摘要}}">
+  <meta property="og:title" content="{{文章標題}}｜日和聯合診所">
+  <meta property="og:description" content="{{同上meta description}}">
+  <meta property="og:type" content="article">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --sage: #7a8c5c;
+      --sage-dark: #5a6e38;
+      --gold: #c8a830;
+      --olive: #2e3318;
+      --cream: #faf8f0;
+      --text: #2d3748;
+      --muted: #718096;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, "Helvetica Neue", Arial, sans-serif;
+      color: var(--text);
+      background: white;
+      line-height: 1.8;
+    }
+
+    nav {
+      position: sticky; top: 0; background: white;
+      border-bottom: 1px solid #e2e8f0; z-index: 100;
+      padding: 0 24px; display: flex; align-items: center;
+      justify-content: space-between; height: 56px;
+    }
+    .nav-logo { font-size: 16px; font-weight: 700; color: #5a6e38; }
+    .nav-links { display: flex; gap: 24px; }
+    .nav-links a { font-size: 14px; color: var(--muted); text-decoration: none; }
+    .nav-links a:hover { color: var(--sage-dark); }
+    .nav-links a.active { color: var(--sage-dark); font-weight: 700; }
+
+    .article-header {
+      background: var(--cream);
+      padding: 40px 24px 32px;
+      text-align: center;
+    }
+    .article-tag {
+      display: inline-block;
+      background: rgba(122,140,92,0.15);
+      color: var(--sage-dark);
+      border-radius: 20px;
+      padding: 4px 14px;
+      font-size: 12px;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+      font-weight: 600;
+    }
+    .article-header h1 {
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--olive);
+      line-height: 1.5;
+      margin-bottom: 14px;
+    }
+    .article-meta {
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .article-meta strong { color: var(--sage-dark); }
+
+    .container { max-width: 680px; margin: 0 auto; padding: 32px 20px 60px; }
+
+    /* 內容目錄 */
+    .toc-box {
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 18px 22px;
+      margin-bottom: 28px;
+    }
+    .toc-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--olive);
+      margin-bottom: 10px;
+    }
+    .toc-list { list-style: none; }
+    .toc-list li { counter-increment: toc-counter; margin-bottom: 6px; font-size: 14px; }
+    .toc-list { counter-reset: toc-counter; }
+    .toc-list li a {
+      color: var(--text);
+      text-decoration: none;
+    }
+    .toc-list li a:hover { color: var(--sage-dark); }
+    .toc-list li a::before {
+      content: counter(toc-counter) "　";
+      color: var(--sage-dark);
+      font-weight: 700;
+    }
+
+    /* TL;DR / 直接答案區塊 — GEO關鍵：前200字內給具體結論 */
+    .tldr-box {
+      background: rgba(200,168,48,0.08);
+      border-left: 3px solid var(--gold);
+      border-radius: 4px;
+      padding: 18px 20px;
+      margin-bottom: 32px;
+      font-size: 15px;
+      color: var(--text);
+    }
+    .tldr-box ul { margin: 10px 0 10px 20px; }
+    .tldr-box li { margin-bottom: 4px; }
+    .article-body h2 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--olive);
+      margin: 36px 0 14px;
+      padding-top: 4px;
+      border-top: 2px solid #f0f0e8;
+      padding-top: 20px;
+    }
+    .article-body h2:first-child { border-top: none; padding-top: 0; margin-top: 0; }
+    .article-body p {
+      font-size: 15px;
+      color: var(--text);
+      margin-bottom: 14px;
+    }
+
+    /* H2下方的重點提醒色塊 */
+    .highlight-box {
+      background: rgba(122,140,92,0.08);
+      border-left: 3px solid var(--sage-dark);
+      border-radius: 4px;
+      padding: 14px 16px;
+      margin-bottom: 16px;
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+    .highlight-box .highlight-icon { font-size: 15px; line-height: 1.6; }
+    .highlight-box .highlight-text {
+      font-size: 14px;
+      color: var(--sage-dark);
+      font-weight: 600;
+      line-height: 1.6;
+    }
+
+    /* FAQ 區塊 — Q&A格式利於AI引擎抓取 */
+    .faq-section {
+      margin-top: 40px;
+      padding-top: 28px;
+      border-top: 2px solid #f0f0e8;
+    }
+    .faq-section h2 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--olive);
+      margin-bottom: 18px;
+    }
+    .faq-item { margin-bottom: 18px; }
+    .faq-q {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--sage-dark);
+      margin-bottom: 6px;
+    }
+    .faq-a {
+      font-size: 14px;
+      color: var(--text);
+    }
+
+    /* 結論區塊 — 跟內文H2段落明顯區隔，四邊框+底色，文字簡潔 */
+    .conclusion-box {
+      background: rgba(200,168,48,0.08);
+      border: 1px solid var(--gold);
+      border-radius: 8px;
+      padding: 24px 24px 22px;
+      margin-top: 40px;
+    }
+    .conclusion-box h2 {
+      font-size: 19px;
+      font-weight: 800;
+      color: var(--olive);
+      margin-bottom: 14px;
+      border-top: none;
+      padding-top: 0;
+    }
+    .conclusion-box ul { margin: 0 0 14px 20px; }
+    .conclusion-box li {
+      font-size: 15px;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+    .conclusion-cta {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--sage-dark);
+    }
+
+    /* 出處/文獻來源 */
+    .sources {
+      margin-top: 36px;
+      padding-top: 20px;
+      border-top: 1px solid #f0f0e8;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .sources-label { font-weight: 700; color: var(--sage-dark); margin-bottom: 6px; }
+
+    footer {
+      background: #1a365d;
+      color: rgba(255,255,255,0.6);
+      text-align: center;
+      padding: 32px 24px;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+    footer strong { color: white; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">日和聯合診所</div>
+  <div class="nav-links">
+    <a href="../clinic-website/index.html#doctors">醫師</a>
+    <a href="../clinic-website/index.html#services">服務</a>
+    <a href="../clinic-website/index.html#hours">時間</a>
+    <a href="../clinic-website/index.html#contact">聯絡</a>
+    <a href="../medical-notes.html" class="active">筆記</a>
+  </div>
+</nav>
+
+<div class="article-header">
+  <div class="article-tag">{{分類：耳科/鼻科/喉科/頭頸/慢性病/小兒常見疾病}}</div>
+  <h1>{{文章標題}}</h1>
+  <div class="article-meta">詹士奇醫師撰文 · <strong>{{YYYY-MM-DD 最後更新}}</strong></div>
+</div>
+
+<div class="container">
+
+  <!-- 內容目錄：連結對應每個H2的id，錨點跳轉，數字由CSS counter自動產生 -->
+  <div class="toc-box">
+    <div class="toc-header"><span>📑</span><span>內容目錄</span></div>
+    <ol class="toc-list">
+      <li><a href="#sec-1">{{H2標題1}}</a></li>
+      <li><a href="#sec-2">{{H2標題2}}</a></li>
+      <li><a href="#sec-3">{{H2標題3}}</a></li>
+      <li><a href="#sec-concl">結論：{{結論標題}}</a></li>
+      <li><a href="#sec-faq">常見問題</a></li>
+    </ol>
+  </div>
+
+  <div class="tldr-box">
+    <!-- 若答案本質是2-4個並列重點，用真正的<ul>/<li>列點（SEO/GEO對結構化列表友善）；若是單一結論/數字，維持一句話段落即可 -->
+    {{一句話直接答案，含具體數據或結論，前200字內要出現}}
+  </div>
+
+  <div class="article-body">
+    <!-- 3-5個H2區塊，標題盡量對應患者真實搜尋問句，每段可獨立被引用理解 -->
+    <!-- 每段拆成1-2句的短段落（一兩行講完一個重點），highlight-box插在段落中間點出這段最大重點，不要塞成一大段 -->
+    <!-- id="sec-N" 要跟上方toc-box的錨點對應 -->
+    <h2 id="sec-1">{{H2標題1：問句形式}}</h2>
+    <p>{{短段落1：破題}}</p>
+    <div class="highlight-box"><span class="highlight-icon">💡</span><span class="highlight-text">{{這段最大重點，一句話}}</span></div>
+    <p>{{短段落2}}</p>
+    <p>{{短段落3，可省略}}</p>
+
+    <h2 id="sec-2">{{H2標題2}}</h2>
+    <p>{{短段落1：破題}}</p>
+    <div class="highlight-box"><span class="highlight-icon">💡</span><span class="highlight-text">{{這段最大重點，一句話}}</span></div>
+    <p>{{短段落2}}</p>
+
+    <h2 id="sec-3">{{H2標題3}}</h2>
+    <p>{{短段落1：破題}}</p>
+    <div class="highlight-box"><span class="highlight-icon">💡</span><span class="highlight-text">{{這段最大重點，一句話}}</span></div>
+    <p>{{短段落2}}</p>
+  </div>
+
+  <!-- 結論區塊：跟內文H2段落明顯區隔（四邊框+底色），文字簡潔有力，條列常見漏洞+CTA，不寫通用正面結論 -->
+  <div class="conclusion-box" id="sec-concl">
+    <h2>結論：{{呼應全文的一句話問句}}</h2>
+    <ul>
+      <li>{{常見漏洞/重點1}}</li>
+      <li>{{常見漏洞/重點2}}</li>
+      <li>{{常見漏洞/重點3}}</li>
+    </ul>
+    <p class="conclusion-cta">{{簡潔有力的具體行動呼籲，例如：都排除了還是XX，別再自己摸索，直接回診評估}}</p>
+  </div>
+
+  <div class="faq-section" id="sec-faq">
+    <h2>常見問題</h2>
+    <div class="faq-item">
+      <div class="faq-q">{{問題1}}</div>
+      <div class="faq-a">{{答案1}}</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">{{問題2}}</div>
+      <div class="faq-a">{{答案2}}</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <div class="sources-label">參考文獻</div>
+    {{1-2行文獻來源說明}}
+  </div>
+
+</div>
+
+<footer>
+  <strong>日和聯合診所</strong>｜耳鼻喉科・中醫<br>
+  台南市鹽水區｜06-6520182
+</footer>
+
+</body>
+</html>
