@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>糖尿病傷腎，只顧血糖就夠嗎？從蛋白尿迷思到護腎新藥物｜日和聯合診所</title>
+  <meta name="description" content="糖尿病傷腎不只是血糖問題，腎絲球內壓與發炎反應也是獨立機轉。一半以上腎功能下降的糖尿病患者其實沒有蛋白尿，現在已有藥物能不依賴血糖數字提供腎臟與心臟雙重保護。">
+  <meta property="og:title" content="糖尿病傷腎，只顧血糖就夠嗎？從蛋白尿迷思到護腎新藥物｜日和聯合診所">
+  <meta property="og:description" content="糖尿病傷腎不只是血糖問題，腎絲球內壓與發炎反應也是獨立機轉。一半以上腎功能下降的糖尿病患者其實沒有蛋白尿，現在已有藥物能不依賴血糖數字提供腎臟與心臟雙重保護。">
+  <meta property="og:type" content="article">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --sage: #7a8c5c;
+      --sage-dark: #5a6e38;
+      --gold: #c8a830;
+      --olive: #2e3318;
+      --cream: #faf8f0;
+      --text: #2d3748;
+      --muted: #718096;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, "Helvetica Neue", Arial, sans-serif;
+      color: var(--text);
+      background: white;
+      line-height: 1.8;
+    }
+
+    nav {
+      position: sticky; top: 0; background: white;
+      border-bottom: 1px solid #e2e8f0; z-index: 100;
+      padding: 0 24px; display: flex; align-items: center;
+      justify-content: space-between; height: 56px;
+    }
+    .nav-logo { font-size: 16px; font-weight: 700; color: #5a6e38; }
+    .nav-links { display: flex; gap: 24px; }
+    .nav-links a { font-size: 14px; color: var(--muted); text-decoration: none; }
+    .nav-links a:hover { color: var(--sage-dark); }
+    .nav-links a.active { color: var(--sage-dark); font-weight: 700; }
+
+    .article-header {
+      background: var(--cream);
+      padding: 40px 24px 32px;
+      text-align: center;
+    }
+    .article-tag {
+      display: inline-block;
+      background: rgba(122,140,92,0.15);
+      color: var(--sage-dark);
+      border-radius: 20px;
+      padding: 4px 14px;
+      font-size: 12px;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+      font-weight: 600;
+    }
+    .article-header h1 {
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--olive);
+      line-height: 1.5;
+      margin-bottom: 14px;
+    }
+    .article-meta {
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .article-meta strong { color: var(--sage-dark); }
+
+    .container { max-width: 680px; margin: 0 auto; padding: 32px 20px 60px; }
+
+    .toc-box {
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 18px 22px;
+      margin-bottom: 28px;
+    }
+    .toc-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--olive);
+      margin-bottom: 10px;
+    }
+    .toc-list { list-style: none; }
+    .toc-list li { counter-increment: toc-counter; margin-bottom: 6px; font-size: 14px; }
+    .toc-list { counter-reset: toc-counter; }
+    .toc-list li a {
+      color: var(--text);
+      text-decoration: none;
+    }
+    .toc-list li a:hover { color: var(--sage-dark); }
+    .toc-list li a::before {
+      content: counter(toc-counter) "　";
+      color: var(--sage-dark);
+      font-weight: 700;
+    }
+
+    .tldr-box {
+      background: rgba(200,168,48,0.08);
+      border-left: 3px solid var(--gold);
+      border-radius: 4px;
+      padding: 18px 20px;
+      margin-bottom: 32px;
+      font-size: 15px;
+      color: var(--text);
+    }
+    .tldr-box ul { margin: 10px 0 0 20px; }
+    .tldr-box li { margin-bottom: 4px; }
+    .article-body h2 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--olive);
+      margin: 36px 0 14px;
+      padding-top: 20px;
+      border-top: 2px solid #f0f0e8;
+    }
+    .article-body h2:first-child { border-top: none; padding-top: 0; margin-top: 0; }
+    .article-body p {
+      font-size: 15px;
+      color: var(--text);
+      margin-bottom: 14px;
+    }
+    .article-body ul { margin: 0 0 14px 20px; }
+    .article-body li { font-size: 15px; color: var(--text); margin-bottom: 8px; }
+    .article-body li strong { color: var(--olive); }
+
+    .highlight-box {
+      background: rgba(122,140,92,0.08);
+      border-left: 3px solid var(--sage-dark);
+      border-radius: 4px;
+      padding: 14px 16px;
+      margin-bottom: 16px;
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+    .highlight-box .highlight-icon { font-size: 15px; line-height: 1.6; }
+    .highlight-box .highlight-text {
+      font-size: 14px;
+      color: var(--sage-dark);
+      font-weight: 600;
+      line-height: 1.6;
+    }
+
+    .faq-section {
+      margin-top: 40px;
+      padding-top: 28px;
+      border-top: 2px solid #f0f0e8;
+    }
+    .faq-section h2 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--olive);
+      margin-bottom: 18px;
+    }
+    .faq-item { margin-bottom: 18px; }
+    .faq-q {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--sage-dark);
+      margin-bottom: 6px;
+    }
+    .faq-a {
+      font-size: 14px;
+      color: var(--text);
+    }
+
+    .conclusion-box {
+      background: rgba(200,168,48,0.08);
+      border: 1px solid var(--gold);
+      border-radius: 8px;
+      padding: 24px 24px 22px;
+      margin-top: 40px;
+    }
+    .conclusion-box h2 {
+      font-size: 19px;
+      font-weight: 800;
+      color: var(--olive);
+      margin-bottom: 14px;
+      border-top: none;
+      padding-top: 0;
+    }
+    .conclusion-box ul { margin: 0 0 14px 20px; }
+    .conclusion-box li {
+      font-size: 15px;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+    .conclusion-box strong { color: var(--olive); }
+    .conclusion-cta {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--sage-dark);
+    }
+
+    .sources {
+      margin-top: 36px;
+      padding-top: 20px;
+      border-top: 1px solid #f0f0e8;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .sources-label { font-weight: 700; color: var(--sage-dark); margin-bottom: 6px; }
+
+    footer {
+      background: #1a365d;
+      color: rgba(255,255,255,0.6);
+      text-align: center;
+      padding: 32px 24px;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+    footer strong { color: white; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">日和聯合診所</div>
+  <div class="nav-links">
+    <a href="../clinic-website/index.html#doctors">醫師</a>
+    <a href="../clinic-website/index.html#services">服務</a>
+    <a href="../clinic-website/index.html#hours">時間</a>
+    <a href="../clinic-website/index.html#contact">聯絡</a>
+    <a href="../medical-notes.html" class="active">筆記</a>
+  </div>
+</nav>
+
+<div class="article-header">
+  <div class="article-tag">慢性病</div>
+  <h1>糖尿病傷腎，只顧血糖就夠嗎？從蛋白尿迷思到護腎新藥物</h1>
+  <div class="article-meta">詹士奇醫師撰文 · <strong>2026-07-25 最後更新</strong></div>
+</div>
+
+<div class="container">
+
+  <div class="toc-box">
+    <div class="toc-header"><span>📑</span><span>內容目錄</span></div>
+    <ol class="toc-list">
+      <li><a href="#sec-1">糖尿病傷腎，只靠控制血糖就能預防嗎？</a></li>
+      <li><a href="#sec-2">沒有驗到蛋白尿，就代表腎臟沒問題嗎？</a></li>
+      <li><a href="#sec-3">現在治療糖尿病腎臟病，除了血糖還會用什麼藥？</a></li>
+      <li><a href="#sec-concl">結論：糖尿病腎臟病，只顧血糖數字就夠嗎？</a></li>
+      <li><a href="#sec-faq">常見問題</a></li>
+    </ol>
+  </div>
+
+  <div class="tldr-box">
+    <ul>
+      <li>血糖控制不是唯一防線，腎絲球內部壓力過高、慢性發炎反應，都是獨立於血糖之外的傷腎機轉</li>
+      <li>腎功能已經下降的第二型糖尿病患者中，超過一半完全沒有蛋白尿，只驗蛋白尿可能漏掉一半的人</li>
+      <li>現在已有藥物能不依賴血糖數字，直接提供腎臟與心臟雙重保護</li>
+    </ul>
+  </div>
+
+  <div class="article-body">
+    <h2 id="sec-1">糖尿病傷腎，只靠控制血糖就能預防嗎？</h2>
+    <p>三十幾年前，醫界普遍認為糖尿病傷腎是一條單向的路：血糖高，腎絲球壓力就高，接著出現微量蛋白尿，再惡化成大量蛋白尿，最後洗腎。</p>
+    <div class="highlight-box"><span class="highlight-icon">💡</span><span class="highlight-text">1993年的研究證實，ACE抑制劑能讓糖尿病患者腎臟惡化的風險減半，而且這個保護效果跟血糖控制沒有直接關係。</span></div>
+    <p>當時的邏輯很單純：只要把血糖壓下來，腎臟就能保住。</p>
+    <p>但1990年代開始，學界發現事情沒這麼簡單。即使血糖控制達標，還是有病人一路惡化到洗腎。</p>
+    <p>後續研究才確立，腎絲球內部壓力過高，是獨立於血糖之外的另一個致病機轉，這也是為什麼現在會用藥物直接降低腎絲球內壓。</p>
+    <p>2008年的一項大型試驗更打破了「血糖壓越低越好」的迷思：把糖化血色素硬壓到接近正常值的病人，死亡率反而上升。</p>
+    <p>血糖控制當然重要，但它從來不是保護腎臟的唯一答案。</p>
+
+    <h2 id="sec-2">沒有驗到蛋白尿，就代表腎臟沒問題嗎？</h2>
+    <p>過去的觀念是，糖尿病傷腎一定會先出現蛋白尿，才會慢慢走向腎衰竭。</p>
+    <div class="highlight-box"><span class="highlight-icon">💡</span><span class="highlight-text">腎功能已經下降的第二型糖尿病患者中，超過一半完全沒有蛋白尿——只驗蛋白尿，等於漏掉一半的人。</span></div>
+    <p>這個發現讓醫界重新檢討病名。</p>
+    <p>原本狹隘的「糖尿病腎病變」，改稱為範圍更廣的「糖尿病腎臟病」，因為腎功能下降的路徑其實不只一條。</p>
+
+    <h2 id="sec-3">現在治療糖尿病腎臟病，除了血糖還會用什麼藥？</h2>
+    <p>過去的治療邏輯是先把血糖壓到達標，其他的藥物再視情況加上去。</p>
+    <p>值得一提的是，並非所有糖尿病患者的腎臟問題都是糖尿病造成的——切片研究發現，近六成接受切片的糖尿病患者其實診斷出的是其他腎臟病，例如IgA腎病變；也有學者主張，糖尿病腎臟病本質上是一種活躍的發炎性疾病，不只是代謝退化的結果，這也是為什麼近年的新藥開發會朝抗發炎、抗纖維化的方向走。</p>
+    <div class="highlight-box"><span class="highlight-icon">💡</span><span class="highlight-text">只要合併心臟或腎臟疾病，不論血糖數字是否達標，現在的治療指引都建議優先使用具備器官保護實證的藥物。</span></div>
+    <p>目前臨床上主要有四類藥物：</p>
+    <ul>
+      <li><strong>RAAS阻斷劑（ACEi/ARB）</strong>：最早證實能降低腎絲球內壓、減緩腎臟惡化的藥物，效果跟血糖控制無關，是護腎治療的基礎</li>
+      <li><strong>SGLT2抑制劑</strong>：原本是降血糖藥，但已證實能降低腎絲球內壓，減少腎臟衰竭與心衰竭住院風險，而且這個保護效果跟降血糖無關，連沒有糖尿病的慢性腎臟病患者用了也有效</li>
+      <li><strong>GLP-1受體促效劑</strong>：2024年的大型試驗證實，能降低糖尿病合併慢性腎臟病患者的腎臟惡化與心血管死亡風險</li>
+      <li><strong>非類固醇類MRA（Finerenone）</strong>：直接阻斷造成發炎與纖維化的受體路徑，補上過去藥物一直沒有觸及的機轉，從輕度到重度蛋白尿的患者都適用</li>
+    </ul>
+    <p>這四類藥物合稱腎臟科的「神奇四俠」，治療邏輯已經從「先顧血糖」變成「直接顧器官」。</p>
+  </div>
+
+  <div class="conclusion-box" id="sec-concl">
+    <h2>結論：糖尿病腎臟病，只顧血糖數字就夠嗎？</h2>
+    <ul>
+      <li>血糖控制重要，但腎絲球內壓過高、慢性發炎反應，是獨立於血糖之外的傷腎機轉，也需要處理</li>
+      <li>沒有蛋白尿不代表腎臟沒事，定期抽血檢查腎絲球過濾率（eGFR），才看得出真正的腎功能狀況</li>
+      <li>現在已有藥物能不依賴血糖數字，直接提供腎臟與心臟雙重保護，不需要等到病情惡化才介入</li>
+    </ul>
+    <p class="conclusion-cta">如果你有糖尿病，別只盯著血糖機上的數字——不論有沒有合併心臟或腎臟問題、有沒有蛋白尿，回診時都可以主動要求檢查腎絲球過濾率（eGFR），並詢問醫師是否需要評估護腎藥物。已經合併心臟或腎臟疾病的人，更應該及早討論，不需要等血糖或病情惡化才介入。</p>
+  </div>
+
+  <div class="faq-section" id="sec-faq">
+    <h2>常見問題</h2>
+    <div class="faq-item">
+      <div class="faq-q">我的糖化血色素都有控制在標準內，為什麼腎功能還是持續下降？</div>
+      <div class="faq-a">血糖只是傷腎機轉的其中一環。腎絲球內部壓力過高、慢性發炎反應都可能獨立造成腎臟損傷，這也是為什麼現在的治療會同時使用能降低腎絲球內壓、抗發炎的藥物，而不是只看血糖數字。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">SGLT2抑制劑不是糖尿病藥嗎？我沒有糖尿病，醫師為什麼還開給我？</div>
+      <div class="faq-a">這類藥物除了降血糖，也被證實能保護腎臟與心臟，而且這個效果跟血糖控制無關。臨床試驗已證實，在沒有糖尿病的慢性腎臟病患者身上一樣有效。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">我沒有蛋白尿，是不是代表腎臟保養得不錯？</div>
+      <div class="faq-a">不一定。研究發現，腎功能已經下降的糖尿病患者中，超過一半完全沒有蛋白尿，單靠蛋白尿檢查可能會漏掉問題。建議定期抽血檢查腎絲球過濾率（eGFR），才能完整掌握腎功能狀況。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">這些新藥物需要一開始就使用嗎，還是要等病情惡化才用？</div>
+      <div class="faq-a">目前的治療指引建議，只要合併心血管疾病、心衰竭或糖尿病腎臟病，不論血糖是否達標，都應該及早評估使用具器官保護實證的藥物，不需要等到病情惡化才介入。</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <div class="sources-label">參考文獻</div>
+    Mogensen 1983糖尿病腎病變分期模型；Lewis等Collaborative Study Group 1993（ACE抑制劑保護腎功能）；DeFronzo Ominous Octet 2009；ACCORD trial 2008（強化降血糖與死亡率）；EMPA-KIDNEY、DAPA-CKD、CREDENCE試驗（SGLT2抑制劑）；FLOW trial 2024（Semaglutide）；FIDELIO-DKD、FIGARO-DKD、FIND-CKD試驗（Finerenone）；2026年ADA與KDIGO糖尿病腎臟病治療指引。
+  </div>
+
+</div>
+
+<footer>
+  <strong>日和聯合診所</strong>｜耳鼻喉科・中醫<br>
+  台南市鹽水區｜06-6520182
+</footer>
+
+</body>
+</html>
