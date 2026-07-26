@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>甲狀腺亢進怎麼確診、怎麼選治療？從抽血檢查到藥物、放射碘、手術｜日和聯合診所</title>
+  <meta name="description" content="甲狀腺亢進不只是心跳快、容易流汗，放任不管可能造成心房顫動甚至心血管崩潰。這篇整理抽血怎麼看、最常見的葛瑞夫茲病，以及藥物、放射碘、手術三種療法怎麼選。">
+  <meta property="og:title" content="甲狀腺亢進怎麼確診、怎麼選治療？從抽血檢查到藥物、放射碘、手術｜日和聯合診所">
+  <meta property="og:description" content="甲狀腺亢進不只是心跳快、容易流汗，放任不管可能造成心房顫動甚至心血管崩潰。這篇整理抽血怎麼看、最常見的葛瑞夫茲病，以及藥物、放射碘、手術三種療法怎麼選。">
+  <meta property="og:type" content="article">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --sage: #7a8c5c;
+      --sage-dark: #5a6e38;
+      --gold: #c8a830;
+      --olive: #2e3318;
+      --cream: #faf8f0;
+      --text: #2d3748;
+      --muted: #718096;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, "Helvetica Neue", Arial, sans-serif;
+      color: var(--text);
+      background: white;
+      line-height: 1.8;
+    }
+
+    nav {
+      position: sticky; top: 0; background: white;
+      border-bottom: 1px solid #e2e8f0; z-index: 100;
+      padding: 0 24px; display: flex; align-items: center;
+      justify-content: space-between; height: 56px;
+    }
+    .nav-logo { font-size: 16px; font-weight: 700; color: #5a6e38; }
+    .nav-links { display: flex; gap: 24px; }
+    .nav-links a { font-size: 14px; color: var(--muted); text-decoration: none; }
+    .nav-links a:hover { color: var(--sage-dark); }
+    .nav-links a.active { color: var(--sage-dark); font-weight: 700; }
+
+    .article-header {
+      background: var(--cream);
+      padding: 40px 24px 32px;
+      text-align: center;
+    }
+    .article-tag {
+      display: inline-block;
+      background: rgba(122,140,92,0.15);
+      color: var(--sage-dark);
+      border-radius: 20px;
+      padding: 4px 14px;
+      font-size: 12px;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+      font-weight: 600;
+    }
+    .article-header h1 {
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--olive);
+      line-height: 1.5;
+      margin-bottom: 14px;
+    }
+    .article-meta {
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .article-meta strong { color: var(--sage-dark); }
+
+    .container { max-width: 680px; margin: 0 auto; padding: 32px 20px 60px; }
+
+    .toc-box {
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 18px 22px;
+      margin-bottom: 28px;
+    }
+    .toc-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--olive);
+      margin-bottom: 10px;
+    }
+    .toc-list { list-style: none; }
+    .toc-list li { counter-increment: toc-counter; margin-bottom: 6px; font-size: 14px; }
+    .toc-list { counter-reset: toc-counter; }
+    .toc-list li a {
+      color: var(--text);
+      text-decoration: none;
+    }
+    .toc-list li a:hover { color: var(--sage-dark); }
+    .toc-list li a::before {
+      content: counter(toc-counter) "　";
+      color: var(--sage-dark);
+      font-weight: 700;
+    }
+
+    .tldr-box {
+      background: rgba(200,168,48,0.08);
+      border-left: 3px solid var(--gold);
+      border-radius: 4px;
+      padding: 18px 20px;
+      margin-bottom: 32px;
+      font-size: 15px;
+      color: var(--text);
+    }
+    .tldr-box ul { margin: 10px 0 0 20px; }
+    .tldr-box li { margin-bottom: 4px; }
+    .article-body h2 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--olive);
+      margin: 36px 0 14px;
+      padding-top: 20px;
+      border-top: 2px solid #f0f0e8;
+    }
+    .article-body h2:first-child { border-top: none; padding-top: 0; margin-top: 0; }
+    .article-body p {
+      font-size: 15px;
+      color: var(--text);
+      margin-bottom: 14px;
+    }
+    .article-body ul { margin: 0 0 14px 20px; }
+    .article-body li { font-size: 15px; color: var(--text); margin-bottom: 8px; }
+    .article-body li strong { color: var(--olive); }
+
+    .highlight-box {
+      background: rgba(122,140,92,0.08);
+      border-left: 3px solid var(--sage-dark);
+      border-radius: 4px;
+      padding: 14px 16px;
+      margin-bottom: 16px;
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+    .highlight-box .highlight-icon { font-size: 15px; line-height: 1.6; }
+    .highlight-box .highlight-text {
+      font-size: 14px;
+      color: var(--sage-dark);
+      font-weight: 600;
+      line-height: 1.6;
+    }
+
+    .faq-section {
+      margin-top: 40px;
+      padding-top: 28px;
+      border-top: 2px solid #f0f0e8;
+    }
+    .faq-section h2 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--olive);
+      margin-bottom: 18px;
+    }
+    .faq-item { margin-bottom: 18px; }
+    .faq-q {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--sage-dark);
+      margin-bottom: 6px;
+    }
+    .faq-a {
+      font-size: 14px;
+      color: var(--text);
+    }
+
+    .conclusion-box {
+      background: rgba(200,168,48,0.08);
+      border: 1px solid var(--gold);
+      border-radius: 8px;
+      padding: 24px 24px 22px;
+      margin-top: 40px;
+    }
+    .conclusion-box h2 {
+      font-size: 19px;
+      font-weight: 800;
+      color: var(--olive);
+      margin-bottom: 14px;
+      border-top: none;
+      padding-top: 0;
+    }
+    .conclusion-box ul { margin: 0 0 14px 20px; }
+    .conclusion-box li {
+      font-size: 15px;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+    .conclusion-box strong { color: var(--olive); }
+    .conclusion-cta {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--sage-dark);
+    }
+
+    .sources {
+      margin-top: 36px;
+      padding-top: 20px;
+      border-top: 1px solid #f0f0e8;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .sources-label { font-weight: 700; color: var(--sage-dark); margin-bottom: 6px; }
+    .sources-related { margin-top: 8px; }
+    .sources-related a { color: var(--sage-dark); }
+
+    footer {
+      background: #1a365d;
+      color: rgba(255,255,255,0.6);
+      text-align: center;
+      padding: 32px 24px;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+    footer strong { color: white; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">日和聯合診所</div>
+  <div class="nav-links">
+    <a href="../clinic-website/index.html#doctors">醫師</a>
+    <a href="../clinic-website/index.html#services">服務</a>
+    <a href="../clinic-website/index.html#hours">時間</a>
+    <a href="../clinic-website/index.html#contact">聯絡</a>
+    <a href="../medical-notes.html" class="active">筆記</a>
+  </div>
+</nav>
+
+<div class="article-header">
+  <div class="article-tag">頭頸</div>
+  <h1>甲狀腺亢進怎麼確診、怎麼選治療？從抽血檢查到藥物、放射碘、手術</h1>
+  <div class="article-meta">詹士奇醫師撰文 · <strong>2026-07-26 最後更新</strong></div>
+</div>
+
+<div class="container">
+
+  <div class="toc-box">
+    <div class="toc-header"><span>📑</span><span>內容目錄</span></div>
+    <ol class="toc-list">
+      <li><a href="#sec-1">甲狀腺亢進是什麼？只是心跳快、容易流汗這麼簡單嗎？</a></li>
+      <li><a href="#sec-2">抽血報告怎麼看？醫師怎麼確定是不是甲狀腺亢進？</a></li>
+      <li><a href="#sec-3">甲狀腺亢進最常見的原因是什麼？眼睛凸出跟這個有關嗎？</a></li>
+      <li><a href="#sec-4">藥物、放射碘、手術，三種治療怎麼選？</a></li>
+      <li><a href="#sec-5">正在備孕或已經懷孕，甲狀腺亢進要注意什麼？</a></li>
+      <li><a href="#sec-concl">結論：甲狀腺亢進，該選哪種治療？</a></li>
+      <li><a href="#sec-faq">常見問題</a></li>
+    </ol>
+  </div>
+
+  <div class="tldr-box">
+    <ul>
+      <li>甲狀腺亢進不只是心跳快、容易流汗，放任不管可能造成體重異常減輕、嚴重骨質疏鬆、心房顫動，甚至心血管崩潰</li>
+      <li>確診除了抽血，還需要用RAIU或超音波確認是甲狀腺自己過度製造，還是甲狀腺發炎造成的暫時性荷爾蒙上升，兩者處置完全不同</li>
+      <li>抗甲狀腺藥物、放射性碘、手術三種療法長期生活品質研究顯示是一樣的，要依你的生活階段選擇，沒有絕對最好的選項</li>
+    </ul>
+  </div>
+
+  <div class="article-body">
+    <h2 id="sec-1">甲狀腺亢進是什麼？只是心跳快、容易流汗這麼簡單嗎？</h2>
+    <p>醫學上常把「甲狀腺毒症」和「甲狀腺機能亢進」混著講，其實不太一樣。</p>
+    <p>甲狀腺毒症是廣義說法，指血液中甲狀腺荷爾蒙過多；甲狀腺機能亢進則專指甲狀腺自己過度製造荷爾蒙。</p>
+    <div class="highlight-box"><span class="highlight-icon">💡</span><span class="highlight-text">甲狀腺荷爾蒙的接收器遍布全身，心跳快、容易流汗、脖子腫大，其實只是比較容易被注意到的表面症狀。</span></div>
+    <p>真正該擔心的是看不見的長期影響——骨質疏鬆會在沒有明顯感覺的情況下悄悄惡化，心房顫動則可能在毫無預警下引發中風，這也是為什麼確診後需要積極介入治療，不能只當作「代謝變快」處理。</p>
+
+    <h2 id="sec-2">抽血報告怎麼看？醫師怎麼確定是不是甲狀腺亢進？</h2>
+    <p>門診常需要抽好幾管血，主要在看TSH（促甲狀腺素）、游離甲狀腺素、總三碘甲狀腺素這幾項數值。</p>
+    <div class="highlight-box"><span class="highlight-icon">💡</span><span class="highlight-text">光看抽血數字沒辦法分辨病因，還需要用放射性碘攝取率（RAIU）或超音波，才能確認是甲狀腺自己「過度製造」，還是甲狀腺發炎造成的「荷爾蒙漏出」——搞錯這一步，吃再久的藥也不會有效果。</span></div>
+    <p>如果是真正的甲狀腺亢進，甲狀腺會瘋狂攝取碘，RAIU數值會偏高。</p>
+    <p>如果是感冒引起的亞急性甲狀腺炎，只是發炎導致原本庫存的荷爾蒙漏到血液裡，RAIU反而會偏低，這種情況通常幾週內會自己緩解，吃抗甲狀腺藥物是沒有效果的。</p>
+    <p>先分清楚是哪一種，才不會用錯治療方向。</p>
+
+    <h2 id="sec-3">甲狀腺亢進最常見的原因是什麼？眼睛凸出跟這個有關嗎？</h2>
+    <p>如果確診是真正的甲狀腺亢進，最常見的原因是「葛瑞夫茲病」。</p>
+    <div class="highlight-box"><span class="highlight-icon">💡</span><span class="highlight-text">葛瑞夫茲病是一種自體免疫疾病，特有的甲狀腺眼病變會造成眼睛突出、眼瞼遲落，是其他甲亢原因（例如毒性結節）沒有的表現，嚴重時甚至會影響視力。</span></div>
+    <p>免疫系統認錯了對象，產生一種叫TRAb的抗體，24小時不斷刺激甲狀腺過度工作。</p>
+    <p>除了瀰漫性甲狀腺腫大，眼睛的變化是葛瑞夫茲病一個很明顯的特徵，發現得早，處理起來也比較有彈性。</p>
+
+    <h2 id="sec-4">藥物、放射碘、手術，三種治療怎麼選？</h2>
+    <p>面對甲狀腺亢進，主要有三種治療方式：抗甲狀腺藥物、放射性碘、外科手術。</p>
+    <div class="highlight-box"><span class="highlight-icon">💡</span><span class="highlight-text">與其糾結哪一種療法「最好」，不如把它們當成三個不同的生活方案——長期追蹤研究顯示，三者對未來生活品質的影響其實沒有差異，關鍵是哪一種最符合你現階段的生活安排。</span></div>
+    <ul>
+      <li><strong>抗甲狀腺藥物</strong>：首選是MMI而不是PTU，因為PTU有引發猛爆性肝壞死的致命風險。服藥通常要吃12到18個月，觀察免疫系統能不能重置到停藥後不復發。服藥期間如果出現發燒、喉嚨痛，可能是極罕見但危險的白血球低下；如果出現黃疸、茶色尿、關節痛，代表肝臟受損，這兩種情況都要立刻停藥並馬上回診</li>
+      <li><strong>放射性碘</strong>：治癒率高，但多數人治療後會轉為甲狀腺機能低下，需要終身每天補充甲狀腺素。有抽菸習慣或已經有明顯眼睛突出的人，會增加眼病變惡化的風險，通常需要搭配類固醇預防或改選其他療法；孕婦與哺乳期婦女絕對禁用</li>
+      <li><strong>手術</strong>：甲狀腺腫大壓迫氣管、懷疑有惡性腫瘤，或計畫半年內懷孕，手術能最快、最徹底解決問題。建議找手術量大的專門甲狀腺外科醫師，能把聲帶神經受損與副甲狀腺低下的併發症風險降到2%以下</li>
+    </ul>
+
+    <h2 id="sec-5">正在備孕或已經懷孕，甲狀腺亢進要注意什麼？</h2>
+    <p>甲狀腺亢進沒有控制好的情況下懷孕，會增加流產或早產的風險。</p>
+    <div class="highlight-box"><span class="highlight-icon">💡</span><span class="highlight-text">服藥期間懷孕，前三個月要換成PTU，因為首選藥物MMI在懷孕初期有2到4%的機率導致胎兒嚴重畸形。</span></div>
+    <p>過了前三個月，為了避免PTU傷肝的風險，會再換回MMI。</p>
+    <p>如果你正在備孕，或已經懷孕，一定要主動告訴醫師，用藥安排會因此不同。</p>
+  </div>
+
+  <div class="conclusion-box" id="sec-concl">
+    <h2>結論：甲狀腺亢進，該選哪種治療？</h2>
+    <ul>
+      <li>不是所有甲亢都要吃藥，甲狀腺發炎造成的暫時性亢進，通常幾週內會自己緩解</li>
+      <li>抗甲狀腺藥物、放射性碘、手術三種療法長期生活品質相同，沒有絕對最好，要依你的生活階段（拚事業、備孕、在意外觀）選擇</li>
+      <li>正在備孕或已經懷孕，用藥選擇會不同，一定要先告訴醫師</li>
+    </ul>
+    <p class="conclusion-cta">如果抽血確診甲狀腺亢進，別自己上網比較該吃哪種藥，回診時把你的生活規劃告訴醫師，一起選出最適合的治療方式。如果你正在服用抗甲狀腺藥物，出現發燒、喉嚨痛，或黃疸、茶色尿、關節痛，代表可能有白血球低下或肝臟受損的風險，要立刻停藥並馬上回診，不要等下次約診時間。</p>
+  </div>
+
+  <div class="faq-section" id="sec-faq">
+    <h2>常見問題</h2>
+    <div class="faq-item">
+      <div class="faq-q">抽血報告TSH很低，是不是就代表甲狀腺亢進？</div>
+      <div class="faq-a">不一定。TSH低只是身體的訊號之一，醫師還需要搭配游離甲狀腺素、總三碘甲狀腺素與病史，必要時安排RAIU或超音波，才能確定是真正的甲狀腺亢進，還是甲狀腺發炎造成的暫時性荷爾蒙上升。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">吃抗甲狀腺藥物出現喉嚨痛發燒，需要繼續吃嗎？</div>
+      <div class="faq-a">不需要。這可能是極罕見但危險的白血球低下副作用，建議立刻停藥並馬上回診抽血確認，不要自行硬撐。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">放射性碘治療後會不會需要終身吃藥？</div>
+      <div class="faq-a">多數人接受放射性碘治療後，甲狀腺功能會轉為低下，需要終身每天補充一顆甲狀腺素，這是治療甲亢後常見且可預期的結果。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">甲狀腺亢進會影響懷孕嗎？</div>
+      <div class="faq-a">甲狀腺亢進沒有控制好時懷孕，會增加流產或早產的風險。如果正在備孕或已經懷孕，用藥選擇會不同，務必主動告訴醫師目前的懷孕計畫。</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <div class="sources-label">參考文獻</div>
+    2016年美國甲狀腺協會（ATA）甲狀腺機能亢進與甲狀腺毒症臨床指引；葛瑞夫茲病治療與甲狀腺眼病變相關研究文獻。
+    <div class="sources-related">延伸閱讀：<a href="thyrotoxicosis-differential-diagnosis-guide.html">甲狀腺指數紅字，一定是甲狀腺亢進嗎？醫師怎麼抓出真正病因</a></div>
+  </div>
+
+</div>
+
+<footer>
+  <strong>日和聯合診所</strong>｜耳鼻喉科・中醫<br>
+  台南市鹽水區｜06-6520182
+</footer>
+
+</body>
+</html>
