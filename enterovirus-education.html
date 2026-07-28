@@ -144,6 +144,86 @@
     .prevent-text { font-size: 13px; color: #164e63; line-height: 1.6; }
     .prevent-text strong { color: #0e7490; }
 
+    /* 典型症狀比較卡 */
+    .compare-wrap { display: flex; flex-direction: column; gap: 14px; margin-top: 4px; }
+    .compare-card {
+      background: white;
+      border-radius: 16px;
+      padding: 18px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .compare-card .cc-illust {
+      display: flex;
+      justify-content: center;
+      background: #fafafa;
+      border-radius: 12px;
+      padding: 10px 0;
+      margin-bottom: 12px;
+    }
+    .compare-card .cc-title { font-size: 14px; font-weight: 700; margin-bottom: 2px; color: #92400e; }
+    .compare-card .cc-alias { font-size: 11px; color: #a0aec0; margin-bottom: 10px; }
+    .compare-card ul { list-style: none; }
+    .compare-card li {
+      font-size: 13px;
+      color: #4a5568;
+      line-height: 1.6;
+      padding: 4px 0 4px 18px;
+      position: relative;
+    }
+    .compare-card li::before {
+      content: '●';
+      font-size: 7px;
+      position: absolute;
+      left: 2px;
+      top: 11px;
+      color: #d97706;
+    }
+    .compare-meta { display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
+    .compare-tag {
+      font-size: 11px;
+      font-weight: 600;
+      border-radius: 12px;
+      padding: 4px 10px;
+      background: #fef3c7;
+      color: #92400e;
+    }
+    .compare-note {
+      font-size: 12px;
+      color: #718096;
+      background: #f7fafc;
+      border-radius: 10px;
+      padding: 10px 12px;
+      margin-top: 2px;
+      line-height: 1.6;
+    }
+
+    /* 漂白水消毒卡 */
+    .disinfect-card {
+      background: white;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      margin-top: 10px;
+    }
+    .disinfect-card h3 { font-size: 14px; font-weight: 700; color: #0e7490; margin-bottom: 4px; }
+    .dis-sub { font-size: 12px; color: #718096; margin-bottom: 14px; line-height: 1.6; }
+    .dis-block { background: #ecfeff; border-radius: 12px; padding: 12px 14px; margin-bottom: 10px; }
+    .dis-block:last-of-type { margin-bottom: 0; }
+    .dis-block .db-ppm {
+      font-size: 11px;
+      font-weight: 700;
+      color: #0e7490;
+      background: white;
+      display: inline-block;
+      border-radius: 8px;
+      padding: 3px 10px;
+      margin-bottom: 6px;
+    }
+    .dis-block .db-recipe { font-size: 13px; color: #164e63; line-height: 1.6; }
+    .dis-block .db-recipe strong { color: #0e7490; }
+    .dis-note { font-size: 12px; color: #718096; line-height: 1.7; margin-top: 12px; }
+    .dis-note strong { color: #4a5568; }
+
     .vaccine-cta {
       display: block;
       text-decoration: none;
@@ -219,6 +299,76 @@
     </div>
   </div>
 
+  <!-- 典型症狀怎麼分辨 -->
+  <div class="sec-label">典型症狀怎麼分辨</div>
+  <div class="compare-wrap">
+
+    <div class="compare-card">
+      <div class="cc-illust">
+        <svg viewBox="0 0 120 170" width="140" height="150">
+          <circle cx="60" cy="24" r="18" fill="#fde68a" stroke="#d97706" stroke-width="2"/>
+          <circle cx="60" cy="30" r="3" fill="#ef4444"/>
+          <rect x="40" y="42" width="40" height="55" rx="14" fill="#fde68a" stroke="#d97706" stroke-width="2"/>
+          <line x1="40" y1="55" x2="12" y2="90" stroke="#d97706" stroke-width="6" stroke-linecap="round"/>
+          <line x1="80" y1="55" x2="108" y2="90" stroke="#d97706" stroke-width="6" stroke-linecap="round"/>
+          <circle cx="12" cy="90" r="9" fill="#fde68a" stroke="#d97706" stroke-width="2"/>
+          <circle cx="108" cy="90" r="9" fill="#fde68a" stroke="#d97706" stroke-width="2"/>
+          <circle cx="12" cy="90" r="3" fill="#ef4444"/>
+          <circle cx="9" cy="86" r="2.5" fill="#ef4444"/>
+          <circle cx="108" cy="90" r="3" fill="#ef4444"/>
+          <circle cx="111" cy="86" r="2.5" fill="#ef4444"/>
+          <line x1="48" y1="97" x2="38" y2="145" stroke="#d97706" stroke-width="7" stroke-linecap="round"/>
+          <line x1="72" y1="97" x2="82" y2="145" stroke="#d97706" stroke-width="7" stroke-linecap="round"/>
+          <ellipse cx="35" cy="152" rx="12" ry="7" fill="#fde68a" stroke="#d97706" stroke-width="2"/>
+          <ellipse cx="85" cy="152" rx="12" ry="7" fill="#fde68a" stroke="#d97706" stroke-width="2"/>
+          <circle cx="35" cy="152" r="3" fill="#ef4444"/>
+          <circle cx="30" cy="150" r="2.5" fill="#ef4444"/>
+          <circle cx="85" cy="152" r="3" fill="#ef4444"/>
+          <circle cx="90" cy="150" r="2.5" fill="#ef4444"/>
+        </svg>
+      </div>
+      <div class="cc-title">手足口病</div>
+      <div class="cc-alias">Hand-Foot-Mouth Disease</div>
+      <ul>
+        <li>口腔內（頰黏膜、舌頭、牙齦）出現小水泡、潰瘍，疼痛影響進食</li>
+        <li>手掌、腳掌出現不痛不癢的小紅疹或小水泡，有時也會出現在膝蓋、臀部</li>
+        <li>可能合併輕微發燒</li>
+      </ul>
+      <div class="compare-meta">
+        <span class="compare-tag">好發 5 歲以下</span>
+        <span class="compare-tag">病程約 7–10 天</span>
+      </div>
+    </div>
+
+    <div class="compare-card">
+      <div class="cc-illust">
+        <svg viewBox="0 0 140 100" width="150" height="110">
+          <ellipse cx="70" cy="50" rx="50" ry="38" fill="#fecaca" stroke="#dc2626" stroke-width="2"/>
+          <path d="M25,32 Q70,15 115,32" fill="none" stroke="#f1f5f9" stroke-width="10" stroke-linecap="round"/>
+          <path d="M25,68 Q70,85 115,68" fill="none" stroke="#f1f5f9" stroke-width="10" stroke-linecap="round"/>
+          <ellipse cx="70" cy="52" rx="18" ry="14" fill="#f87171"/>
+          <circle cx="60" cy="45" r="3" fill="#fff"/>
+          <circle cx="80" cy="45" r="3" fill="#fff"/>
+          <circle cx="70" cy="60" r="3" fill="#fff"/>
+          <circle cx="55" cy="58" r="2.5" fill="#fff"/>
+        </svg>
+      </div>
+      <div class="cc-title">皰疹性咽峽炎</div>
+      <div class="cc-alias">Herpangina</div>
+      <ul>
+        <li>突然高燒，體溫可能達 39–40°C</li>
+        <li>喉嚨深處（咽峽部、軟顎附近）出現小水泡、潰瘍，劇烈喉嚨痛</li>
+        <li>疼痛導致流口水、拒食、拒喝水，需留意脫水</li>
+      </ul>
+      <div class="compare-meta">
+        <span class="compare-tag">好發 1–7 歲</span>
+        <span class="compare-tag">病程約 4–6 天</span>
+      </div>
+    </div>
+
+    <div class="compare-note">兩者最大的分辨重點在<strong style="color:#4a5568">病灶位置</strong>：皰疹性咽峽炎的水泡只出現在喉嚨深處；手足口病則會同時出現在口腔、手掌與腳掌。兩種也可能同時發生在同一個孩子身上。</div>
+  </div>
+
   <!-- 三、重症前兆 -->
   <div class="sec-label">重症前兆症狀</div>
   <div class="warn-group">
@@ -264,6 +414,25 @@
       <div class="prevent-item">
         <div class="prevent-icon">💉</div>
         <div class="prevent-text">若要進一步預防<strong>重症</strong>，建議可施打腸病毒疫苗</div>
+      </div>
+    </div>
+
+    <div class="disinfect-card">
+      <h3>🧪 環境消毒：漂白水怎麼泡</h3>
+      <div class="dis-sub">腸病毒沒有外套膜，<strong style="color:#0e7490">酒精、乾洗手效果不佳</strong>，環境消毒請改用含氯漂白水</div>
+
+      <div class="dis-block">
+        <div class="db-ppm">日常環境・500ppm</div>
+        <div class="db-recipe">玩具、地板、桌椅、門把等日常清潔：<br><strong>市售漂白水 10cc ＋ 清水 990cc</strong>（約 1 公升水中加 2 茶匙）</div>
+      </div>
+
+      <div class="dis-block">
+        <div class="db-ppm">嘔吐物・排泄物污染處・5000ppm</div>
+        <div class="db-recipe">先用紙巾清除髒污，再消毒污染範圍：<br><strong>市售漂白水 100cc ＋ 清水 900cc</strong>（約 1 公升水中加 1/2 杯漂白水）</div>
+      </div>
+
+      <div class="dis-note">
+        ⚠️ 稀釋後藥效約可維持 <strong>24 小時</strong>，建議現泡現用；消毒時請戴手套、保持空間通風，且<strong>不要與其他清潔劑混合</strong>（尤其是酸性清潔劑，混合可能產生有毒氣體）。
       </div>
     </div>
   </div>
