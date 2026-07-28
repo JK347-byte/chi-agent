@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>認識腸病毒｜日和聯合診所</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, "Helvetica Neue", Arial, sans-serif;
+      background: #f5f7fa;
+      color: #2d3748;
+      min-height: 100vh;
+    }
+
+    header {
+      background: linear-gradient(135deg, #0e7490, #22d3ee);
+      color: white;
+      text-align: center;
+      padding: 36px 24px 32px;
+    }
+    header .clinic { font-size: 12px; letter-spacing: 3px; opacity: 0.8; margin-bottom: 10px; }
+    header h1 { font-size: 26px; font-weight: 800; line-height: 1.3; }
+    header .sub { font-size: 13px; opacity: 0.9; margin-top: 10px; line-height: 1.6; }
+
+    .container { max-width: 480px; margin: 0 auto; padding: 20px 16px 48px; }
+
+    .sec-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: #0e7490;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin: 28px 0 10px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .card h2 { font-size: 15px; font-weight: 700; color: #164e63; margin-bottom: 10px; }
+    .card p { font-size: 14px; line-height: 1.8; color: #4a5568; }
+    .card p + p { margin-top: 8px; }
+
+    /* 冰山視覺 */
+    .iceberg-card {
+      background: white;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .iceberg-card h2 { font-size: 15px; font-weight: 700; color: #164e63; margin-bottom: 4px; }
+    .iceberg-sub { font-size: 12px; color: #718096; margin-bottom: 16px; }
+    .berg-tier {
+      border-radius: 12px;
+      padding: 14px 16px;
+      margin-bottom: 8px;
+    }
+    .berg-tier:last-child { margin-bottom: 0; }
+    .berg-tier .bt-label { font-size: 13px; font-weight: 700; margin-bottom: 4px; }
+    .berg-tier .bt-desc { font-size: 12px; line-height: 1.6; }
+    .berg-common {
+      background: #ecfeff;
+      border-left: 4px solid #22d3ee;
+    }
+    .berg-common .bt-label { color: #0e7490; }
+    .berg-common .bt-desc { color: #0e7490; }
+    .berg-typical {
+      background: #fff7ed;
+      border-left: 4px solid #fb923c;
+    }
+    .berg-typical .bt-label { color: #9a3412; }
+    .berg-typical .bt-desc { color: #9a3412; }
+    .berg-severe {
+      background: #fff5f5;
+      border-left: 4px solid #fc8181;
+    }
+    .berg-severe .bt-label { color: #c53030; }
+    .berg-severe .bt-desc { color: #c53030; }
+
+    /* 前兆症狀 */
+    .warn-group {
+      background: white;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .warn-group h2 { font-size: 15px; font-weight: 700; color: #9a3412; margin-bottom: 4px; }
+    .warn-sub { font-size: 12px; color: #718096; margin-bottom: 16px; line-height: 1.6; }
+    .warn-block { margin-bottom: 16px; }
+    .warn-block:last-child { margin-bottom: 0; }
+    .warn-block .wb-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: #92400e;
+      background: #fffbeb;
+      border-radius: 8px;
+      padding: 6px 12px;
+      display: inline-block;
+      margin-bottom: 8px;
+    }
+    .warn-block ul { list-style: none; }
+    .warn-block li {
+      font-size: 13px;
+      color: #4a5568;
+      line-height: 1.6;
+      padding: 6px 0 6px 20px;
+      position: relative;
+    }
+    .warn-block li::before {
+      content: '●';
+      color: #f97316;
+      font-size: 8px;
+      position: absolute;
+      left: 4px;
+      top: 13px;
+    }
+
+    .alert-banner {
+      background: #fff5f5;
+      border-left: 4px solid #fc8181;
+      border-radius: 0 12px 12px 0;
+      padding: 14px 16px;
+      margin-top: 14px;
+      font-size: 13px;
+      color: #c53030;
+      line-height: 1.7;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .prevent-list { display: flex; flex-direction: column; gap: 10px; margin-top: 4px; }
+    .prevent-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      background: #ecfeff;
+      border-radius: 12px;
+      padding: 12px 14px;
+    }
+    .prevent-icon { font-size: 20px; flex-shrink: 0; }
+    .prevent-text { font-size: 13px; color: #164e63; line-height: 1.6; }
+    .prevent-text strong { color: #0e7490; }
+
+    .vaccine-cta {
+      display: block;
+      text-decoration: none;
+      background: linear-gradient(135deg, #92400e, #f59e0b);
+      border-radius: 16px;
+      padding: 22px 20px;
+      text-align: center;
+      color: white;
+      box-shadow: 0 4px 16px rgba(146,64,14,0.3);
+    }
+    .vaccine-cta .vc-eyebrow {
+      font-size: 11px;
+      letter-spacing: 2px;
+      opacity: 0.85;
+      margin-bottom: 8px;
+    }
+    .vaccine-cta .vc-main { font-size: 17px; font-weight: 700; margin-bottom: 8px; line-height: 1.4; }
+    .vaccine-cta .vc-sub { font-size: 13px; opacity: 0.9; line-height: 1.6; }
+    .vaccine-cta .vc-btn {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.4);
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 8px 20px;
+      margin-top: 14px;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 12px;
+      color: #a0aec0;
+      margin-top: 32px;
+      line-height: 1.9;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="clinic">日和聯合診所</div>
+  <h1>認識腸病毒</h1>
+  <div class="sub">從症狀到重症前兆，家長必須知道的事</div>
+</header>
+
+<div class="container">
+
+  <!-- 一、什麼是腸病毒 -->
+  <div class="sec-label">什麼是腸病毒</div>
+  <div class="card">
+    <h2>經腸道感染，症狀卻像感冒</h2>
+    <p>腸病毒之所以叫做腸病毒，是因為它主要經由腸道感染，但引發的症狀反而比較偏向感冒，像是咳嗽、打噴嚏、流鼻水等，因此很容易被誤以為只是一般感冒。</p>
+  </div>
+
+  <!-- 二、冰山效應 -->
+  <div class="sec-label">症狀表現：冰山效應</div>
+  <div class="iceberg-card">
+    <h2>大多數人症狀輕微，重症是少數</h2>
+    <div class="iceberg-sub">腸病毒的症狀分佈就像一座冰山</div>
+
+    <div class="berg-tier berg-common">
+      <div class="bt-label">🧊 冰山底部（大多數）</div>
+      <div class="bt-desc">症狀不明顯，多數感染者表現得就像一般感冒</div>
+    </div>
+    <div class="berg-tier berg-typical">
+      <div class="bt-label">🟠 典型症狀（少數）</div>
+      <div class="bt-desc">手足口病、皰疹性咽峽炎，兩者可同時發生，也可單獨出現</div>
+    </div>
+    <div class="berg-tier berg-severe">
+      <div class="bt-label">🔴 重症（冰山頂端，最少見）</div>
+      <div class="bt-desc">發生率最低，但危害最大，需要立即就醫處理</div>
+    </div>
+  </div>
+
+  <!-- 三、重症前兆 -->
+  <div class="sec-label">重症前兆症狀</div>
+  <div class="warn-group">
+    <h2>🚨 出現以下任一症狀，請立即就醫</h2>
+    <div class="warn-sub">疾管署公告腸病毒重症五大前兆，臨床上可分兩大方向觀察</div>
+
+    <div class="warn-block">
+      <div class="wb-title">導向腦炎的症狀</div>
+      <ul>
+        <li>嗜睡、意識不清</li>
+        <li>肌躍型抽搐（尤其在睡眠中發生，突然全身抖動）</li>
+        <li>持續嘔吐</li>
+        <li>四肢無力或走路不穩（類小兒麻痺症狀）</li>
+      </ul>
+    </div>
+
+    <div class="warn-block">
+      <div class="wb-title">導向肺炎、心肌炎的症狀</div>
+      <ul>
+        <li>呼吸急促、心跳加快</li>
+      </ul>
+    </div>
+
+    <div class="alert-banner">出現任一項前兆，請立即回診或至急診就醫</div>
+  </div>
+
+  <!-- 四、如何預防重症 -->
+  <div class="sec-label">如何有效預防重症</div>
+  <div class="card">
+    <div class="prevent-list">
+      <div class="prevent-item">
+        <div class="prevent-icon">🧼</div>
+        <div class="prevent-text"><strong>勤洗手</strong>，尤其如廁後、進食前，是最基本也最重要的防護</div>
+      </div>
+      <div class="prevent-item">
+        <div class="prevent-icon">🧴</div>
+        <div class="prevent-text">玩具、餐具、環境<strong>定期消毒</strong>，減少群聚感染風險</div>
+      </div>
+      <div class="prevent-item">
+        <div class="prevent-icon">🏠</div>
+        <div class="prevent-text">孩子生病時<strong>在家休息</strong>，避免至托嬰中心、幼兒園上課，降低傳染他人的機會</div>
+      </div>
+      <div class="prevent-item">
+        <div class="prevent-icon">💉</div>
+        <div class="prevent-text">若要進一步預防<strong>重症</strong>，建議可施打腸病毒疫苗</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 疫苗 CTA -->
+  <div style="margin-top:16px">
+    <a class="vaccine-cta" href="envavac-education.html">
+      <div class="vc-eyebrow">預防重症最有效的方式</div>
+      <div class="vc-main">了解腸病毒 71 型疫苗<br>Envavac®</div>
+      <div class="vc-sub">近 100% EV71 重症保護率，抗體可持續 5 年</div>
+      <div class="vc-btn">查看疫苗完整衛教說明 →</div>
+    </a>
+  </div>
+
+  <footer>
+    日和聯合診所｜耳鼻喉科・中醫科<br>
+    台南市鹽水區｜06-652-0182<br>
+    如有疑問請洽診所，或於看診時詢問醫師
+  </footer>
+
+</div>
+
+</body>
+</html>
