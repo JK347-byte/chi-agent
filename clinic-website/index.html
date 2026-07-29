@@ -39,9 +39,80 @@
       height: 56px;
     }
     .nav-logo { font-size: 16px; font-weight: 700; color: #5a6e38; }
+    .nav-right { display: flex; align-items: center; gap: 20px; }
     .nav-links { display: flex; gap: 24px; }
     .nav-links a { font-size: 14px; color: var(--muted); text-decoration: none; }
     .nav-links a:hover { color: var(--blue); }
+
+    .nav-search {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      background: var(--gray);
+      border-radius: 20px;
+      padding: 5px 6px 5px 14px;
+    }
+    .nav-search input {
+      border: none;
+      background: transparent;
+      outline: none;
+      font-size: 13px;
+      width: 110px;
+      color: var(--text);
+      font-family: inherit;
+    }
+    .nav-search input::placeholder { color: #a0aec0; }
+    .nav-search button {
+      border: none;
+      background: none;
+      cursor: pointer;
+      font-size: 15px;
+      padding: 4px 8px;
+      color: var(--muted);
+    }
+    .nav-search button:hover { color: var(--blue); }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 22px;
+      line-height: 1;
+      cursor: pointer;
+      color: var(--text);
+      padding: 4px;
+    }
+
+    .nav-mobile-panel {
+      display: none;
+      flex-direction: column;
+      gap: 2px;
+      position: absolute;
+      top: 56px;
+      left: 0;
+      right: 0;
+      background: white;
+      border-bottom: 1px solid #e2e8f0;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      padding: 16px 24px 20px;
+      z-index: 99;
+    }
+    .nav-mobile-panel.open { display: flex; }
+    .nav-mobile-panel .nav-search { width: 100%; margin-bottom: 8px; }
+    .nav-mobile-panel .nav-search input { width: 100%; }
+    .nav-mobile-panel a {
+      font-size: 15px;
+      color: var(--text);
+      text-decoration: none;
+      padding: 10px 4px;
+      border-bottom: 1px solid #f0f4f8;
+    }
+    .nav-mobile-panel a:last-child { border-bottom: none; }
+
+    @media (max-width: 700px) {
+      .nav-links, .nav-search-desktop { display: none; }
+      .nav-toggle { display: block; }
+    }
 
     /* HERO */
     .hero {
@@ -492,7 +563,6 @@
 
     @media (max-width: 400px) {
       .services-grid { grid-template-columns: 1fr; }
-      .nav-links { display: none; }
     }
   </style>
 </head>
@@ -501,14 +571,33 @@
 <!-- NAV -->
 <nav>
   <div class="nav-logo">日和聯合診所</div>
-  <div class="nav-links">
-    <a href="#doctors">醫師</a>
-    <a href="#services">服務</a>
-    <a href="#hours">時間</a>
-    <a href="#contact">聯絡</a>
-    <a href="../medical-notes.html">筆記</a>
+  <div class="nav-right">
+    <div class="nav-search nav-search-desktop">
+      <input type="search" id="navSearchDesktop" placeholder="搜尋筆記…">
+      <button onclick="goSearch('navSearchDesktop')" aria-label="搜尋筆記">🔍</button>
+    </div>
+    <div class="nav-links">
+      <a href="#doctors">醫師</a>
+      <a href="#services">服務</a>
+      <a href="#hours">時間</a>
+      <a href="#contact">聯絡</a>
+      <a href="../medical-notes.html">筆記</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="開啟選單">☰</button>
   </div>
 </nav>
+
+<div class="nav-mobile-panel" id="navMobilePanel">
+  <div class="nav-search">
+    <input type="search" id="navSearchMobile" placeholder="搜尋筆記關鍵字…">
+    <button onclick="goSearch('navSearchMobile')" aria-label="搜尋筆記">🔍</button>
+  </div>
+  <a href="#doctors">醫師</a>
+  <a href="#services">服務</a>
+  <a href="#hours">時間</a>
+  <a href="#contact">聯絡</a>
+  <a href="../medical-notes.html">筆記</a>
+</div>
 
 <!-- HERO -->
 <div class="hero">
@@ -829,6 +918,26 @@ function toggleReview(idx) {
   const isExpanded = el.classList.toggle('expanded');
   track.style.animationPlayState = isExpanded ? 'paused' : 'running';
 }
+
+const navToggle = document.getElementById('navToggle');
+const navMobilePanel = document.getElementById('navMobilePanel');
+navToggle.addEventListener('click', function () {
+  navMobilePanel.classList.toggle('open');
+});
+navMobilePanel.querySelectorAll('a').forEach(function (a) {
+  a.addEventListener('click', function () { navMobilePanel.classList.remove('open'); });
+});
+
+function goSearch(inputId) {
+  const val = document.getElementById(inputId).value.trim();
+  if (!val) return;
+  window.location.href = '../medical-notes.html?q=' + encodeURIComponent(val);
+}
+['navSearchDesktop', 'navSearchMobile'].forEach(function (id) {
+  document.getElementById(id).addEventListener('keydown', function (e) {
+    if (e.key === 'Enter') goSearch(id);
+  });
+});
 </script>
 
 <!-- FOOTER -->
