@@ -446,15 +446,22 @@ function showResult() {
     }
     detail = parts.join('<br><br>');
   } else {
-    const meetsIndication = bmi >= 30 || (bmi >= 27 && comorbid.length > 0);
+    const hasT2dm = comorbid.includes('t2dm');
+    const meetsIndication = hasT2dm || bmi >= 30 || (bmi >= 27 && comorbid.length > 0);
 
     if (meetsIndication) {
       cls = 'result-ok';
       icon = '✅';
       verdict = '符合醫療適應症，可安排諮詢';
-      detail = '你的 BMI 為 ' + bmi.toFixed(1) + '，' +
-        (bmi >= 30 ? '已達 BMI ≥ 30 的用藥標準。' : '合併共病史，符合 BMI ≥ 27 的用藥標準。') +
-        '建議預約門診，由醫師確認用藥細節與劑量規劃。';
+      let reason;
+      if (hasT2dm) {
+        reason = '你有第二型糖尿病，屬於血糖控制適應症（作為飲食及運動之輔助治療，可單獨使用或與其他降血糖藥物併用，不受 BMI 限制）。';
+      } else if (bmi >= 30) {
+        reason = '已達 BMI ≥ 30 的體重管理用藥標準。';
+      } else {
+        reason = '合併共病史，符合 BMI ≥ 27 的體重管理用藥標準。';
+      }
+      detail = '你的 BMI 為 ' + bmi.toFixed(1) + '，' + reason + '建議預約門診，由醫師確認用藥細節與劑量規劃。';
     } else {
       cls = 'result-consider';
       icon = '🔵';
