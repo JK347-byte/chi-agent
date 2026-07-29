@@ -171,36 +171,62 @@
     .dose-price { font-size: 11px; color: #718096; }
     .dose-arrow { font-size: 20px; color: #bee3f8; align-self: center; padding-bottom: 20px; }
 
-    /* ── 費用摘要 ── */
-    .cost-card {
-      background: linear-gradient(135deg, #1a365d, #2b6cb0);
+    /* ── 維持策略 ── */
+    .maintain-card {
+      background: white;
       border-radius: 16px;
       padding: 20px;
-      color: white;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
       margin-bottom: 20px;
     }
-    .cost-card h2 { font-size: 15px; font-weight: 700; margin-bottom: 14px; opacity: 0.9; }
-    .cost-row {
+    .maintain-card h2 { font-size: 15px; font-weight: 700; color: #1a365d; margin-bottom: 4px; }
+    .maintain-sub { font-size: 12px; color: #718096; margin-bottom: 18px; line-height: 1.6; }
+    .maintain-bars {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 8px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.15);
+      align-items: flex-end;
+      gap: 14px;
+      justify-content: center;
+      padding-top: 10px;
+    }
+    .maintain-bar-wrap { display: flex; flex-direction: column; align-items: center; gap: 8px; width: 78px; }
+    .maintain-bar {
+      width: 100%;
+      border-radius: 8px 8px 0 0;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding-top: 8px;
+      color: white;
+      font-size: 14px;
+      font-weight: 800;
+    }
+    .maintain-bar.best { background: linear-gradient(180deg, #4299e1, #2b6cb0); }
+    .maintain-bar.mid  { background: linear-gradient(180deg, #90cdf4, #4299e1); }
+    .maintain-bar.low  { background: linear-gradient(180deg, #fbb6b6, #fc8181); }
+    .maintain-label { font-size: 11.5px; color: #4a5568; font-weight: 600; text-align: center; line-height: 1.4; }
+    .maintain-axis {
+      text-align: center;
+      font-size: 11px;
+      color: #a0aec0;
+      margin-top: 12px;
+    }
+    .maintain-note {
+      margin-top: 16px;
+      background: #ebf8ff;
+      border-left: 4px solid #4299e1;
+      border-radius: 0 12px 12px 0;
+      padding: 12px 14px;
       font-size: 13px;
+      color: #2b6cb0;
+      line-height: 1.7;
     }
-    .cost-row:last-of-type { border-bottom: none; }
-    .cost-row .price { font-weight: 700; font-size: 15px; }
-    .cost-total {
+    .maintain-note strong { color: #1a365d; }
+    .maintain-cite {
       margin-top: 10px;
-      background: rgba(255,255,255,0.15);
-      border-radius: 10px;
-      padding: 10px 14px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      font-size: 10.5px;
+      color: #a0aec0;
+      line-height: 1.6;
     }
-    .cost-total .label { font-size: 13px; }
-    .cost-total .price { font-size: 20px; font-weight: 800; }
 
     .tip {
       background: #ebf8ff;
@@ -478,20 +504,32 @@
     </div>
   </div>
 
-  <!-- 費用摘要 -->
-  <div class="cost-card">
-    <h2>療程費用摘要</h2>
-    <div class="cost-row">
-      <span>減重期（3–5 個月）</span>
-      <span class="price">—</span>
+  <!-- 維持策略 -->
+  <div class="maintain-card">
+    <h2>達標後，維持策略更重要</h2>
+    <div class="maintain-sub">體重達標不代表治療結束，達標後怎麼做，決定成果能保留多少</div>
+
+    <div class="maintain-bars">
+      <div class="maintain-bar-wrap">
+        <div class="maintain-bar best" style="height:120px;">100%</div>
+        <div class="maintain-label">維持原劑量<br>（10–15mg）</div>
+      </div>
+      <div class="maintain-bar-wrap">
+        <div class="maintain-bar mid" style="height:85px;">70.5%</div>
+        <div class="maintain-label">降至<br>5mg 維持</div>
+      </div>
+      <div class="maintain-bar-wrap">
+        <div class="maintain-bar low" style="height:53px;">44.3%</div>
+        <div class="maintain-label">完全停藥</div>
+      </div>
     </div>
-    <div class="cost-row">
-      <span>維持期（減重期 × ½）</span>
-      <span class="price">—</span>
+    <div class="maintain-axis">第 112 週體重維持比例（相對第 60 週減重成果）</div>
+
+    <div class="maintain-note">
+      <strong>達標後持續治療，才是保留成果的關鍵。</strong>研究顯示，達標後降回 5mg 仍能維持約 <strong>7 成</strong>減重效果；若完全停藥，成果只剩不到一半。是否降量、降到多少，建議與醫師討論後再調整，不要自行停藥。
     </div>
-    <div class="cost-total">
-      <span class="label">完整療程預估</span>
-      <span class="price">5 – 7 萬元</span>
+    <div class="maintain-cite">
+      資料來源：SURMOUNT-MAINTAIN，Horn DB, et al. <em>The Lancet</em>. 2026. doi:10.1016/S0140-6736(26)00658-2
     </div>
   </div>
 
