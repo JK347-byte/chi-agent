@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>耳朵悶痛、聽力變差，是中耳炎嗎？成人中耳炎為什麼不能像小孩一樣先觀察｜日和聯合診所</title>
+  <meta name="description" content="成人中耳炎不像兒童常能先觀察等待，確診後建議立即開始抗生素治療。這篇整理成人中耳炎的成因、跟中耳積水/外耳炎的鑑別方式，以及用藥安全與該立刻回診的併發症警訊。">
+  <meta property="og:title" content="耳朵悶痛、聽力變差，是中耳炎嗎？成人中耳炎為什麼不能像小孩一樣先觀察｜日和聯合診所">
+  <meta property="og:description" content="成人中耳炎不像兒童常能先觀察等待，確診後建議立即開始抗生素治療。這篇整理成人中耳炎的成因、跟中耳積水/外耳炎的鑑別方式，以及用藥安全與該立刻回診的併發症警訊。">
+  <meta property="og:type" content="article">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --sage: #7a8c5c;
+      --sage-dark: #5a6e38;
+      --gold: #c8a830;
+      --olive: #2e3318;
+      --cream: #faf8f0;
+      --text: #2d3748;
+      --muted: #718096;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, "Helvetica Neue", Arial, sans-serif;
+      color: var(--text);
+      background: white;
+      line-height: 1.8;
+    }
+
+    nav {
+      position: sticky; top: 0; background: white;
+      border-bottom: 1px solid #e2e8f0; z-index: 100;
+      padding: 0 24px; display: flex; align-items: center;
+      justify-content: space-between; height: 56px;
+    }
+    .nav-logo { font-size: 16px; font-weight: 700; color: #5a6e38; }
+    .nav-links { display: flex; gap: 24px; }
+    .nav-links a { font-size: 14px; color: var(--muted); text-decoration: none; }
+    .nav-links a:hover { color: var(--sage-dark); }
+    .nav-links a.active { color: var(--sage-dark); font-weight: 700; }
+
+    .article-header {
+      background: var(--cream);
+      padding: 40px 24px 32px;
+      text-align: center;
+    }
+    .article-tag {
+      display: inline-block;
+      background: rgba(122,140,92,0.15);
+      color: var(--sage-dark);
+      border-radius: 20px;
+      padding: 4px 14px;
+      font-size: 12px;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+      font-weight: 600;
+    }
+    .article-header h1 {
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--olive);
+      line-height: 1.5;
+      margin-bottom: 14px;
+    }
+    .article-meta {
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .article-meta strong { color: var(--sage-dark); }
+
+    .container { max-width: 680px; margin: 0 auto; padding: 32px 20px 60px; }
+
+    .toc-box {
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 18px 22px;
+      margin-bottom: 28px;
+    }
+    .toc-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--olive);
+      margin-bottom: 10px;
+    }
+    .toc-list { list-style: none; }
+    .toc-list li { counter-increment: toc-counter; margin-bottom: 6px; font-size: 14px; }
+    .toc-list { counter-reset: toc-counter; }
+    .toc-list li a {
+      color: var(--text);
+      text-decoration: none;
+    }
+    .toc-list li a:hover { color: var(--sage-dark); }
+    .toc-list li a::before {
+      content: counter(toc-counter) "　";
+      color: var(--sage-dark);
+      font-weight: 700;
+    }
+
+    .tldr-box {
+      background: rgba(200,168,48,0.08);
+      border-left: 3px solid var(--gold);
+      border-radius: 4px;
+      padding: 18px 20px;
+      margin-bottom: 32px;
+      font-size: 15px;
+      color: var(--text);
+    }
+    .tldr-box ul { margin: 10px 0 0 20px; }
+    .tldr-box li { margin-bottom: 4px; }
+    .article-body h2 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--olive);
+      margin: 36px 0 14px;
+      padding-top: 20px;
+      border-top: 2px solid #f0f0e8;
+    }
+    .article-body h2:first-child { border-top: none; padding-top: 0; margin-top: 0; }
+    .article-body p {
+      font-size: 15px;
+      color: var(--text);
+      margin-bottom: 14px;
+    }
+    .article-body ul { margin: 0 0 14px 20px; }
+    .article-body li { font-size: 15px; color: var(--text); margin-bottom: 8px; }
+    .article-body li strong { color: var(--olive); }
+
+    .highlight-box {
+      background: rgba(122,140,92,0.08);
+      border-left: 3px solid var(--sage-dark);
+      border-radius: 4px;
+      padding: 14px 16px;
+      margin-bottom: 16px;
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+    .highlight-box .highlight-icon { font-size: 15px; line-height: 1.6; }
+    .highlight-box .highlight-text {
+      font-size: 14px;
+      color: var(--sage-dark);
+      font-weight: 600;
+      line-height: 1.6;
+    }
+
+    .faq-section {
+      margin-top: 40px;
+      padding-top: 28px;
+      border-top: 2px solid #f0f0e8;
+    }
+    .faq-section h2 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--olive);
+      margin-bottom: 18px;
+    }
+    .faq-item { margin-bottom: 18px; }
+    .faq-q {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--sage-dark);
+      margin-bottom: 6px;
+    }
+    .faq-a {
+      font-size: 14px;
+      color: var(--text);
+    }
+
+    .conclusion-box {
+      background: rgba(200,168,48,0.08);
+      border: 1px solid var(--gold);
+      border-radius: 8px;
+      padding: 24px 24px 22px;
+      margin-top: 40px;
+    }
+    .conclusion-box h2 {
+      font-size: 19px;
+      font-weight: 800;
+      color: var(--olive);
+      margin-bottom: 14px;
+      border-top: none;
+      padding-top: 0;
+    }
+    .conclusion-box ul { margin: 0 0 14px 20px; }
+    .conclusion-box li {
+      font-size: 15px;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+    .conclusion-box strong { color: var(--olive); }
+    .conclusion-cta {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--sage-dark);
+    }
+
+    .sources {
+      margin-top: 36px;
+      padding-top: 20px;
+      border-top: 1px solid #f0f0e8;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .sources-label { font-weight: 700; color: var(--sage-dark); margin-bottom: 6px; }
+    .sources-related { margin-top: 8px; }
+    .sources-related a { color: var(--sage-dark); }
+
+    footer {
+      background: #1a365d;
+      color: rgba(255,255,255,0.6);
+      text-align: center;
+      padding: 32px 24px;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+    footer strong { color: white; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">日和聯合診所</div>
+  <div class="nav-links">
+    <a href="../clinic-website/index.html#doctors">醫師</a>
+    <a href="../clinic-website/index.html#services">服務</a>
+    <a href="../clinic-website/index.html#hours">時間</a>
+    <a href="../clinic-website/index.html#contact">聯絡</a>
+    <a href="../medical-notes.html" class="active">筆記</a>
+  </div>
+</nav>
+
+<div class="article-header">
+  <div class="article-tag">耳科</div>
+  <h1>耳朵悶痛、聽力變差，是中耳炎嗎？成人中耳炎為什麼不能像小孩一樣先觀察</h1>
+  <div class="article-meta">詹士奇醫師撰文 · <strong>2026-08-01 最後更新</strong></div>
+</div>
+
+<div class="container">
+
+  <div class="toc-box">
+    <div class="toc-header"><span>📑</span><span>內容目錄</span></div>
+    <ol class="toc-list">
+      <li><a href="#sec-1">中耳炎不是小孩專利，大人為什麼也會得？</a></li>
+      <li><a href="#sec-2">耳朵悶痛，是中耳炎、中耳積水，還是外耳炎？</a></li>
+      <li><a href="#sec-3">醫師怎麼檢查？為什麼不能自己在家沖耳朵？</a></li>
+      <li><a href="#sec-4">大人確診中耳炎，一定要馬上吃抗生素嗎？</a></li>
+      <li><a href="#sec-5">用藥期間要注意什麼？哪些狀況要立刻回診？</a></li>
+      <li><a href="#sec-concl">結論：成人中耳炎，為什麼不能像小孩一樣先觀察？</a></li>
+      <li><a href="#sec-faq">常見問題</a></li>
+    </ol>
+  </div>
+
+  <div class="tldr-box">
+    <ul>
+      <li>成人中耳炎不像兒童常能先觀察等待，確診後建議立即開始抗生素治療，因為成人發病率低，一旦發生併發症風險相對較高</li>
+      <li>耳朵悶痛合併聽力變差，要先區分是中耳炎、中耳積水，還是外耳炎，處置方式完全不同</li>
+      <li>治療48到72小時沒有改善，或出現耳後紅腫、劇烈眩暈、臉歪嘴斜、頭痛發燒僵硬，要立刻回診</li>
+    </ul>
+  </div>
+
+  <div class="article-body">
+    <h2 id="sec-1">中耳炎不是小孩專利，大人為什麼也會得？</h2>
+    <p>很多人覺得中耳炎是小孩才會得的病，但大人耳咽管功能出問題，一樣會中鏢。</p>
+    <div class="highlight-box"><span class="highlight-icon">💡</span><span class="highlight-text">中耳炎的核心原因是耳咽管功能障礙，耳咽管不通暢，中耳腔形成負壓，黏液滯留引發細菌化膿感染，不是單純的感冒延伸。</span></div>
+    <p>青春期後，耳咽管周邊肌肉構造改變，通暢度變好，這也是為什麼大人發病率遠低於兒童。</p>
+    <p>荷蘭研究顯示，15歲以上成人整體發生率是每千人年5.3例，64歲以上更降到2.7例。</p>
+    <p>大人常見的誘因是感冒或季節性過敏性鼻炎急性發作，鼻咽黏膜腫脹進而誘發。</p>
+
+    <h2 id="sec-2">耳朵悶痛，是中耳炎、中耳積水，還是外耳炎？</h2>
+    <p>這幾種耳部問題症狀類似，但處置邏輯完全不同，搞混了會用錯方式處理。</p>
+    <div class="highlight-box"><span class="highlight-icon">💡</span><span class="highlight-text">中耳炎典型是單側急性耳痛合併聽力悶，耳膜若破裂疼痛會突然驟減並流膿；中耳積水則完全沒有急性發炎或化膿症狀，多數12週內會自己消退。</span></div>
+    <ul>
+      <li><strong>急性中耳炎</strong>：單側急性耳痛加上聽力悶，耳膜可能膨出或破裂流膿</li>
+      <li><strong>中耳積水</strong>：聽力悶但沒有急性發炎、化膿、疼痛，多數12週內自行消退</li>
+      <li><strong>外耳炎</strong>：疼痛侷限在耳道本身，耳道紅腫有分泌物，中耳沒有積水，耳膜正常</li>
+      <li><strong>大疱性鼓膜炎</strong>：耳膜上長出劇痛水疱，只有耳膜本身受影響，中耳腔沒有波及</li>
+    </ul>
+    <p>還有一種情況容易被忽略：如果是單側反覆發作的中耳炎，不能只當作單純感染處理，臨床上要考慮耳咽管開口是否被腫瘤等病灶壓迫，這點會在後面詳細說明。</p>
+
+    <h2 id="sec-3">醫師怎麼檢查？為什麼不能自己在家沖耳朵？</h2>
+    <p>診間的檢查是為了看清楚耳膜實際狀況，不是隨便看看。</p>
+    <div class="highlight-box"><span class="highlight-icon">💡</span><span class="highlight-text">耳鏡下鼓膜膨出是最具診斷價值的特徵，氣動耳鏡則是確認中耳積液的黃金標準；但懷疑中耳炎時，絕對不能自己或找非專業人員用水沖洗耳道，萬一耳膜已經受損，沖水可能讓感染更嚴重。</span></div>
+    <p>如果耳膜狀況不容易判讀，會加做聽力測試或鼓室圖。</p>
+    <p>症狀嚴重或治療反應不好，可能會安排鼓膜穿刺抽取膿液做細菌培養，找出真正的致病菌。</p>
+    <p>如果懷疑感染已經往外擴散，才需要安排電腦斷層或磁振造影。</p>
+
+    <h2 id="sec-4">大人確診中耳炎，一定要馬上吃抗生素嗎？</h2>
+    <p>兒童中耳炎有時可以先觀察，但成人的邏輯不一樣。</p>
+    <div class="highlight-box"><span class="highlight-icon">💡</span><span class="highlight-text">兒童中耳炎能先觀察，是因為多數症狀輕微、自癒機率高；成人正好相反——本來就少見，一旦發生反而代表身體防禦力下降或有其他誘因，併發症風險也相對較高，這也是指引建議確診後就直接開始抗生素治療的原因。</span></div>
+    <p>首選是阿莫西林-克拉維酸，而不是單純的阿莫西林。</p>
+    <p>因為成人中耳炎常見的致病菌（流感嗜血桿菌、卡他莫拉菌）有很高比例會製造分解普通阿莫西林的酶，單純阿莫西林可能無效。</p>
+    <p>療程長短要看感染嚴重度：</p>
+    <ul>
+      <li><strong>輕度至中度感染</strong>：建議給予5到7天的口服抗生素治療</li>
+      <li><strong>重度感染</strong>：若出現顯著聽力喪失、劇烈耳痛，或耳膜有極度明顯的發紅，建議給予10天的完整療程</li>
+    </ul>
+    <p>同時會搭配止痛藥緩解耳痛。如果化膿壓力很高，可能需要鼓膜穿刺引流；反覆發作或積水拖過12週，則可能需要置入中耳通氣管；如果細菌已經侵蝕骨頭引發乳突炎，才需要緊急手術清除壞死骨質。</p>
+
+    <h2 id="sec-5">用藥期間要注意什麼？哪些狀況要立刻回診？</h2>
+    <p>抗生素不是吃到不痛就能停，擅自停藥是復發和抗藥性的常見原因。</p>
+    <div class="highlight-box"><span class="highlight-icon">💡</span><span class="highlight-text">這些警訊分別對應感染往不同方向擴散的併發症，嚴重程度都不能等下次約診——治療48到72小時沒有改善，或出現以下任一狀況，都要立刻回診。</span></div>
+    <ul>
+      <li><strong>耳後紅腫熱痛、耳朵被往前推</strong>：可能是乳突炎，長者尤其要留意</li>
+      <li><strong>劇烈眩暈、天旋地轉、聽力喪失</strong>：可能是內耳迷路炎</li>
+      <li><strong>半邊臉癱瘓、眼睛閉不緊</strong>：可能是顏面神經麻痺</li>
+      <li><strong>持續劇烈頭痛、脖子僵硬、高燒</strong>：可能是腦膜炎或腦膿瘍，是致命急症</li>
+    </ul>
+    <p>耳膜如果已經穿孔，不要自己買含耳毒性成分的滴耳劑使用，可能傷到內耳影響聽力；曾經對青黴素過敏，也要主動告訴醫師，才能換成其他安全的藥物。</p>
+  </div>
+
+  <div class="conclusion-box" id="sec-concl">
+    <h2>結論：成人中耳炎，為什麼不能像小孩一樣先觀察？</h2>
+    <ul>
+      <li>成人中耳炎少見但併發症風險相對較高，確診後建議立即開始抗生素治療，不像兒童常能先觀察</li>
+      <li>耳朵悶痛要先分清楚是中耳炎、中耳積水還是外耳炎，處置方式完全不同</li>
+      <li>治療48到72小時沒改善，或出現耳後紅腫、劇烈眩暈、臉歪嘴斜、頭痛發燒僵硬，要立刻回診，不要自己停藥或拖延</li>
+    </ul>
+    <p class="conclusion-cta">門診常遇到病人一不痛就自己停藥，這其實是復發和抗藥性的常見原因，務必吃完整個療程。如果治療48到72小時沒有改善，或出現耳後紅腫熱痛、劇烈眩暈、半邊臉癱瘓、持續頭痛合併發燒僵硬，這些是乳突炎、內耳迷路炎、顏面神經麻痺，甚至腦膜炎的警訊，要立刻回診或掛急診，不要等下次約診。如果是單側反覆發作的中耳炎，也要留意——耳咽管開口被腫瘤壓迫也可能表現成這樣，建議進一步安排鼻咽內視鏡檢查排除病變。</p>
+  </div>
+
+  <div class="faq-section" id="sec-faq">
+    <h2>常見問題</h2>
+    <div class="faq-item">
+      <div class="faq-q">為什麼小孩中耳炎可以先觀察，大人卻要馬上吃藥？</div>
+      <div class="faq-a">因為成人中耳炎本身少見，一旦發生，併發症風險相對較高，指引建議確診後直接開始抗生素治療，跟兒童常能先觀察等待的邏輯不同。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">耳朵悶痛但不太痛，會不會只是中耳積水，不用吃藥？</div>
+      <div class="faq-a">有可能，中耳積水通常沒有急性發炎或化膿症狀，多數12週內會自行消退。但實際是中耳炎還是積水，需要醫師用耳鏡實際確認，不要自己判斷。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">耳膜穿孔了，可以自己買滴耳劑來用嗎？</div>
+      <div class="faq-a">不建議。如果耳膜已經穿孔，含耳毒性成分的滴耳劑可能滲入內耳，傷害聽力，應該由醫師開立不含耳毒性成分的藥物。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">單側耳朵反覆中耳炎，需要特別檢查嗎？</div>
+      <div class="faq-a">建議安排鼻咽內視鏡檢查。單側反覆發作的中耳炎，臨床上要考慮耳咽管開口是否被腫瘤等病灶壓迫，需要進一步排除鼻咽部位的病變。</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <div class="sources-label">參考文獻</div>
+    荷蘭大型世代研究（成人急性中耳炎流行病學）；美國CDC成人肺炎鏈球菌疫苗接種建議（PCV13/PPSV23）；成人急性中耳炎抗生素治療與併發症相關臨床指引。
+    <div class="sources-related">延伸閱讀：<a href="pediatric-acute-otitis-media-guide.html">孩子耳朵痛是中耳炎嗎？什麼時候一定要吃抗生素？</a></div>
+  </div>
+
+</div>
+
+<footer>
+  <strong>日和聯合診所</strong>｜耳鼻喉科・中醫<br>
+  台南市鹽水區｜06-6520182
+</footer>
+
+</body>
+</html>
