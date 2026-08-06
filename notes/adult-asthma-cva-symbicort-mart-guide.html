@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>一直咳嗽卻不會喘，也算氣喘嗎？成人氣喘的診斷、吸必擴雙效治療與居家監控完整指南｜日和聯合診所</title>
+  <meta name="description" content="只咳不喘也可能是氣喘。整理咳嗽變異型氣喘的辨識、吸必擴雙效吸入劑治療原理、ACT控制監測，以及惡化時的用藥調整與共病排除重點。">
+  <meta property="og:title" content="一直咳嗽卻不會喘，也算氣喘嗎？成人氣喘的診斷、吸必擴雙效治療與居家監控完整指南｜日和聯合診所">
+  <meta property="og:description" content="只咳不喘也可能是氣喘。整理咳嗽變異型氣喘的辨識、吸必擴雙效吸入劑治療原理、ACT控制監測，以及惡化時的用藥調整與共病排除重點。">
+  <meta property="og:type" content="article">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --sage: #7a8c5c;
+      --sage-dark: #5a6e38;
+      --gold: #c8a830;
+      --olive: #2e3318;
+      --cream: #faf8f0;
+      --text: #2d3748;
+      --muted: #718096;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, "Helvetica Neue", Arial, sans-serif;
+      color: var(--text);
+      background: white;
+      line-height: 1.8;
+    }
+
+    nav {
+      position: sticky; top: 0; background: white;
+      border-bottom: 1px solid #e2e8f0; z-index: 100;
+      padding: 0 24px; display: flex; align-items: center;
+      justify-content: space-between; height: 56px;
+    }
+    .nav-logo { font-size: 16px; font-weight: 700; color: #5a6e38; }
+    .nav-links { display: flex; gap: 24px; }
+    .nav-links a { font-size: 14px; color: var(--muted); text-decoration: none; }
+    .nav-links a:hover { color: var(--sage-dark); }
+    .nav-links a.active { color: var(--sage-dark); font-weight: 700; }
+
+    .article-header {
+      background: var(--cream);
+      padding: 40px 24px 32px;
+      text-align: center;
+    }
+    .article-tag {
+      display: inline-block;
+      background: rgba(122,140,92,0.15);
+      color: var(--sage-dark);
+      border-radius: 20px;
+      padding: 4px 14px;
+      font-size: 12px;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+      font-weight: 600;
+    }
+    .article-header h1 {
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--olive);
+      line-height: 1.5;
+      margin-bottom: 14px;
+    }
+    .article-meta {
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .article-meta strong { color: var(--sage-dark); }
+
+    .container { max-width: 680px; margin: 0 auto; padding: 32px 20px 60px; }
+
+    .toc-box {
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 18px 22px;
+      margin-bottom: 28px;
+    }
+    .toc-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--olive);
+      margin-bottom: 10px;
+    }
+    .toc-list { list-style: none; }
+    .toc-list li { counter-increment: toc-counter; margin-bottom: 6px; font-size: 14px; }
+    .toc-list { counter-reset: toc-counter; }
+    .toc-list li a {
+      color: var(--text);
+      text-decoration: none;
+    }
+    .toc-list li a:hover { color: var(--sage-dark); }
+    .toc-list li a::before {
+      content: counter(toc-counter) "　";
+      color: var(--sage-dark);
+      font-weight: 700;
+    }
+
+    .tldr-box {
+      background: rgba(200,168,48,0.08);
+      border-left: 3px solid var(--gold);
+      border-radius: 4px;
+      padding: 18px 20px;
+      margin-bottom: 32px;
+      font-size: 15px;
+      color: var(--text);
+    }
+    .tldr-box ul { margin: 10px 0 10px 20px; }
+    .tldr-box li { margin-bottom: 4px; }
+    .article-body h2 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--olive);
+      margin: 36px 0 14px;
+      padding-top: 4px;
+      border-top: 2px solid #f0f0e8;
+      padding-top: 20px;
+    }
+    .article-body h2:first-child { border-top: none; padding-top: 0; margin-top: 0; }
+    .article-body p {
+      font-size: 15px;
+      color: var(--text);
+      margin-bottom: 14px;
+    }
+    .article-body ul { margin: 0 0 16px 20px; }
+    .article-body li { font-size: 15px; color: var(--text); margin-bottom: 6px; }
+
+    .highlight-box {
+      background: rgba(122,140,92,0.08);
+      border-left: 3px solid var(--sage-dark);
+      border-radius: 4px;
+      padding: 14px 16px;
+      margin-bottom: 16px;
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+    .highlight-box .highlight-icon { font-size: 15px; line-height: 1.6; }
+    .highlight-box .highlight-text {
+      font-size: 14px;
+      color: var(--sage-dark);
+      font-weight: 600;
+      line-height: 1.6;
+    }
+
+    /* ACT互動計分表 */
+    .act-table-wrap { overflow-x: auto; margin-bottom: 12px; }
+    .act-table { width: 100%; min-width: 480px; border-collapse: collapse; }
+    .act-table th, .act-table td {
+      padding: 10px 6px;
+      text-align: center;
+      border-bottom: 1px solid #f0f0e8;
+      font-size: 13px;
+    }
+    .act-table thead th { color: var(--sage-dark); font-weight: 700; font-size: 13px; }
+    .act-table td.act-q { text-align: left; font-size: 14px; color: var(--text); padding-right: 12px; }
+    .act-cell { display: block; cursor: pointer; }
+    .act-cell input { width: 18px; height: 18px; cursor: pointer; accent-color: var(--sage-dark); }
+    .act-scale-note { font-size: 12px; color: var(--muted); margin: 6px 0 16px; }
+    .act-result {
+      margin-bottom: 16px;
+      padding: 14px 16px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 600;
+      background: #f7f7f2;
+      color: var(--text);
+    }
+    .act-result.act-good { background: rgba(122,140,92,0.12); color: var(--sage-dark); }
+    .act-result.act-partial { background: rgba(200,168,48,0.15); color: #8a6d1a; }
+    .act-result.act-poor { background: rgba(200,80,80,0.12); color: #a23b3b; }
+
+    .faq-section {
+      margin-top: 40px;
+      padding-top: 28px;
+      border-top: 2px solid #f0f0e8;
+    }
+    .faq-section h2 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--olive);
+      margin-bottom: 18px;
+    }
+    .faq-item { margin-bottom: 18px; }
+    .faq-q {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--sage-dark);
+      margin-bottom: 6px;
+    }
+    .faq-a {
+      font-size: 14px;
+      color: var(--text);
+    }
+
+    .conclusion-box {
+      background: rgba(200,168,48,0.08);
+      border: 1px solid var(--gold);
+      border-radius: 8px;
+      padding: 24px 24px 22px;
+      margin-top: 40px;
+    }
+    .conclusion-box h2 {
+      font-size: 19px;
+      font-weight: 800;
+      color: var(--olive);
+      margin-bottom: 14px;
+      border-top: none;
+      padding-top: 0;
+    }
+    .conclusion-box ul { margin: 0 0 14px 20px; }
+    .conclusion-box li {
+      font-size: 15px;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+    .conclusion-cta {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--sage-dark);
+    }
+
+    .sources {
+      margin-top: 36px;
+      padding-top: 20px;
+      border-top: 1px solid #f0f0e8;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .sources-label { font-weight: 700; color: var(--sage-dark); margin-bottom: 6px; }
+    .sources-related { margin-top: 8px; }
+    .sources-related a { color: var(--sage-dark); }
+
+    footer {
+      background: #1a365d;
+      color: rgba(255,255,255,0.6);
+      text-align: center;
+      padding: 32px 24px;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+    footer strong { color: white; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">日和聯合診所</div>
+  <div class="nav-links">
+    <a href="../clinic-website/index.html#doctors">醫師</a>
+    <a href="../clinic-website/index.html#services">服務</a>
+    <a href="../clinic-website/index.html#hours">時間</a>
+    <a href="../clinic-website/index.html#contact">聯絡</a>
+    <a href="../medical-notes.html" class="active">筆記</a>
+  </div>
+</nav>
+
+<div class="article-header">
+  <div class="article-tag">慢性病</div>
+  <h1>一直咳嗽卻不會喘，也算氣喘嗎？成人氣喘的診斷、吸必擴雙效治療與居家監控完整指南</h1>
+  <div class="article-meta">詹士奇醫師撰文 · <strong>2026-08-07 最後更新</strong></div>
+</div>
+
+<div class="container">
+
+  <div class="toc-box">
+    <div class="toc-header"><span>📑</span><span>內容目錄</span></div>
+    <ol class="toc-list">
+      <li><a href="#sec-1">一直咳嗽卻不會喘，也算氣喘嗎？——認識氣喘與咳嗽變異型氣喘（CVA）</a></li>
+      <li><a href="#sec-2">氣喘怎麼治療？——為什麼吸必擴這類雙效吸入劑是目前的治療主力</a></li>
+      <li><a href="#sec-3">治療有效之後呢？——用ACT問卷和尖峰流量計掌握控制程度</a></li>
+      <li><a href="#sec-4">氣喘突然變嚴重怎麼辦？——藥物怎麼升級、什麼時候該加口服類固醇</a></li>
+      <li><a href="#sec-5">藥物加到頂了還是沒效？——先排除肥胖、鼻涕倒流和胃食道逆流</a></li>
+      <li><a href="#sec-concl">結論：長期咳嗽或氣喘反覆發作，該怎麼判斷下一步？</a></li>
+      <li><a href="#sec-faq">常見問題</a></li>
+    </ol>
+  </div>
+
+  <div class="tldr-box">
+    <ul>
+      <li>長期咳嗽超過八週、夜間或運動後加重，可能是咳嗽變異型氣喘，不一定會有喘鳴</li>
+      <li>吸必擴這類雙效吸入劑同時當日常保養跟急性緩解用，是目前治療主力</li>
+      <li>ACT問卷20分以上代表控制良好，惡化時先用滿當天吸入次數上限，沒改善才加口服類固醇</li>
+    </ul>
+  </div>
+
+  <div class="article-body">
+    <h2 id="sec-1">一直咳嗽卻不會喘，也算氣喘嗎？——認識氣喘與咳嗽變異型氣喘（CVA）</h2>
+    <p>氣喘常被想成一定會「喘」，胸口悶、呼吸有聲音才算。但門診裡有一群病人，症狀只有咳嗽，長期咳嗽卻沒有明顯喘鳴，一樣可能是氣喘在作怪。</p>
+    <div class="highlight-box"><span class="highlight-icon">💡</span><span class="highlight-text">氣喘的核心是慢性氣道發炎加上會變來變去的氣流阻塞，喘鳴、胸悶、呼吸急促、咳嗽都只是它表現出來的樣子，不是每個人都會全部出現。</span></div>
+    <p>這種只以咳嗽表現的氣喘，臨床上稱為咳嗽變異型氣喘（CVA）。特徵是咳嗽在夜間會加重，遇到冷空氣或運動也容易誘發，但沒有明顯的喘鳴聲。</p>
+    <p>有一種類似的病叫非氣喘性嗜酸性白血球型支氣管炎，一樣是嗜酸性發炎、一樣對吸入型類固醇有反應，差別在於肺功能正常，也沒有氣道過度反應，這部分要靠檢查才能區分，不是單靠症狀判斷。</p>
+
+    <h2 id="sec-2">氣喘怎麼治療？——為什麼吸必擴這類雙效吸入劑是目前的治療主力</h2>
+    <p>氣喘的治療邏輯是評估、調整、回顧不斷循環，依症狀出現的頻率決定藥物該加重還是減輕，不是一次用藥就定生死。</p>
+    <div class="highlight-box"><span class="highlight-icon">💡</span><span class="highlight-text">目前國際治療指引（GINA）最推崇的做法，是用單一支吸入劑同時當日常保養跟急救用藥，也就是維持與緩解雙效療法（MART）。</span></div>
+    <p>吸必擴這類藥物裡面同時裝了兩種成分。Formoterol負責跟急救藥一樣快速打開氣管，Budesonide則在每次追加使用時同步壓下發炎反應。</p>
+    <p>這樣設計省去要另外帶一支急救吸入劑的麻煩，更重要的是，症狀一出現就同時抗發炎，能把嚴重惡化跟需要吃口服類固醇的風險降低到六成以上。</p>
+
+    <h2 id="sec-3">治療有效之後呢？——用ACT問卷和尖峰流量計掌握控制程度</h2>
+    <p>開始規律用藥之後，接下來的重點是怎麼知道有沒有真的控制住。氣喘控制測試（ACT）是最常用的自我評估工具，問過去四週的五個問題來計分，點選下方選項就能算出自己的分數。</p>
+
+    <div class="act-table-wrap">
+      <table class="act-table">
+        <thead>
+          <tr><th class="act-q">題目</th><th>1分</th><th>2分</th><th>3分</th><th>4分</th><th>5分</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="act-q">1. 過去四週，氣喘讓您工作、上學或做家事受影響的頻率？</td>
+            <td><label class="act-cell"><input type="radio" name="q1" value="1" onchange="actUpdate()"></label></td>
+            <td><label class="act-cell"><input type="radio" name="q1" value="2" onchange="actUpdate()"></label></td>
+            <td><label class="act-cell"><input type="radio" name="q1" value="3" onchange="actUpdate()"></label></td>
+            <td><label class="act-cell"><input type="radio" name="q1" value="4" onchange="actUpdate()"></label></td>
+            <td><label class="act-cell"><input type="radio" name="q1" value="5" onchange="actUpdate()"></label></td>
+          </tr>
+          <tr>
+            <td class="act-q">2. 過去四週，您感覺呼吸困難的頻率？</td>
+            <td><label class="act-cell"><input type="radio" name="q2" value="1" onchange="actUpdate()"></label></td>
+            <td><label class="act-cell"><input type="radio" name="q2" value="2" onchange="actUpdate()"></label></td>
+            <td><label class="act-cell"><input type="radio" name="q2" value="3" onchange="actUpdate()"></label></td>
+            <td><label class="act-cell"><input type="radio" name="q2" value="4" onchange="actUpdate()"></label></td>
+            <td><label class="act-cell"><input type="radio" name="q2" value="5" onchange="actUpdate()"></label></td>
+          </tr>
+          <tr>
+            <td class="act-q">3. 過去四週，氣喘症狀讓您夜間醒來或比平常早醒的頻率？</td>
+            <td><label class="act-cell"><input type="radio" name="q3" value="1" onchange="actUpdate()"></label></td>
+            <td><label class="act-cell"><input type="radio" name="q3" value="2" onchange="actUpdate()"></label></td>
+            <td><label class="act-cell"><input type="radio" name="q3" value="3" onchange="actUpdate()"></label></td>
+            <td><label class="act-cell"><input type="radio" name="q3" value="4" onchange="actUpdate()"></label></td>
+            <td><label class="act-cell"><input type="radio" name="q3" value="5" onchange="actUpdate()"></label></td>
+          </tr>
+          <tr>
+            <td class="act-q">4. 過去四週，您使用急救吸入劑的頻率？</td>
+            <td><label class="act-cell"><input type="radio" name="q4" value="1" onchange="actUpdate()"></label></td>
+            <td><label class="act-cell"><input type="radio" name="q4" value="2" onchange="actUpdate()"></label></td>
+            <td><label class="act-cell"><input type="radio" name="q4" value="3" onchange="actUpdate()"></label></td>
+            <td><label class="act-cell"><input type="radio" name="q4" value="4" onchange="actUpdate()"></label></td>
+            <td><label class="act-cell"><input type="radio" name="q4" value="5" onchange="actUpdate()"></label></td>
+          </tr>
+          <tr>
+            <td class="act-q">5. 您如何評價過去四週氣喘控制的程度？</td>
+            <td><label class="act-cell"><input type="radio" name="q5" value="1" onchange="actUpdate()"></label></td>
+            <td><label class="act-cell"><input type="radio" name="q5" value="2" onchange="actUpdate()"></label></td>
+            <td><label class="act-cell"><input type="radio" name="q5" value="3" onchange="actUpdate()"></label></td>
+            <td><label class="act-cell"><input type="radio" name="q5" value="4" onchange="actUpdate()"></label></td>
+            <td><label class="act-cell"><input type="radio" name="q5" value="5" onchange="actUpdate()"></label></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="act-scale-note">第1-4題：1分＝一直如此，2分＝大部分時間，3分＝有時候，4分＝很少，5分＝完全沒有。第5題：1分＝完全沒控制，5分＝完全控制。</p>
+    <div class="act-result" id="act-result">選好五題後，這裡會顯示您的總分與控制程度。</div>
+
+    <div class="highlight-box"><span class="highlight-icon">💡</span><span class="highlight-text">ACT只是提醒用的自我篩檢工具，不是診斷。分數落在部分控制或控制不良，務必回診讓醫師調整治療，不要自己增加吸入次數。</span></div>
+    <p>除了ACT的分數，醫師在診間還會用另一套是非清單交叉確認，判斷方式不一樣，但結論分類一致。這套清單看的是過去四週有沒有出現四項狀況：白天症狀超過每週兩次、有沒有夜間醒來、需要用到急救吸入劑超過每週兩次、活動有沒有受限。</p>
+    <ul>
+      <li>零項符合：控制良好</li>
+      <li>一到兩項符合：部分控制</li>
+      <li>三項以上符合：控制不良，需要調整治療</li>
+    </ul>
+    <p>除了問卷，尖峰流量計可以量出客觀數字。抓出自己狀況最好時的數值當基準，平常監測落在哪個區間，比單靠感覺準確得多。</p>
+
+    <h2 id="sec-4">氣喘突然變嚴重怎麼辦？——藥物怎麼升級、什麼時候該加口服類固醇</h2>
+    <p>就算平常控制得不錯，還是可能遇到症狀突然加重的狀況，這時候不是忍耐，也不是自己亂加藥，而是照著醫師給的書面行動計畫走。</p>
+    <div class="highlight-box"><span class="highlight-icon">💡</span><span class="highlight-text">使用吸必擴這類MART療法時，一天的追加次數有上限，成人單日總吸入次數（保養加緩解）通常不超過8次，超過還是喘就要就醫，不是繼續加。</span></div>
+    <p>如果症狀變嚴重，第一步通常是先把吸入劑的追加次數用滿，觀察症狀有沒有緩解。如果還是持續惡化，就需要加上口服類固醇。</p>
+    <p>成人常用的劑量是每天一次口服Prednisolone 40到50毫克，連續吃5到7天。療程在兩週以內不需要額外減量停藥，直接吃完就停就可以。</p>
+    <p>如果出現嘴唇發紫、講話沒辦法一次講完一句話、尖峰流量掉到自己最佳值的一半以下，這些都是需要立刻就醫，不要等在家裡觀察。</p>
+
+    <h2 id="sec-5">藥物加到頂了還是沒效？——先排除肥胖、鼻涕倒流和胃食道逆流</h2>
+    <p>有些病人藥物已經加到很高的劑量，症狀還是反反覆覆，這時候問題不一定出在氣喘本身沒控制住，而是有其他共病一起搗亂。</p>
+    <div class="highlight-box"><span class="highlight-icon">💡</span><span class="highlight-text">體重過重是常見的原因之一。肥胖型氣喘的發炎型態跟典型氣喘不同，對一般吸入型類固醇反應比較差，減重5到10%往往比加藥更有效。</span></div>
+    <ul>
+      <li>慢性上呼吸道咳嗽症候群（鼻涕倒流）：平躺時黏液刺激咽喉，常合併鼻炎或鼻竇炎</li>
+      <li>胃食道逆流：胃酸刺激食道引發反射性乾咳，常在飯後或躺平時加重</li>
+    </ul>
+    <p>這兩種情況單看咳嗽很難跟氣喘區分，需要醫師問診搭配檢查才能抓出來。把這些共病一起處理，比一味把吸入劑劑量往上加更有效。</p>
+  </div>
+
+  <div class="conclusion-box" id="sec-concl">
+    <h2>結論：長期咳嗽或氣喘反覆發作，該怎麼判斷下一步？</h2>
+    <ul>
+      <li>只咳不喘也可能是氣喘，尤其夜間或運動後加重要懷疑CVA</li>
+      <li>吸必擴這類雙效吸入劑同時當保養跟急救用，是目前的治療主力</li>
+      <li>ACT問卷和尖峰流量計是最直接的居家監控工具，15分以下就該回診</li>
+      <li>惡化時先用滿當天吸入次數上限，沒改善才加口服類固醇，不要自己亂加</li>
+      <li>藥物加了還是沒效，要先排除肥胖、鼻涕倒流、胃食道逆流這些共病</li>
+    </ul>
+    <p class="conclusion-cta">如果咳嗽拖超過八週，或者氣喘藥物已經用到高劑量症狀還是控制不好，別再自己調整吸入次數，直接回診讓醫師重新評估。如果症狀急性惡化，出現嘴唇發紫、講話沒辦法一次講完一句話、或尖峰流量掉到自己最佳值的一半以下，這些是需要立刻掛急診的警訊，不要在家裡觀察等待。</p>
+  </div>
+
+  <div class="faq-section" id="sec-faq">
+    <h2>常見問題</h2>
+    <div class="faq-item">
+      <div class="faq-q">長期咳嗽多久算異常，需要就醫檢查？</div>
+      <div class="faq-a">咳嗽超過八週還沒改善，就算沒有明顯喘鳴，也建議回診評估是不是咳嗽變異型氣喘，不要當成感冒拖著。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">吸必擴可以天天用，也可以症狀來的時候臨時多吸嗎？</div>
+      <div class="faq-a">可以，這正是MART療法的設計，平常規律吸做保養，症狀出現時再追加吸入當急救，但一天的總次數有上限，不是喘就一直吸。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">口服類固醇會不會有副作用，需要長期吃嗎？</div>
+      <div class="faq-a">急性惡化時的短期療程通常只吃5到7天，不需要長期使用，兩週內的療程也不用額外減量，長期使用才會有骨質疏鬆等副作用疑慮。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">已經用最高劑量的吸入劑還是常常咳嗽，是不是氣喘很嚴重？</div>
+      <div class="faq-a">不一定。這種情況常常要先排除肥胖、鼻涕倒流、胃食道逆流這些共病，把它們一起治療，通常比單純加重氣喘藥物更有效。</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <div class="sources-label">參考文獻</div>
+    Global Initiative for Asthma (GINA) 2025 Strategy Report；氣喘控制測試（Asthma Control Test, ACT）五題問卷驗證研究。
+  </div>
+
+</div>
+
+<footer>
+  <strong>日和聯合診所</strong>｜耳鼻喉科・中醫<br>
+  台南市鹽水區｜06-6520182
+</footer>
+
+<script>
+  function actUpdate() {
+    var total = 0, count = 0;
+    for (var i = 1; i <= 5; i++) {
+      var els = document.getElementsByName('q' + i);
+      for (var j = 0; j < els.length; j++) {
+        if (els[j].checked) { total += parseInt(els[j].value, 10); count++; }
+      }
+    }
+    var box = document.getElementById('act-result');
+    if (count < 5) {
+      box.textContent = '已完成 ' + count + ' / 5 題，請完成全部五題查看結果。';
+      box.className = 'act-result';
+      return;
+    }
+    var text, cls;
+    if (total >= 20) {
+      text = '總分 ' + total + ' 分，控制良好：目前治療方向正確，維持現有用藥並定期回診。';
+      cls = 'act-result act-good';
+    } else if (total >= 16) {
+      text = '總分 ' + total + ' 分，部分控制：症狀還沒完全穩定，建議回診讓醫師評估是否需要調整藥物。';
+      cls = 'act-result act-partial';
+    } else {
+      text = '總分 ' + total + ' 分，控制不良：氣喘控制得不好，請盡快回診調整治療，不要自行增加吸入次數。';
+      cls = 'act-result act-poor';
+    }
+    box.textContent = text;
+    box.className = cls;
+  }
+</script>
+
+</body>
+</html>
