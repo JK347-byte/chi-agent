@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>咳個不停，喉嚨總是癢？可能不是發炎，而是「咳嗽超敏感症候群」｜日和聯合診所</title>
+  <meta name="description" content="慢性咳嗽超過八週，排除鼻涕倒流、氣喘、胃食道逆流後仍咳不停，可能是咳嗽超敏感症候群。整理症狀特徵、診斷邏輯與治療新選擇。">
+  <meta property="og:title" content="咳個不停，喉嚨總是癢？可能不是發炎，而是「咳嗽超敏感症候群」｜日和聯合診所">
+  <meta property="og:description" content="慢性咳嗽超過八週，排除鼻涕倒流、氣喘、胃食道逆流後仍咳不停，可能是咳嗽超敏感症候群。整理症狀特徵、診斷邏輯與治療新選擇。">
+  <meta property="og:type" content="article">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --sage: #7a8c5c;
+      --sage-dark: #5a6e38;
+      --gold: #c8a830;
+      --olive: #2e3318;
+      --cream: #faf8f0;
+      --text: #2d3748;
+      --muted: #718096;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, "Helvetica Neue", Arial, sans-serif;
+      color: var(--text);
+      background: white;
+      line-height: 1.8;
+    }
+
+    nav {
+      position: sticky; top: 0; background: white;
+      border-bottom: 1px solid #e2e8f0; z-index: 100;
+      padding: 0 24px; display: flex; align-items: center;
+      justify-content: space-between; height: 56px;
+    }
+    .nav-logo { font-size: 16px; font-weight: 700; color: #5a6e38; }
+    .nav-links { display: flex; gap: 24px; }
+    .nav-links a { font-size: 14px; color: var(--muted); text-decoration: none; }
+    .nav-links a:hover { color: var(--sage-dark); }
+    .nav-links a.active { color: var(--sage-dark); font-weight: 700; }
+
+    .article-header {
+      background: var(--cream);
+      padding: 40px 24px 32px;
+      text-align: center;
+    }
+    .article-tag {
+      display: inline-block;
+      background: rgba(122,140,92,0.15);
+      color: var(--sage-dark);
+      border-radius: 20px;
+      padding: 4px 14px;
+      font-size: 12px;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+      font-weight: 600;
+    }
+    .article-header h1 {
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--olive);
+      line-height: 1.5;
+      margin-bottom: 14px;
+    }
+    .article-meta {
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .article-meta strong { color: var(--sage-dark); }
+
+    .container { max-width: 680px; margin: 0 auto; padding: 32px 20px 60px; }
+
+    .toc-box {
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 18px 22px;
+      margin-bottom: 28px;
+    }
+    .toc-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--olive);
+      margin-bottom: 10px;
+    }
+    .toc-list { list-style: none; }
+    .toc-list li { counter-increment: toc-counter; margin-bottom: 6px; font-size: 14px; }
+    .toc-list { counter-reset: toc-counter; }
+    .toc-list li a {
+      color: var(--text);
+      text-decoration: none;
+    }
+    .toc-list li a:hover { color: var(--sage-dark); }
+    .toc-list li a::before {
+      content: counter(toc-counter) "　";
+      color: var(--sage-dark);
+      font-weight: 700;
+    }
+
+    .tldr-box {
+      background: rgba(200,168,48,0.08);
+      border-left: 3px solid var(--gold);
+      border-radius: 4px;
+      padding: 18px 20px;
+      margin-bottom: 32px;
+      font-size: 15px;
+      color: var(--text);
+    }
+    .tldr-box ul { margin: 10px 0 10px 20px; }
+    .tldr-box li { margin-bottom: 4px; }
+    .article-body h2 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--olive);
+      margin: 36px 0 14px;
+      padding-top: 4px;
+      border-top: 2px solid #f0f0e8;
+      padding-top: 20px;
+    }
+    .article-body h2:first-child { border-top: none; padding-top: 0; margin-top: 0; }
+    .article-body p {
+      font-size: 15px;
+      color: var(--text);
+      margin-bottom: 14px;
+    }
+    .article-body ul { margin: 0 0 16px 20px; }
+    .article-body li { font-size: 15px; color: var(--text); margin-bottom: 6px; }
+
+    .highlight-box {
+      background: rgba(122,140,92,0.08);
+      border-left: 3px solid var(--sage-dark);
+      border-radius: 4px;
+      padding: 14px 16px;
+      margin-bottom: 16px;
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+    .highlight-box .highlight-icon { font-size: 15px; line-height: 1.6; }
+    .highlight-box .highlight-text {
+      font-size: 14px;
+      color: var(--sage-dark);
+      font-weight: 600;
+      line-height: 1.6;
+    }
+
+    .faq-section {
+      margin-top: 40px;
+      padding-top: 28px;
+      border-top: 2px solid #f0f0e8;
+    }
+    .faq-section h2 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--olive);
+      margin-bottom: 18px;
+    }
+    .faq-item { margin-bottom: 18px; }
+    .faq-q {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--sage-dark);
+      margin-bottom: 6px;
+    }
+    .faq-a {
+      font-size: 14px;
+      color: var(--text);
+    }
+
+    .conclusion-box {
+      background: rgba(200,168,48,0.08);
+      border: 1px solid var(--gold);
+      border-radius: 8px;
+      padding: 24px 24px 22px;
+      margin-top: 40px;
+    }
+    .conclusion-box h2 {
+      font-size: 19px;
+      font-weight: 800;
+      color: var(--olive);
+      margin-bottom: 14px;
+      border-top: none;
+      padding-top: 0;
+    }
+    .conclusion-box ul { margin: 0 0 14px 20px; }
+    .conclusion-box li {
+      font-size: 15px;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+    .conclusion-cta {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--sage-dark);
+    }
+
+    .sources {
+      margin-top: 36px;
+      padding-top: 20px;
+      border-top: 1px solid #f0f0e8;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .sources-label { font-weight: 700; color: var(--sage-dark); margin-bottom: 6px; }
+    .sources-related { margin-top: 8px; }
+    .sources-related a { color: var(--sage-dark); }
+
+    footer {
+      background: #1a365d;
+      color: rgba(255,255,255,0.6);
+      text-align: center;
+      padding: 32px 24px;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+    footer strong { color: white; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">日和聯合診所</div>
+  <div class="nav-links">
+    <a href="../clinic-website/index.html#doctors">醫師</a>
+    <a href="../clinic-website/index.html#services">服務</a>
+    <a href="../clinic-website/index.html#hours">時間</a>
+    <a href="../clinic-website/index.html#contact">聯絡</a>
+    <a href="../medical-notes.html" class="active">筆記</a>
+  </div>
+</nav>
+
+<div class="article-header">
+  <div class="article-tag">喉科</div>
+  <h1>咳個不停，喉嚨總是癢？可能不是發炎，而是「咳嗽超敏感症候群」</h1>
+  <div class="article-meta">詹士奇醫師撰文 · <strong>2026-08-08 最後更新</strong></div>
+</div>
+
+<div class="container">
+
+  <div class="toc-box">
+    <div class="toc-header"><span>📑</span><span>內容目錄</span></div>
+    <ol class="toc-list">
+      <li><a href="#sec-1">一直咳嗽，講話大笑吹到風都會咳到停不下來？認識咳嗽超敏感症候群</a></li>
+      <li><a href="#sec-2">為什麼以前沒聽過這個病？——從「感冒的附屬症狀」到獨立疾病的診斷演進</a></li>
+      <li><a href="#sec-3">醫師怎麼確診：先排除三大常見原因，再抓出紅旗警訊</a></li>
+      <li><a href="#sec-4">治療怎麼打：從呼吸行為訓練、中樞神經藥物到新一代標靶藥物</a></li>
+      <li><a href="#sec-5">長期抗戰要注意什麼？藥物副作用與咳嗽本身的隱形傷害</a></li>
+      <li><a href="#sec-concl">結論：長期咳嗽找不到原因，該怎麼看懂這個病？</a></li>
+      <li><a href="#sec-faq">常見問題</a></li>
+    </ol>
+  </div>
+
+  <div class="tldr-box">
+    <ul>
+      <li>講話、大笑、吹到冷風就狂咳，喉嚨總覺得癢或卡東西，可能不是發炎沒好，而是氣道神經過度敏感</li>
+      <li>這個病要先排除鼻涕倒流、氣喘、胃食道逆流三大常見原因，都治療過還是咳才會考慮這個診斷</li>
+      <li>治療不是只能忍耐，呼吸行為訓練、神經調節藥物、新一代標靶藥物都是選項</li>
+    </ul>
+  </div>
+
+  <div class="article-body">
+    <h2 id="sec-1">一直咳嗽，講話大笑吹到風都會咳到停不下來？認識咳嗽超敏感症候群</h2>
+    <p>很多人以為咳嗽只是感冒或發炎沒斷根的副產品，但門診裡有一群病人，各種消炎藥、胃藥都吃過，咳嗽還是天天發作。</p>
+    <div class="highlight-box"><span class="highlight-icon">💡</span><span class="highlight-text">國際胸腔醫學界已經把這種狀況確立為一種獨立疾病，病因不是氣道有洗不掉的髒東西，而是大腦跟氣道神經系統的調控出了問題，性質比較接近神經痛。</span></div>
+    <p>這種病有三個特徵。講話、大笑、吸到冷空氣或聞到香水這些本來完全無害的刺激，會誘發猛烈嗆咳，這叫觸覺性咳。原本就會讓人咳嗽的刺激，反應會被放大好幾倍，這叫咳嗽敏化。喉嚨深處整天有搔癢感或異物感，逼著自己不停清喉嚨，這是喉部感覺異常。</p>
+    <p>如果你正被這些症狀困擾，先不用太緊張。慢性咳嗽影響全球約一成人口，女性發生率是男性的兩倍，好發年齡集中在50到60歲，並不是罕見的怪病。</p>
+
+    <h2 id="sec-2">為什麼以前沒聽過這個病？——從「感冒的附屬症狀」到獨立疾病的診斷演進</h2>
+    <p>過去一世紀，咳嗽一直被當成其他疾病的附屬症狀，只要治好背後的病因，咳嗽自然會停。</p>
+    <p>1981年有一份經典研究提出三大病因假說，認為九成以上的慢性咳嗽可以歸因於鼻涕倒流、氣喘或胃食道逆流。這套邏輯救了很多人，但專科門診裡仍有兩到五成患者，三大病因都治療過，咳嗽還是沒好。</p>
+    <div class="highlight-box"><span class="highlight-icon">💡</span><span class="highlight-text">這群治不好的患者，過去常被誤認為心理性咳嗽或查無病因。直到2014年，歐洲呼吸學會才正式提出咳嗽超敏感症候群，確立慢性難治性咳嗽本身就是一種神經系統疾病，不是查不出原因的怪病。</span></div>
+    <p>同樣的思路後來也延伸到其他病名——2006年「鼻涕倒流症候群」改稱「上氣道咳嗽症候群」，就是因為發現很多患者根本沒有鼻涕倒流的痕跡，問題出在感覺神經變敏感，不是分泌物刺激。</p>
+
+    <h2 id="sec-3">醫師怎麼確診：先排除三大常見原因，再抓出紅旗警訊</h2>
+    <p>診斷這個病之前，第一步永遠是先排除更嚴重的疾病，而不是急著貼上這個標籤。</p>
+    <div class="highlight-box"><span class="highlight-icon">💡</span><span class="highlight-text">咳血、不明原因體重減輕、發燒、吞嚥困難、長期抽菸史，只要出現任何一項，都要優先排查是不是有其他更嚴重的疾病，這幾項紅旗警訊沒有排除之前，不會考慮走向這個診斷。</span></div>
+    <p>確認沒有上述警訊之後，醫師才會進一步確認是不是上氣道咳嗽症候群、氣喘（或嗜酸性支氣管炎）、胃食道逆流這三大常見原因造成的，並依序給予對應的標準藥物治療。只有這三條路都走過、症狀還是沒有起色，才會被歸類進「難治性慢性咳嗽」，這時候幕後原因往往就是氣道神經過度敏感。</p>
+    <p>確診前還需要幾項檢查：</p>
+    <ul>
+      <li>胸部X光和肺功能檢查，排除嚴重肺部病變</li>
+      <li>鼻咽喉內視鏡，排除構造上的異常</li>
+      <li>抽血看嗜酸性球與過敏指數，加上呼氣一氧化氮檢測（超過25ppb，提示可能對類固醇治療有反應）</li>
+    </ul>
+
+    <h2 id="sec-4">治療怎麼打：從呼吸行為訓練、中樞神經藥物到新一代標靶藥物</h2>
+    <p>第一線治療不是吃藥，而是言語與呼吸行為治療。由專業治療師指導喉部放鬆、呼吸控制與主動壓制咳嗽的技巧。</p>
+    <div class="highlight-box"><span class="highlight-icon">💡</span><span class="highlight-text">國際臨床試驗證實這種行為訓練能顯著改善咳嗽嚴重度，而且效果在停止治療後還能持續一段時間，不是治標而已。</span></div>
+    <p>如果行為訓練不夠，醫師會跨界借用神經科的藥物，像加巴噴丁、普瑞巴林或低劑量嗎啡，用來重新調整大腦裡失控的止咳電路。</p>
+    <p>近幾年還有一種新機轉藥物叫P2X3受體拮抗劑，已經在歐洲、英國和日本上市，直接阻斷外周感覺神經的異常放電。少數合併嚴重結構性逆流或難治喉部超敏的患者，才會評估胃底摺疊手術，或喉上神經阻斷、聲帶注射肉毒桿菌素這類局部處置。</p>
+
+    <h2 id="sec-5">長期抗戰要注意什麼？藥物副作用與咳嗽本身的隱形傷害</h2>
+    <p>神經調節劑常見的副作用是輕微頭暈、嗜睡或走路不穩。新一代P2X3拮抗劑則有約兩成患者會出現味覺異常，停藥後通常會完全恢復，不用太擔心。</p>
+    <div class="highlight-box"><span class="highlight-icon">💡</span><span class="highlight-text">劇烈咳嗽時腹內壓可以飆到300毫米汞柱，足以引發暈厥或肋骨骨折，女性患者也常因此出現壓力性尿失禁，比例並不低。</span></div>
+    <p>這種尿失禁常常讓人不好意思開口，但它其實是這個病常見的併發症，值得主動告訴醫師一起處理，不是難以啟齒的小事。</p>
+    <p>長期反覆咳嗽帶來的社交尷尬、失眠、焦慮，也是疾病的一部分，回診追蹤時同樣需要一併關心，不是只看咳嗽次數。</p>
+  </div>
+
+  <div class="conclusion-box" id="sec-concl">
+    <h2>結論：長期咳嗽找不到原因，該怎麼看懂這個病？</h2>
+    <ul>
+      <li>咳嗽超過八週，對講話、大笑、冷空氣異常敏感，可能不是單純發炎沒好</li>
+      <li>確診第一步是先排除紅旗警訊（咳血、體重減輕、發燒等），沒有警訊才會進一步排查鼻涕倒流、氣喘、胃食道逆流這三大常見原因</li>
+      <li>治療是跨科合作，呼吸行為訓練、神經調節藥物、新一代標靶藥物都是選項，不是只能忍耐</li>
+      <li>劇烈咳嗽本身可能引發暈厥、肋骨骨折、尿失禁，這些都該主動跟醫師討論</li>
+    </ul>
+    <p class="conclusion-cta">如果慢性咳嗽超過八週，常見病因都治療過還是沒改善，別再單靠止咳藥硬撐，直接回診討論是不是咳嗽超敏感症候群。但如果咳嗽合併咳血、不明原因體重減輕、發燒、吞嚥困難，或本身有長期抽菸史，這些是需要優先排除嚴重疾病的警訊，應該儘快就醫檢查，不要先假設是這個診斷。</p>
+  </div>
+
+  <div class="faq-section" id="sec-faq">
+    <h2>常見問題</h2>
+    <div class="faq-item">
+      <div class="faq-q">咳嗽多久算「慢性」，需要開始懷疑這個病？</div>
+      <div class="faq-a">咳嗽超過八週就算慢性咳嗽。如果鼻涕倒流、氣喘、胃食道逆流這些常見原因都治療過仍然沒有改善，就該考慮咳嗽超敏感症候群。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">這個病是心理作用引起的嗎？</div>
+      <div class="faq-a">不是。這是神經系統調控失衡導致的獨立疾病，直到2014年才被國際共識正式確立，過去常被誤解為查不出原因或心理因素，其實是診斷觀念還沒跟上。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">治療一定要吃藥嗎？</div>
+      <div class="faq-a">不一定。言語與呼吸行為治療是重要的第一線非藥物選項，由專業治療師指導呼吸與咳嗽控制技巧，部分患者效果在停止治療後仍能維持。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">一直咳到漏尿，是正常的嗎？</div>
+      <div class="faq-a">這其實是慢性咳嗽常見卻常被忽略的併發症，女性患者比例不低，值得主動告訴醫師一併處理，不需要不好意思。</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <div class="sources-label">參考文獻</div>
+    Morice et al. Expert opinion on the cough hypersensitivity syndrome, European Respiratory Journal 2014；Irwin et al. Chronic persistent cough in the adult, 1981；Chamberlain Mitchell et al. PSALTI trial, speech and language therapy for chronic cough；Gefapixant COUGH-1/COUGH-2三期試驗安全性數據。
+  </div>
+
+</div>
+
+<footer>
+  <strong>日和聯合診所</strong>｜耳鼻喉科・中醫<br>
+  台南市鹽水區｜06-6520182
+</footer>
+
+</body>
+</html>
