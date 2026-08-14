@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>新冠只是大號感冒嗎？醫師教你看懂重症風險、黃金5天用藥與新一代疫苗｜日和聯合診所</title>
+  <meta name="description" content="新冠重症率死亡率仍是流感3到5倍，快篩陽性後5到7天內用藥能降低近9成住院死亡風險。整理長新冠、高風險群與新一代疫苗重點。">
+  <meta property="og:title" content="新冠只是大號感冒嗎？醫師教你看懂重症風險、黃金5天用藥與新一代疫苗｜日和聯合診所">
+  <meta property="og:description" content="新冠重症率死亡率仍是流感3到5倍，快篩陽性後5到7天內用藥能降低近9成住院死亡風險。整理長新冠、高風險群與新一代疫苗重點。">
+  <meta property="og:type" content="article">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --sage: #7a8c5c;
+      --sage-dark: #5a6e38;
+      --gold: #c8a830;
+      --olive: #2e3318;
+      --cream: #faf8f0;
+      --text: #2d3748;
+      --muted: #718096;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, "Helvetica Neue", Arial, sans-serif;
+      color: var(--text);
+      background: white;
+      line-height: 1.8;
+    }
+
+    nav {
+      position: sticky; top: 0; background: white;
+      border-bottom: 1px solid #e2e8f0; z-index: 100;
+      padding: 0 24px; display: flex; align-items: center;
+      justify-content: space-between; height: 56px;
+    }
+    .nav-logo { font-size: 16px; font-weight: 700; color: #5a6e38; }
+    .nav-links { display: flex; gap: 24px; }
+    .nav-links a { font-size: 14px; color: var(--muted); text-decoration: none; }
+    .nav-links a:hover { color: var(--sage-dark); }
+    .nav-links a.active { color: var(--sage-dark); font-weight: 700; }
+
+    .article-header {
+      background: var(--cream);
+      padding: 40px 24px 32px;
+      text-align: center;
+    }
+    .article-tag {
+      display: inline-block;
+      background: rgba(122,140,92,0.15);
+      color: var(--sage-dark);
+      border-radius: 20px;
+      padding: 4px 14px;
+      font-size: 12px;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+      font-weight: 600;
+    }
+    .article-header h1 {
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--olive);
+      line-height: 1.5;
+      margin-bottom: 14px;
+    }
+    .article-meta {
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .article-meta strong { color: var(--sage-dark); }
+
+    .container { max-width: 680px; margin: 0 auto; padding: 32px 20px 60px; }
+
+    .toc-box {
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 18px 22px;
+      margin-bottom: 28px;
+    }
+    .toc-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--olive);
+      margin-bottom: 10px;
+    }
+    .toc-list { list-style: none; }
+    .toc-list li { counter-increment: toc-counter; margin-bottom: 6px; font-size: 14px; }
+    .toc-list { counter-reset: toc-counter; }
+    .toc-list li a {
+      color: var(--text);
+      text-decoration: none;
+    }
+    .toc-list li a:hover { color: var(--sage-dark); }
+    .toc-list li a::before {
+      content: counter(toc-counter) "　";
+      color: var(--sage-dark);
+      font-weight: 700;
+    }
+
+    .tldr-box {
+      background: rgba(200,168,48,0.08);
+      border-left: 3px solid var(--gold);
+      border-radius: 4px;
+      padding: 18px 20px;
+      margin-bottom: 32px;
+      font-size: 15px;
+      color: var(--text);
+    }
+    .tldr-box ul { margin: 10px 0 10px 20px; }
+    .tldr-box li { margin-bottom: 4px; }
+    .article-body h2 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--olive);
+      margin: 36px 0 14px;
+      padding-top: 4px;
+      border-top: 2px solid #f0f0e8;
+      padding-top: 20px;
+    }
+    .article-body h2:first-child { border-top: none; padding-top: 0; margin-top: 0; }
+    .article-body p {
+      font-size: 15px;
+      color: var(--text);
+      margin-bottom: 14px;
+    }
+    .article-body ul { margin: 0 0 16px 20px; }
+    .article-body li { font-size: 15px; color: var(--text); margin-bottom: 6px; }
+
+    .highlight-box {
+      background: rgba(122,140,92,0.08);
+      border-left: 3px solid var(--sage-dark);
+      border-radius: 4px;
+      padding: 14px 16px;
+      margin-bottom: 16px;
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+    .highlight-box .highlight-icon { font-size: 15px; line-height: 1.6; }
+    .highlight-box .highlight-text {
+      font-size: 14px;
+      color: var(--sage-dark);
+      font-weight: 600;
+      line-height: 1.6;
+    }
+
+    .faq-section {
+      margin-top: 40px;
+      padding-top: 28px;
+      border-top: 2px solid #f0f0e8;
+    }
+    .faq-section h2 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--olive);
+      margin-bottom: 18px;
+    }
+    .faq-item { margin-bottom: 18px; }
+    .faq-q {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--sage-dark);
+      margin-bottom: 6px;
+    }
+    .faq-a {
+      font-size: 14px;
+      color: var(--text);
+    }
+
+    .conclusion-box {
+      background: rgba(200,168,48,0.08);
+      border: 1px solid var(--gold);
+      border-radius: 8px;
+      padding: 24px 24px 22px;
+      margin-top: 40px;
+    }
+    .conclusion-box h2 {
+      font-size: 19px;
+      font-weight: 800;
+      color: var(--olive);
+      margin-bottom: 14px;
+      border-top: none;
+      padding-top: 0;
+    }
+    .conclusion-box ul { margin: 0 0 14px 20px; }
+    .conclusion-box li {
+      font-size: 15px;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+    .conclusion-cta {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--sage-dark);
+    }
+
+    .sources {
+      margin-top: 36px;
+      padding-top: 20px;
+      border-top: 1px solid #f0f0e8;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .sources-label { font-weight: 700; color: var(--sage-dark); margin-bottom: 6px; }
+    .sources-related { margin-top: 8px; }
+    .sources-related a { color: var(--sage-dark); }
+
+    footer {
+      background: #1a365d;
+      color: rgba(255,255,255,0.6);
+      text-align: center;
+      padding: 32px 24px;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+    footer strong { color: white; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">日和聯合診所</div>
+  <div class="nav-links">
+    <a href="../clinic-website/index.html#doctors">醫師</a>
+    <a href="../clinic-website/index.html#services">服務</a>
+    <a href="../clinic-website/index.html#hours">時間</a>
+    <a href="../clinic-website/index.html#contact">聯絡</a>
+    <a href="../medical-notes.html" class="active">筆記</a>
+  </div>
+</nav>
+
+<div class="article-header">
+  <div class="article-tag">喉科</div>
+  <h1>新冠只是大號感冒嗎？醫師教你看懂重症風險、黃金5天用藥與新一代疫苗</h1>
+  <div class="article-meta">詹士奇醫師撰文 · <strong>2026-08-15 最後更新</strong></div>
+</div>
+
+<div class="container">
+
+  <div class="toc-box">
+    <div class="toc-header"><span>📑</span><span>內容目錄</span></div>
+    <ol class="toc-list">
+      <li><a href="#sec-1">夏季疫情又升溫，新冠真的只是「大號感冒」嗎？</a></li>
+      <li><a href="#sec-2">哪些人是重症高風險群？新冠跟慢性病如何互相傷害</a></li>
+      <li><a href="#sec-3">快篩陽性怎麼辦？把握「黃金5天」服用抗病毒藥</a></li>
+      <li><a href="#sec-4">即使順利康復，為什麼有些人身體還是各處不舒服？——認識「長新冠」</a></li>
+      <li><a href="#sec-5">10月新一代疫苗上場，得過、打過的人還要再打嗎？</a></li>
+      <li><a href="#sec-concl">結論：夏天疫情升溫，該怎麼保護自己？</a></li>
+      <li><a href="#sec-faq">常見問題</a></li>
+    </ol>
+  </div>
+
+  <div class="tldr-box">
+    <ul>
+      <li>新冠重症率、死亡率仍是流感的3到5倍，再次感染不代表沒事，30天內死亡風險反而更高</li>
+      <li>快篩陽性後5到7天內服用抗病毒藥物，可降低近9成住院死亡風險</li>
+      <li>10月新一代疫苗上市，能再降低約一半的長新冠發生率</li>
+    </ul>
+  </div>
+
+  <div class="article-body">
+    <h2 id="sec-1">夏季疫情又升溫，新冠真的只是「大號感冒」嗎？</h2>
+    <p>台灣新冠疫情已經連續四年在夏天出現升溫波動，門診常聽到病人說「不就是感冒」，想撐過去就好。</p>
+    <div class="highlight-box"><span class="highlight-icon">💡</span><span class="highlight-text">新冠的重症率跟死亡率大概是流感的3到5倍，不是同一個等級的病。</span></div>
+    <p>住院病人裡，大約7.7%需要住進加護病房，住院死亡率高達10.5%，這些數字都比一般流感高出不少。</p>
+    <p>得過一次也不代表以後沒事。再次感染後30天內的死亡風險，反而比沒感染過的人高出4.3倍。</p>
+
+    <h2 id="sec-2">哪些人是重症高風險群？新冠跟慢性病如何互相傷害</h2>
+    <p>65歲以上長者、免疫力低下、糖尿病、肥胖、心血管疾病患者，都是重症的高風險族群。</p>
+    <div class="highlight-box"><span class="highlight-icon">💡</span><span class="highlight-text">台灣健保資料顯示，新冠重症住進加護病房的病人裡，近八成是65歲以上，近九成本身就有多重慢性病。</span></div>
+    <ul>
+      <li>本身有心血管疾病的人感染新冠後，住院死亡率會增加1.76倍</li>
+      <li>感染新冠之後，新發生心律不整、中風這類心血管疾病的風險也會提高約3倍</li>
+    </ul>
+    <p>這兩個方向會互相拉扯，變成一個惡性循環，慢性病患者格外需要提高警覺。</p>
+
+    <h2 id="sec-3">快篩陽性怎麼辦？把握「黃金5天」服用抗病毒藥</h2>
+    <p>快篩陽性的當下不是慌張的時候，是搶時間的時候。病毒在發病前5天複製最活躍，5到7天內開始服用抗病毒藥物效果最好。</p>
+    <div class="highlight-box"><span class="highlight-icon">💡</span><span class="highlight-text">倍拉維（Paxlovid）臨床試驗能降低將近9成住院與死亡率，台灣真實世界數據也顯示能降低68%住院跟插管死亡風險。</span></div>
+    <ul>
+      <li>絕對禁忌：特定心律不整藥物（如Amiodarone）、特定癲癇藥、肺結核藥物，裝過心臟支架6週內服用Plavix這類抗血小板藥物也不能吃</li>
+      <li>慢性病常用藥（血壓藥、降血脂藥）可以遵醫囑暫停服用10天（服藥5天加停藥5天）</li>
+    </ul>
+    <p>服藥期間常見口乾口苦，吞藥時配巧克力牛奶或果汁（不要配葡萄柚汁），嘴巴苦的時候含顆酸梅刺激唾液分泌，都能幫助撐完5天療程。</p>
+
+    <h2 id="sec-4">即使順利康復，為什麼有些人身體還是各處不舒服？——認識「長新冠」</h2>
+    <p>有些病人症狀好了，卻覺得整個人怪怪的，容易累、記憶力變差，這種狀況臨床上叫長新冠。</p>
+    <div class="highlight-box"><span class="highlight-icon">💡</span><span class="highlight-text">長新冠的定義是感染後3個月內出現症狀，而且持續兩個月以上，找不到其他原因可以解釋。</span></div>
+    <p>亞洲人得長新冠的比例並不低，大概四成左右，急性期住過院的人風險又更高。</p>
+    <p>新冠病毒是透過ACE2受體攻擊人體，這個受體肺部、腸胃道、心臟、腦部、肝臟都有，所以康復後才會全身多處都受影響。這也是為什麼預防勝於治療——除了感染後把握黃金5天治療，接種疫苗降低感染與重症風險，同樣能降低留下長新冠的機會。</p>
+
+    <h2 id="sec-5">10月新一代疫苗上場，得過、打過的人還要再打嗎？</h2>
+    <p>免疫力不管是自然感染還是打疫苗來的，都會隨時間慢慢衰退，加上病毒一直在變異，現在流行的是JN.1家族的變異株。</p>
+    <div class="highlight-box"><span class="highlight-icon">💡</span><span class="highlight-text">台灣預計10月1日起開打新一代JN.1變異株疫苗，防重症效果約6成，還能讓長新冠發生率再降低約一半。</span></div>
+    <ul>
+      <li>防住院：約55%</li>
+      <li>防重症：約60%</li>
+      <li>防有症狀感染：約50%</li>
+    </ul>
+    <p>新一代疫苗用更短的mRNA技術，抗原劑量只要10微克（早期是100微克），副作用更輕，開封後也能穩定保存90天。</p>
+  </div>
+
+  <div class="conclusion-box" id="sec-concl">
+    <h2>結論：夏天疫情升溫，該怎麼保護自己？</h2>
+    <ul>
+      <li>新冠重症率死亡率仍是流感的3到5倍，再次感染不等於沒事</li>
+      <li>65歲以上、慢性病、免疫力低下是重症高風險群，要特別提高警覺</li>
+      <li>快篩陽性後5到7天內就醫評估抗病毒藥物，是降低重症最有效的方法</li>
+      <li>康復後持續兩個月以上不舒服，可能是長新冠，別自己硬撐</li>
+      <li>10月新一代疫苗上市，能同時降低重症與長新冠風險</li>
+    </ul>
+    <p class="conclusion-cta">快篩陽性別再自己觀察等症狀變嚴重，尤其本身是高風險族群，盡快就醫評估是否需要服用抗病毒藥物，才能真正把握黃金時間。10月起新一代疫苗開打，不管是還沒接種過還是已經感染過，都建議評估接種，除了防重症，也能降低長新冠風險。如果康復後症狀持續兩個月以上還是不舒服，也別自己硬撐，建議回診評估是不是長新冠。</p>
+  </div>
+
+  <div class="faq-section" id="sec-faq">
+    <h2>常見問題</h2>
+    <div class="faq-item">
+      <div class="faq-q">已經打過疫苗或得過新冠，還需要打新一代疫苗嗎？</div>
+      <div class="faq-a">需要。不管是自然感染或舊疫苗產生的保護力都會隨時間衰退，加上病毒持續變異，定期接種最新疫苗才能維持防護力。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">慢性病用藥要吃Paxlovid，一定要停藥嗎？</div>
+      <div class="faq-a">不一定，要看藥物種類。部分心律不整、癲癇、肺結核藥物是絕對禁忌不能吃；血壓、降血脂這類常見慢性病藥物，通常可以遵醫囑暫停10天，服藥5天加停藥5天，詳細要跟醫師確認。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">長新冠會自己好嗎？</div>
+      <div class="faq-a">部分症狀會隨時間緩解，但持續兩個月以上、影響生活品質的話，建議回診評估，不要自己硬撐。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">快篩陰性但症狀很像新冠，要怎麼辦？</div>
+      <div class="faq-a">快篩有一定偽陰性率，如果症狀持續或惡化，建議間隔1到2天再篩一次，或直接就醫由醫師評估是否需要進一步檢查。</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <div class="sources-label">參考文獻</div>
+    疾病管制署COVID-19統計資料；Pfizer EPIC-HR臨床試驗（住院死亡風險降低89%）；WHO Post COVID-19 condition定義；FDA 2026-2027 COVID-19疫苗配方建議（JN.1/XFG變異株）。
+  </div>
+
+</div>
+
+<footer>
+  <strong>日和聯合診所</strong>｜耳鼻喉科・中醫<br>
+  台南市鹽水區｜06-6520182
+</footer>
+
+</body>
+</html>
