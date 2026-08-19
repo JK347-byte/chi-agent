@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>高血壓不痛不癢，為什麼要在意？醫師教你看懂新版血壓標準、居家量測與長期控制重點｜日和聯合診所</title>
+  <meta name="description" content="高血壓多數沒有症狀，成人盛行率逼近五成。整理最新血壓分類標準、原發性續發性鑑別、居家量血壓正確方法與長期用藥追蹤重點。">
+  <meta property="og:title" content="高血壓不痛不癢，為什麼要在意？醫師教你看懂新版血壓標準、居家量測與長期控制重點｜日和聯合診所">
+  <meta property="og:description" content="高血壓多數沒有症狀，成人盛行率逼近五成。整理最新血壓分類標準、原發性續發性鑑別、居家量血壓正確方法與長期用藥追蹤重點。">
+  <meta property="og:type" content="article">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --sage: #7a8c5c;
+      --sage-dark: #5a6e38;
+      --gold: #c8a830;
+      --olive: #2e3318;
+      --cream: #faf8f0;
+      --text: #2d3748;
+      --muted: #718096;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, "Helvetica Neue", Arial, sans-serif;
+      color: var(--text);
+      background: white;
+      line-height: 1.8;
+    }
+
+    nav {
+      position: sticky; top: 0; background: white;
+      border-bottom: 1px solid #e2e8f0; z-index: 100;
+      padding: 0 24px; display: flex; align-items: center;
+      justify-content: space-between; height: 56px;
+    }
+    .nav-logo { font-size: 16px; font-weight: 700; color: #5a6e38; }
+    .nav-links { display: flex; gap: 24px; }
+    .nav-links a { font-size: 14px; color: var(--muted); text-decoration: none; }
+    .nav-links a:hover { color: var(--sage-dark); }
+    .nav-links a.active { color: var(--sage-dark); font-weight: 700; }
+
+    .article-header {
+      background: var(--cream);
+      padding: 40px 24px 32px;
+      text-align: center;
+    }
+    .article-tag {
+      display: inline-block;
+      background: rgba(122,140,92,0.15);
+      color: var(--sage-dark);
+      border-radius: 20px;
+      padding: 4px 14px;
+      font-size: 12px;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+      font-weight: 600;
+    }
+    .article-header h1 {
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--olive);
+      line-height: 1.5;
+      margin-bottom: 14px;
+    }
+    .article-meta {
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .article-meta strong { color: var(--sage-dark); }
+
+    .container { max-width: 680px; margin: 0 auto; padding: 32px 20px 60px; }
+
+    .toc-box {
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 18px 22px;
+      margin-bottom: 28px;
+    }
+    .toc-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--olive);
+      margin-bottom: 10px;
+    }
+    .toc-list { list-style: none; }
+    .toc-list li { counter-increment: toc-counter; margin-bottom: 6px; font-size: 14px; }
+    .toc-list { counter-reset: toc-counter; }
+    .toc-list li a {
+      color: var(--text);
+      text-decoration: none;
+    }
+    .toc-list li a:hover { color: var(--sage-dark); }
+    .toc-list li a::before {
+      content: counter(toc-counter) "　";
+      color: var(--sage-dark);
+      font-weight: 700;
+    }
+
+    .tldr-box {
+      background: rgba(200,168,48,0.08);
+      border-left: 3px solid var(--gold);
+      border-radius: 4px;
+      padding: 18px 20px;
+      margin-bottom: 32px;
+      font-size: 15px;
+      color: var(--text);
+    }
+    .tldr-box ul { margin: 10px 0 10px 20px; }
+    .tldr-box li { margin-bottom: 4px; }
+    .article-body h2 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--olive);
+      margin: 36px 0 14px;
+      padding-top: 4px;
+      border-top: 2px solid #f0f0e8;
+      padding-top: 20px;
+    }
+    .article-body h2:first-child { border-top: none; padding-top: 0; margin-top: 0; }
+    .article-body p {
+      font-size: 15px;
+      color: var(--text);
+      margin-bottom: 14px;
+    }
+    .article-body ul { margin: 0 0 16px 20px; }
+    .article-body li { font-size: 15px; color: var(--text); margin-bottom: 6px; }
+
+    .highlight-box {
+      background: rgba(122,140,92,0.08);
+      border-left: 3px solid var(--sage-dark);
+      border-radius: 4px;
+      padding: 14px 16px;
+      margin-bottom: 16px;
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+    .highlight-box .highlight-icon { font-size: 15px; line-height: 1.6; }
+    .highlight-box .highlight-text {
+      font-size: 14px;
+      color: var(--sage-dark);
+      font-weight: 600;
+      line-height: 1.6;
+    }
+
+    .faq-section {
+      margin-top: 40px;
+      padding-top: 28px;
+      border-top: 2px solid #f0f0e8;
+    }
+    .faq-section h2 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--olive);
+      margin-bottom: 18px;
+    }
+    .faq-item { margin-bottom: 18px; }
+    .faq-q {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--sage-dark);
+      margin-bottom: 6px;
+    }
+    .faq-a {
+      font-size: 14px;
+      color: var(--text);
+    }
+
+    .conclusion-box {
+      background: rgba(200,168,48,0.08);
+      border: 1px solid var(--gold);
+      border-radius: 8px;
+      padding: 24px 24px 22px;
+      margin-top: 40px;
+    }
+    .conclusion-box h2 {
+      font-size: 19px;
+      font-weight: 800;
+      color: var(--olive);
+      margin-bottom: 14px;
+      border-top: none;
+      padding-top: 0;
+    }
+    .conclusion-box ul { margin: 0 0 14px 20px; }
+    .conclusion-box li {
+      font-size: 15px;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+    .conclusion-cta {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--sage-dark);
+    }
+
+    .sources {
+      margin-top: 36px;
+      padding-top: 20px;
+      border-top: 1px solid #f0f0e8;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .sources-label { font-weight: 700; color: var(--sage-dark); margin-bottom: 6px; }
+    .sources-related { margin-top: 8px; }
+    .sources-related a { color: var(--sage-dark); }
+
+    footer {
+      background: #1a365d;
+      color: rgba(255,255,255,0.6);
+      text-align: center;
+      padding: 32px 24px;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+    footer strong { color: white; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">日和聯合診所</div>
+  <div class="nav-links">
+    <a href="../clinic-website/index.html#doctors">醫師</a>
+    <a href="../clinic-website/index.html#services">服務</a>
+    <a href="../clinic-website/index.html#hours">時間</a>
+    <a href="../clinic-website/index.html#contact">聯絡</a>
+    <a href="../medical-notes.html" class="active">筆記</a>
+  </div>
+</nav>
+
+<div class="article-header">
+  <div class="article-tag">慢性病</div>
+  <h1>高血壓不痛不癢，為什麼要在意？醫師教你看懂新版血壓標準、居家量測與長期控制重點</h1>
+  <div class="article-meta">詹士奇醫師撰文 · <strong>2026-08-20 最後更新</strong></div>
+</div>
+
+<div class="container">
+
+  <div class="toc-box">
+    <div class="toc-header"><span>📑</span><span>內容目錄</span></div>
+    <ol class="toc-list">
+      <li><a href="#sec-1">高血壓離我們有多近？認識最新血壓分類標準</a></li>
+      <li><a href="#sec-2">高血壓有症狀嗎？原發性與續發性怎麼分</a></li>
+      <li><a href="#sec-3">居家量血壓也有黃金口訣：正確測量方法與迷思</a></li>
+      <li><a href="#sec-4">降壓怎麼做：生活調整與藥物組合</a></li>
+      <li><a href="#sec-5">長期照護：追蹤回診、藥物副作用與防範併發症</a></li>
+      <li><a href="#sec-concl">結論：血壓數字看得懂，接下來該怎麼做？</a></li>
+      <li><a href="#sec-faq">常見問題</a></li>
+    </ol>
+  </div>
+
+  <div class="tldr-box">
+    <ul>
+      <li>高血壓大多沒有症狀，不能靠「頭暈脖子緊」才量血壓，成人盛行率逼近五成，75歲以上更超過八成</li>
+      <li>居家血壓平均值達135/85 mmHg就算高血壓，測量要遵守722原則：一次量兩次、一天測早晚兩次、連續測7天</li>
+      <li>血壓控制不好別自行停藥，單錠複方藥物能大幅提高服藥順從性，也有更好的心血管保護力</li>
+    </ul>
+  </div>
+
+  <div class="article-body">
+    <h2 id="sec-1">高血壓離我們有多近？認識最新血壓分類標準</h2>
+    <p>高血壓幾乎不會有明顯症狀，很多人是一年一次健檢才發現血壓超標。</p>
+    <div class="highlight-box"><span class="highlight-icon">💡</span><span class="highlight-text">2024年歐洲心臟學會最新分類把血壓分成三級：低於120/70算正常，120到139/70到89算「血壓升高」，超過140/90才是高血壓；美國2025年的分法則多了一個「第一期高血壓」（130到139/80到89），概念類似但門檻更早介入。</span></div>
+    <p>不管用哪套分類，高血壓都是全球最常見的心血管危險因子。成人盛行率逼近四到五成，等於身邊每兩個人就有一個血壓偏高，75歲以上族群比例更超過八成。</p>
+    <p>這代表高血壓不是少數人的問題，是絕大多數人遲早都要面對的健康課題，越早知道自己的數字，越早開始處理。</p>
+
+    <h2 id="sec-2">高血壓有症狀嗎？原發性與續發性怎麼分</h2>
+    <p>正因為感覺不出來，不能靠頭暈、脖子緊這些主觀感受來判斷血壓正不正常，唯一準確的方法就是定期量測。</p>
+    <div class="highlight-box"><span class="highlight-icon">💡</span><span class="highlight-text">大約八到九成的高血壓找不到單一明確病因，稱為原發性高血壓，跟基因、老化、肥胖、飲食習慣這些複雜因素有關；剩下一到兩成則是續發性，背後另有明確病因。</span></div>
+    <p>如果符合以下情況，醫師會懷疑是續發性高血壓，進一步檢查找病因：</p>
+    <ul>
+      <li>40歲以前就發病</li>
+      <li>血壓在短時間內急遽惡化</li>
+      <li>已經吃了多種藥物血壓還是控制不好</li>
+    </ul>
+    <p>常見的續發性病因包括阻塞性睡眠呼吸中止症、腎上腺分泌異常（原發性醛固酮增多症）、腎動脈狹窄，這些找出來對症處理，血壓往往能大幅改善，不是單純加重降壓藥就能解決。</p>
+
+    <h2 id="sec-3">居家量血壓也有黃金口訣：正確測量方法與迷思</h2>
+    <p>居家量血壓比在診間量更準，能反映真實生活中的血壓變化，但姿勢跟時間點錯了，量出來的數字也不準。</p>
+    <div class="highlight-box"><span class="highlight-icon">💡</span><span class="highlight-text">記住「722」口訣：一次量兩次（間隔1到2分鐘）、一天量兩次（早晚各一次）、連續量7天，回診前把數字平均起來給醫師看。</span></div>
+    <ul>
+      <li>前30分鐘不要抽菸、喝咖啡濃茶或劇烈運動</li>
+      <li>先去上廁所，不要憋尿</li>
+      <li>坐在安靜的地方，背有靠、腳平放不交叉，手臂跟心臟同高，休息5分鐘再量</li>
+      <li>早上量測要在吃早餐、吃藥之前，但不要一睡醒就立刻量</li>
+    </ul>
+    <p>居家血壓平均值達到135/85 mmHg就算高血壓。另外要提醒，市售智慧手錶這類無袖帶穿戴裝置，目前準確度還不夠拿來診斷或追蹤血壓，建議還是用有經過認證的上臂式電子血壓計。</p>
+
+    <h2 id="sec-4">降壓怎麼做：生活調整與藥物組合</h2>
+    <p>生活習慣調整是控制血壓的第一步，得舒飲食（多蔬果、全穀類、優質蛋白）搭配限制鈉鹽攝取，每天鈉離子控制在2克以下，大概是一茶匙的鹽。</p>
+    <div class="highlight-box"><span class="highlight-icon">💡</span><span class="highlight-text">每週150分鐘中等強度有氧運動、控制體重、限制飲酒、戒菸，這幾件事加起來的降壓效果不輸一顆藥。</span></div>
+    <p>如果生活調整還不夠，醫師會開始用藥，第一線藥物主要三類：</p>
+    <ul>
+      <li>腎素-血管張力素系統抑制劑（ACEi/ARB）</li>
+      <li>鈣離子通道阻斷劑（CCB）</li>
+      <li>利尿劑</li>
+    </ul>
+    <p>現在很多人一開始就會用到單錠複方藥物，把兩種以上成分做成一顆藥，一天吃一次就好，服藥順從性跟心血管保護效果都比分開吃好，還能讓副作用互相抵消，例如CCB容易腳腫，搭配ACEi/ARB之後腫脹會明顯減少。如果吃了多種藥物血壓還是控制不好，可以評估微創導管手術這類選項。</p>
+
+    <h2 id="sec-5">長期照護：追蹤回診、藥物副作用與防範併發症</h2>
+    <p>血壓穩定達標之後，建議至少每年回診一次，重新抽血驗尿檢查整體心血管健康，不是達標就不用再管。</p>
+    <div class="highlight-box"><span class="highlight-icon">💡</span><span class="highlight-text">服藥初期如果出現不舒服，絕對不要自己停藥，血壓反彈的中風風險比副作用更危險，應該回診讓醫師調整藥物。</span></div>
+    <ul>
+      <li>利尿劑：可能造成電解質變化，如血鉀偏低</li>
+      <li>CCB：可能出現下肢輕微水腫</li>
+      <li>ACEi：部分患者（尤其華人）容易出現乾咳</li>
+    </ul>
+    <p>高齡或身體比較衰弱的長輩，降壓目標會放寬一些，原則是在身體能耐受的前提下降到最舒適的程度就好，醫師也可能視情況主動減少藥物種類，避免頭暈跌倒。放著血壓不管，長期會傷害心、腦、腎、眼睛跟血管，腦中風、失智、心臟衰竭、腎衰竭、視網膜病變都是常見的併發症。</p>
+  </div>
+
+  <div class="conclusion-box" id="sec-concl">
+    <h2>結論：血壓數字看得懂，接下來該怎麼做？</h2>
+    <ul>
+      <li>高血壓大多沒有症狀，成人盛行率逼近五成，不能靠感覺判斷，要靠定期量測</li>
+      <li>40歲前發病、血壓急遽惡化、多重用藥還控制不好，要懷疑續發性高血壓，找出背後病因</li>
+      <li>生活調整是基礎，單錠複方藥物能提高服藥順從性，別因為排斥吃藥而自行停藥</li>
+      <li>居家量血壓要照722口訣：一次兩次、一天兩次、連續七天，平均值達135/85就算高血壓</li>
+      <li>放任不管會傷害心腦腎眼血管，定期回診追蹤才能真正預防併發症</li>
+    </ul>
+    <p class="conclusion-cta">如果居家量到的血壓平均值超過135/85，或正在吃藥卻反覆控制不好，別再自己調整用藥或乾脆不吃，直接回診跟醫師討論，才能找出真正適合的治療方式。如果你是40歲前就發現血壓偏高，或血壓在短時間內明顯惡化，也建議主動告訴醫師，評估是不是續發性高血壓，找出背後真正的病因。</p>
+  </div>
+
+  <div class="faq-section" id="sec-faq">
+    <h2>常見問題</h2>
+    <div class="faq-item">
+      <div class="faq-q">血壓量一次超標就是高血壓嗎？</div>
+      <div class="faq-a">不是。單次量測偏高可能是緊張或量測姿勢不對造成的，建議照722口訣連續在家量一週，取平均值，平均達135/85 mmHg以上才符合居家血壓的高血壓標準。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">吃降壓藥會不會要吃一輩子？</div>
+      <div class="faq-a">大多數情況下是，因為高血壓多半是慢性、需要長期控制的狀況，但如果透過生活調整、體重下降，部分患者的用藥劑量或種類可以由醫師評估後減少，不要自己突然停藥。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">智慧手錶量的血壓準嗎？</div>
+      <div class="faq-a">目前市售的無袖帶穿戴式裝置準確度還沒有達到臨床可信賴的標準，不建議拿來當作診斷或追蹤血壓的依據，還是建議用經過認證的上臂式血壓計。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">長輩血壓是不是降得越低越好？</div>
+      <div class="faq-a">不一定。身體硬朗、能獨立生活的長輩可以採取跟一般人接近的積極目標，但高齡衰弱或預期壽命較短的長輩，目標會放寬，太積極降壓反而可能造成姿勢性低血壓、頭暈跌倒，需要醫師評估個人狀況調整。</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <div class="sources-label">參考文獻</div>
+    2024 ESC/ESH高血壓管理指引；2025 AHA/ACC高血壓預防偵測評估與管理指引；AHA居家血壓量測722標準協定。
+  </div>
+
+</div>
+
+<footer>
+  <strong>日和聯合診所</strong>｜耳鼻喉科・中醫<br>
+  台南市鹽水區｜06-6520182
+</footer>
+
+</body>
+</html>
