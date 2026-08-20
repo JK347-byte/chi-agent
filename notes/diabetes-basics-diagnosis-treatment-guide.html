@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>糖尿病到底是什麼病？從定義、檢查診斷到治療與併發症，一次搞懂｜日和聯合診所</title>
+  <meta name="description" content="糖尿病是全身性代謝疾病，常常沒有明顯症狀。整理定義流行病學、診斷標準與檢查項目、藥物治療與低血糖預防、慢性併發症與急性高血糖危象重點。">
+  <meta property="og:title" content="糖尿病到底是什麼病？從定義、檢查診斷到治療與併發症，一次搞懂｜日和聯合診所">
+  <meta property="og:description" content="糖尿病是全身性代謝疾病，常常沒有明顯症狀。整理定義流行病學、診斷標準與檢查項目、藥物治療與低血糖預防、慢性併發症與急性高血糖危象重點。">
+  <meta property="og:type" content="article">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --sage: #7a8c5c;
+      --sage-dark: #5a6e38;
+      --gold: #c8a830;
+      --olive: #2e3318;
+      --cream: #faf8f0;
+      --text: #2d3748;
+      --muted: #718096;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, "Helvetica Neue", Arial, sans-serif;
+      color: var(--text);
+      background: white;
+      line-height: 1.8;
+    }
+
+    nav {
+      position: sticky; top: 0; background: white;
+      border-bottom: 1px solid #e2e8f0; z-index: 100;
+      padding: 0 24px; display: flex; align-items: center;
+      justify-content: space-between; height: 56px;
+    }
+    .nav-logo { font-size: 16px; font-weight: 700; color: #5a6e38; }
+    .nav-links { display: flex; gap: 24px; }
+    .nav-links a { font-size: 14px; color: var(--muted); text-decoration: none; }
+    .nav-links a:hover { color: var(--sage-dark); }
+    .nav-links a.active { color: var(--sage-dark); font-weight: 700; }
+
+    .article-header {
+      background: var(--cream);
+      padding: 40px 24px 32px;
+      text-align: center;
+    }
+    .article-tag {
+      display: inline-block;
+      background: rgba(122,140,92,0.15);
+      color: var(--sage-dark);
+      border-radius: 20px;
+      padding: 4px 14px;
+      font-size: 12px;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+      font-weight: 600;
+    }
+    .article-header h1 {
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--olive);
+      line-height: 1.5;
+      margin-bottom: 14px;
+    }
+    .article-meta {
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .article-meta strong { color: var(--sage-dark); }
+
+    .container { max-width: 680px; margin: 0 auto; padding: 32px 20px 60px; }
+
+    .toc-box {
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 18px 22px;
+      margin-bottom: 28px;
+    }
+    .toc-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--olive);
+      margin-bottom: 10px;
+    }
+    .toc-list { list-style: none; }
+    .toc-list li { counter-increment: toc-counter; margin-bottom: 6px; font-size: 14px; }
+    .toc-list { counter-reset: toc-counter; }
+    .toc-list li a {
+      color: var(--text);
+      text-decoration: none;
+    }
+    .toc-list li a:hover { color: var(--sage-dark); }
+    .toc-list li a::before {
+      content: counter(toc-counter) "　";
+      color: var(--sage-dark);
+      font-weight: 700;
+    }
+
+    .tldr-box {
+      background: rgba(200,168,48,0.08);
+      border-left: 3px solid var(--gold);
+      border-radius: 4px;
+      padding: 18px 20px;
+      margin-bottom: 32px;
+      font-size: 15px;
+      color: var(--text);
+    }
+    .tldr-box ul { margin: 10px 0 10px 20px; }
+    .tldr-box li { margin-bottom: 4px; }
+    .article-body h2 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--olive);
+      margin: 36px 0 14px;
+      padding-top: 4px;
+      border-top: 2px solid #f0f0e8;
+      padding-top: 20px;
+    }
+    .article-body h2:first-child { border-top: none; padding-top: 0; margin-top: 0; }
+    .article-body p {
+      font-size: 15px;
+      color: var(--text);
+      margin-bottom: 14px;
+    }
+    .article-body ul { margin: 0 0 16px 20px; }
+    .article-body li { font-size: 15px; color: var(--text); margin-bottom: 6px; }
+
+    .highlight-box {
+      background: rgba(122,140,92,0.08);
+      border-left: 3px solid var(--sage-dark);
+      border-radius: 4px;
+      padding: 14px 16px;
+      margin-bottom: 16px;
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+    .highlight-box .highlight-icon { font-size: 15px; line-height: 1.6; }
+    .highlight-box .highlight-text {
+      font-size: 14px;
+      color: var(--sage-dark);
+      font-weight: 600;
+      line-height: 1.6;
+    }
+
+    .faq-section {
+      margin-top: 40px;
+      padding-top: 28px;
+      border-top: 2px solid #f0f0e8;
+    }
+    .faq-section h2 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--olive);
+      margin-bottom: 18px;
+    }
+    .faq-item { margin-bottom: 18px; }
+    .faq-q {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--sage-dark);
+      margin-bottom: 6px;
+    }
+    .faq-a {
+      font-size: 14px;
+      color: var(--text);
+    }
+
+    .conclusion-box {
+      background: rgba(200,168,48,0.08);
+      border: 1px solid var(--gold);
+      border-radius: 8px;
+      padding: 24px 24px 22px;
+      margin-top: 40px;
+    }
+    .conclusion-box h2 {
+      font-size: 19px;
+      font-weight: 800;
+      color: var(--olive);
+      margin-bottom: 14px;
+      border-top: none;
+      padding-top: 0;
+    }
+    .conclusion-box ul { margin: 0 0 14px 20px; }
+    .conclusion-box li {
+      font-size: 15px;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+    .conclusion-cta {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--sage-dark);
+    }
+
+    .sources {
+      margin-top: 36px;
+      padding-top: 20px;
+      border-top: 1px solid #f0f0e8;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .sources-label { font-weight: 700; color: var(--sage-dark); margin-bottom: 6px; }
+    .sources-related { margin-top: 8px; }
+    .sources-related a { color: var(--sage-dark); }
+
+    footer {
+      background: #1a365d;
+      color: rgba(255,255,255,0.6);
+      text-align: center;
+      padding: 32px 24px;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+    footer strong { color: white; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">日和聯合診所</div>
+  <div class="nav-links">
+    <a href="../clinic-website/index.html#doctors">醫師</a>
+    <a href="../clinic-website/index.html#services">服務</a>
+    <a href="../clinic-website/index.html#hours">時間</a>
+    <a href="../clinic-website/index.html#contact">聯絡</a>
+    <a href="../medical-notes.html" class="active">筆記</a>
+  </div>
+</nav>
+
+<div class="article-header">
+  <div class="article-tag">慢性病</div>
+  <h1>糖尿病到底是什麼病？從定義、檢查診斷到治療與併發症，一次搞懂</h1>
+  <div class="article-meta">詹士奇醫師撰文 · <strong>2026-08-22 最後更新</strong></div>
+</div>
+
+<div class="container">
+
+  <div class="toc-box">
+    <div class="toc-header"><span>📑</span><span>內容目錄</span></div>
+    <ol class="toc-list">
+      <li><a href="#sec-1">糖尿病到底是什麼？為什麼常常沒有感覺</a></li>
+      <li><a href="#sec-2">醫師怎麼確診：檢查項目與診斷標準</a></li>
+      <li><a href="#sec-3">治療怎麼選：從生活調整到藥物治療</a></li>
+      <li><a href="#sec-4">用藥期間最要注意的事：低血糖怎麼分級、怎麼處理</a></li>
+      <li><a href="#sec-5">血糖控制不好會怎樣：慢性併發症與急性高血糖危象</a></li>
+      <li><a href="#sec-concl">結論：認識糖尿病，才能好好與它相處</a></li>
+      <li><a href="#sec-faq">常見問題</a></li>
+    </ol>
+  </div>
+
+  <div class="tldr-box">
+    <ul>
+      <li>糖尿病是全身性代謝疾病，不是單純「尿裡有糖」，胰島素阻抗或分泌不足會讓血液裡的葡萄糖進不了細胞，越堆越高</li>
+      <li>確診靠抽血，糖化血色素、空腹血糖、口服葡萄糖耐量試驗、隨機血糖任一項符合標準就算糖尿病</li>
+      <li>用藥要留意低血糖，血糖長期控制不好則可能引發視網膜、腎臟、神經等慢性併發症，短時間內飆太高還可能引發需要送醫的急性狀況</li>
+    </ul>
+  </div>
+
+  <div class="article-body">
+    <h2 id="sec-1">糖尿病到底是什麼？為什麼常常沒有感覺</h2>
+    <p>很多病人聽到「糖尿病」會直覺想到「尿裡有糖」，其實那只是血糖過高之後的其中一個表現，糖尿病真正的問題出在全身的能量代謝。</p>
+    <div class="highlight-box"><span class="highlight-icon">💡</span><span class="highlight-text">吃進去的食物會變成葡萄糖進入血液，胰島素負責帶著葡萄糖進到細胞裡當燃料使用。糖尿病發生時，不是細胞對胰島素反應變差（胰島素阻抗），就是胰臟分泌的胰島素不夠，葡萄糖進不了細胞，血液裡的糖就越堆越高。</span></div>
+    <p>糖尿病主要分成兩大類。第一型是胰臟製造胰島素的細胞被自體免疫破壞，患者需要終身注射胰島素；第二型佔了九成以上，跟遺傳、體重、活動量等因素有關，通常是胰島素阻抗合併分泌功能慢慢變差。</p>
+    <p>第二型糖尿病早期常常完全沒有感覺，血糖是慢慢升高的，很多人直到健檢才發現。等到真的出現多喝、多尿、體重不明原因下降這些典型症狀時，血糖往往已經偏高一段時間了。</p>
+
+    <h2 id="sec-2">醫師怎麼確診：檢查項目與診斷標準</h2>
+    <p>確診糖尿病主要靠抽血，四個指標符合任何一項就達到診斷標準（沒有明顯高血糖症狀時，通常需要兩次異常報告才能確診）。</p>
+    <div class="highlight-box"><span class="highlight-icon">💡</span><span class="highlight-text">糖化血色素達6.5%以上、空腹血糖達126mg/dL以上、口服葡萄糖耐量試驗兩小時血糖達200mg/dL以上，或有典型高血糖症狀時隨機血糖達200mg/dL以上，符合任一項就是糖尿病。</span></div>
+    <p>確診之後，醫師還會安排幾項檢查，不是只看血糖：</p>
+    <ul>
+      <li>血脂（總膽固醇、壞膽固醇、好膽固醇、三酸甘油酯），評估心血管風險</li>
+      <li>腎功能篩檢，抽血算腎絲球過濾率、驗尿看有沒有微量蛋白尿，這是及早發現腎臟受損的關鍵指標</li>
+      <li>足部檢查，用單絲和音叉測試腳底的觸覺跟震動感，篩檢神經有沒有開始出問題</li>
+    </ul>
+    <p>這些檢查看起來繁瑣，但每一項都是在幫你排查糖尿病可能悄悄影響到的器官，不是多此一舉。</p>
+
+    <h2 id="sec-3">治療怎麼選：從生活調整到藥物治療</h2>
+    <p>生活型態調整永遠是第一步，飲食控制加上規律運動，對血糖控制的幫助不輸藥物。</p>
+    <div class="highlight-box"><span class="highlight-icon">💡</span><span class="highlight-text">如果生活調整還不夠，Metformin通常是第一線用藥，它主要透過減少肝臟製造葡萄糖來降血糖，單獨使用不會造成低血糖，安全性也用了數十年，是大多數第二型糖尿病治療的起點。</span></div>
+    <p>隨著病程進展，醫師可能會加上其他藥物。有些藥物是刺激胰臟多分泌一點胰島素，這類藥物降血糖效果快，但也比較容易造成低血糖，需要搭配規律的三餐時間使用。如果本身合併心臟或腎臟疾病，現在也會優先考慮具有心腎保護效果的新一代藥物。</p>
+    <p>不管用哪一種藥物，治療的目標從來不是把血糖數字壓到最漂亮，而是安全地把血糖控制在適合自己的範圍內。</p>
+
+    <h2 id="sec-4">用藥期間最要注意的事：低血糖怎麼分級、怎麼處理</h2>
+    <p>血糖低於70mg/dL就算低血糖，這是用藥過程中最需要留意的狀況。</p>
+    <div class="highlight-box"><span class="highlight-icon">💡</span><span class="highlight-text">低血糖分成三個等級：54到69之間會有飢餓、發抖、冒冷汗、心悸這些警訊；低於54會開始頭暈、視力模糊、意識不清楚；最嚴重的第三級會神智不清甚至抽搐昏迷，需要別人幫忙或緊急注射升糖素才能恢復。</span></div>
+    <p>如果量到低血糖，先吃一點含糖食物或喝含糖飲料，休息15分鐘後再測一次，確認血糖回升。如果意識已經改變，或反覆發生低血糖，要立刻就醫，不能只靠自己在家處理。</p>
+    <p>規律服藥、規律三餐、不要自己隨意調整藥物劑量，是預防低血糖最基本也最重要的原則。</p>
+
+    <h2 id="sec-5">血糖控制不好會怎樣：慢性併發症與急性高血糖危象</h2>
+    <p>如果血糖長期控制不好，身體的血管跟神經會慢慢受損，主要分成三個方向：小血管併發症（視網膜病變、腎臟病變）、大血管併發症（心肌梗塞、中風、下肢血管阻塞），以及神經病變（手腳末梢麻木刺痛，嚴重時甚至感覺不到痛，傷口不容易發現，也可能影響腸胃蠕動或血壓調節）。</p>
+    <div class="highlight-box"><span class="highlight-icon">💡</span><span class="highlight-text">這些併發症通常是慢慢發生的，但血糖如果短時間內飆得很高，也可能引發需要立刻送醫的急性狀況。</span></div>
+    <ul>
+      <li>糖尿病酮酸中毒：常見於第一型糖尿病，因為胰島素嚴重不足，身體轉而燃燒脂肪產生酮體，會出現噁心嘔吐、腹痛、呼吸急促帶果香味，是需要緊急處理的急症</li>
+      <li>高血糖高滲透壓狀態：常見於第二型糖尿病的長者，血糖飆得非常高合併嚴重脫水，症狀進展較慢但意識會逐漸改變，同樣需要立即就醫</li>
+      <li>乳酸中毒：比較罕見，主要跟腎功能不好時使用Metformin有關，這也是為什麼腎功能不佳的患者需要調整或停用這個藥物</li>
+    </ul>
+    <p>這些急性狀況雖然少見，但一旦發生非常危險，如果出現意識改變、呼吸急促、持續嘔吐這類警訊，不要猶豫，直接送急診。</p>
+  </div>
+
+  <div class="conclusion-box" id="sec-concl">
+    <h2>結論：認識糖尿病，才能好好與它相處</h2>
+    <ul>
+      <li>糖尿病是全身性代謝疾病，早期常常沒有症狀，健檢紅字是最常見的發現方式</li>
+      <li>診斷靠抽血，確診後心血管、腎臟、足部神經都要一併檢查</li>
+      <li>治療從生活調整開始，藥物選擇要考慮血糖效果跟低血糖風險，不是越多越好</li>
+      <li>低血糖跟急性高血糖危象都是需要認真看待的警訊，出現意識改變要立刻就醫</li>
+    </ul>
+    <p class="conclusion-cta">如果你剛確診糖尿病，別急著自己上網拼湊資訊，把這些檢查跟治療邏輯搞懂，回診時才能問對問題，跟醫師一起把治療計畫訂得更適合自己。</p>
+  </div>
+
+  <div class="faq-section" id="sec-faq">
+    <h2>常見問題</h2>
+    <div class="faq-item">
+      <div class="faq-q">糖尿病一定會遺傳嗎？</div>
+      <div class="faq-a">第二型糖尿病確實跟家族史有關，但不是絕對會遺傳，肥胖、缺乏運動、飲食習慣這些後天因素同樣重要，有家族史更要提早關注自己的血糖狀況。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">吃藥會不會傷腎？</div>
+      <div class="faq-a">部分藥物確實需要根據腎功能調整劑量甚至停用（例如腎功能不好時要調整Metformin），但這不代表所有糖尿病藥物都傷腎，現在有些新一代藥物反而具有保護腎臟的效果，實際用藥要跟醫師討論。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">低血糖跟高血糖哪個比較危險？</div>
+      <div class="faq-a">兩者都不能輕忽。低血糖來得急，嚴重時可能立即昏迷有生命危險；高血糖則是長期慢慢傷害器官，但血糖如果短時間飆得非常高，同樣可能引發需要緊急處理的急症，兩種情況都要認真看待。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">確診糖尿病之後多久要回診一次？</div>
+      <div class="faq-a">剛開始治療或調整藥物時通常需要較密集的追蹤，血糖穩定之後，一般建議每3到6個月回診一次，重新評估糖化血色素跟整體健康狀況。</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <div class="sources-label">參考文獻</div>
+    2026 ADA Standards of Care in Diabetes；ADA低血糖三級分類標準；糖尿病酮酸中毒與高血糖高滲透壓狀態臨床指引。
+    <div class="sources-related">延伸閱讀：<a href="diabetes-glycemic-control-paradigm-shift-guide.html">糖尿病治療觀念大翻轉：從「血糖越低越好」到心腎體重一起顧，這些年到底變了什麼？</a>、<a href="prediabetes-reversal-guide.html">健檢報告寫著「糖尿病前期」，是快得糖尿病了嗎？其實這是能逆轉的黃金期</a></div>
+  </div>
+
+</div>
+
+<footer>
+  <strong>日和聯合診所</strong>｜耳鼻喉科・中醫<br>
+  台南市鹽水區｜06-6520182
+</footer>
+
+</body>
+</html>
