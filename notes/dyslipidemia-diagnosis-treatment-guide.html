@@ -149,71 +149,46 @@
       line-height: 1.6;
     }
 
-    /* PREVENT互動風險計算 */
+    /* PREVENT官方計算工具連結卡 */
     .prevent-calc {
       background: #f7f7f2;
       border-radius: 8px;
       padding: 18px 20px;
       margin-bottom: 16px;
+      text-align: center;
     }
-    .prevent-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      margin-bottom: 14px;
-    }
-    .prevent-grid label {
-      font-size: 13px;
-      color: var(--text);
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-    .prevent-grid input[type="number"] {
-      padding: 8px 10px;
-      border: 1px solid #d8d8ce;
-      border-radius: 6px;
-      font-size: 14px;
-      max-width: 200px;
-    }
-    .prevent-radio-row { display: flex; gap: 16px; font-size: 14px; }
-    .prevent-radio-row label { flex-direction: row; align-items: center; gap: 4px; }
-    .prevent-checks {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px 20px;
-      margin-bottom: 14px;
-      font-size: 13px;
-    }
-    .prevent-checks label { display: flex; align-items: center; gap: 6px; }
-    .prevent-checks input { accent-color: var(--sage-dark); width: 16px; height: 16px; }
+    .prevent-calc p { text-align: left; }
     .prevent-btn {
+      display: inline-block;
       background: var(--sage-dark);
       color: white;
+      text-decoration: none;
       border: none;
       border-radius: 6px;
       padding: 10px 22px;
       font-size: 14px;
       font-weight: 700;
-      cursor: pointer;
+      margin: 4px 0 6px;
     }
     .prevent-btn:hover { background: var(--sage); }
-    .prevent-result {
-      margin-top: 14px;
-      padding: 14px 16px;
-      border-radius: 6px;
-      font-size: 14px;
-      font-weight: 600;
-      background: #fff;
-      color: var(--text);
+    .prevent-note { font-size: 12px; color: var(--muted); margin-top: 10px; text-align: left; }
+
+    /* 治療目標值分級表 */
+    .source-note { font-size: 12px; color: var(--muted); margin: -6px 0 16px; }
+    .target-table-wrap { overflow-x: auto; margin-bottom: 8px; }
+    .target-table { width: 100%; min-width: 480px; border-collapse: collapse; font-size: 13px; }
+    .target-table th, .target-table td {
+      padding: 8px 10px;
+      text-align: center;
+      border-bottom: 1px solid #f0f0e8;
     }
-    .prevent-result.tier-low { background: rgba(122,140,92,0.12); color: var(--sage-dark); }
-    .prevent-result.tier-borderline { background: rgba(200,168,48,0.15); color: #8a6d1a; }
-    .prevent-result.tier-elevated { background: rgba(230,145,56,0.15); color: #b5651d; }
-    .prevent-result.tier-high { background: rgba(200,80,80,0.12); color: #a23b3b; }
-    .prevent-result-main { font-size: 15px; margin-bottom: 8px; }
-    .prevent-result-sub { font-size: 13px; font-weight: 400; color: var(--text); margin-top: 4px; }
-    .prevent-note { font-size: 12px; color: var(--muted); margin-top: 10px; }
+    .target-table thead th {
+      background: rgba(122,140,92,0.1);
+      color: var(--sage-dark);
+      font-weight: 700;
+      font-size: 12px;
+    }
+    .target-table td:first-child, .target-table th:first-child { text-align: left; font-weight: 600; }
 
     .faq-section {
       margin-top: 40px;
@@ -377,49 +352,37 @@
     <div class="highlight-box"><span class="highlight-icon">💡</span><span class="highlight-text">風險分四級：低於3%以生活調整為主、3到5%開始跟醫師討論用藥利弊、5到10%建議啟動藥物治療、超過10%則應該直接接受積極治療。</span></div>
 
     <div class="prevent-calc">
-      <div class="prevent-grid">
-        <label>年齡（30-79歲）
-          <input type="number" id="pv-age" placeholder="例如55">
-        </label>
-        <label>性別
-          <span class="prevent-radio-row">
-            <label><input type="radio" name="pv-sex" value="female" checked> 女性</label>
-            <label><input type="radio" name="pv-sex" value="male"> 男性</label>
-          </span>
-        </label>
-        <label>總膽固醇（mg/dL）
-          <input type="number" id="pv-tc" placeholder="例如200">
-        </label>
-        <label>好膽固醇 HDL-C（mg/dL）
-          <input type="number" id="pv-hdl" placeholder="例如50">
-        </label>
-        <label>收縮壓（mmHg）
-          <input type="number" id="pv-sbp" placeholder="例如130">
-        </label>
-        <label>腎絲球過濾率 eGFR（mL/min/1.73m²）
-          <input type="number" id="pv-egfr" placeholder="例如90">
-        </label>
-        <label>身體質量指數 BMI（kg/m²）
-          <input type="number" id="pv-bmi" placeholder="例如24">
-        </label>
-      </div>
-      <div class="prevent-checks">
-        <label><input type="checkbox" id="pv-bptx"> 目前有服用降血壓藥物</label>
-        <label><input type="checkbox" id="pv-statin"> 目前有服用Statin</label>
-        <label><input type="checkbox" id="pv-dm"> 已診斷糖尿病</label>
-        <label><input type="checkbox" id="pv-smoke"> 目前有抽菸</label>
-      </div>
-      <button type="button" class="prevent-btn" onclick="preventCalc()">計算我的風險</button>
-      <div class="prevent-result" id="prevent-result">填完以上欄位後按「計算我的風險」，這裡會顯示您未來10年心肌梗塞、中風、心衰竭的風險估計值。</div>
-      <p class="prevent-note">心肌梗塞或中風（ASCVD）風險會對照左邊的4級風險分級，決定要不要啟動藥物治療；心衰竭風險與三者合併風險僅供醫師評估整體心血管負擔參考，本身不是啟動降血脂用藥的門檻。僅適用於30-79歲、沒有心血管疾病病史的成人，數字僅供參考，不能取代醫師診斷。</p>
+      <p>建議直接使用美國心臟學會（AHA）官方PREVENT線上計算工具，數字由官方即時維護更新，比任何診所自製的計算頁面更值得信賴：</p>
+      <a class="prevent-btn" href="https://professional.heart.org/en/guidelines-and-statements/prevent-calculator" target="_blank" rel="noopener">前往AHA官方PREVENT計算工具 →</a>
+      <p class="prevent-note">工具需要填寫性別、年齡、收縮壓、總膽固醇、HDL、eGFR、BMI，以及有沒有糖尿病、抽菸、服用降血脂或降血壓藥物，選擇「ASCVD」分頁就能算出前面提到的10年心肌梗塞或中風風險百分比，對照左邊的4級風險分級使用。僅適用於30-79歲、沒有心血管疾病病史的成人，數字僅供參考，不能取代醫師診斷。</p>
     </div>
 
-    <p>治療目標值也因風險等級不同：</p>
+    <p>2026年ACC/AHA/Multisociety血脂指引一大變革，是重新回到「絕對數值」目標，取代過去單純看降幅百分比的做法，依PREVENT風險或病史分成3級：</p>
     <ul>
-      <li>一般風險族群：壞膽固醇控制在100以下</li>
-      <li>高風險族群：壞膽固醇控制在70以下</li>
-      <li>已經中風或心肌梗塞過的極高風險族群：壞膽固醇要降到55以下</li>
+      <li><strong>第一級（LDL-C＜100，non-HDL-C＜130）</strong>：初級預防（沒有心血管病史）中，PREVENT風險落在臨界（3到5%）或中高風險（5到10%）、決定啟動藥物治療的成人</li>
+      <li><strong>第二級（LDL-C＜70，non-HDL-C＜100）</strong>：初級預防PREVENT風險≥10%的高風險族群；或次級預防（已有心血管疾病史）中屬於非極高風險的ASCVD患者</li>
+      <li><strong>第三級（LDL-C＜55，non-HDL-C＜85）</strong>：次級預防中的極高風險ASCVD患者，例如曾中風、心肌梗塞，或合併重度糖尿病、慢性腎臟病等狀況</li>
     </ul>
+    <p class="source-note">資料來源：2026 ACC/AHA/Multisociety Dyslipidemia Guideline</p>
+
+    <p>這是臨床指引的治療目標，跟台灣健保實際給付降血脂藥物的門檻是兩套不同的分級系統，健保分級更細也更保守。實際能不能用健保給付的藥物，要以下面這張風險分級表為準：</p>
+    <div class="target-table-wrap">
+      <table class="target-table">
+        <thead>
+          <tr><th>風險等級</th><th>起始藥物治療血脂值</th><th>主要／（次要）目標值</th><th>非藥物治療</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>極高風險</td><td>LDL-C ≥55 mg/dL</td><td>LDL-C＜55<br>（non-HDL-C＜85）</td><td>並行非藥物治療</td></tr>
+          <tr><td>非常高風險</td><td>LDL-C ≥70 mg/dL</td><td>LDL-C＜70<br>（non-HDL-C＜100）</td><td>並行非藥物治療</td></tr>
+          <tr><td>高風險</td><td>LDL-C ≥100 mg/dL</td><td>LDL-C＜100<br>（non-HDL-C＜130）</td><td>並行非藥物治療</td></tr>
+          <tr><td>中風險</td><td>LDL-C ≥115 mg/dL</td><td>LDL-C＜115<br>（non-HDL-C＜145）</td><td>給藥前3-6個月生活型態改變</td></tr>
+          <tr><td>低風險</td><td>LDL-C ≥130 mg/dL</td><td>LDL-C＜130<br>（non-HDL-C＜160）</td><td>給藥前3-6個月生活型態改變</td></tr>
+          <tr><td>0風險</td><td>LDL-C ≥160 mg/dL</td><td>LDL-C＜160</td><td>給藥前3-6個月生活型態改變</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="source-note">資料來源：全民健康保險降血脂藥物給付規定（健保用藥給付風險分級）</p>
+
     <p>藥物治療是一層一層往上加，前一層效果不夠才會考慮下一層：</p>
     <ul>
       <li><strong>第一線基石</strong>：Statin（史他汀類），多數人從這裡開始，除非有明顯副作用或無法耐受</li>
@@ -473,7 +436,7 @@
 
   <div class="sources">
     <div class="sources-label">參考文獻</div>
-    2026 ACC/AHA/Multisociety Dyslipidemia Guideline；PREVENT心血管風險計算工具；NHLBI/AAP兒童血脂篩檢指引。
+    2026 ACC/AHA/Multisociety Dyslipidemia Guideline；PREVENT心血管風險計算工具；NHLBI/AAP兒童血脂篩檢指引；全民健康保險降血脂藥物給付規定。
   </div>
 
 </div>
@@ -482,131 +445,6 @@
   <strong>日和聯合診所</strong>｜耳鼻喉科・中醫<br>
   台南市鹽水區｜06-6520182
 </footer>
-
-<script>
-  function preventCalc() {
-    var age = parseFloat(document.getElementById('pv-age').value);
-    var sex = document.querySelector('input[name="pv-sex"]:checked').value;
-    var tc = parseFloat(document.getElementById('pv-tc').value);
-    var hdl = parseFloat(document.getElementById('pv-hdl').value);
-    var sbp = parseFloat(document.getElementById('pv-sbp').value);
-    var egfr = parseFloat(document.getElementById('pv-egfr').value);
-    var bmi = parseFloat(document.getElementById('pv-bmi').value);
-    var bpTx = document.getElementById('pv-bptx').checked ? 1 : 0;
-    var statin = document.getElementById('pv-statin').checked ? 1 : 0;
-    var dm = document.getElementById('pv-dm').checked ? 1 : 0;
-    var smoke = document.getElementById('pv-smoke').checked ? 1 : 0;
-
-    var box = document.getElementById('prevent-result');
-
-    if (isNaN(age) || isNaN(tc) || isNaN(hdl) || isNaN(sbp) || isNaN(egfr) || isNaN(bmi)) {
-      box.textContent = '請完整填寫年齡、總膽固醇、HDL-C、收縮壓、eGFR、BMI這6個數字欄位。';
-      box.className = 'prevent-result';
-      return;
-    }
-
-    var rangeWarning = '';
-    if (age < 30 || age > 79) {
-      rangeWarning = '（提醒：此工具僅在30-79歲成人驗證過，超出範圍的估算僅供參考）';
-    }
-
-    var ageC = (age - 55) / 10;
-    var nonHdlC = (tc - hdl) * 0.02586 - 3.5;
-    var hdlC = (hdl * 0.02586 - 1.3) / 0.3;
-    var sbpLt110 = (Math.min(sbp, 110) - 110) / 20;
-    var sbpGte110 = (Math.max(sbp, 110) - 130) / 20;
-    var bmiLt30 = (Math.min(bmi, 30) - 25) / 5;
-    var bmiGte30 = (Math.max(bmi, 30) - 30) / 5;
-    var egfrLt60 = (Math.min(egfr, 60) - 60) / -15;
-    var egfrGte60 = (Math.max(egfr, 60) - 90) / -15;
-    var bpTxSbpGte110 = bpTx * sbpGte110;
-    var statinNonHdlC = statin * nonHdlC;
-    var ageNonHdlC = ageC * nonHdlC;
-    var ageHdlC = ageC * hdlC;
-    var ageSbpGte110 = ageC * sbpGte110;
-    var ageDm = ageC * dm;
-    var ageSmoke = ageC * smoke;
-    var ageBmiGte30 = ageC * bmiGte30;
-    var ageEgfrLt60 = ageC * egfrLt60;
-
-    var terms = {
-      age: ageC, nonHdlC: nonHdlC, hdlC: hdlC, sbpLt110: sbpLt110, sbpGte110: sbpGte110,
-      dm: dm, smoke: smoke, bmiLt30: bmiLt30, bmiGte30: bmiGte30, egfrLt60: egfrLt60, egfrGte60: egfrGte60,
-      bpTx: bpTx, statin: statin, bpTxSbpGte110: bpTxSbpGte110, statinNonHdlC: statinNonHdlC,
-      ageNonHdlC: ageNonHdlC, ageHdlC: ageHdlC, ageSbpGte110: ageSbpGte110, ageDm: ageDm,
-      ageSmoke: ageSmoke, ageBmiGte30: ageBmiGte30, ageEgfrLt60: ageEgfrLt60
-    };
-
-    var coefSets = sex === 'male' ? {
-      ascvd: { age: 0.7099847, nonHdlC: 0.1658663, hdlC: -0.1144285, sbpLt110: -0.2837212, sbpGte110: 0.3239977,
-        dm: 0.7189597, smoke: 0.3956973, bmiLt30: 0, bmiGte30: 0, egfrLt60: 0.3690075, egfrGte60: 0.0203619,
-        bpTx: 0.2036522, statin: -0.0865581, bpTxSbpGte110: -0.0322916, statinNonHdlC: 0.114563,
-        ageNonHdlC: -0.0300005, ageHdlC: 0.0232747, ageSbpGte110: -0.0927024, ageDm: -0.2018525,
-        ageSmoke: -0.0970527, ageBmiGte30: 0, ageEgfrLt60: -0.1217081, constant: -3.500655 },
-      hf: { age: 0.8972642, nonHdlC: 0, hdlC: 0, sbpLt110: -0.6811466, sbpGte110: 0.3634461,
-        dm: 0.923776, smoke: 0.5023736, bmiLt30: -0.0485841, bmiGte30: 0.3726929, egfrLt60: 0.6926917,
-        egfrGte60: 0.0251827, bpTx: 0.2980922, statin: 0, bpTxSbpGte110: -0.0497731, statinNonHdlC: 0,
-        ageNonHdlC: 0, ageHdlC: 0, ageSbpGte110: -0.1289201, ageDm: -0.3040924, ageSmoke: -0.1401688,
-        ageBmiGte30: 0.0068126, ageEgfrLt60: -0.1797778, constant: -3.946391 },
-      total: { age: 0.7688528, nonHdlC: 0.0736174, hdlC: -0.0954431, sbpLt110: -0.4347345, sbpGte110: 0.3362658,
-        dm: 0.7692857, smoke: 0.4386871, bmiLt30: 0, bmiGte30: 0, egfrLt60: 0.5378979, egfrGte60: 0.0164827,
-        bpTx: 0.288879, statin: -0.1337349, bpTxSbpGte110: -0.0475924, statinNonHdlC: 0.150273,
-        ageNonHdlC: -0.0517874, ageHdlC: 0.0191169, ageSbpGte110: -0.1049477, ageDm: -0.2251948,
-        ageSmoke: -0.0895067, ageBmiGte30: 0, ageEgfrLt60: -0.1543702, constant: -3.031168 }
-    } : {
-      ascvd: { age: 0.7198830, nonHdlC: 0.1176967, hdlC: -0.1511850, sbpLt110: -0.0835358, sbpGte110: 0.3592852,
-        dm: 0.8348585, smoke: 0.4831078, bmiLt30: 0, bmiGte30: 0, egfrLt60: 0.4864619, egfrGte60: 0.0397779,
-        bpTx: 0.2265309, statin: -0.0592374, bpTxSbpGte110: -0.0395762, statinNonHdlC: 0.0844423,
-        ageNonHdlC: -0.0567839, ageHdlC: 0.0325692, ageSbpGte110: -0.1035985, ageDm: -0.2417542,
-        ageSmoke: -0.0791142, ageBmiGte30: 0, ageEgfrLt60: -0.1671492, constant: -3.819975 },
-      hf: { age: 0.8998235, nonHdlC: 0, hdlC: 0, sbpLt110: -0.4559771, sbpGte110: 0.3576505,
-        dm: 1.038346, smoke: 0.583916, bmiLt30: -0.0072294, bmiGte30: 0.2997706, egfrLt60: 0.7451638,
-        egfrGte60: 0.0557087, bpTx: 0.3534442, statin: 0, bpTxSbpGte110: -0.0981511, statinNonHdlC: 0,
-        ageNonHdlC: 0, ageHdlC: 0, ageSbpGte110: -0.0946663, ageDm: -0.3581041, ageSmoke: -0.1159453,
-        ageBmiGte30: -0.003878, ageEgfrLt60: -0.1884289, constant: -4.310409 },
-      total: { age: 0.7939329, nonHdlC: 0.0305239, hdlC: -0.1606857, sbpLt110: -0.2394003, sbpGte110: 0.3600781,
-        dm: 0.8667604, smoke: 0.5360739, bmiLt30: 0, bmiGte30: 0, egfrLt60: 0.6045917, egfrGte60: 0.0433769,
-        bpTx: 0.3151672, statin: -0.1477655, bpTxSbpGte110: -0.0663612, statinNonHdlC: 0.1197879,
-        ageNonHdlC: -0.0819715, ageHdlC: 0.0306769, ageSbpGte110: -0.0946348, ageDm: -0.27057,
-        ageSmoke: -0.078715, ageBmiGte30: 0, ageEgfrLt60: -0.1637806, constant: -3.307728 }
-    };
-
-    function calcPct(coef) {
-      var logOdds = coef.constant;
-      for (var key in terms) {
-        logOdds += terms[key] * coef[key];
-      }
-      var risk = Math.exp(logOdds) / (1 + Math.exp(logOdds));
-      return risk * 100;
-    }
-
-    var ascvdPct = calcPct(coefSets.ascvd);
-    var hfPct = calcPct(coefSets.hf);
-    var totalPct = calcPct(coefSets.total);
-
-    var tierText, cls;
-    if (ascvdPct < 3) {
-      tierText = '低風險：以生活型態調整為主';
-      cls = 'prevent-result tier-low';
-    } else if (ascvdPct < 5) {
-      tierText = '臨界風險：建議跟醫師討論用藥利弊';
-      cls = 'prevent-result tier-borderline';
-    } else if (ascvdPct < 10) {
-      tierText = '中高風險：建議啟動藥物治療';
-      cls = 'prevent-result tier-elevated';
-    } else {
-      tierText = '高風險：建議直接接受積極治療';
-      cls = 'prevent-result tier-high';
-    }
-
-    box.innerHTML =
-      '<div class="prevent-result-main">心肌梗塞或中風（ASCVD）10年風險約 ' + ascvdPct.toFixed(1) + '%，屬於' + tierText + '</div>' +
-      '<div class="prevent-result-sub">心衰竭10年風險約 ' + hfPct.toFixed(1) + '%</div>' +
-      '<div class="prevent-result-sub">心肌梗塞、中風、心衰竭合併（Total CVD）10年風險約 ' + totalPct.toFixed(1) + '%</div>' +
-      (rangeWarning ? '<div class="prevent-result-sub">' + rangeWarning + '</div>' : '');
-    box.className = cls;
-  }
-</script>
 
 </body>
 </html>
