@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>反覆過敏、長期疲勞卻找不到原因？過敏原檢測（IgE/IgG）適合哪些人做、能查出什麼｜日和聯合診所</title>
+  <meta name="description" content="長期不明原因的疲勞、皮膚問題、腸胃症狀，可能跟過敏原有關。整理IgE急性與IgG慢性過敏原檢測的適用族群、檢測意義與後續飲食因應策略。">
+  <meta property="og:title" content="反覆過敏、長期疲勞卻找不到原因？過敏原檢測（IgE/IgG）適合哪些人做、能查出什麼｜日和聯合診所">
+  <meta property="og:description" content="長期不明原因的疲勞、皮膚問題、腸胃症狀，可能跟過敏原有關。整理IgE急性與IgG慢性過敏原檢測的適用族群、檢測意義與後續飲食因應策略。">
+  <meta property="og:type" content="article">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --sage: #7a8c5c;
+      --sage-dark: #5a6e38;
+      --gold: #c8a830;
+      --olive: #2e3318;
+      --cream: #faf8f0;
+      --text: #2d3748;
+      --muted: #718096;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, "Helvetica Neue", Arial, sans-serif;
+      color: var(--text);
+      background: white;
+      line-height: 1.8;
+    }
+
+    nav {
+      position: sticky; top: 0; background: white;
+      border-bottom: 1px solid #e2e8f0; z-index: 100;
+      padding: 0 24px; display: flex; align-items: center;
+      justify-content: space-between; height: 56px;
+    }
+    .nav-logo { font-size: 16px; font-weight: 700; color: #5a6e38; }
+    .nav-links { display: flex; gap: 24px; }
+    .nav-links a { font-size: 14px; color: var(--muted); text-decoration: none; }
+    .nav-links a:hover { color: var(--sage-dark); }
+    .nav-links a.active { color: var(--sage-dark); font-weight: 700; }
+
+    .article-header {
+      background: var(--cream);
+      padding: 40px 24px 32px;
+      text-align: center;
+    }
+    .article-tag {
+      display: inline-block;
+      background: rgba(122,140,92,0.15);
+      color: var(--sage-dark);
+      border-radius: 20px;
+      padding: 4px 14px;
+      font-size: 12px;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+      font-weight: 600;
+    }
+    .article-header h1 {
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--olive);
+      line-height: 1.5;
+      margin-bottom: 14px;
+    }
+    .article-meta {
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .article-meta strong { color: var(--sage-dark); }
+
+    .container { max-width: 680px; margin: 0 auto; padding: 32px 20px 60px; }
+
+    .toc-box {
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 18px 22px;
+      margin-bottom: 28px;
+    }
+    .toc-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--olive);
+      margin-bottom: 10px;
+    }
+    .toc-list { list-style: none; }
+    .toc-list li { counter-increment: toc-counter; margin-bottom: 6px; font-size: 14px; }
+    .toc-list { counter-reset: toc-counter; }
+    .toc-list li a {
+      color: var(--text);
+      text-decoration: none;
+    }
+    .toc-list li a:hover { color: var(--sage-dark); }
+    .toc-list li a::before {
+      content: counter(toc-counter) "　";
+      color: var(--sage-dark);
+      font-weight: 700;
+    }
+
+    .tldr-box {
+      background: rgba(200,168,48,0.08);
+      border-left: 3px solid var(--gold);
+      border-radius: 4px;
+      padding: 18px 20px;
+      margin-bottom: 32px;
+      font-size: 15px;
+      color: var(--text);
+    }
+    .tldr-box ul { margin: 10px 0 10px 20px; }
+    .tldr-box li { margin-bottom: 4px; }
+    .article-body h2 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--olive);
+      margin: 36px 0 14px;
+      padding-top: 4px;
+      border-top: 2px solid #f0f0e8;
+      padding-top: 20px;
+    }
+    .article-body h2:first-child { border-top: none; padding-top: 0; margin-top: 0; }
+    .article-body p {
+      font-size: 15px;
+      color: var(--text);
+      margin-bottom: 14px;
+    }
+    .article-body ul { margin: 0 0 16px 20px; }
+    .article-body li { font-size: 15px; color: var(--text); margin-bottom: 6px; }
+
+    .highlight-box {
+      background: rgba(122,140,92,0.08);
+      border-left: 3px solid var(--sage-dark);
+      border-radius: 4px;
+      padding: 14px 16px;
+      margin-bottom: 16px;
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+    .highlight-box .highlight-icon { font-size: 15px; line-height: 1.6; }
+    .highlight-box .highlight-text {
+      font-size: 14px;
+      color: var(--sage-dark);
+      font-weight: 600;
+      line-height: 1.6;
+    }
+
+    /* 檢測套組 2x2 可展開方格 */
+    .test-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    @media (max-width: 480px) {
+      .test-grid { grid-template-columns: 1fr; }
+    }
+    .test-card {
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 12px 14px;
+      background: white;
+    }
+    .test-card.recommended { border-color: var(--sage); background: rgba(122,140,92,0.05); }
+    .test-card summary {
+      cursor: pointer;
+      list-style: none;
+    }
+    .test-card summary::-webkit-details-marker { display: none; }
+    .test-card summary::after {
+      content: "點看說明 ＋";
+      display: block;
+      font-size: 11px;
+      color: var(--sage-dark);
+      margin-top: 6px;
+    }
+    .test-card[open] summary::after { content: "收合 －"; }
+    .test-badge {
+      display: inline-block;
+      background: var(--sage-dark);
+      color: white;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 10px;
+      margin-bottom: 6px;
+    }
+    .test-title {
+      display: block;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--olive);
+    }
+    .test-sub {
+      display: block;
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+    .test-detail {
+      font-size: 13px;
+      color: var(--text);
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px solid #f0f0e8;
+    }
+
+    .faq-section {
+      margin-top: 40px;
+      padding-top: 28px;
+      border-top: 2px solid #f0f0e8;
+    }
+    .faq-section h2 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--olive);
+      margin-bottom: 18px;
+    }
+    .faq-item { margin-bottom: 18px; }
+    .faq-q {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--sage-dark);
+      margin-bottom: 6px;
+    }
+    .faq-a {
+      font-size: 14px;
+      color: var(--text);
+    }
+
+    .conclusion-box {
+      background: rgba(200,168,48,0.08);
+      border: 1px solid var(--gold);
+      border-radius: 8px;
+      padding: 24px 24px 22px;
+      margin-top: 40px;
+    }
+    .conclusion-box h2 {
+      font-size: 19px;
+      font-weight: 800;
+      color: var(--olive);
+      margin-bottom: 14px;
+      border-top: none;
+      padding-top: 0;
+    }
+    .conclusion-box ul { margin: 0 0 14px 20px; }
+    .conclusion-box li {
+      font-size: 15px;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+    .conclusion-cta {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--sage-dark);
+    }
+
+    .sources {
+      margin-top: 36px;
+      padding-top: 20px;
+      border-top: 1px solid #f0f0e8;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .sources-label { font-weight: 700; color: var(--sage-dark); margin-bottom: 6px; }
+    .sources-related { margin-top: 8px; }
+    .sources-related a { color: var(--sage-dark); }
+
+    footer {
+      background: #1a365d;
+      color: rgba(255,255,255,0.6);
+      text-align: center;
+      padding: 32px 24px;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+    footer strong { color: white; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">日和聯合診所</div>
+  <div class="nav-links">
+    <a href="../clinic-website/index.html#doctors">醫師</a>
+    <a href="../clinic-website/index.html#services">服務</a>
+    <a href="../clinic-website/index.html#hours">時間</a>
+    <a href="../clinic-website/index.html#contact">聯絡</a>
+    <a href="../medical-notes.html" class="active">筆記</a>
+  </div>
+</nav>
+
+<div class="article-header">
+  <div class="article-tag">鼻科</div>
+  <h1>反覆過敏、長期疲勞卻找不到原因？過敏原檢測（IgE/IgG）適合哪些人做、能查出什麼</h1>
+  <div class="article-meta">詹士奇醫師撰文 · <strong>2026-08-30 最後更新</strong></div>
+</div>
+
+<div class="container">
+
+  <div class="toc-box">
+    <div class="toc-header"><span>📑</span><span>內容目錄</span></div>
+    <ol class="toc-list">
+      <li><a href="#sec-1">為什麼要做過敏原檢測？——好處在哪裡</a></li>
+      <li><a href="#sec-2">哪些人適合做？——症狀對照</a></li>
+      <li><a href="#sec-3">檢測項目代表什麼意義？——IgE急性 vs IgG慢性</a></li>
+      <li><a href="#sec-4">怎麼選檢測套組？——四種組合怎麼挑</a></li>
+      <li><a href="#sec-5">檢測後呢？——分級對應的因應策略</a></li>
+      <li><a href="#sec-concl">結論：過敏原檢測，該怎麼看待這份報告？</a></li>
+      <li><a href="#sec-faq">常見問題</a></li>
+    </ol>
+  </div>
+
+  <div class="tldr-box">
+    <ul>
+      <li>反覆蕁麻疹、氣喘、過敏性鼻炎屬於IgE急性過敏；長期疲勞、皮膚問題、腸胃不適等找不到原因的慢性症狀，也可以考慮排查過敏原</li>
+      <li>IgE代表立即型過敏抗體，數字越高越容易誘發急性症狀；IgG是身體長期接觸食物後產生的抗體，但IgG食物抗體的臨床意義目前學界仍有爭議</li>
+      <li>檢測後不是照著清單一輩子忌口，而是分級處理：輕度可安心食用，中重度則有階段性的飲食因應計畫</li>
+    </ul>
+  </div>
+
+  <div class="article-body">
+    <h2 id="sec-1">為什麼要做過敏原檢測？——好處在哪裡</h2>
+    <p>診間常遇到病人抱怨：長期疲勞、皮膚反覆出狀況、腸胃悶脹不舒服，做過各種檢查都找不到原因，只能繼續猜測是哪一種食物或環境因素造成的。</p>
+    <div class="highlight-box"><span class="highlight-icon">💡</span><span class="highlight-text">過敏原檢測的核心價值，是把「猜測」變成「有數據可以參考」，同時分開看兩種不同機制：一種是接觸後立刻誘發症狀的急性過敏（IgE），一種是長期反覆接觸後累積的慢性發炎反應（IgG）。</span></div>
+    <p>對於反覆發作的急性過敏（如蕁麻疹、氣喘），檢測能幫忙縮小可疑名單，減少不必要的全面忌口；對於長期原因不明的慢性不適，則能提供一個排查方向，搭配自身症狀與病史，由醫師判斷這些數據有多少參考價值。</p>
+    <p>檢測報告本身不是診斷，而是輔助工具。最終還是需要搭配臨床評估、症狀時序與過去的過敏經驗，才能做出正確的因應判斷。</p>
+
+    <h2 id="sec-2">哪些人適合做？——症狀對照</h2>
+    <p>急性過敏傾向的族群相對容易辨認：接觸特定食物或環境後，短時間內出現蕁麻疹、皮膚癢、嘴唇腫脹、打噴嚏流鼻水，甚至氣喘發作的人。</p>
+    <div class="highlight-box"><span class="highlight-icon">💡</span><span class="highlight-text">比較容易被忽略的是另一群人——長期原因不明的慢性不適，症狀可能出現在完全不同的系統，包括慢性疲勞、頭痛、情緒不穩，皮膚的濕疹或蕁麻疹，腸胃的脹氣、腹瀉或便秘，甚至反覆性中耳炎、鼻竇炎這類耳鼻喉科症狀。</span></div>
+    <ul>
+      <li>耳鼻喉：過敏性鼻炎、反覆中耳炎、鼻竇炎、慢性咳嗽</li>
+      <li>皮膚：異位性皮膚炎、蕁麻疹、濕疹、痘痘反覆發作</li>
+      <li>腸胃：腸躁症、脹氣、餐後腹脹、慢性腹瀉或便秘</li>
+      <li>其他：慢性疲勞、關節痠痛、情緒不穩、注意力不集中</li>
+    </ul>
+    <p>如果上述症狀已經持續一段時間，做過常規檢查也找不出明確病因，可以考慮跟醫師討論是否適合安排過敏原檢測，作為排查方向之一。</p>
+
+    <h2 id="sec-3">檢測項目代表什麼意義？——IgE急性 vs IgG慢性</h2>
+    <p>這類檢測通常同時涵蓋環境過敏原（如塵蟎、蟑螂、花粉、黴菌）與食物過敏原兩大類，分成IgE跟IgG兩種抗體來看。</p>
+    <div class="highlight-box"><span class="highlight-icon">💡</span><span class="highlight-text">IgE是急性過敏抗體，濃度越高代表接觸後越容易在短時間內誘發蕁麻疹、氣喘這類立即型症狀；IgG則是身體長期接觸食物後產生的抗體，報告上會用輕度、中度、重度來分級。</span></div>
+    <p>這裡有一點需要特別說明：部分實驗室提供IgG食物過敏原檢測，標榜能反映「慢性過敏」或慢性發炎狀態，但IgG食物抗體的臨床意義，目前學界仍有爭議，跟IgE急性過敏的實證等級不同。國際過敏學會的主流立場認為，IgG本身是身體接觸食物後的正常免疫反應，不完全等同於過敏或不耐受。這不代表IgG報告完全沒有參考價值，而是解讀時需要更謹慎，搭配自身症狀變化一起評估，不宜單獨依賴數字下診斷。</p>
+    <p>不管是IgE還是IgG，報告呈現的都是「接觸後的免疫反應強度」，不是絕對的診斷結果。最終還是要由醫師綜合病史、症狀時序與檢測數據，做出臨床判斷。</p>
+
+    <h2 id="sec-4">怎麼選檢測套組？——四種組合怎麼挑</h2>
+    <p>過敏原檢測依照涵蓋範圍跟有沒有加驗IgG，大致可以分成四種組合。點選下方任一項目可以看更詳細的說明。</p>
+    <div class="highlight-box"><span class="highlight-icon">💡</span><span class="highlight-text">如果不確定從哪一組開始，「基礎版」（純IgE）或「雙效基礎版」（IgE+IgG各自涵蓋常見食物）是多數人適合的第一線首選，涵蓋最廣的「全方位版」則留給飲食型態複雜、想一次篩到底的人。</span></div>
+
+    <div class="test-grid">
+      <details class="test-card recommended">
+        <summary>
+          <span class="test-badge">第一線首選</span>
+          <span class="test-title">基礎版</span>
+          <span class="test-sub">IgE急性：22項環境過敏原＋44項食物過敏原</span>
+        </summary>
+        <p class="test-detail">純粹檢測IgE急性過敏抗體，涵蓋常見的塵蟎、花粉、黴菌等環境過敏原，加上常見食物。實證等級最高，是多數人第一次檢測的建議起點，報告解讀也最單純。</p>
+      </details>
+      <details class="test-card recommended">
+        <summary>
+          <span class="test-badge">第一線首選</span>
+          <span class="test-title">雙效基礎版</span>
+          <span class="test-sub">IgE急性（22環境+44食物）＋IgG慢性（44食物）</span>
+        </summary>
+        <p class="test-detail">在基礎版的IgE項目之外，加驗44項食物的IgG抗體。適合除了明顯過敏症狀，還有長期不明原因慢性不適（疲勞、腸胃、皮膚）想一併排查的人，IgG部分解讀時記得對照前面提到的爭議，不是絕對診斷。</p>
+      </details>
+      <details class="test-card">
+        <summary>
+          <span class="test-title">慢性單項版</span>
+          <span class="test-sub">只有IgG慢性：101項食物過敏原</span>
+        </summary>
+        <p class="test-detail">跳過IgE，只檢測IgG。因為完全沒有涵蓋實證等級較高的急性過敏項目，除非已經另外做過IgE或皮膚點刺測試、單純想擴大慢性食物排查範圍，否則不是一般人的優先選擇。</p>
+      </details>
+      <details class="test-card">
+        <summary>
+          <span class="test-title">全方位版</span>
+          <span class="test-sub">IgE急性（22環境+101食物）＋IgG慢性（101食物）</span>
+        </summary>
+        <p class="test-detail">涵蓋範圍最廣，食物項目多達101項，較能涵蓋台灣飲食習慣中的蔬果、中藥材與調味料。適合飲食型態複雜、想一次篩到底的人，但項目越多，出現「輕度」的機會也會變多，需要花更多時間跟醫師討論怎麼解讀。</p>
+      </details>
+    </div>
+
+    <h2 id="sec-5">檢測後呢？——分級對應的因應策略</h2>
+    <p>拿到報告後，不是把清單上的所有品項一輩子忌口，而是依分級做階段性處理。</p>
+    <div class="highlight-box"><span class="highlight-icon">💡</span><span class="highlight-text">輕度反應通常可以安心食用；中度建議暫停食用一段時間，症狀改善後再每隔幾天少量恢復；重度則需要暫停較長時間，並在恢復飲食後持續避免大量攝取。</span></div>
+    <ul>
+      <li>去除期：停用可疑食物一段時間，讓身體有機會緩解累積的反應</li>
+      <li>挑戰期：每次只重新加入一種食物，觀察是否再度出現症狀，藉此確認哪些真正需要避免</li>
+      <li>回復期：確認不會引起不適的食物，可以逐步恢復正常飲食，但仍建議避免單一食物短期內大量或高頻率攝取</li>
+    </ul>
+    <p>如果本身對某項食物曾經有明確的急性過敏反應（如蕁麻疹合併呼吸道症狀），即使檢測數字沒有顯示異常，也不建議自行嘗試恢復食用，這類挑戰應該在醫師評估下進行，避免誘發嚴重反應。</p>
+  </div>
+
+  <div class="conclusion-box" id="sec-concl">
+    <h2>結論：過敏原檢測，該怎麼看待這份報告？</h2>
+    <ul>
+      <li>過敏原檢測分成IgE急性與IgG慢性兩種機制，分別對應不同類型的症狀與族群</li>
+      <li>長期不明原因的疲勞、皮膚、腸胃症狀，也是可以考慮檢測的族群，不是只有明顯過敏才需要做</li>
+      <li>IgG食物抗體的臨床意義目前學界仍有爭議，報告數字需要搭配醫師判斷，不是絕對診斷</li>
+      <li>檢測後的因應是分級處理，不是一輩子全面忌口，嚴重過敏食物的重新嘗試更要在醫師評估下進行</li>
+    </ul>
+    <p class="conclusion-cta">如果你有長期原因不明的症狀，做過常規檢查都找不到答案，可以跟醫師討論是否適合安排過敏原檢測，並在拿到報告後一起討論怎麼解讀跟因應，不要自己對照網路資訊就決定飲食禁忌。</p>
+  </div>
+
+  <div class="faq-section" id="sec-faq">
+    <h2>常見問題</h2>
+    <div class="faq-item">
+      <div class="faq-q">過敏原檢測報告顯示某項食物過敏，就代表以後都不能吃嗎？</div>
+      <div class="faq-a">不一定。多數輕中度反應可以透過階段性的去除與挑戰，重新評估是否能恢復食用，只有明確重度急性過敏的品項才需要長期嚴格避免，實際處理方式建議跟醫師討論。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">為什麼會有人說IgG檢測沒有意義？</div>
+      <div class="faq-a">因為IgG抗體是身體接觸食物後產生的正常免疫反應，不完全等同於過敏或不耐受，國際過敏學會目前不建議單獨用IgG數值來診斷食物過敏，這跟IgE急性過敏的實證等級不同，解讀上需要更謹慎。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">小孩或長輩適合做這類檢測嗎？</div>
+      <div class="faq-a">沒有絕對限制，但實際適不適合、要不要做，建議先由醫師評估症狀與病史，而不是自行購買套組檢測後自己解讀報告。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">檢測結果都正常，是不是代表這些症狀跟過敏完全無關？</div>
+      <div class="faq-a">不一定。檢測範圍以常見的環境與食物過敏原為主，如果症狀誘因不在檢測範圍內（如藥物、化學製劑等），就可能驗不出來，這時候還是需要醫師從其他角度評估。</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <div class="sources-label">參考文獻</div>
+    AAAAI/EAACI Position Statement on IgG4 and Food-Specific IgG Testing；WAO White Book on Allergy；一般IgE/IgG過敏原檢測衛教資料。
+  </div>
+
+</div>
+
+<footer>
+  <strong>日和聯合診所</strong>｜耳鼻喉科・中醫<br>
+  台南市鹽水區｜06-6520182
+</footer>
+
+</body>
+</html>
