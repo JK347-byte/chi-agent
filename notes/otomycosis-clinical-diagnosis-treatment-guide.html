@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>超越細菌性外耳炎：耳黴菌病（Otomycosis）的病原學、耳鏡鑑別與階梯式處置｜日和聯合診所</title>
+  <meta name="description" content="耳黴菌病佔外耳道感染約一到兩成，濕熱氣候更常見。整理Aspergillus與Candida的耳鏡表現差異、與細菌性外耳炎及外耳道癌的鑑別、以清創為核心的階梯式抗黴菌治療，以及耳膜穿孔與壞死性外耳炎的處置要點。">
+  <meta property="og:title" content="超越細菌性外耳炎：耳黴菌病（Otomycosis）的病原學、耳鏡鑑別與階梯式處置｜日和聯合診所">
+  <meta property="og:description" content="耳黴菌病佔外耳道感染約一到兩成，濕熱氣候更常見。整理Aspergillus與Candida的耳鏡表現差異、與細菌性外耳炎及外耳道癌的鑑別、以清創為核心的階梯式抗黴菌治療，以及耳膜穿孔與壞死性外耳炎的處置要點。">
+  <meta property="og:type" content="article">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --sage: #7a8c5c;
+      --sage-dark: #5a6e38;
+      --gold: #c8a830;
+      --olive: #2e3318;
+      --cream: #faf8f0;
+      --text: #2d3748;
+      --muted: #718096;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, "Helvetica Neue", Arial, sans-serif;
+      color: var(--text);
+      background: white;
+      line-height: 1.8;
+    }
+
+    nav {
+      position: sticky; top: 0; background: white;
+      border-bottom: 1px solid #e2e8f0; z-index: 100;
+      padding: 0 24px; display: flex; align-items: center;
+      justify-content: space-between; height: 56px;
+    }
+    .nav-logo { font-size: 16px; font-weight: 700; color: #5a6e38; }
+    .nav-links { display: flex; gap: 24px; }
+    .nav-links a { font-size: 14px; color: var(--muted); text-decoration: none; }
+    .nav-links a:hover { color: var(--sage-dark); }
+    .nav-links a.active { color: var(--sage-dark); font-weight: 700; }
+
+    .article-header {
+      background: var(--cream);
+      padding: 40px 24px 32px;
+      text-align: center;
+    }
+    .article-tag {
+      display: inline-block;
+      background: rgba(122,140,92,0.15);
+      color: var(--sage-dark);
+      border-radius: 20px;
+      padding: 4px 14px;
+      font-size: 12px;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+      font-weight: 600;
+    }
+    .article-header h1 {
+      font-size: 25px;
+      font-weight: 800;
+      color: var(--olive);
+      line-height: 1.5;
+      margin-bottom: 14px;
+    }
+    .article-meta {
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .article-meta strong { color: var(--sage-dark); }
+
+    .container { max-width: 680px; margin: 0 auto; padding: 32px 20px 60px; }
+
+    .toc-box {
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 18px 22px;
+      margin-bottom: 28px;
+    }
+    .toc-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--olive);
+      margin-bottom: 10px;
+    }
+    .toc-list { list-style: none; }
+    .toc-list li { counter-increment: toc-counter; margin-bottom: 6px; font-size: 14px; }
+    .toc-list { counter-reset: toc-counter; }
+    .toc-list li a {
+      color: var(--text);
+      text-decoration: none;
+    }
+    .toc-list li a:hover { color: var(--sage-dark); }
+    .toc-list li a::before {
+      content: counter(toc-counter) "　";
+      color: var(--sage-dark);
+      font-weight: 700;
+    }
+
+    .tldr-box {
+      background: rgba(200,168,48,0.08);
+      border-left: 3px solid var(--gold);
+      border-radius: 4px;
+      padding: 18px 20px;
+      margin-bottom: 32px;
+      font-size: 15px;
+      color: var(--text);
+    }
+    .tldr-box ul { margin: 10px 0 10px 20px; }
+    .tldr-box li { margin-bottom: 6px; }
+    .article-body h2 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--olive);
+      margin: 36px 0 14px;
+      border-top: 2px solid #f0f0e8;
+      padding-top: 20px;
+    }
+    .article-body h2:first-child { border-top: none; padding-top: 0; margin-top: 0; }
+    .article-body p {
+      font-size: 15px;
+      color: var(--text);
+      margin-bottom: 14px;
+    }
+    .article-body ul { margin: 0 0 16px 20px; }
+    .article-body li { font-size: 15px; color: var(--text); margin-bottom: 6px; }
+
+    .highlight-box {
+      background: rgba(122,140,92,0.08);
+      border-left: 3px solid var(--sage-dark);
+      border-radius: 4px;
+      padding: 14px 16px;
+      margin-bottom: 16px;
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+    .highlight-box .highlight-icon { font-size: 15px; line-height: 1.6; }
+    .highlight-box .highlight-text {
+      font-size: 14px;
+      color: var(--sage-dark);
+      font-weight: 600;
+      line-height: 1.6;
+    }
+
+    .faq-section {
+      margin-top: 40px;
+      padding-top: 28px;
+      border-top: 2px solid #f0f0e8;
+    }
+    .faq-section h2 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--olive);
+      margin-bottom: 18px;
+    }
+    .faq-item { margin-bottom: 18px; }
+    .faq-q {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--sage-dark);
+      margin-bottom: 6px;
+    }
+    .faq-a {
+      font-size: 14px;
+      color: var(--text);
+    }
+
+    .conclusion-box {
+      background: rgba(200,168,48,0.08);
+      border: 1px solid var(--gold);
+      border-radius: 8px;
+      padding: 24px 24px 22px;
+      margin-top: 40px;
+    }
+    .conclusion-box h2 {
+      font-size: 19px;
+      font-weight: 800;
+      color: var(--olive);
+      margin-bottom: 14px;
+      border-top: none;
+      padding-top: 0;
+    }
+    .conclusion-box ul { margin: 0 0 14px 20px; }
+    .conclusion-box li {
+      font-size: 15px;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+    .conclusion-cta {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--sage-dark);
+    }
+
+    .sources {
+      margin-top: 36px;
+      padding-top: 20px;
+      border-top: 1px solid #f0f0e8;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .sources-label { font-weight: 700; color: var(--sage-dark); margin-bottom: 6px; }
+    .sources-related { margin-top: 8px; }
+    .sources-related a { color: var(--sage-dark); }
+
+    footer {
+      background: #1a365d;
+      color: rgba(255,255,255,0.6);
+      text-align: center;
+      padding: 32px 24px;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+    footer strong { color: white; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">日和聯合診所</div>
+  <div class="nav-links">
+    <a href="../clinic-website/index.html#doctors">醫師</a>
+    <a href="../clinic-website/index.html#services">服務</a>
+    <a href="../clinic-website/index.html#hours">時間</a>
+    <a href="../clinic-website/index.html#contact">聯絡</a>
+    <a href="../medical-notes.html" class="active">筆記</a>
+  </div>
+</nav>
+
+<div class="article-header">
+  <div class="article-tag">耳科</div>
+  <h1>超越細菌性外耳炎：耳黴菌病（Otomycosis）的病原學、耳鏡鑑別與階梯式處置</h1>
+  <div class="article-meta">詹士奇醫師撰文 · <strong>2026-09-01 最後更新</strong></div>
+</div>
+
+<div class="container">
+
+  <div class="toc-box">
+    <div class="toc-header"><span>📑</span><span>內容目錄</span></div>
+    <ol class="toc-list">
+      <li><a href="#sec-1">定義與病原學——Aspergillus 與 Candida 的臨床分野</a></li>
+      <li><a href="#sec-2">流行病學與誘發危險因子</a></li>
+      <li><a href="#sec-3">臨床表現與鑑別診斷</a></li>
+      <li><a href="#sec-4">臨床檢查——耳鏡、顯微鏡與實驗室診斷</a></li>
+      <li><a href="#sec-5">治療策略——以清創為核心的階梯式處置</a></li>
+      <li><a href="#sec-6">追蹤回診、治療副作用與併發症管理</a></li>
+      <li><a href="#sec-concl">結論：耳黴菌病，臨床上該掌握哪些關鍵？</a></li>
+      <li><a href="#sec-faq">常見問題</a></li>
+    </ol>
+  </div>
+
+  <div class="tldr-box">
+    <ul>
+      <li>耳黴菌病是外耳道的亞急性至慢性黴菌感染，約佔外耳道感染的一到兩成，在濕熱氣候與症狀性外耳炎族群比例更高。Aspergillus（尤其 A. niger，煤灰狀黑色孢子點）與 Candida（白色軟質乳酪樣分泌）為兩大病原，後者好發於助聽器與耳塞長期使用者。</li>
+      <li>最一致的症狀是深部劇癢與悶塞感，疼痛程度通常低於急性細菌性外耳炎。單側、反覆難治、血性耳漏、肉芽組織或顏面神經症狀，要優先排除外耳道癌與壞死性外耳炎。</li>
+      <li>治療成敗的關鍵在顯微鏡直視下徹底清創，之後才用局部抗黴菌藥（首選 1% clotrimazole 溶液，一日二次、10 到 14 天），根除率約七到八成五。即使療程完整，仍有約一到一成半復發。</li>
+    </ul>
+  </div>
+
+  <div class="article-body">
+    <h2 id="sec-1">定義與病原學——Aspergillus 與 Candida 的臨床分野</h2>
+    <p>耳黴菌病是外耳道（external auditory canal, EAC）的黴菌性亞急性或慢性感染，約佔所有外耳道感染病例的百分之二到百分之十；在熱帶亞熱帶地區，或以耳炎症狀就診的族群中，比例可高到三成。它與細菌性外耳炎的本質差異在於病灶型態。細菌性外耳炎是耳道上皮與皮下的瀰漫性發炎與水腫；黴菌病則是表淺的菌落增生，以角質層與耵聹碎屑為溫床，發炎相對局限。這個差異直接決定了清創優先於藥物的治療邏輯。</p>
+    <p>Aspergillus 屬是最常見的致病菌，其中又以 A. niger 為代表。耳鏡下的典型表現，是在白色至灰色菌絲基質上散布黑色孢子頭，狀似煤灰或濕報紙。近年分子鑑定發現，過去被歸為 A. niger 的病例，有相當比例其實是形態極相似的 A. tubingensis，兩者對部分抗黴菌藥的敏感度略有不同，在難治性病例才會產生臨床意義。</p>
+    <p>Candida 屬（以 C. albicans 為主）的表現則不同。通常沒有明顯的菌絲團塊，而是白色至乳白、軟質乳酪樣或皮脂樣的分泌物，容易被誤認為單純耵聹或濕性分泌。Candida 型特別好發於助聽器、耳塞長期配戴者，與耳道潮濕悶熱的密閉微環境有關。</p>
+    <div class="highlight-box"><span class="highlight-icon">💡</span><span class="highlight-text">耳鏡看到菌絲團塊或黑色孢子點，幾乎可以直接確認黴菌感染；但看到白色軟質分泌物時，Candida 與單純耵聹、濕疹樣脫屑不易區分，必要時以抹片鑑別。</span></div>
+
+    <h2 id="sec-2">流行病學與誘發危險因子</h2>
+    <p>耳黴菌病好發於熱帶與亞熱帶地區，以及高溫潮濕的夏季環境。台南沿海一帶的氣候條件本來就落在這個流行病學範圍內，夏季門診的比例會明顯上升。發病族群以青壯年男性、有頻繁耳道自我操作習慣者為主。</p>
+    <p>誘發因子依門診發生率大致排序如下：</p>
+    <ul>
+      <li><strong>外耳道自我操作</strong>：頻繁掏耳、挖耳或使用棉花棒，是最主要的誘發因子，文獻上佔比接近八成。機轉是造成外耳道微創傷，並移除耵聹的弱酸性抑菌屏障。</li>
+      <li><strong>反覆進水或游泳</strong>：浸泡造成外耳道上皮浸潤（maceration），角質層屏障功能下降。</li>
+      <li><strong>先前使用局部或口服廣效抗生素</strong>：抑制外耳道正常菌叢，讓黴菌相對過度滋生，文獻佔比約兩成到兩成半。</li>
+      <li><strong>阻塞性器具</strong>：助聽器、耳塞長期配戴造成耳道潮濕悶熱，與 Candida 型高度相關。</li>
+      <li><strong>糖尿病與免疫低下</strong>：文獻佔比約一成，同時是壞死性外耳炎的高風險背景。</li>
+      <li><strong>耳部手術後</strong>：乳突腔開放、鼓室成形術後的術腔上皮化不良、容易積屑，是反覆黴菌感染的常見場景。</li>
+    </ul>
+    <div class="highlight-box"><span class="highlight-icon">💡</span><span class="highlight-text">局部抗生素藥水用得愈久，黴菌病的機率愈高。細菌性外耳炎點藥兩週沒有改善，應該重新耳鏡檢查是否已轉為黴菌感染，而不是換更強效的抗生素繼續點。</span></div>
+
+    <h2 id="sec-3">臨床表現與鑑別診斷</h2>
+    <p>耳黴菌病的典型症狀是深部劇烈搔癢，這是患者最顯著也最困擾的主訴。其次是耳脹滿感、耳鳴、耳漏，以及菌絲團塊阻塞造成的傳導性聽力障礙。疼痛感通常比急性細菌性外耳炎輕微，除非合併次發性細菌感染才會出現明顯耳痛。這種癢遠多於痛的症狀組合，本身就是一個鑑別線索。</p>
+    <p>重要的鑑別診斷包括：</p>
+    <ul>
+      <li><strong>急性細菌性外耳炎</strong>：多由綠膿桿菌或金黃色葡萄球菌引起，耳痛劇烈、外耳道瀰漫性水腫顯著、耳廓牽引痛與耳屏壓痛明顯。</li>
+      <li><strong>接觸性皮膚炎</strong>：常因對抗生素耳滴劑成分（如 neomycin、benzocaine）過敏所致，紅斑常延伸到耳廓與耳周皮膚，而非局限於耳道深部。</li>
+      <li><strong>慢性化膿性中耳炎</strong>：伴隨耳膜穿孔與長期化膿性耳漏，黴菌在此常是續發的共生菌，而非原發病因。</li>
+      <li><strong>外耳道癌</strong>：罕見但必須警覺，表現為難治性耳炎、潰瘍性易出血的肉芽或腫塊、血性耳漏，或顏面神經麻痺，任何一項都應安排切片。</li>
+      <li><strong>濕疹或脂漏性皮膚炎</strong>：多為雙側、以脫屑為主，會癢但沒有菌絲團塊或孢子點。</li>
+    </ul>
+    <div class="highlight-box"><span class="highlight-icon">💡</span><span class="highlight-text">單側病灶、對正規治療反應差、伴隨肉芽組織或血性分泌、或出現顏面神經症狀時，要先排除外耳道癌與壞死性外耳炎，不要當成頑固黴菌病一路清創下去。</span></div>
+
+    <h2 id="sec-4">臨床檢查——耳鏡、顯微鏡與實驗室診斷</h2>
+    <p>理學檢查以放大耳鏡或耳科顯微鏡（microscopic otoscopy）為主。觀察重點有三個：鼓膜的完整性、前下鼓室隱窩（inferior tympanic recess）——這是菌屑最容易堆積、也最難清除的位置——以及菌絲與孢子的型態辨識。氣壓式耳鏡（pneumatic otoscopy）用來評估鼓膜活動度，排除中耳積液與確認有無穿孔，這會直接影響後續用藥選擇。</p>
+    <p>實驗室與輔助檢查的時機要拿捏：</p>
+    <ul>
+      <li><strong>真菌抹片（KOH wet mount）與黴菌培養、藥敏試驗</strong>：常規的輕中度病例不需要培養。但針對難治性、復發性、免疫低下患者或耳膜穿孔者，應進行耳道抹片與培養。</li>
+      <li><strong>影像學檢查（CT / MRI）</strong>：僅用於懷疑骨質侵犯、或疑似壞死性（惡性）外耳炎的病例，用來評估顳骨與顱底侵犯範圍。</li>
+    </ul>
+    <div class="highlight-box"><span class="highlight-icon">💡</span><span class="highlight-text">診斷有九成靠耳鏡直視判斷。培養的真正價值在治療失敗時派上用場，用來區分抗藥性菌株、非典型菌種（如 A. tubingensis、Scedosporium），以及一開始就診斷錯誤的可能。</span></div>
+
+    <h2 id="sec-5">治療策略——以清創為核心的階梯式處置</h2>
+    <p>第一步，也是最關鍵的一步，是徹底清創（aural toilet）。在顯微鏡或耳鏡直視下，使用抽吸、耳刮匙（curette）或乾棉棒，徹底清除菌膜與上皮碎屑。局部抗黴菌藥物必須接觸到耳道上皮才有效，殘留的菌屑會形成物理屏障，讓藥物停在表層。清創不確實，是局部治療失敗最常見的原因。</p>
+    <p><strong>局部抗黴菌藥物（耳膜完整時）</strong>：首選 1% clotrimazole 溶液，一日二次、持續 10 到 14 天，文獻上的根除率約八成五，優於 tolnaftate。備選包括 miconazole、2% 醋酸（acetic acid）滴劑、水楊酸酒精。含 flumethasone 的複方製劑（如 Locacorten-Vioform）對搔癢與發炎的緩解有幫助。</p>
+    <p><strong>耳膜穿孔時</strong>：多數局部抗黴菌製劑所使用的溶劑有潛在耳毒性疑慮。處置傾向以乾式清創為主，必要時審慎選用 clotrimazole 藥水，以沾濕棉棒或藥條的方式局部給藥，避免直接大量灌注。黴菌侵蝕造成的鼓膜穿孔率本身約在百分之八到十六之間。</p>
+    <p><strong>系統性抗黴菌藥物</strong>：適用於局部治療失敗、耳膜穿孔不宜局部用藥、免疫低下或侵襲性感染。Candida 感染用 fluconazole；Aspergillus 感染用 voriconazole，它同時是 Aspergillus 壞死性外耳炎的第一線用藥。</p>
+    <p><strong>手術處置</strong>：耳道深部或鼓室隱窩有難以清除的真菌球、或反覆發作時，由耳鼻喉科醫師進行顯微鏡下精細清創。若已演變為侵襲性黴菌性壞死性外耳炎，則需進行顳骨清創與壞死組織切除，並搭配數週的全身性抗黴菌治療。</p>
+    <div class="highlight-box"><span class="highlight-icon">💡</span><span class="highlight-text">局部藥物治療失敗，最常見的原因是清創沒做確實，不是藥效不夠。反覆失敗的病例應該每週回診清創，而不是一直換藥。</span></div>
+
+    <h2 id="sec-6">追蹤回診、治療副作用與併發症管理</h2>
+    <p><strong>追蹤時程</strong>：治療 10 到 14 天後進行首次回診評估。若仍有殘留感染，需再次清創並延長第二個 10 到 14 天療程。難治性病例建議每週回診清創，直到耳道上皮完全恢復。</p>
+    <p><strong>局部藥物副作用</strong>：局部刺激感、灼熱感，以及對耳滴劑成分產生的接觸性皮膚炎，後者有時會與原本的黴菌病症狀混淆。</p>
+    <p><strong>耳毒性風險</strong>：耳膜穿孔的患者，應避免使用已知具耳毒性、或安全性未經證實的局部製劑。</p>
+    <p><strong>系統性藥物副作用</strong>：口服 azole 類藥物（fluconazole、voriconazole）的肝毒性與藥物交互作用，其中 voriconazole 的交互作用尤其複雜，療程中需監測肝功能。</p>
+    <p><strong>疾病併發症</strong>：</p>
+    <ul>
+      <li>次發性細菌感染。</li>
+      <li>鼓膜穿孔與傳導性聽力障礙，部分穿孔會持續不癒。</li>
+      <li>黴菌性壞死性（惡性）外耳炎：多見於糖尿病或免疫低下患者，可沿顳骨底部侵犯至顱底，造成顱神經麻痺，文獻死亡率約百分之四，晚診斷、顱神經侵犯與治療不足者更高。</li>
+    </ul>
+    <p><strong>復發</strong>：即使完成完整療程，文獻上仍有約一到一成半的復發率。最主要的可控因素是戒除掏耳與棉棒使用、洗澡與游泳後保持耳道乾燥、避免長期使用抗生素藥水。助聽器使用者要定期清潔耳膜與耳道。</p>
+    <div class="highlight-box"><span class="highlight-icon">💡</span><span class="highlight-text">糖尿病或免疫低下患者的頑固外耳炎，若合併劇烈夜間耳痛、肉芽組織或顱神經症狀，要當壞死性外耳炎處理，立即安排影像、發炎指標（ESR / CRP）並轉診。</span></div>
+  </div>
+
+  <div class="conclusion-box" id="sec-concl">
+    <h2>結論：耳黴菌病，臨床上該掌握哪些關鍵？</h2>
+    <ul>
+      <li>佔外耳道感染的一到兩成，濕熱氣候與長期使用抗生素藥水者更常見；Aspergillus（煤灰狀孢子點）與 Candida（乳酪樣分泌、助聽器族群）為兩大病原。</li>
+      <li>疼痛較輕、深部劇癢是特徵性症狀組合；單側、反覆難治、血性耳漏、肉芽組織或顏面神經症狀，要優先排除外耳道癌與壞死性外耳炎。</li>
+      <li>清創是治療核心，局部 1% clotrimazole 為首選，根除率約七到八成五，耳膜穿孔者用藥要謹慎。</li>
+      <li>局部治療失敗最常見的原因是清創不確實，不是藥效不足；反覆失敗應每週清創並送黴菌培養。</li>
+      <li>糖尿病或免疫低下，加上頑固外耳炎與顱神經症狀，等於壞死性外耳炎，立即影像與轉診。</li>
+    </ul>
+    <p class="conclusion-cta">外耳炎點抗生素藥水兩週沒有改善，別再加強抗生素，重新耳鏡檢查是否已經是黴菌感染。</p>
+  </div>
+
+  <div class="faq-section" id="sec-faq">
+    <h2>常見問題</h2>
+    <div class="faq-item">
+      <div class="faq-q">細菌性外耳炎和耳黴菌病在耳鏡下怎麼快速分辨？</div>
+      <div class="faq-a">細菌性外耳炎以耳道瀰漫性紅腫、觸痛、耳廓牽引痛為主，分泌物多為膿性。黴菌病常見白色至灰黑色的菌絲團塊或黑色孢子點（Aspergillus），或白色軟質乳酪樣分泌（Candida），疼痛相對輕微、以深部劇癢為主要症狀。看到菌絲團塊或黑點，幾乎可以直接確認是黴菌感染。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">為什麼耳黴菌病一定要先清創才點藥？</div>
+      <div class="faq-a">抗黴菌藥水要接觸到耳道上皮才能作用。菌膜與角質碎屑會形成物理屏障，讓藥物停留在表層而無法滲入，這是局部治療失敗最常見的原因。在顯微鏡下清乾淨後再用藥，根除率才能達到七到八成五。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">耳膜有破洞還能點抗黴菌藥水嗎？</div>
+      <div class="faq-a">要非常謹慎。多數抗黴菌藥水所用的溶劑對內耳有潛在耳毒性。耳膜穿孔時傾向以乾式清創為主，必要時由醫師選用相對安全的製劑，以沾濕棉棒或藥條的方式局部給藥，避免直接大量灌注，或改用系統性抗黴菌藥物。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">治療好了之後很容易再發嗎？</div>
+      <div class="faq-a">即使完成完整療程，文獻上仍有大約一到一成半的復發率。最主要的可控因素是戒除掏耳與棉棒使用、洗澡游泳後保持耳道乾燥、避免長期使用抗生素藥水。助聽器使用者要定期清潔耳膜與耳道。</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <div class="sources-label">參考文獻</div>
+    UpToDate, "Otitis externa: Treatment" 與 "Malignant (necrotizing) otitis externa"；Management of Otomycosis: A Systematic Review and Meta-analysis, Otology &amp; Neurotology, 2025（局部治療根除率 &gt;70%，clotrimazole 根除率約 85%）；Pooled Analysis of 2 Randomized Clinical Trials, Clotrimazole 1% Otic Solution, Journal of Otolaryngology–Head &amp; Neck Surgery, 2025；Otomycosis With Tympanic Membrane Perforation: A Review of the Literature, Ear Nose Throat Journal, 2019（穿孔率 8–16%）；Fungal Malignant Otitis Externa: A Systematic Review, 2024（死亡率約 4%）；Antifungal Therapy of Aspergillus Invasive Otitis Externa: Efficacy of Voriconazole。
+    <div class="sources-related">延伸閱讀：<a href="acute-otitis-externa-guide.html">耳朵痛、癢又悶，是外耳炎嗎？「游水耳」的成因、正確用藥與危險警訊</a>｜<a href="necrotizing-otitis-externa-skull-base-osteomyelitis-guide.html">耳朵痛到半夜睡不著，只是外耳炎嗎？糖尿病與免疫力低下者要當心的壞死性外耳炎與顱底骨髓炎</a></div>
+  </div>
+
+</div>
+
+<footer>
+  <strong>日和聯合診所</strong>｜耳鼻喉科・中醫<br>
+  台南市鹽水區｜06-6520182
+</footer>
+
+</body>
+</html>
