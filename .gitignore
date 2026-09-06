@@ -9,6 +9,9 @@ care-tracker/*.json
 # 允許醫師形象照上傳
 !clinic-website/images/*.png
 !clinic-website/images/*.jpg
+# 允許015衛教文章的圖片素材（臨床徵象標註圖等）
+!notes/images/*.png
+!notes/images/*.jpg
 .playwright-mcp/
 __pycache__/
 *.pyc

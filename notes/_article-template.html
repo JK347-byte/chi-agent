@@ -150,6 +150,31 @@
       line-height: 1.6;
     }
 
+    /* 圖表／標註圖片容器（Stage 2 選用）— 兩種並列元件，用哪種見下方HTML範例註解 */
+    .chart-box {
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 16px 12px 12px;
+      margin-bottom: 18px;
+      overflow-x: auto;
+    }
+    .chart-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--olive);
+      margin-bottom: 8px;
+      padding: 0 6px;
+    }
+    .chart-box svg { display: block; min-width: 520px; width: 100%; height: auto; }
+    .chart-note {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 6px;
+      padding: 0 6px;
+    }
+    /* 方案A：真實/AI生成照片＋SVG標籤疊加，用在.chart-box內，viewBox比照圖片再加左側標籤欄寬度 */
+    .annotated-img svg { min-width: 560px; }
+
     /* FAQ 區塊 — Q&A格式利於AI引擎抓取 */
     .faq-section {
       margin-top: 40px;
@@ -270,6 +295,41 @@
     <div class="highlight-box"><span class="highlight-icon">💡</span><span class="highlight-text">{{這段最大重點，一句話}}</span></div>
     <p>{{短段落2}}</p>
     <p>{{短段落3，可省略}}</p>
+
+    <!--
+      圖片/圖表元件（Stage 2選用，不是每篇都要放）：兩種並列選項，挑一種用在需要視覺輔助的H2段落裡
+
+      方案A【詹醫師偏好，需要「臨床外觀/病灶部位」類圖示時優先用這個】
+      真實或AI生成照片＋SVG標籤疊加。流程：詹醫師用Gemini生成照片→我裁切壓縮成
+      ~1000px寬JPEG存到articles/資料夾（或Chi-Agent notes/images/）→用SVG的<image>
+      把照片嵌進比照片更寬的viewBox（左側多留一欄放標籤），標籤框+指向線疊在同一個SVG裡。
+      範例：
+      <div class="chart-box">
+        <div class="chart-title">圖．{{圖片標題}}</div>
+        <div class="annotated-img">
+          <svg viewBox="0 0 1300 768" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <image x="300" y="0" width="1000" height="768" xlink:href="images/{{檔名}}.jpg" href="images/{{檔名}}.jpg"/>
+            <line x1="280" y1="77" x2="{{目標x}}" y2="{{目標y}}" stroke="#5a6e38" stroke-width="2"/>
+            <circle cx="{{目標x}}" cy="{{目標y}}" r="4" fill="#5a6e38"/>
+            <rect x="10" y="60" width="270" height="34" rx="6" fill="white" stroke="#7a8c5c" stroke-width="1.4"/>
+            <text x="20" y="82" font-size="15" font-weight="700" fill="#2e3318">{{標籤文字}}</text>
+            <!-- 重要警訊類標籤改用紅色強調：stroke/fill="#c65d5d" -->
+          </svg>
+        </div>
+        <div class="chart-note">臨床徵象示意，AI 生成，非真實病人。</div>
+      </div>
+
+      方案B【沒有照片、或畫的是數據/流程/病程曲線時用這個，比照DKD臨床分類篇GFR曲線圖】
+      純SVG手繪示意圖，不需要外部圖片，零版權疑慮。
+      <div class="chart-box">
+        <div class="chart-title">圖．{{圖表標題}}</div>
+        <svg viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
+          {{手繪圖形：曲線/表格/示意人形，參考2026-08-29與2026-09-01兩篇的作法}}
+        </svg>
+        <div class="chart-note">{{圖說}}</div>
+      </div>
+    -->
+
 
     <h2 id="sec-2">{{H2標題2}}</h2>
     <p>{{短段落1：破題}}</p>
