@@ -175,6 +175,57 @@
     /* 方案A：真實/AI生成照片＋SVG標籤疊加，用在.chart-box內，viewBox比照圖片再加左側標籤欄寬度 */
     .annotated-img svg { min-width: 560px; }
 
+    /* 資料表格元件（2026-09-16 新增）— 比較表／判斷表通用 */
+    .data-table-box { margin-bottom: 20px; }
+    .data-table-cap {
+      background: var(--cream);
+      border: 1px solid #e2e8f0;
+      border-bottom: none;
+      border-radius: 8px 8px 0 0;
+      padding: 10px 14px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--olive);
+      text-align: center;
+    }
+    .data-table-wrap { overflow-x: auto; border-radius: 0 0 8px 8px; }
+    .data-table { border-collapse: collapse; width: 100%; min-width: 520px; font-size: 14px; }
+    .data-table thead th {
+      background: var(--sage-dark);
+      color: #fff;
+      font-weight: 700;
+      text-align: left;
+      padding: 11px 13px;
+      font-size: 13.5px;
+    }
+    .data-table th.rowhead, .data-table td.rowhead {
+      font-weight: 700;
+      color: var(--olive);
+      background: rgba(122,140,92,0.07);
+      white-space: nowrap;
+    }
+    .data-table td {
+      padding: 11px 13px;
+      border-bottom: 1px solid #e8eadf;
+      color: var(--text);
+      vertical-align: top;
+      line-height: 1.7;
+    }
+    .data-table tbody tr:nth-child(even) td { background: rgba(122,140,92,0.035); }
+    .data-table tbody tr:last-child td { border-bottom: none; }
+    /* 需要特別強調的那一列（一張表最多用一次）
+       只用底色區分，不加任何額外框線——框線不一致會干擾閱讀 */
+    .data-table tr.row-emphasis td {
+      background: rgba(200,168,48,0.13) !important;
+    }
+    .data-table-note { font-size: 11px; color: var(--muted); margin-top: 6px; padding: 0 2px; }
+
+    /* 參考文獻清單（2026-09-16 改版）— 編號、可點標題、DOI 獨立一行 */
+    .ref-list { margin: 8px 0 0 0; padding-left: 20px; }
+    .ref-list li { margin-bottom: 12px; line-height: 1.75; }
+    .ref-list a { color: var(--sage-dark); }
+    .ref-doi { display: block; font-size: 11px; color: var(--muted); margin-top: 2px; }
+
     /* FAQ 區塊 — Q&A格式利於AI引擎抓取 */
     .faq-section {
       margin-top: 40px;

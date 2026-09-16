@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>鼻竇炎只有一邊，要緊嗎？單側鼻塞背後的牙齒、黴菌與腫瘤問題｜日和聯合診所</title>
+  <meta name="description" content="慢性鼻竇炎通常是兩邊一起發作，只有一邊反而不尋常。整理單側鼻竇炎最常見的牙齒源頭、需要排除的腫瘤與黴菌問題、該做哪些檢查，以及什麼情況必須轉診醫院。">
+  <meta property="og:title" content="鼻竇炎只有一邊，要緊嗎？單側鼻塞背後的牙齒、黴菌與腫瘤問題｜日和聯合診所">
+  <meta property="og:description" content="慢性鼻竇炎通常是兩邊一起發作，只有一邊反而不尋常。整理單側鼻竇炎最常見的牙齒源頭、需要排除的腫瘤與黴菌問題、該做哪些檢查，以及什麼情況必須轉診醫院。">
+  <meta property="og:type" content="article">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --sage: #7a8c5c;
+      --sage-dark: #5a6e38;
+      --gold: #c8a830;
+      --olive: #2e3318;
+      --cream: #faf8f0;
+      --text: #2d3748;
+      --muted: #718096;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, "Helvetica Neue", Arial, sans-serif;
+      color: var(--text);
+      background: white;
+      line-height: 1.8;
+    }
+
+    nav {
+      position: sticky; top: 0; background: white;
+      border-bottom: 1px solid #e2e8f0; z-index: 100;
+      padding: 0 24px; display: flex; align-items: center;
+      justify-content: space-between; height: 56px;
+    }
+    .nav-logo { font-size: 16px; font-weight: 700; color: #5a6e38; }
+    .nav-links { display: flex; gap: 24px; }
+    .nav-links a { font-size: 14px; color: var(--muted); text-decoration: none; }
+    .nav-links a:hover { color: var(--sage-dark); }
+    .nav-links a.active { color: var(--sage-dark); font-weight: 700; }
+
+    .article-header {
+      background: var(--cream);
+      padding: 40px 24px 32px;
+      text-align: center;
+    }
+    .article-tag {
+      display: inline-block;
+      background: rgba(122,140,92,0.15);
+      color: var(--sage-dark);
+      border-radius: 20px;
+      padding: 4px 14px;
+      font-size: 12px;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+      font-weight: 600;
+    }
+    .article-header h1 {
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--olive);
+      line-height: 1.5;
+      margin-bottom: 14px;
+    }
+    .article-meta {
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .article-meta strong { color: var(--sage-dark); }
+
+    .container { max-width: 680px; margin: 0 auto; padding: 32px 20px 60px; }
+
+    /* 內容目錄 */
+    .toc-box {
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 18px 22px;
+      margin-bottom: 28px;
+    }
+    .toc-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--olive);
+      margin-bottom: 10px;
+    }
+    .toc-list { list-style: none; }
+    .toc-list li { counter-increment: toc-counter; margin-bottom: 6px; font-size: 14px; }
+    .toc-list { counter-reset: toc-counter; }
+    .toc-list li a {
+      color: var(--text);
+      text-decoration: none;
+    }
+    .toc-list li a:hover { color: var(--sage-dark); }
+    .toc-list li a::before {
+      content: counter(toc-counter) "　";
+      color: var(--sage-dark);
+      font-weight: 700;
+    }
+
+    /* TL;DR / 直接答案區塊 — GEO關鍵：前200字內給具體結論 */
+    .tldr-box {
+      background: rgba(200,168,48,0.08);
+      border-left: 3px solid var(--gold);
+      border-radius: 4px;
+      padding: 18px 20px;
+      margin-bottom: 32px;
+      font-size: 15px;
+      color: var(--text);
+    }
+    .tldr-box ul { margin: 10px 0 10px 20px; }
+    .tldr-box li { margin-bottom: 4px; }
+    .article-body h2 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--olive);
+      margin: 36px 0 14px;
+      padding-top: 4px;
+      border-top: 2px solid #f0f0e8;
+      padding-top: 20px;
+    }
+    .article-body h2:first-child { border-top: none; padding-top: 0; margin-top: 0; }
+    .article-body p {
+      font-size: 15px;
+      color: var(--text);
+      margin-bottom: 14px;
+    }
+
+    /* H2下方的重點提醒色塊 */
+    .highlight-box {
+      background: rgba(122,140,92,0.08);
+      border-left: 3px solid var(--sage-dark);
+      border-radius: 4px;
+      padding: 14px 16px;
+      margin-bottom: 16px;
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+    .highlight-box .highlight-icon { font-size: 15px; line-height: 1.6; }
+    .highlight-box .highlight-text {
+      font-size: 14px;
+      color: var(--sage-dark);
+      font-weight: 600;
+      line-height: 1.6;
+    }
+
+    /* 圖表／標註圖片容器（Stage 2 選用）— 兩種並列元件，用哪種見下方HTML範例註解 */
+    .chart-box {
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 16px 12px 12px;
+      margin-bottom: 18px;
+      overflow-x: auto;
+    }
+    .chart-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--olive);
+      margin-bottom: 8px;
+      padding: 0 6px;
+    }
+    .chart-box svg { display: block; min-width: 520px; width: 100%; height: auto; }
+    .chart-note {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 6px;
+      padding: 0 6px;
+    }
+    /* 方案A：真實/AI生成照片＋SVG標籤疊加，用在.chart-box內，viewBox比照圖片再加左側標籤欄寬度 */
+    .annotated-img svg { min-width: 560px; }
+
+    /* FAQ 區塊 — Q&A格式利於AI引擎抓取 */
+    .faq-section {
+      margin-top: 40px;
+      padding-top: 28px;
+      border-top: 2px solid #f0f0e8;
+    }
+    .faq-section h2 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--olive);
+      margin-bottom: 18px;
+    }
+    .faq-item { margin-bottom: 18px; }
+    .faq-q {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--sage-dark);
+      margin-bottom: 6px;
+    }
+    .faq-a {
+      font-size: 14px;
+      color: var(--text);
+    }
+
+    /* 結論區塊 — 跟內文H2段落明顯區隔，四邊框+底色，文字簡潔 */
+    .conclusion-box {
+      background: rgba(200,168,48,0.08);
+      border: 1px solid var(--gold);
+      border-radius: 8px;
+      padding: 24px 24px 22px;
+      margin-top: 40px;
+    }
+    .conclusion-box h2 {
+      font-size: 19px;
+      font-weight: 800;
+      color: var(--olive);
+      margin-bottom: 14px;
+      border-top: none;
+      padding-top: 0;
+    }
+    .conclusion-box ul { margin: 0 0 14px 20px; }
+    .conclusion-box li {
+      font-size: 15px;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+    .conclusion-cta {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--sage-dark);
+    }
+
+    /* 出處/文獻來源 */
+    .sources {
+      margin-top: 36px;
+      padding-top: 20px;
+      border-top: 1px solid #f0f0e8;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .sources-label { font-weight: 700; color: var(--sage-dark); margin-bottom: 6px; }
+
+    footer {
+      background: #1a365d;
+      color: rgba(255,255,255,0.6);
+      text-align: center;
+      padding: 32px 24px;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+    footer strong { color: white; }
+
+    .hook-line { font-size: 14px; color: var(--sage-dark); font-weight: 600; margin: -18px 0 28px; padding: 0 2px; }
+    .tldr-box { margin-bottom: 14px; }
+    .article-body ul { margin: 0 0 16px 20px; }
+    .article-body li { font-size: 15px; color: var(--text); margin-bottom: 6px; }
+    .sources-related { margin-top: 8px; }
+    .sources-related a { color: var(--sage-dark); }
+
+    .data-table-box { margin-bottom: 20px; }
+    .data-table-cap { background: var(--cream); border: 1px solid #e2e8f0; border-bottom: none; border-radius: 8px 8px 0 0; padding: 10px 14px; font-size: 13px; font-weight: 700; color: var(--olive); text-align: center; }
+    .data-table-wrap { overflow-x: auto; border-radius: 0 0 8px 8px; }
+    .data-table { border-collapse: collapse; width: 100%; min-width: 560px; font-size: 14px; table-layout: fixed; }
+    .data-table .sub { display: block; font-size: 12px; color: var(--muted); font-weight: 400; margin-top: 2px; }
+    .data-table thead th { background: var(--sage-dark); color: #fff; font-weight: 700; text-align: left; padding: 11px 13px; font-size: 13.5px; }
+    .data-table td.rowhead { font-weight: 700; color: var(--olive); background: rgba(122,140,92,0.07); white-space: nowrap; }
+    .data-table td { padding: 11px 13px; border-bottom: 1px solid #e8eadf; color: var(--text); vertical-align: top; line-height: 1.7; }
+    .data-table tbody tr:nth-child(even) td { background: rgba(122,140,92,0.035); }
+    .data-table tbody tr:last-child td { border-bottom: none; }
+    .data-table tr.row-emphasis td { background: rgba(200,168,48,0.13) !important; }
+    .data-table-note { font-size: 11px; color: var(--muted); margin-top: 6px; padding: 0 2px; }
+    .ref-list { margin: 8px 0 0 0; padding-left: 20px; }
+    .ref-list li { margin-bottom: 12px; line-height: 1.75; }
+    .ref-list a { color: var(--sage-dark); }
+    .ref-doi { display: block; font-size: 11px; color: var(--muted); margin-top: 2px; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">日和聯合診所</div>
+  <div class="nav-links">
+    <a href="../clinic-website/index.html#doctors">醫師</a>
+    <a href="../clinic-website/index.html#services">服務</a>
+    <a href="../clinic-website/index.html#hours">時間</a>
+    <a href="../clinic-website/index.html#contact">聯絡</a>
+    <a href="../medical-notes.html" class="active">筆記</a>
+  </div>
+</nav>
+
+<div class="article-header">
+  <div class="article-tag">鼻科</div>
+  <h1>鼻竇炎只有一邊，要緊嗎？單側鼻塞背後的牙齒、黴菌與腫瘤問題</h1>
+  <div class="article-meta">詹士奇醫師撰文 · <strong>2026-09-16 最後更新</strong></div>
+</div>
+
+<div class="container">
+
+  <div class="toc-box">
+    <div class="toc-header"><span>📑</span><span>內容目錄</span></div>
+    <ol class="toc-list">
+      <li><a href="#sec-1">為什麼「只有一邊」值得特別注意？</a></li>
+      <li><a href="#sec-2">最常見的原因，其實是牙齒</a></li>
+      <li><a href="#sec-3">需要排除的：腫瘤與黴菌</a></li>
+      <li><a href="#sec-4">要做哪些檢查？診所能做到哪裡</a></li>
+      <li><a href="#sec-5">什麼時候一定要轉診？</a></li>
+      <li><a href="#sec-concl">結論：鼻竇炎只有一邊，該怎麼處理？</a></li>
+      <li><a href="#sec-faq">常見問題</a></li>
+    </ol>
+  </div>
+
+  <div class="tldr-box">
+    <ul>
+      <li>典型的慢性鼻竇炎是兩邊一起發炎。<strong>只有一邊</strong>反而不符合這個邏輯，需要另外找原因。</li>
+      <li>單側上頜竇病灶中，<strong>45% 到 75% 源頭其實是牙齒</strong>（上排後牙的根尖感染）。這是最常見、也最常被忽略的原因——研究發現，超過七成有牙齒相關問題的病例，病歷上完全沒提到牙齒。</li>
+      <li>但也必須排除腫瘤。病理分析顯示，單側鼻息肉約 <strong>78% 是單純發炎、14% 是良性腫瘤、3% 是惡性</strong>。也就是說約兩成不是單純發炎，而且外觀分辨不出來，只能靠切片。</li>
+      <li>診所能用鼻內視鏡做初步判斷，但確診需要鼻竇電腦斷層與切片，這兩項要轉診醫院。</li>
+    </ul>
+  </div>
+
+  <div class="hook-line">兩邊鼻塞通常是發炎，只有一邊治不好，往往另有原因，而且不一定在鼻子裡。</div>
+
+  <div class="article-body">
+    <h2 id="sec-1">為什麼「只有一邊」值得特別注意？</h2>
+    <p>在門診偶爾遇到在外面診所吃了好幾輪抗生素、使用鼻噴劑都沒有效，且持續復發的患者。仔細詢問下，才發現他的症狀從頭到尾都只有單邊。</p>
+    <p>慢性鼻竇炎的本質是鼻腔與鼻竇黏膜的持續發炎。這種發炎多半是全身性體質或環境因素引起的，所以典型表現是<strong>兩邊對稱</strong>——兩側都塞、兩側都有膿涕、兩側黏膜都腫。</p>
+    <p>一旦病灶只固定在一邊，就跟這個邏輯對不上了。它通常代表有一個局部的、結構性的源頭在那一側持續作怪，而不是整體黏膜在發炎。</p>
+    <div class="highlight-box"><span class="highlight-icon">💡</span><span class="highlight-text">病理研究顯示，單側鼻息肉大約有兩成不是單純的發炎——可能是良性腫瘤，少數是惡性。比例不算高，但因為外觀看不出差別，所以不能只靠看的。</span></div>
+    <p>所以單側不等於嚴重，但它等於「需要換一套思路重新查」。繼續當一般鼻竇炎吃藥，只會拖延找到真正原因的時間。</p>
+
+    <h2 id="sec-2">最常見的原因，其實是牙齒</h2>
+    <p>這可能是整篇最出乎意料的一點：單側上頜竇的問題，最大宗的來源是上排後牙。</p>
+    <p>上排的小臼齒與大臼齒，牙根就頂在上頜竇的底部，中間只隔著一層很薄的骨頭，有些人甚至根本沒有骨頭隔開。所以當牙根發炎、根尖形成膿瘍，或是根管治療、拔牙、植牙之後出現併發症，細菌很容易直接往上侵犯到鼻竇。</p>
+
+    <div class="chart-box">
+      <div class="chart-title">圖．上頜竇與上排後牙牙根的解剖關係（冠狀切面示意）</div>
+      <div class="annotated-img">
+        <svg viewBox="0 0 1000 870" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <image x="0" y="0" width="1000" height="870" xlink:href="images/maxillary-sinus-odontogenic.jpg" href="images/maxillary-sinus-odontogenic.jpg"/>
+          <!-- 蓋掉原圖左右標籤（左右慣例與影像學相反），改用正常側／患側 -->
+          <rect x="28" y="344" width="228" height="54" rx="7" fill="#ffffff" stroke="#9aa0a6" stroke-width="1.6"/>
+          <text x="142" y="380" font-size="23" font-weight="700" fill="#1a1a1a" text-anchor="middle" font-family="-apple-system,'PingFang TC','Helvetica Neue',Arial,sans-serif">上頜竇（正常側）</text>
+          <rect x="775" y="277" width="209" height="55" rx="7" fill="#ffffff" stroke="#9aa0a6" stroke-width="1.6"/>
+          <text x="879" y="313" font-size="23" font-weight="700" fill="#1a1a1a" text-anchor="middle" font-family="-apple-system,'PingFang TC','Helvetica Neue',Arial,sans-serif">上頜竇（患側）</text>
+          <!-- 新增：正常側上排牙根標籤，與患側根尖膿瘍形成左右對照 -->
+          <line x1="250" y1="770" x2="352" y2="702" stroke="#1a1a1a" stroke-width="2.2"/>
+          <rect x="30" y="742" width="222" height="56" rx="7" fill="#ffffff" stroke="#9aa0a6" stroke-width="1.6"/>
+          <text x="141" y="779" font-size="23" font-weight="700" fill="#1a1a1a" text-anchor="middle" font-family="-apple-system,'PingFang TC','Helvetica Neue',Arial,sans-serif">正常牙根</text>
+        </svg>
+      </div>
+      <div class="chart-note">上頜竇與上排後牙牙根解剖關係示意圖。AI 繪製之示意圖，非真實影像；個別患者牙根與竇底的距離差異很大，部分人完全無骨質分隔。</div>
+    </div>
+
+    <div class="highlight-box"><span class="highlight-icon">💡</span><span class="highlight-text">研究統計，電腦斷層上呈現單側上頜竇阻塞的病例中，有 45% 到 75% 源頭是牙齒。更值得注意的是，在已經被診斷為慢性鼻竇炎、且實際有牙齒問題的患者中，高達 73.8% 的病歷完全沒有提到牙齒。</span></div>
+    <p>齒源性鼻竇炎有幾個可以自己留意的線索：症狀從頭到尾只有一邊、鼻涕或口氣有明顯的<strong>惡臭</strong>（跟一般鼻竇炎的味道不太一樣）、最近半年內做過牙科處置、或那一側本來就有蛀牙、牙痛的病史。</p>
+    <p>這其實是個好消息。因為如果源頭是牙齒，處理掉牙齒的問題，鼻竇炎往往就跟著好了——但前提是要先想到去查。</p>
+
+    <h2 id="sec-3">需要排除的：腫瘤與黴菌</h2>
+    <p>那麼「不是單純發炎」的那一部分，究竟是什麼？有一份針對 77 例外觀看起來像良性息肉的單側病灶所做的病理分析，比例分布是這樣：</p>
+    <ul>
+      <li><strong>約 78%</strong>：單純的發炎性息肉，也就是虛驚一場</li>
+      <li><strong>約 14%</strong>：良性腫瘤，其中最常見的是倒置性乳突瘤</li>
+      <li><strong>約 3%</strong>：惡性腫瘤</li>
+      <li>約 5%：其他少見病灶</li>
+    </ul>
+    <p>這組數字有個容易被忽略的重點：<strong>需要處理的不只是那 3% 惡性的</strong>。中間那 14% 良性腫瘤同樣需要手術切除，不能放著不管。兩者加起來約 17%，這才是「單側病灶建議做切片」真正的理由。</p>
+    <p><strong>倒置性乳突瘤</strong>是其中最需要認識的。它本質是良性腫瘤，但有三個麻煩的特性：會局部侵蝕骨頭、手術後復發率高、而且有一定比例會轉變成惡性。目前文獻的惡性轉變率大約在 5% 到 10% 之間，較新的系統性回顧收斂在 7.6% 左右。因為惡變可能發生在術後八年以上，所以切除後需要長期追蹤。</p>
+    <p><strong>惡性腫瘤</strong>的比例不高。病理分析顯示，外觀看起來像良性息肉的單側病灶中，真正是惡性的約佔 2% 到 3%，包含黑色素瘤、嗅神經母細胞瘤等。機率低，但一旦漏掉代價很大。</p>
+    <p><strong>過敏性真菌性鼻竇炎</strong>是另一種。它不是黴菌直接侵犯組織，而是對環境中的黴菌產生強烈過敏反應，導致鼻竇裡堆積一種極度濃稠的分泌物，質地接近花生醬。電腦斷層上會看到特徵性的高密度影，也常造成單側的骨質膨大。</p>
+    <div class="highlight-box"><span class="highlight-icon">💡</span><span class="highlight-text">這些病灶在鼻內視鏡下的外觀，跟一般發炎性息肉可能長得一模一樣。用看的分辨不出來，這就是為什麼單側病灶建議做切片。</span></div>
+
+    <div class="data-table-box">
+      <div class="data-table-cap">表1．單側鼻竇病灶的三大原因對照</div>
+      <div class="data-table-wrap">
+        <table class="data-table">
+          <colgroup><col style="width:17%"><col style="width:19%"><col style="width:32%"><col style="width:32%"></colgroup>
+          <thead><tr><th>原因</th><th>大約佔比</th><th>可留意的線索</th><th>怎麼處理</th></tr></thead>
+          <tbody>
+            <tr class="row-emphasis">
+              <td class="rowhead">齒源性<br>（牙齒來源）</td>
+              <td><strong>45–75%</strong><span class="sub">單側上頜竇病灶</span></td>
+              <td>鼻涕或口氣明顯惡臭、近期做過根管／拔牙／植牙、該側有蛀牙或牙痛病史</td>
+              <td>牙科處理源頭（根管、拔牙、口竇瘻管），耳鼻喉科同時處理鼻竇發炎</td>
+            </tr>
+            <tr>
+              <td class="rowhead">腫瘤</td>
+              <td>良性 <strong>14%</strong><br>惡性 <strong>3%</strong><span class="sub">單側鼻息肉病理</span></td>
+              <td>外觀看不出來，可能伴隨單側流鼻血、臉部麻木、視力改變</td>
+              <td>必須切片確認；倒置性乳突瘤與惡性腫瘤都需手術切除並長期追蹤</td>
+            </tr>
+            <tr>
+              <td class="rowhead">黴菌<br>（AFRS）</td>
+              <td>較少見</td>
+              <td>分泌物極度濃稠（接近花生醬），電腦斷層有特徵性高密度影</td>
+              <td>手術清除黴菌團塊，合併控制過敏發炎反應</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="data-table-note">佔比依前述文獻整理；齒源性與腫瘤的統計基礎不同（前者為單側上頜竇病灶，後者為單側鼻息肉病理），不宜直接相加。</div>
+    </div>
+
+    <h2 id="sec-4">要做哪些檢查？診所能做到哪裡</h2>
+    <p>這一段我想講得直接一點，因為它牽涉到你該在哪裡接受檢查。</p>
+    <p><strong>診所能做的</strong>：鼻內視鏡檢查。這能直接看到鼻腔內部的狀況——是不是真的只有單側、有沒有息肉或異常組織、膿液從哪個開口流出來、鼻中膈有沒有結構問題。這是重要的第一步，也能分辨出很多不需要緊張的情況。</p>
+    <p><strong>診所做不到的</strong>，有兩項關鍵：</p>
+    <ul>
+      <li><strong>鼻竇電腦斷層</strong>：判斷單側病灶最重要的工具。能看出骨頭有沒有被侵蝕或增厚、上排牙根跟鼻竇的關係、有沒有真菌性鼻竇炎的高密度影。這些資訊鼻內視鏡完全看不到。</li>
+      <li><strong>組織切片與病理化驗</strong>：確定是發炎、良性腫瘤還是惡性，最終只能靠病理報告。</li>
+    </ul>
+    <div class="highlight-box"><span class="highlight-icon">💡</span><span class="highlight-text">我們在診所能做的是初步判斷與症狀緩解。但只要高度懷疑是單側的結構性問題，就需要轉診到有電腦斷層與病理科的醫院，這不是可以在診所拖著看的狀況。</span></div>
+    <p>另外，如果懷疑源頭是牙齒，會需要牙科的全口攝影或錐狀束電腦斷層（CBCT），由牙科一起評估牙根的狀態。這是耳鼻喉科與牙科要合作處理的問題。</p>
+
+    <h2 id="sec-5">什麼時候一定要轉診？</h2>
+    <p>把前面所有線索收斂成一張判斷表。找到你目前的情況，就知道下一步該做什麼。</p>
+
+    <div class="data-table-box">
+      <div class="data-table-cap">表2．單側鼻部症狀：什麼時候可以觀察、什麼時候不要等</div>
+      <div class="data-table-wrap">
+        <table class="data-table">
+          <colgroup><col style="width:33.3%"><col style="width:33.3%"><col style="width:33.4%"></colgroup>
+          <thead><tr><th>可以先觀察並記錄</th><th>安排門診檢查</th><th>不要等，儘快就醫</th></tr></thead>
+          <tbody>
+            <tr>
+              <td>感冒期間短暫的單側鼻塞、鼻涕，兩週內逐漸好轉</td>
+              <td>規則治療四週以上沒有改善，或停藥後很快復發到原本的程度</td>
+              <td>單側<strong>流鼻血</strong>，尤其反覆發生</td>
+            </tr>
+            <tr>
+              <td>兩側交替出現的鼻塞（正常鼻週期也會這樣）</td>
+              <td>症狀從頭到尾都固定在同一邊，從來沒有換過邊</td>
+              <td>臉頰、上唇或牙齒出現<strong>麻木感</strong></td>
+            </tr>
+            <tr>
+              <td>—</td>
+              <td>同一側反覆發作：治療好了，幾個月內又回來</td>
+              <td><strong>視力改變</strong>、複視、眼球位置改變或凸出</td>
+            </tr>
+            <tr>
+              <td>—</td>
+              <td>那一側近期做過根管、拔牙、植牙，或本來就有明顯蛀牙</td>
+              <td>單側臉部<strong>腫脹</strong>、上排牙齒莫名鬆動，或持續固定在同一側的頭臉部疼痛</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="data-table-note">右欄的症狀代表病灶可能已超出鼻竇範圍、影響到周邊骨頭或神經，需要影像檢查釐清。</div>
+    </div>
+  </div>
+
+  <div class="conclusion-box" id="sec-concl">
+    <h2>結論：鼻竇炎只有一邊，該怎麼處理？</h2>
+    <ul>
+      <li>典型慢性鼻竇炎是兩邊一起發炎，<strong>只有一邊反而不尋常</strong>，需要另外找原因</li>
+      <li>最常見的源頭是<strong>牙齒</strong>（單側上頜竇病灶的 45% 到 75%），而且極容易被漏掉</li>
+      <li>單側息肉約 78% 是單純發炎、14% 良性腫瘤、3% 惡性，<strong>後兩者合計約 17% 需要手術處理</strong>，而且外觀分辨不出來，只能靠切片</li>
+      <li>診所能做鼻內視鏡初步判斷與症狀緩解，<strong>但電腦斷層與切片需要轉診醫院</strong></li>
+      <li>治療四週沒改善、反覆復發、或出現單側流鼻血與臉部麻木，就該升級檢查層級</li>
+    </ul>
+    <p class="conclusion-cta">如果你的鼻塞、膿涕從頭到尾都只有一邊，而且已經治療一段時間沒有起色，請不要再自行買藥或換藥拖下去。先讓醫師用鼻內視鏡看一次，必要時轉診做電腦斷層——這類問題愈早找到源頭，處理起來愈單純。</p>
+  </div>
+
+  <div class="faq-section" id="sec-faq">
+    <h2>常見問題</h2>
+    <div class="faq-item">
+      <div class="faq-q">只有一邊鼻塞，是不是代表我得了癌症？</div>
+      <div class="faq-a">不是。單側息肉裡大約 78% 是單純的發炎性息肉，真正惡性的約 3%。單側代表的是「需要換個方向查清楚」，不是「很可能是癌症」。重點在於，惡性的比例雖然低，但因為外觀看不出差別，所以不能靠猜，需要做檢查確認。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">為什麼牙齒的問題會跑到鼻竇？</div>
+      <div class="faq-a">上排的小臼齒與大臼齒，牙根就緊貼在上頜竇的底部，中間只隔著一層很薄的骨頭，有些人甚至完全沒有骨頭分隔。當牙根發炎或根尖形成膿瘍，細菌可以直接往上侵犯進鼻竇。這也是為什麼齒源性鼻竇炎幾乎都是單側的——通常只有一顆牙出問題。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">我在診所檢查過了，為什麼還要去醫院？</div>
+      <div class="faq-a">診所的鼻內視鏡能看到鼻腔內部，但看不到骨頭的變化、牙根與鼻竇的關係，也無法確認組織的性質。這些需要電腦斷層與病理切片，設備與病理科在醫院。轉診不是診所處理不了你的病，而是這個階段需要的工具不在診所。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">如果最後查出來是牙齒的問題，要怎麼治療？</div>
+      <div class="faq-a">會需要耳鼻喉科與牙科一起處理。牙科負責解決源頭——根管治療、拔牙或處理口竇瘻管；耳鼻喉科負責處理已經發炎的鼻竇。單獨只治療其中一邊，效果通常不理想，這也是齒源性鼻竇炎容易反覆的原因。</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <div class="sources-label">參考文獻</div>
+    <ol class="ref-list">
+      <li>Poyner K, et al. <a href="https://www.cambridge.org/core/journals/journal-of-laryngology-and-otology/article/abs/incidence-of-significant-pathology-in-patients-presenting-with-benignappearing-unilateral-nasal-polyps/EEEFCD7CBCB40099444587685C2B78C9" target="_blank" rel="noopener">The incidence of significant pathology in patients presenting with benign-appearing unilateral nasal polyps.</a> J Laryngol Otol. 2022.（n=77；發炎性 77.9%、良性腫瘤 14.3%、惡性 2.6%）
+        <span class="ref-doi">DOI：10.1017/S0022215121003480</span></li>
+      <li>Diaz A, et al. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10544649/" target="_blank" rel="noopener">A 10-Year Retrospective Review of the Histology of Symptomatic and Asymptomatic Unilateral Nasal Polyps.</a> Cureus. 2023;15(9):e44526.（n=123；發炎性 74.8%，比例相近可相互佐證）
+        <span class="ref-doi">DOI：10.7759/cureus.44526</span></li>
+      <li>Craig JR, et al. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9126162/" target="_blank" rel="noopener">Odontogenic sinusitis: A state-of-the-art review.</a> World J Otorhinolaryngol Head Neck Surg. 2022;8(1):8–15.（齒源性佔單側上頜竇阻塞 45–75%；73.8% 病歷未提及牙齒）
+        <span class="ref-doi">DOI：10.1002/wjo2.9</span></li>
+      <li>Long C, et al. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7193386/" target="_blank" rel="noopener">Clinical evidence based review and systematic scientific review in the identification of malignant transformation of inverted papilloma.</a> J Otolaryngol Head Neck Surg. 2020;49:25.（倒置性乳突瘤惡變率多落在 5–10%）
+        <span class="ref-doi">DOI：10.1186/s40463-020-00420-x</span></li>
+      <li>Fokkens WJ, et al. <a href="https://www.rhinologyjournal.com/Documents/Supplements/supplement_29.pdf" target="_blank" rel="noopener">European Position Paper on Rhinosinusitis and Nasal Polyps 2020 (EPOS 2020).</a> Rhinology. 2020;58(Suppl S29):1–464.
+        <span class="ref-doi">DOI：10.4193/Rhin20.600</span></li>
+    </ol>
+    <div class="sources-related">延伸閱讀：<a href="chronic-sinusitis-diagnosis-treatment.html">長期鼻塞是慢性鼻竇炎嗎？診斷與治療新觀念</a>、<a href="acute-sinusitis-antibiotic-guide.html">感冒併發鼻竇炎怎麼辦？急性鼻竇炎精準用藥指引</a></div>
+  </div>
+
+</div>
+
+<footer>
+  <strong>日和聯合診所</strong>｜耳鼻喉科・中醫<br>
+  台南市鹽水區｜06-6520182
+</footer>
+
+</body>
+</html>
