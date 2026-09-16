@@ -207,8 +207,6 @@
       color: var(--muted);
     }
     .sources-label { font-weight: 700; color: var(--sage-dark); margin-bottom: 6px; }
-    .sources-related { margin-top: 8px; }
-    .sources-related a { color: var(--sage-dark); }
 
     footer {
       background: #1a365d;
@@ -231,6 +229,19 @@
     .foot-bottom { max-width:900px; margin:30px auto 0; padding-top:18px; border-top:1px solid rgba(255,255,255,0.14); font-size:12px; color:rgba(255,255,255,0.45); line-height:1.8; }
     @media (max-width:760px){ .foot-grid{ grid-template-columns:1fr 1fr; gap:24px; } }
     @media (max-width:440px){ .foot-grid{ grid-template-columns:1fr; } }
+
+    /* 文末作者欄（大圖橫向版） */
+    .author-box { display:flex; gap:22px; align-items:center; background:var(--cream); border-left:3px solid var(--gold); border-radius:10px; padding:22px 24px; margin-top:36px; }
+    .author-photo { width:168px; height:168px; border-radius:10px; object-fit:cover; flex-shrink:0; }
+    .author-label { font-size:12px; font-weight:700; color:var(--gold); letter-spacing:1.5px; margin-bottom:5px; }
+    .author-name { font-size:21px; font-weight:800; color:var(--olive); margin-bottom:8px; }
+    .author-role { font-size:14px; color:var(--text); line-height:1.8; margin-bottom:10px; }
+    .author-link { font-size:14px; font-weight:700; color:var(--sage-dark); text-decoration:none; }
+    .author-link:hover { text-decoration:underline; }
+    @media (max-width:560px){
+      .author-box{ flex-direction:column; align-items:center; text-align:center; gap:16px; }
+      .author-photo{ width:210px; height:210px; }
+    }
   </style>
 </head>
 <body>
@@ -328,6 +339,16 @@
     <div class="faq-item">
       <div class="faq-q">一定要戴連續血糖監測貼片嗎？</div>
       <div class="faq-a">不一定，但這個工具能讓你直接看到自己的血糖怎麼隨飲食、運動變化，對剛開始調整生活型態的人來說，是很有幫助的認識自己身體的工具，可以跟醫師討論適不適合。</div>
+    </div>
+  </div>
+
+  <div class="author-box">
+    <img class="author-photo" src="images/dr-chan-author.jpg" alt="詹士奇醫師">
+    <div>
+      <div class="author-label">本文作者</div>
+      <div class="author-name">詹士奇醫師</div>
+      <div class="author-role">耳鼻喉暨頭頸外科專科醫師<br>日和聯合診所院長</div>
+      <a class="author-link" href="../clinic-website/index.html#doctors">查看完整學經歷 →</a>
     </div>
   </div>
 

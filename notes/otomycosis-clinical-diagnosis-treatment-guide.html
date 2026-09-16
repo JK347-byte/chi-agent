@@ -206,8 +206,6 @@
       color: var(--muted);
     }
     .sources-label { font-weight: 700; color: var(--sage-dark); margin-bottom: 6px; }
-    .sources-related { margin-top: 8px; }
-    .sources-related a { color: var(--sage-dark); }
 
     footer {
       background: #1a365d;
@@ -230,6 +228,27 @@
     .foot-bottom { max-width:900px; margin:30px auto 0; padding-top:18px; border-top:1px solid rgba(255,255,255,0.14); font-size:12px; color:rgba(255,255,255,0.45); line-height:1.8; }
     @media (max-width:760px){ .foot-grid{ grid-template-columns:1fr 1fr; gap:24px; } }
     @media (max-width:440px){ .foot-grid{ grid-template-columns:1fr; } }
+
+    /* 延伸閱讀（條列式，2026-09-16 改版） */
+    .related-box { margin-top: 36px; padding-top: 22px; border-top: 2px solid #f0f0e8; }
+    .related-box h3 { font-size: 18px; font-weight: 800; color: var(--olive); margin-bottom: 12px; }
+    .related-list { margin: 0; padding-left: 20px; }
+    .related-list li { font-size: 15px; line-height: 1.75; margin-bottom: 10px; }
+    .related-list a { color: var(--sage-dark); text-decoration: none; font-weight: 600; }
+    .related-list a:hover { text-decoration: underline; }
+
+    /* 文末作者欄（大圖橫向版） */
+    .author-box { display:flex; gap:22px; align-items:center; background:var(--cream); border-left:3px solid var(--gold); border-radius:10px; padding:22px 24px; margin-top:36px; }
+    .author-photo { width:168px; height:168px; border-radius:10px; object-fit:cover; flex-shrink:0; }
+    .author-label { font-size:12px; font-weight:700; color:var(--gold); letter-spacing:1.5px; margin-bottom:5px; }
+    .author-name { font-size:21px; font-weight:800; color:var(--olive); margin-bottom:8px; }
+    .author-role { font-size:14px; color:var(--text); line-height:1.8; margin-bottom:10px; }
+    .author-link { font-size:14px; font-weight:700; color:var(--sage-dark); text-decoration:none; }
+    .author-link:hover { text-decoration:underline; }
+    @media (max-width:560px){
+      .author-box{ flex-direction:column; align-items:center; text-align:center; gap:16px; }
+      .author-photo{ width:210px; height:210px; }
+    }
   </style>
 </head>
 <body>
@@ -371,10 +390,27 @@
     </div>
   </div>
 
+  <div class="related-box">
+    <h3>延伸閱讀</h3>
+    <ul class="related-list">
+      <li><a href="acute-otitis-externa-guide.html">耳朵痛、癢又悶，是外耳炎嗎？「游水耳」的成因、正確用藥與危險警訊</a></li>
+      <li><a href="necrotizing-otitis-externa-skull-base-osteomyelitis-guide.html">耳朵痛到半夜睡不著，只是外耳炎嗎？糖尿病與免疫力低下者要當心的壞死性外耳炎與顱底骨髓炎</a></li>
+    </ul>
+  </div>
+
+  <div class="author-box">
+    <img class="author-photo" src="images/dr-chan-author.jpg" alt="詹士奇醫師">
+    <div>
+      <div class="author-label">本文作者</div>
+      <div class="author-name">詹士奇醫師</div>
+      <div class="author-role">耳鼻喉暨頭頸外科專科醫師<br>日和聯合診所院長</div>
+      <a class="author-link" href="../clinic-website/index.html#doctors">查看完整學經歷 →</a>
+    </div>
+  </div>
+
   <div class="sources">
     <div class="sources-label">參考文獻</div>
     UpToDate, "Otitis externa: Treatment" 與 "Malignant (necrotizing) otitis externa"；Management of Otomycosis: A Systematic Review and Meta-analysis, Otology &amp; Neurotology, 2025（局部治療根除率 &gt;70%，clotrimazole 根除率約 85%）；Pooled Analysis of 2 Randomized Clinical Trials, Clotrimazole 1% Otic Solution, Journal of Otolaryngology–Head &amp; Neck Surgery, 2025；Otomycosis With Tympanic Membrane Perforation: A Review of the Literature, Ear Nose Throat Journal, 2019（穿孔率 8–16%）；Fungal Malignant Otitis Externa: A Systematic Review, 2024（死亡率約 4%）；Antifungal Therapy of Aspergillus Invasive Otitis Externa: Efficacy of Voriconazole。
-    <div class="sources-related">延伸閱讀：<a href="acute-otitis-externa-guide.html">耳朵痛、癢又悶，是外耳炎嗎？「游水耳」的成因、正確用藥與危險警訊</a>｜<a href="necrotizing-otitis-externa-skull-base-osteomyelitis-guide.html">耳朵痛到半夜睡不著，只是外耳炎嗎？糖尿病與免疫力低下者要當心的壞死性外耳炎與顱底骨髓炎</a></div>
   </div>
 
 </div>

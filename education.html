@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>衛教總覽｜日和聯合診所</title>
+  <meta name="description" content="日和聯合診所衛教資料總覽：疫苗、鼻部與過敏、打鼾與睡眠、體重管理、兒童常見疾病，以及自我評估工具。">
+  <meta property="og:title" content="衛教總覽｜日和聯合診所">
+  <meta property="og:description" content="日和聯合診所衛教資料總覽：疫苗、鼻部與過敏、打鼾與睡眠、體重管理、兒童常見疾病，以及自我評估工具。">
+  <meta property="og:type" content="website">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --sage:#7a8c5c; --sage-dark:#5a6e38; --gold:#c8a830; --olive:#2e3318; --cream:#faf8f0; --text:#2d3748; --muted:#718096; }
+    html { scroll-behavior: smooth; }
+    body { font-family:-apple-system,"Helvetica Neue",Arial,sans-serif; color:var(--text); background:white; }
+
+    nav { position:sticky; top:0; background:white; border-bottom:1px solid #e2e8f0; z-index:100; padding:0 24px; display:flex; align-items:center; justify-content:space-between; height:56px; }
+    .nav-logo { font-size:16px; font-weight:700; color:#5a6e38; }
+    .nav-links { display:flex; gap:24px; }
+    .nav-links a { font-size:14px; color:var(--muted); text-decoration:none; }
+    .nav-links a:hover { color:var(--sage-dark); }
+    .nav-links a.active { color:var(--sage-dark); font-weight:700; }
+    @media (max-width:640px){ .nav-links{ gap:14px; } .nav-links a{ font-size:13px; } }
+
+    .hero { background:var(--cream); color:var(--olive); text-align:center; padding:48px 24px 40px; }
+    .hero-tag { display:inline-block; background:rgba(122,140,92,0.15); color:var(--sage-dark); border-radius:20px; padding:4px 14px; font-size:12px; letter-spacing:2px; margin-bottom:12px; font-weight:600; }
+    .hero h1 { font-size:28px; font-weight:800; margin-bottom:10px; letter-spacing:2px; }
+    .hero-divider { width:48px; height:2px; background:linear-gradient(90deg,var(--sage),var(--gold)); border-radius:2px; margin:0 auto 20px; }
+    .hero p { font-size:14px; color:#5a5a40; line-height:1.8; }
+
+    .container { max-width:680px; margin:0 auto; padding:34px 20px 60px; }
+
+    .edu-group { margin-bottom:34px; }
+    .edu-group h2 { font-size:17px; font-weight:800; color:var(--olive); margin-bottom:4px; }
+    .edu-group .grp-note { font-size:13px; color:var(--muted); margin-bottom:14px; line-height:1.7; }
+    .edu-cards { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+    @media (max-width:520px){ .edu-cards{ grid-template-columns:1fr; } }
+    .edu-card { display:block; border:1px solid #e2e8f0; border-radius:10px; padding:14px 16px; text-decoration:none; color:inherit; transition:border-color .15s, background .15s; }
+    .edu-card:hover { border-color:var(--sage); background:rgba(122,140,92,0.04); }
+    .edu-card .ec-title { font-size:15px; font-weight:700; color:var(--text); line-height:1.5; }
+    .edu-card:hover .ec-title { color:var(--sage-dark); }
+    .edu-card .ec-desc { font-size:12.5px; color:var(--muted); margin-top:4px; line-height:1.6; }
+    .edu-card.wide { grid-column:1 / -1; }
+    .edu-card.feature { border-color:var(--gold); background:rgba(200,168,48,0.06); }
+    .ec-badge { display:inline-block; font-size:11px; font-weight:700; color:var(--gold); letter-spacing:.5px; margin-bottom:4px; }
+
+    .notes-cta { border:1px solid #e2e8f0; border-radius:10px; padding:18px 20px; margin-top:6px; }
+    .notes-cta h3 { font-size:15px; font-weight:800; color:var(--olive); margin-bottom:6px; }
+    .notes-cta p { font-size:13px; color:var(--muted); line-height:1.75; margin-bottom:10px; }
+    .notes-cta a { font-size:14px; font-weight:700; color:var(--sage-dark); text-decoration:none; }
+    .notes-cta a:hover { text-decoration:underline; }
+
+    footer { background:#1a365d; color:rgba(255,255,255,0.62); padding:44px 24px 24px; font-size:13px; line-height:1.9; text-align:left; }
+    .foot-grid { max-width:900px; margin:0 auto; display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:30px; }
+    .foot-brand { font-size:17px; font-weight:800; color:#fff; margin-bottom:10px; }
+    .foot-rule { width:40px; height:2px; background:#c8a830; border-radius:2px; margin-bottom:14px; }
+    .foot-col h4 { font-size:13px; font-weight:700; color:#c8a830; margin-bottom:12px; letter-spacing:.5px; }
+    .foot-col a { display:block; color:rgba(255,255,255,0.68); text-decoration:none; margin-bottom:8px; }
+    .foot-col a:hover { color:#fff; }
+    .foot-bottom { max-width:900px; margin:30px auto 0; padding-top:18px; border-top:1px solid rgba(255,255,255,0.14); font-size:12px; color:rgba(255,255,255,0.45); line-height:1.8; }
+    @media (max-width:760px){ .foot-grid{ grid-template-columns:1fr 1fr; gap:24px; } }
+    @media (max-width:440px){ .foot-grid{ grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">日和聯合診所</div>
+  <div class="nav-links">
+    <a href="clinic-website/index.html#doctors">醫師</a>
+    <a href="clinic-website/index.html#services">服務</a>
+    <a href="clinic-website/index.html#hours">時間</a>
+    <a href="education.html" class="active">衛教</a>
+    <a href="medical-notes.html">筆記</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-tag">PATIENT EDUCATION</div>
+  <h1>衛教總覽</h1>
+  <div class="hero-divider"></div>
+  <p>診間常用的衛教說明與自我評估工具<br>看診前後都可以拿出來對照</p>
+</div>
+
+<div class="container">
+
+  <div class="edu-group">
+    <h2>疫苗</h2>
+    <div class="grp-note">帶狀疱疹、RSV、HPV、腸病毒 71 型的疫苗說明，都收在疫苗專區。</div>
+    <div class="edu-cards">
+      <a class="edu-card wide feature" href="vaccine-menu.html">
+        <span class="ec-badge">專區</span>
+        <div class="ec-title">疫苗專區</div>
+        <div class="ec-desc">欣剋疹（帶狀疱疹）、欣剋融（RSV）、嘉喜 9（HPV）、高端腸病毒 71 型</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="edu-group">
+    <h2>鼻部與過敏</h2>
+    <div class="grp-note">鼻塞、過敏性鼻炎的治療選擇與自我評估。</div>
+    <div class="edu-cards">
+      <a class="edu-card" href="nasal-surgery-education.html">
+        <div class="ec-title">過敏性鼻炎治療階段</div>
+        <div class="ec-desc">從藥物到手術，各階段的選擇與時機</div>
+      </a>
+      <a class="edu-card" href="nasal-assessment.html">
+        <div class="ec-title">鼻塞自我評估</div>
+        <div class="ec-desc">先評估嚴重度，再決定要不要進一步處理</div>
+      </a>
+      <a class="edu-card" href="pediatric-rhinitis-full.html">
+        <div class="ec-title">小兒鼻過敏（完整版）</div>
+        <div class="ec-desc">孩子鼻過敏的完整照護說明</div>
+      </a>
+      <a class="edu-card" href="pediatric-rhinitis-card.html">
+        <div class="ec-title">小兒鼻過敏（精簡版）</div>
+        <div class="ec-desc">重點濃縮，適合快速看過</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="edu-group">
+    <h2>打鼾與睡眠</h2>
+    <div class="grp-note">打鼾不只是吵，可能是睡眠呼吸中止症。</div>
+    <div class="edu-cards">
+      <a class="edu-card" href="snoring-adult-education.html">
+        <div class="ec-title">成人打鼾與睡眠呼吸中止症</div>
+        <div class="ec-desc">成因、檢查方式與治療選擇</div>
+      </a>
+      <a class="edu-card" href="snoring-child-education.html">
+        <div class="ec-title">小兒打鼾與睡眠呼吸中止症</div>
+        <div class="ec-desc">孩子打鼾要注意的地方，跟大人不一樣</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="edu-group">
+    <h2>體重管理</h2>
+    <div class="grp-note">猛健樂（Tirzepatide）的用藥說明，以及搭配的飲食與運動指南。</div>
+    <div class="edu-cards">
+      <a class="edu-card" href="mounjaro-education.html">
+        <div class="ec-title">猛健樂減重衛教</div>
+        <div class="ec-desc">機轉、適應症與使用方式</div>
+      </a>
+      <a class="edu-card" href="mounjaro-assessment.html">
+        <div class="ec-title">猛健樂用藥評估</div>
+        <div class="ec-desc">先評估自己適不適合</div>
+      </a>
+      <a class="edu-card" href="mounjaro-diet.html">
+        <div class="ec-title">減重飲食指南</div>
+        <div class="ec-desc">用藥期間的飲食重點</div>
+      </a>
+      <a class="edu-card" href="mounjaro-exercise.html">
+        <div class="ec-title">運動習慣指南</div>
+        <div class="ec-desc">保留肌肉量的運動安排</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="edu-group">
+    <h2>兒童常見疾病</h2>
+    <div class="edu-cards">
+      <a class="edu-card wide" href="enterovirus-education.html">
+        <div class="ec-title">認識腸病毒</div>
+        <div class="ec-desc">症狀、傳染方式與需要警覺的重症前兆</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="edu-group">
+    <h2>其他服務與工具</h2>
+    <div class="edu-cards">
+      <a class="edu-card" href="iv-therapy-education.html">
+        <div class="ec-title">點滴療法</div>
+        <div class="ec-desc">適用情況與注意事項</div>
+      </a>
+      <a class="edu-card" href="pefr-calculator.html">
+        <div class="ec-title">尖峰吐氣流速計算機</div>
+        <div class="ec-desc">氣喘居家監測用，換算你的預測值</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="notes-cta">
+    <h3>想看更深入的內容？</h3>
+    <p>衛教單張是診間的快速說明；醫學筆記收錄的是依文獻整理、會持續更新的完整長文。</p>
+    <a href="medical-notes.html">前往醫學筆記 →</a>
+  </div>
+
+</div>
+
+<footer>
+  <div class="foot-grid">
+    <div class="foot-col">
+      <div class="foot-brand">日和聯合診所</div>
+      <div class="foot-rule"></div>
+      耳鼻喉科・中醫科<br>
+      台南市鹽水區中正路 45 號<br>
+      06-6520182
+    </div>
+    <div class="foot-col">
+      <h4>網站內容</h4>
+      <a href="clinic-website/index.html#doctors">醫師介紹</a>
+      <a href="clinic-website/index.html#services">服務項目</a>
+      <a href="clinic-website/index.html#hours">門診時間</a>
+      <a href="clinic-website/index.html#contact">聯絡我們</a>
+    </div>
+    <div class="foot-col">
+      <h4>醫學筆記</h4>
+      <a href="medical-notes.html#ear">耳科</a>
+      <a href="medical-notes.html#nose">鼻科</a>
+      <a href="medical-notes.html#throat">喉科</a>
+      <a href="medical-notes.html#head-neck">頭頸</a>
+      <a href="medical-notes.html#chronic">慢性病</a>
+      <a href="medical-notes.html#pediatric">小兒常見疾病</a>
+    </div>
+    <div class="foot-col">
+      <h4>外部連結</h4>
+      <a href="https://lin.ee/ubEEzZv" target="_blank" rel="noopener">LINE 耳鼻喉科</a>
+      <a href="https://lin.ee/t6T6SqJ" target="_blank" rel="noopener">LINE 中醫</a>
+      <a href="https://www.facebook.com/profile.php?id=61584338163667" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://www.instagram.com/dr.jk347/" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    本站衛教資訊不能取代醫師面對面的診斷與治療。文章內容依發表當下的文獻整理，醫學建議可能隨新證據更新。<br>
+    © 2026 日和聯合診所
+  </div>
+</footer>
+
+</body>
+</html>
