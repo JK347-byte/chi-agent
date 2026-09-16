@@ -259,6 +259,14 @@
       .author-box{ flex-direction:column; align-items:center; text-align:center; gap:16px; }
       .author-photo{ width:210px; height:210px; }
     }
+
+    /* 導覽列手機版（2026-09-16，因加入「衛教」改為 6 項） */
+    @media (max-width:640px){
+      nav { padding: 0 14px; }
+      .nav-logo { font-size: 14px; }
+      .nav-links { gap: 12px; }
+      .nav-links a { font-size: 12.5px; }
+    }
   </style>
 </head>
 <body>
@@ -270,6 +278,7 @@
     <a href="../clinic-website/index.html#services">服務</a>
     <a href="../clinic-website/index.html#hours">時間</a>
     <a href="../clinic-website/index.html#contact">聯絡</a>
+    <a href="../education.html">衛教</a>
     <a href="../medical-notes.html" class="active">筆記</a>
   </div>
 </nav>
