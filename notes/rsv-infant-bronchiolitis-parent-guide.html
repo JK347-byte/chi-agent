@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>專門給爸媽的 RSV 呼吸道融合病毒全指南：從症狀辨識、檢查到居家照護｜日和聯合診所</title>
+  <meta name="description" content="RSV 幾乎每個孩子兩歲前都會感染。台灣沒有固定流行季，全年都可能感染。整理感冒與細支氣管炎的分辨、醫院檢查、為何不用類固醇與支氣管擴張劑、單株抗體預防，以及必須立刻就醫的警訊。">
+  <meta property="og:title" content="專門給爸媽的 RSV 呼吸道融合病毒全指南：從症狀辨識、檢查到居家照護｜日和聯合診所">
+  <meta property="og:description" content="RSV 幾乎每個孩子兩歲前都會感染。台灣不是冬季流行，南部高峰在4到7月。整理感冒與細支氣管炎的分辨、醫院檢查、為何不用類固醇與支氣管擴張劑、單株抗體預防，以及必須立刻就醫的警訊。">
+  <meta property="og:type" content="article">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --sage: #7a8c5c;
+      --sage-dark: #5a6e38;
+      --gold: #c8a830;
+      --olive: #2e3318;
+      --cream: #faf8f0;
+      --text: #2d3748;
+      --muted: #718096;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, "Helvetica Neue", Arial, sans-serif;
+      color: var(--text);
+      background: white;
+      line-height: 1.8;
+    }
+
+    nav {
+      position: sticky; top: 0; background: white;
+      border-bottom: 1px solid #e2e8f0; z-index: 100;
+      padding: 0 24px; display: flex; align-items: center;
+      justify-content: space-between; height: 56px;
+    }
+    .nav-logo { font-size: 16px; font-weight: 700; color: #5a6e38; }
+    .nav-links { display: flex; gap: 24px; }
+    .nav-links a { font-size: 14px; color: var(--muted); text-decoration: none; }
+    .nav-links a:hover { color: var(--sage-dark); }
+    .nav-links a.active { color: var(--sage-dark); font-weight: 700; }
+
+    .article-header {
+      background: var(--cream);
+      padding: 40px 24px 32px;
+      text-align: center;
+    }
+    .article-tag {
+      display: inline-block;
+      background: rgba(122,140,92,0.15);
+      color: var(--sage-dark);
+      border-radius: 20px;
+      padding: 4px 14px;
+      font-size: 12px;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+      font-weight: 600;
+    }
+    .article-header h1 {
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--olive);
+      line-height: 1.5;
+      margin-bottom: 14px;
+    }
+    .article-meta {
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .article-meta strong { color: var(--sage-dark); }
+
+    .container { max-width: 680px; margin: 0 auto; padding: 32px 20px 60px; }
+
+    /* 內容目錄 */
+    .toc-box {
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 18px 22px;
+      margin-bottom: 28px;
+    }
+    .toc-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--olive);
+      margin-bottom: 10px;
+    }
+    .toc-list { list-style: none; }
+    .toc-list li { counter-increment: toc-counter; margin-bottom: 6px; font-size: 14px; }
+    .toc-list { counter-reset: toc-counter; }
+    .toc-list li a {
+      color: var(--text);
+      text-decoration: none;
+    }
+    .toc-list li a:hover { color: var(--sage-dark); }
+    .toc-list li a::before {
+      content: counter(toc-counter) "　";
+      color: var(--sage-dark);
+      font-weight: 700;
+    }
+
+    /* TL;DR / 直接答案區塊 — GEO關鍵：前200字內給具體結論 */
+    .tldr-box {
+      background: rgba(200,168,48,0.08);
+      border-left: 3px solid var(--gold);
+      border-radius: 4px;
+      padding: 18px 20px;
+      margin-bottom: 32px;
+      font-size: 15px;
+      color: var(--text);
+    }
+    .tldr-box ul { margin: 10px 0 10px 20px; }
+    .tldr-box li { margin-bottom: 4px; }
+    .article-body h2 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--olive);
+      margin: 36px 0 14px;
+      padding-top: 4px;
+      border-top: 2px solid #f0f0e8;
+      padding-top: 20px;
+    }
+    .article-body h2:first-child { border-top: none; padding-top: 0; margin-top: 0; }
+    .article-body p {
+      font-size: 15px;
+      color: var(--text);
+      margin-bottom: 14px;
+    }
+
+    /* H2下方的重點提醒色塊 */
+    .highlight-box {
+      background: rgba(122,140,92,0.08);
+      border-left: 3px solid var(--sage-dark);
+      border-radius: 4px;
+      padding: 14px 16px;
+      margin-bottom: 16px;
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+    .highlight-box .highlight-icon { font-size: 15px; line-height: 1.6; }
+    .highlight-box .highlight-text {
+      font-size: 14px;
+      color: var(--sage-dark);
+      font-weight: 600;
+      line-height: 1.6;
+    }
+
+    /* 圖表／標註圖片容器（Stage 2 選用）— 兩種並列元件，用哪種見下方HTML範例註解 */
+    .chart-box {
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 16px 12px 12px;
+      margin-bottom: 18px;
+      overflow-x: auto;
+    }
+    .chart-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--olive);
+      margin-bottom: 8px;
+      padding: 0 6px;
+    }
+    .chart-box svg { display: block; min-width: 520px; width: 100%; height: auto; }
+    .chart-note {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 6px;
+      padding: 0 6px;
+    }
+    /* 方案A：真實/AI生成照片＋SVG標籤疊加，用在.chart-box內，viewBox比照圖片再加左側標籤欄寬度 */
+    .annotated-img svg { min-width: 560px; }
+
+    /* 資料表格元件（2026-09-16 新增）— 比較表／判斷表通用 */
+    .data-table-box { margin-bottom: 20px; }
+    .data-table-cap {
+      background: var(--cream);
+      border: 1px solid #e2e8f0;
+      border-bottom: none;
+      border-radius: 8px 8px 0 0;
+      padding: 10px 14px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--olive);
+      text-align: center;
+    }
+    .data-table-wrap { overflow-x: auto; border-radius: 0 0 8px 8px; }
+    .data-table { border-collapse: collapse; width: 100%; min-width: 520px; font-size: 14px; }
+    .data-table thead th {
+      background: var(--sage-dark);
+      color: #fff;
+      font-weight: 700;
+      text-align: left;
+      padding: 11px 13px;
+      font-size: 13.5px;
+    }
+    .data-table th.rowhead, .data-table td.rowhead {
+      font-weight: 700;
+      color: var(--olive);
+      background: rgba(122,140,92,0.07);
+      white-space: nowrap;
+    }
+    .data-table td {
+      padding: 11px 13px;
+      border-bottom: 1px solid #e8eadf;
+      color: var(--text);
+      vertical-align: top;
+      line-height: 1.7;
+    }
+    .data-table tbody tr:nth-child(even) td { background: rgba(122,140,92,0.035); }
+    .data-table tbody tr:last-child td { border-bottom: none; }
+    /* 需要特別強調的那一列（一張表最多用一次）
+       只用底色區分，不加任何額外框線——框線不一致會干擾閱讀 */
+    .data-table tr.row-emphasis td {
+      background: rgba(200,168,48,0.13) !important;
+    }
+    .data-table-note { font-size: 11px; color: var(--muted); margin-top: 6px; padding: 0 2px; }
+
+    /* 參考文獻清單（2026-09-16 改版）— 編號、可點標題、DOI 獨立一行 */
+    .ref-list { margin: 8px 0 0 0; padding-left: 20px; }
+    .ref-list li { margin-bottom: 12px; line-height: 1.75; }
+    .ref-list a { color: var(--sage-dark); }
+    .ref-doi { display: block; font-size: 11px; color: var(--muted); margin-top: 2px; }
+
+    /* FAQ 區塊 — Q&A格式利於AI引擎抓取 */
+    .faq-section {
+      margin-top: 40px;
+      padding-top: 28px;
+      border-top: 2px solid #f0f0e8;
+    }
+    .faq-section h2 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--olive);
+      margin-bottom: 18px;
+    }
+    .faq-item { margin-bottom: 18px; }
+    .faq-q {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--sage-dark);
+      margin-bottom: 6px;
+    }
+    .faq-a {
+      font-size: 14px;
+      color: var(--text);
+    }
+
+    /* 結論區塊 — 跟內文H2段落明顯區隔，四邊框+底色，文字簡潔 */
+    .conclusion-box {
+      background: rgba(200,168,48,0.08);
+      border: 1px solid var(--gold);
+      border-radius: 8px;
+      padding: 24px 24px 22px;
+      margin-top: 40px;
+    }
+    .conclusion-box h2 {
+      font-size: 19px;
+      font-weight: 800;
+      color: var(--olive);
+      margin-bottom: 14px;
+      border-top: none;
+      padding-top: 0;
+    }
+    .conclusion-box ul { margin: 0 0 14px 20px; }
+    .conclusion-box li {
+      font-size: 15px;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+    .conclusion-cta {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--sage-dark);
+    }
+
+    /* 出處/文獻來源 */
+    .sources {
+      margin-top: 36px;
+      padding-top: 20px;
+      border-top: 1px solid #f0f0e8;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .sources-label { font-weight: 700; color: var(--sage-dark); margin-bottom: 6px; }
+
+    footer {
+      background: #1a365d;
+      color: rgba(255,255,255,0.6);
+      text-align: center;
+      padding: 32px 24px;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+    footer strong { color: white; }
+
+    /* 導覽列手機版（因加入「衛教」為 6 項） */
+    @media (max-width:640px){
+      nav { padding: 0 14px; }
+      .nav-logo { font-size: 14px; }
+      .nav-links { gap: 12px; }
+      .nav-links a { font-size: 12.5px; }
+    }
+
+    /* 延伸閱讀（條列式） */
+    .related-box { margin-top: 36px; padding-top: 22px; border-top: 2px solid #f0f0e8; }
+    .related-box h3 { font-size: 18px; font-weight: 800; color: var(--olive); margin-bottom: 12px; }
+    .related-list { margin: 0; padding-left: 20px; }
+    .related-list li { font-size: 15px; line-height: 1.75; margin-bottom: 10px; }
+    .related-list a { color: var(--sage-dark); text-decoration: none; font-weight: 600; }
+    .related-list a:hover { text-decoration: underline; }
+
+    /* 文末作者欄 */
+    .author-box { display:flex; gap:22px; align-items:center; background:var(--cream); border-left:3px solid var(--gold); border-radius:10px; padding:22px 24px; margin-top:36px; }
+    .author-photo { width:168px; height:168px; border-radius:10px; object-fit:cover; flex-shrink:0; }
+    .author-label { font-size:12px; font-weight:700; color:var(--gold); letter-spacing:1.5px; margin-bottom:5px; }
+    .author-name { font-size:21px; font-weight:800; color:var(--olive); margin-bottom:8px; }
+    .author-role { font-size:14px; color:var(--text); line-height:1.8; margin-bottom:10px; }
+    .author-link { font-size:14px; font-weight:700; color:var(--sage-dark); text-decoration:none; }
+    .author-link:hover { text-decoration:underline; }
+    @media (max-width:560px){
+      .author-box{ flex-direction:column; align-items:center; text-align:center; gap:16px; }
+      .author-photo{ width:210px; height:210px; }
+    }
+
+    /* 四欄頁尾 */
+    footer { background:#1a365d; color:rgba(255,255,255,0.62); padding:44px 24px 24px; font-size:13px; line-height:1.9; text-align:left; }
+    .foot-grid { max-width:900px; margin:0 auto; display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:30px; }
+    .foot-brand { font-size:17px; font-weight:800; color:#fff; margin-bottom:10px; }
+    .foot-rule { width:40px; height:2px; background:#c8a830; border-radius:2px; margin-bottom:14px; }
+    .foot-col h4 { font-size:13px; font-weight:700; color:#c8a830; margin-bottom:12px; letter-spacing:.5px; }
+    .foot-col a { display:block; color:rgba(255,255,255,0.68); text-decoration:none; margin-bottom:8px; }
+    .foot-col a:hover { color:#fff; }
+    .foot-bottom { max-width:900px; margin:30px auto 0; padding-top:18px; border-top:1px solid rgba(255,255,255,0.14); font-size:12px; color:rgba(255,255,255,0.45); line-height:1.8; }
+    @media (max-width:760px){ .foot-grid{ grid-template-columns:1fr 1fr; gap:24px; } }
+    @media (max-width:440px){ .foot-grid{ grid-template-columns:1fr; } }
+
+    /* ── 右側固定社群列（2026-09-16）── */
+    .social-rail { position:fixed; right:16px; top:50%; transform:translateY(-50%); display:flex; flex-direction:column; gap:10px; z-index:200; }
+    .sr-btn { width:48px; height:48px; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 2px 8px rgba(0,0,0,.12); transition:transform .15s, box-shadow .15s, opacity .18s; border:none; padding:0; cursor:pointer; text-decoration:none; opacity:.5; }
+    .sr-btn:hover { transform:translateY(-2px); box-shadow:0 5px 16px rgba(0,0,0,.26); opacity:1; }
+    .sr-btn svg { width:26px; height:26px; display:block; }
+    .sr-line { background:#06C755; }
+    .sr-fb   { background:#1877F2; }
+    .sr-ig   { background:linear-gradient(45deg,#F58529,#DD2A7B,#8134AF,#515BD4); }
+    .sr-top  { background:rgba(46,51,24,.78); opacity:0; pointer-events:none; transition:opacity .25s; }
+    .sr-top.show { opacity:.5; }
+    .sr-top.show { pointer-events:auto; }
+    @media (max-width:760px){
+      .social-rail { right:10px; top:auto; bottom:16px; transform:none; gap:8px; }
+      .sr-btn { width:40px; height:40px; box-shadow:0 2px 8px rgba(0,0,0,.22); }
+      .sr-btn svg { width:21px; height:21px; }
+    }
+
+    .hook-line { font-size:14px; color:var(--sage-dark); font-weight:600; margin:-18px 0 28px; padding:0 2px; }
+    .tldr-box { margin-bottom:14px; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">日和聯合診所</div>
+  <div class="nav-links">
+    <a href="../clinic-website/index.html#doctors">醫師</a>
+    <a href="../clinic-website/index.html#services">服務</a>
+    <a href="../clinic-website/index.html#hours">時間</a>
+    <a href="../clinic-website/index.html#contact">聯絡</a>
+    <a href="../education.html">衛教</a>
+    <a href="../medical-notes.html" class="active">筆記</a>
+  </div>
+</nav>
+
+<div class="article-header">
+  <div class="article-tag">小兒常見疾病</div>
+  <h1>專門給爸媽的 RSV 呼吸道融合病毒全指南：從症狀辨識、檢查到居家照護</h1>
+  <div class="article-meta">詹士奇醫師撰文 · <strong>2026-09-16 最後更新</strong></div>
+</div>
+
+<div class="container">
+
+  <div class="toc-box">
+    <div class="toc-header"><span>📑</span><span>內容目錄</span></div>
+    <ol class="toc-list">
+      <li><a href="#sec-1">什麼是 RSV？為什麼幾乎每個孩子都會得</a></li>
+      <li><a href="#sec-2">是普通感冒還是 RSV？怎麼分辨</a></li>
+      <li><a href="#sec-3">懷疑感染時，醫院會做哪些檢查</a></li>
+      <li><a href="#sec-4">治療：為什麼醫師說「只能支持性照護」</a></li>
+      <li><a href="#sec-5">預防：單株抗體是什麼、我的孩子需要打嗎</a></li>
+      <li><a href="#sec-6">居家照護與危險警訊：什麼時候要立刻就醫</a></li>
+      <li><a href="#sec-concl">結論：孩子感染 RSV，爸媽該掌握什麼？</a></li>
+      <li><a href="#sec-faq">常見問題</a></li>
+    </ol>
+  </div>
+
+  <div class="tldr-box">
+    <ul>
+      <li>RSV 不是能躲掉的病。<strong>幾乎所有孩子在兩歲前都至少感染過一次</strong>，而且重複感染很常見。台灣每年約有 1,000 名嬰幼兒因此住院，其中九成是兩歲以下。</li>
+      <li><strong>台灣沒有固定的流行季</strong>，全年都可能感染。國內研究顯示疫情前以 7 到 9 月較高，2020 年之後轉為 9 到 12 月較集中。</li>
+      <li>沒有特效藥。支氣管擴張劑與類固醇<strong>不建議常規使用</strong>——它們或許能緩解當下不適，但無法縮短病程。治療核心仍是維持呼吸順暢與補充水分。</li>
+      <li>高風險寶寶可以用長效單株抗體預防重症，台灣 2025 年 2 月上市，<strong>目前為自費項目</strong>。</li>
+    </ul>
+  </div>
+
+  <div class="hook-line">RSV 躲不掉，但重症躲得掉。爸媽真正要學會的是判斷「這次會不會變嚴重」。</div>
+
+  <div class="article-body">
+    <h2 id="sec-1">什麼是 RSV？為什麼幾乎每個孩子都會得</h2>
+    <p>門診常遇到爸媽拿著檢驗報告問：「醫師，RSV 是不是很嚴重的病毒？我們是不是太不小心了？」</p>
+    <p>呼吸道融合病毒（Respiratory Syncytial Virus，簡稱 RSV）是一種會引起各年齡層急性呼吸道感染的病毒。它最重要的特性是：<strong>傳染力極強，而且感染過不會終身免疫</strong>。</p>
+    <div class="highlight-box"><span class="highlight-icon">💡</span><span class="highlight-text">幾乎所有兒童在兩歲以前都至少感染過一次 RSV，重複感染也非常常見。它同時是一歲以下嬰幼兒發生下呼吸道感染（也就是「細支氣管炎」）最常見的原因。孩子中招，不代表你們照顧得不夠好。</span></div>
+    <p>另外有一件事必須修正常見的誤解：<strong>在台灣，RSV 沒有固定的流行季</strong>。</p>
+    <p>國外資料常寫「10 月到隔年 5 月流行、1 到 2 月是高峰」，那是北半球溫帶地區的模式，直接套用到台灣並不準確。台灣屬於亞熱帶，全年都可能感染，而且流行型態這幾年還發生了變化。</p>
+    <div class="highlight-box"><span class="highlight-icon">💡</span><span class="highlight-text">一份涵蓋 2015 到 2023 年的國內多中心研究發現：<strong>疫情之前，RSV 全年流行、以 7 到 9 月相對較高；2020 年之後轉為 9 到 12 月較集中，而且全國趨於同步</strong>。也就是說，「冬天才要小心」和「某幾個月才會流行」都不成立，任何時候孩子出現相關症狀都值得留意。</span></div>
+
+
+    <h2 id="sec-2">是普通感冒還是 RSV？怎麼分辨</h2>
+    <p>老實說，<strong>光看症狀分不出來</strong>。RSV 一開始就是流鼻水、咳嗽、發燒，跟感冒一模一樣。副流感病毒、人類偏肺病毒、流感、鼻病毒、腺病毒也都會這樣。</p>
+    <p>真正的差別不在「像不像感冒」，而在<strong>會不會往下走</strong>——是否從上呼吸道進展到下呼吸道，變成細支氣管炎。</p>
+
+    <div class="data-table-box">
+      <div class="data-table-cap">表1．普通感冒與 RSV 細支氣管炎的差別</div>
+      <div class="data-table-wrap">
+        <table class="data-table">
+          <colgroup><col style="width:22%"><col style="width:39%"><col style="width:39%"></colgroup>
+          <thead><tr><th></th><th>一般感冒</th><th>RSV 進展成細支氣管炎</th></tr></thead>
+          <tbody>
+            <tr>
+              <td class="rowhead">病程走向</td>
+              <td>症狀多在鼻子和喉嚨，幾天後慢慢好轉</td>
+              <td>前 2–3 天像感冒，之後咳嗽變密集、呼吸變喘</td>
+            </tr>
+            <tr class="row-emphasis">
+              <td class="rowhead">呼吸聲</td>
+              <td>沒有特別的呼吸聲</td>
+              <td>聽到<strong>咻咻的喘鳴聲</strong>，或痰音明顯；呼吸變快變費力</td>
+            </tr>
+            <tr>
+              <td class="rowhead">胃口活力</td>
+              <td>食慾稍差但仍願意喝奶</td>
+              <td>喝奶喝一半就累、要停下來喘氣，活力明顯下降</td>
+            </tr>
+            <tr>
+              <td class="rowhead">小寶寶的特殊表現</td>
+              <td>—</td>
+              <td>未滿 2 個月或早產兒，<strong>「呼吸暫停」可能是最早、甚至唯一的表現</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="data-table-note">年紀較大的孩子或大人重複感染時，症狀通常就只是一般感冒的程度。</div>
+    </div>
+
+
+
+    <div class="highlight-box"><span class="highlight-icon">💡</span><span class="highlight-text">未滿兩個月的嬰兒與早產兒要特別注意：他們可能不咳不喘，而是直接出現「呼吸暫停」——呼吸停頓好幾秒、臉色變差。這種情況不用等其他症狀，直接送醫。</span></div>
+
+    <h2 id="sec-3">懷疑感染時，醫院會做哪些檢查</h2>
+    <p>檢查分兩個部分，而且多數情況下不會讓孩子太不舒服。</p>
+    <p><strong>理學檢查</strong>：醫師會用聽診器仔細聽肺部，確認有沒有喘鳴聲或濕囉音，同時觀察呼吸的樣子——會不會太快、肋骨下方或胸骨有沒有凹陷、鼻翼有沒有搧動。這些是判斷「有沒有呼吸窘迫」最直接的依據。</p>
+    <div class="chart-box">
+      <div class="chart-title">圖1．孩子呼吸變費力時，要看這四個位置</div>
+      <div class="annotated-img">
+        <svg viewBox="0 0 1330 560" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <image x="0" y="0" width="1000" height="545" xlink:href="images/rsv-retraction-signs.jpg" href="images/rsv-retraction-signs.jpg"/>
+          <line x1="1010" y1="90" x2="302" y2="228" stroke="#5a6e38" stroke-width="2"/>
+          <circle cx="302" cy="228" r="7" fill="none" stroke="#5a6e38" stroke-width="3"/>
+          <circle cx="302" cy="228" r="2.5" fill="#5a6e38"/>
+          <rect x="1010" y="60" width="300" height="60" rx="7" fill="#ffffff" stroke="#7a8c5c" stroke-width="1.6"/>
+          <text x="1026" y="87" font-size="20" font-weight="800" fill="#2e3318" font-family="-apple-system,'PingFang TC','Helvetica Neue',Arial,sans-serif">鼻翼</text>
+          <text x="1026" y="109" font-size="15" fill="#718096" font-family="-apple-system,'PingFang TC','Helvetica Neue',Arial,sans-serif">呼吸費力時會一張一縮</text>
+          <line x1="1010" y1="190" x2="500" y2="235" stroke="#5a6e38" stroke-width="2"/>
+          <circle cx="500" cy="235" r="7" fill="none" stroke="#5a6e38" stroke-width="3"/>
+          <circle cx="500" cy="235" r="2.5" fill="#5a6e38"/>
+          <rect x="1010" y="160" width="300" height="60" rx="7" fill="#ffffff" stroke="#7a8c5c" stroke-width="1.6"/>
+          <text x="1026" y="187" font-size="20" font-weight="800" fill="#2e3318" font-family="-apple-system,'PingFang TC','Helvetica Neue',Arial,sans-serif">胸骨上窩</text>
+          <text x="1026" y="209" font-size="15" fill="#718096" font-family="-apple-system,'PingFang TC','Helvetica Neue',Arial,sans-serif">喉嚨下方、鎖骨中間</text>
+          <line x1="1010" y1="290" x2="660" y2="290" stroke="#5a6e38" stroke-width="2"/>
+          <circle cx="660" cy="290" r="7" fill="none" stroke="#5a6e38" stroke-width="3"/>
+          <circle cx="660" cy="290" r="2.5" fill="#5a6e38"/>
+          <rect x="1010" y="260" width="300" height="60" rx="7" fill="#ffffff" stroke="#7a8c5c" stroke-width="1.6"/>
+          <text x="1026" y="287" font-size="20" font-weight="800" fill="#2e3318" font-family="-apple-system,'PingFang TC','Helvetica Neue',Arial,sans-serif">肋骨之間</text>
+          <text x="1026" y="309" font-size="15" fill="#718096" font-family="-apple-system,'PingFang TC','Helvetica Neue',Arial,sans-serif">會出現一條條凹溝</text>
+          <line x1="1010" y1="390" x2="790" y2="288" stroke="#5a6e38" stroke-width="2"/>
+          <circle cx="790" cy="288" r="7" fill="none" stroke="#5a6e38" stroke-width="3"/>
+          <circle cx="790" cy="288" r="2.5" fill="#5a6e38"/>
+          <rect x="1010" y="360" width="300" height="60" rx="7" fill="#ffffff" stroke="#7a8c5c" stroke-width="1.6"/>
+          <text x="1026" y="387" font-size="20" font-weight="800" fill="#2e3318" font-family="-apple-system,'PingFang TC','Helvetica Neue',Arial,sans-serif">肋骨下緣</text>
+          <text x="1026" y="409" font-size="15" fill="#718096" font-family="-apple-system,'PingFang TC','Helvetica Neue',Arial,sans-serif">向內凹、肚子相對鼓起</text>
+        </svg>
+      </div>
+      <div class="chart-note">圖上標示的是「要觀察的位置」。實際出現呼吸窘迫時，這幾處會隨著每一次吸氣明顯向內凹陷，肚子則相對鼓起。示意圖，AI 繪製，非真實病人。</div>
+    </div>
+
+    <p><strong>採檢與化驗</strong>：確診需要採集呼吸道分泌物，方式是鼻咽拭子或鼻腔沖洗液。</p>
+    <ul>
+      <li><strong>核酸檢測（PCR）</strong>：目前的黃金標準，敏感度最高，而且<strong>不會受到先前打過單株抗體的影響</strong>。</li>
+      <li><strong>快速抗原篩檢</strong>：約 30 分鐘就有結果，在兒童身上準確度還不錯，但敏感度略低於 PCR。要注意的是，<strong>如果孩子先前打過 RSV 單株抗體，快篩可能出現偽陰性</strong>。</li>
+      <li><strong>抽血驗抗體</strong>：對急性期診斷沒有幫助，因為嬰兒體內常有來自媽媽的抗體殘留，會干擾判讀。</li>
+    </ul>
+    <div class="highlight-box"><span class="highlight-icon">💡</span><span class="highlight-text">要不要驗，取決於結果會不會改變處置。多數輕症孩子驗出來也是支持性照護，不一定需要採檢；但若孩子年紀很小、有慢性病、或需要住院評估，確認病原就很有意義。</span></div>
+
+    <h2 id="sec-4">治療：為什麼醫師說「只能支持性照護」</h2>
+    <p>很多爸媽聽到「沒有特效藥、回家多喝水多休息」會覺得被敷衍。這裡想把原因講清楚。</p>
+    <p>細支氣管炎的核心問題是<strong>細小支氣管被發炎的黏液塞住</strong>，不是氣管痙攣。這跟氣喘的機轉不一樣，所以對氣喘有效的藥，在這裡作用有限。</p>
+    <div class="chart-box">
+      <div class="chart-title">圖2．同樣是「呼吸變喘」，氣喘與細支氣管炎塞住的原因不一樣</div>
+      <div class="annotated-img">
+        <svg viewBox="0 0 1100 700" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <image x="0" y="0" width="1100" height="600" xlink:href="images/rsv-airway-comparison.jpg" href="images/rsv-airway-comparison.jpg"/>
+          <rect x="20" y="612" width="510" height="72" rx="8" fill="#ffffff" stroke="#7a8c5c" stroke-width="1.8"/>
+          <text x="275" y="640" font-size="21" font-weight="800" fill="#2e3318" text-anchor="middle" font-family="-apple-system,'PingFang TC','Helvetica Neue',Arial,sans-serif">氣喘</text>
+          <text x="275" y="668" font-size="17" fill="#2d3748" text-anchor="middle" font-family="-apple-system,'PingFang TC','Helvetica Neue',Arial,sans-serif">管壁的肌肉收縮，把管腔夾窄（管腔是乾淨的）</text>
+          <rect x="570" y="612" width="510" height="72" rx="8" fill="#ffffff" stroke="#c65d5d" stroke-width="1.8"/>
+          <text x="825" y="640" font-size="21" font-weight="800" fill="#c65d5d" text-anchor="middle" font-family="-apple-system,'PingFang TC','Helvetica Neue',Arial,sans-serif">細支氣管炎</text>
+          <text x="825" y="668" font-size="17" fill="#2d3748" text-anchor="middle" font-family="-apple-system,'PingFang TC','Helvetica Neue',Arial,sans-serif">管壁沒收縮，是管腔被黏液和細胞碎屑塞住</text>
+        </svg>
+      </div>
+      <div class="chart-note">支氣管擴張劑的作用是放鬆管壁的肌肉。右邊這種情況肌肉本來就沒有收縮，所以效果有限。解剖示意圖，AI 繪製，非真實影像。</div>
+    </div>
+
+    <div class="highlight-box"><span class="highlight-icon">💡</span><span class="highlight-text">美國兒科醫學會的臨床指引<strong>不建議常規使用</strong>全身性類固醇與支氣管擴張劑。關鍵的一句是：這些藥物<strong>無法縮短病程、無法減少住院、也無法縮短住院天數</strong>。</span></div>
+    <p>不過在實際臨床上，醫師仍可能視孩子當下的狀況使用支氣管擴張劑等藥物，目的是<strong>緩解當下的不適</strong>，而不是加速痊癒。這是醫師依個別病況做的判斷，跟指引不建議「常規」使用並不衝突。</p>
+    <p>所以真正有效的治療是這幾件事，聽起來樸素但確實是關鍵：</p>
+    <ul>
+      <li><strong>清理鼻腔</strong>：嬰兒主要用鼻子呼吸，鼻塞會直接影響喝奶與睡眠。生理食鹽水加上吸鼻器，是最有實質幫助的動作。</li>
+      <li><strong>少量多餐</strong>：喝奶會喘的孩子，把單次奶量減少、增加次數，比硬要喝完一餐有用。</li>
+      <li><strong>維持水分</strong>：發燒和呼吸急促都會流失水分，脫水會讓痰更黏更難清。</li>
+      <li><strong>必要時給氧或住院</strong>：血氧偏低或喝不下時，醫院能提供氧氣與點滴支持，這才是住院真正的價值。</li>
+    </ul>
+
+    <h2 id="sec-5">預防：單株抗體是什麼、我的孩子需要打嗎</h2>
+    <p>既然感染躲不掉、治療也沒有特效藥，這幾年最大的改變其實發生在預防端。</p>
+    <p>長效型 RSV 單株抗體（商品名樂唯初，成分 Nirsevimab）不是疫苗，而是<strong>直接把現成的抗體打進孩子體內</strong>。疫苗要等身體自己產生免疫反應，單株抗體則是打完就有保護力，適合免疫系統還不成熟的小嬰兒。</p>
+    <div class="highlight-box"><span class="highlight-icon">💡</span><span class="highlight-text">它預防的是<strong>重症</strong>，不是讓孩子完全不會感染。目標是降低因 RSV 導致下呼吸道感染而需要住院的風險。</span></div>
+    <p>台灣的現況必須誠實說明：</p>
+    <ul>
+      <li><strong>2025 年 2 月在台上市</strong>，出生後即可施打。</li>
+      <li><strong>目前為自費項目</strong>，費用請向診所或院所洽詢。</li>
+      <li>疾管署已在 2024、2025 年兩度將它送交 ACIP（傳染病防治諮詢會預防接種組）討論，<strong>目前仍維持「經醫師評估後自費施打」為原則</strong>。</li>
+      <li>特別建議評估的族群：<strong>早產兒、先天性心臟病、慢性肺部疾病</strong>等重症高風險嬰兒。</li>
+    </ul>
+    <p>換句話說，這是一個效果明確、但需要自費的選擇。如果你的孩子屬於高風險族群，值得進一步跟醫師討論；如果是足月健康的寶寶，就是評估家庭狀況後的個人選擇，沒有標準答案。</p>
+
+    <h2 id="sec-6">居家照護與危險警訊：什麼時候要立刻就醫</h2>
+    <p>多數孩子在家照顧就會慢慢好轉。病程通常在<strong>第 3 到 5 天最喘</strong>，之後逐漸改善，咳嗽則可能拖上兩三週。</p>
+    <p>爸媽的任務不是治好它，而是在對的時間發現不對勁。</p>
+
+    <div class="data-table-box">
+      <div class="data-table-cap">表2．RSV 居家觀察：什麼情況可以再看、什麼情況不要等</div>
+      <div class="data-table-wrap">
+        <table class="data-table">
+          <colgroup><col style="width:33.3%"><col style="width:33.3%"><col style="width:33.4%"></colgroup>
+          <thead><tr><th>可以在家繼續觀察</th><th>安排回診</th><th>不要等，立刻就醫或掛急診</th></tr></thead>
+          <tbody>
+            <tr>
+              <td>流鼻水、咳嗽，但喝奶和活力都正常</td>
+              <td>咳嗽越來越密集，睡眠受影響</td>
+              <td><strong>呼吸每分鐘超過 60 次</strong></td>
+            </tr>
+            <tr>
+              <td>發燒但退燒後精神還不錯</td>
+              <td>喝奶量減少，但還沒到喝不下</td>
+              <td>呼吸時<strong>胸骨或肋骨下方明顯凹陷</strong>、鼻翼搧動</td>
+            </tr>
+            <tr>
+              <td>咳嗽持續但一天比一天少</td>
+              <td>出現咻咻的喘鳴聲，但活力尚可</td>
+              <td><strong>嘴唇或臉色發紫、發黑</strong></td>
+            </tr>
+            <tr>
+              <td>—</td>
+              <td><strong>發燒超過 5 天</strong>，或退燒後精神仍明顯不好</td>
+              <td><strong>呼吸暫停</strong>、活動力極差叫不太有反應</td>
+            </tr>
+            <tr>
+              <td>—</td>
+              <td>—</td>
+              <td><strong>餵食困難或脫水</strong>（尿布 6–8 小時以上沒濕、哭時沒眼淚）</td>
+            </tr>
+            <tr>
+              <td>—</td>
+              <td>—</td>
+              <td><strong>未滿 3 個月的嬰兒只要發燒</strong>（不用等其他症狀）</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="data-table-note">未滿 2 個月的嬰兒與早產兒，判斷標準要比上表更寬鬆——有疑慮就直接就醫，不要在家等。</div>
+    </div>
+
+    <p>關於併發症，需要知道但不必過度恐慌：最常見的是<strong>嚴重細支氣管炎與急性呼吸衰竭</strong>，小嬰兒則要特別防範呼吸暫停。心臟、神經系統的肺外併發症（如心肌受損、抽搐、腦病變）確實存在，但發生率低於百分之一，屬於重症才會出現的情況。</p>
+    <p>另外有一點值得先讓爸媽知道：<strong>部分孩子感染後會出現反覆喘鳴</strong>，在往後幾年碰到感冒時比較容易咻咻叫。這不等於氣喘，但如果反覆發生，值得回診評估。</p>
+  </div>
+
+  <div class="conclusion-box" id="sec-concl">
+    <h2>結論：孩子感染 RSV，爸媽該掌握什麼？</h2>
+    <ul>
+      <li>RSV <strong>躲不掉</strong>，兩歲前幾乎人人都會感染，孩子中招不是照顧不周</li>
+      <li>台灣<strong>沒有固定流行季</strong>，全年都可能感染；2020 年後流行型態已從夏秋轉為 9 到 12 月較集中</li>
+      <li>光看症狀分不出感冒或 RSV，關鍵在<strong>會不會往下走</strong>：呼吸變喘、喝奶會累、聽到喘鳴聲</li>
+      <li>沒有特效藥。類固醇與支氣管擴張劑<strong>不建議常規使用</strong>，醫師可能視狀況用來緩解症狀，但不會縮短病程；清鼻子、少量多餐、維持水分才是重點</li>
+      <li>高風險寶寶可考慮長效單株抗體預防重症，台灣<strong>目前為自費項目</strong></li>
+      <li>病程第 3 到 5 天最喘，這幾天要看得最緊</li>
+    </ul>
+    <p class="conclusion-cta">呼吸每分鐘超過 60 次、胸骨肋骨下方凹陷、嘴唇發紫、呼吸暫停、或是喝不下奶超過半天——出現任何一項，不要在家再觀察，直接就醫。</p>
+  </div>
+
+  <div class="faq-section" id="sec-faq">
+    <h2>常見問題</h2>
+    <div class="faq-item">
+      <div class="faq-q">孩子得過 RSV 了，之後就不會再得了嗎？</div>
+      <div class="faq-a">會再得。RSV 感染後的免疫力不完整也不持久，重複感染很常見。好消息是，多數孩子第二次以後的症狀會比第一次輕，通常就是一般感冒的程度。真正需要擔心重症的，主要是第一次感染的小嬰兒。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">醫師說不用吃藥，只要回家照顧，這樣真的可以嗎？</div>
+      <div class="faq-a">可以。細支氣管炎的問題是細小支氣管被黏液塞住，不是氣管痙攣，所以支氣管擴張劑和類固醇的效果有限，國際指引也不建議常規使用。醫師有時仍會視狀況開藥來緩解當下的不適，但那不會縮短病程。真正有幫助的是清鼻腔、少量多餐、維持水分，以及在對的時間辨識出需要就醫的徵兆。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">單株抗體那麼貴，一定要打嗎？</div>
+      <div class="faq-a">不是每個孩子都必須打。它預防的是重症住院，對早產兒、先天性心臟病、慢性肺部疾病的寶寶效益最明顯，這類族群建議跟醫師討論。足月健康的寶寶則屬於個人選擇，目前台灣仍是自費項目，實際費用請向院所洽詢。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">打過單株抗體之後，快篩會不會驗不出來？</div>
+      <div class="faq-a">有可能。快速抗原篩檢在打過單株抗體後可能出現偽陰性。如果孩子打過而醫師仍高度懷疑 RSV，會改用核酸檢測（PCR），因為 PCR 不受單株抗體干擾。記得主動告訴醫師孩子打過，這會影響檢驗方式的選擇。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">咳嗽已經兩個星期還沒好，正常嗎？</div>
+      <div class="faq-a">相對常見。RSV 造成的咳嗽拖兩到三週並不少見，只要咳嗽的頻率一天比一天少、孩子活力和食慾正常，多半是恢復過程。但如果咳嗽再度加劇、重新開始發燒，或出現呼吸急促，就需要回診重新評估。</div>
+    </div>
+  </div>
+
+  <div class="related-box">
+    <h3>延伸閱讀</h3>
+    <ul class="related-list">
+      <li><a href="nasal-flu-vaccine-for-children.html">鼻噴流感疫苗適合我的孩子嗎？效期、禁忌與注意事項</a></li>
+      <li><a href="pediatric-acute-otitis-media-guide.html">孩子耳朵痛是中耳炎嗎？什麼時候一定要吃抗生素？</a></li>
+      <li><a href="../arexvy-education.html">欣剋融 RSV 疫苗（成人／長者適用）</a></li>
+    </ul>
+  </div>
+
+  <div class="author-box">
+    <img class="author-photo" src="images/dr-chan-author.jpg" alt="詹士奇醫師">
+    <div>
+      <div class="author-label">本文作者</div>
+      <div class="author-name">詹士奇醫師</div>
+      <div class="author-role">耳鼻喉暨頭頸外科專科醫師<br>日和聯合診所院長</div>
+      <a class="author-link" href="../clinic-website/index.html#doctors">查看完整學經歷 →</a>
+    </div>
+  </div>
+
+  <div class="sources">
+    <div class="sources-label">參考文獻</div>
+    <ol class="ref-list">
+      <li>Ralston SL, et al. <a href="https://doi.org/10.1542/peds.2014-2742" target="_blank" rel="noopener">Clinical Practice Guideline: The Diagnosis, Management, and Prevention of Bronchiolitis.</a> Pediatrics. 2014;134(5):e1474–e1502.（不建議常規使用全身性類固醇與支氣管擴張劑）
+        <span class="ref-doi">DOI：10.1542/peds.2014-2742</span></li>
+      <li><a href="https://doi.org/10.1016/j.ijid.2025.108181" target="_blank" rel="noopener">Age redistribution and altered RSV seasonality in Taiwan: A multicenter analysis from 2015 to 2023.</a> Int J Infect Dis. 2026;162:108181.（台灣流行型態：疫情前全年流行以 7–9 月較高，2020 年後轉為 9–12 月且全國同步）
+        <span class="ref-doi">DOI：10.1016/j.ijid.2025.108181</span></li>
+      <li>衛生福利部疾病管制署．<a href="https://www.cdc.gov.tw/Category/Page/9GHyEWeyrfP65vjWpVjYYA" target="_blank" rel="noopener">呼吸道細胞融合病毒單株抗體（RSV Monoclonal Antibody）</a>（台灣上市時程、ACIP 討論結果與自費原則）</li>
+      <li>衛生福利部疾病管制署．<a href="https://www.cdc.gov.tw/Category/Page/HMYG9wwEPFHjjpE8D6R31Q" target="_blank" rel="noopener">呼吸道細胞融合病毒疫苗（RSV Vaccine）</a></li>
+      <li>UpToDate．Respiratory syncytial virus infection: Clinical features and diagnosis in infants and children（臨床表現、呼吸暫停、檢驗方式比較）</li>
+    </ol>
+  </div>
+
+</div>
+
+<footer>
+  <div class="foot-grid">
+    <div class="foot-col">
+      <div class="foot-brand">日和聯合診所</div>
+      <div class="foot-rule"></div>
+      耳鼻喉科・中醫科<br>
+      台南市鹽水區中正路 45 號<br>
+      06-6520182
+    </div>
+    <div class="foot-col">
+      <h4>網站內容</h4>
+      <a href="../clinic-website/index.html#doctors">醫師介紹</a>
+      <a href="../clinic-website/index.html#services">服務項目</a>
+      <a href="../clinic-website/index.html#hours">門診時間</a>
+      <a href="../clinic-website/index.html#contact">聯絡我們</a>
+    </div>
+    <div class="foot-col">
+      <h4>醫學筆記</h4>
+      <a href="../medical-notes.html#ear">耳科</a>
+      <a href="../medical-notes.html#nose">鼻科</a>
+      <a href="../medical-notes.html#throat">喉科</a>
+      <a href="../medical-notes.html#head-neck">頭頸</a>
+      <a href="../medical-notes.html#chronic">慢性病</a>
+      <a href="../medical-notes.html#pediatric">小兒常見疾病</a>
+    </div>
+    <div class="foot-col">
+      <h4>外部連結</h4>
+      <a href="https://lin.ee/ubEEzZv" target="_blank" rel="noopener">LINE 耳鼻喉科</a>
+      <a href="https://lin.ee/t6T6SqJ" target="_blank" rel="noopener">LINE 中醫</a>
+      <a href="https://www.facebook.com/profile.php?id=61584338163667" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://www.instagram.com/dr.jk347/" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    本站衛教資訊不能取代醫師面對面的診斷與治療。文章內容依發表當下的文獻整理，醫學建議可能隨新證據更新。<br>
+    © 2026 日和聯合診所
+  </div>
+</footer>
+
+<div class="social-rail">
+  <a class="sr-btn sr-line" href="https://lin.ee/ubEEzZv" target="_blank" rel="noopener" aria-label="加入 LINE 好友（耳鼻喉科）" title="加入 LINE 好友（耳鼻喉科）">
+    <svg viewBox="0 0 24 24" fill="#fff" fill-rule="evenodd" aria-hidden="true"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+  </a>
+  <a class="sr-btn sr-fb" href="https://www.facebook.com/profile.php?id=61584338163667" target="_blank" rel="noopener" aria-label="Facebook 粉絲專頁" title="Facebook 粉絲專頁">
+    <svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M15.12 5.32H17V2.14A26.11 26.11 0 0 0 14.26 2C11.54 2 9.68 3.66 9.68 6.7v2.62H6.61v3.56h3.07V22h3.68v-9.12h3.06l.46-3.56h-3.52V7.05c0-1.05.28-1.73 1.76-1.73Z"/></svg>
+  </a>
+  <a class="sr-btn sr-ig" href="https://www.instagram.com/dr.jk347/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram">
+    <svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.31-1.46.72-2.13 1.38C1.35 2.68.94 3.35.63 4.14.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.31.79.72 1.46 1.38 2.13.67.67 1.34 1.08 2.13 1.38.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.79-.31 1.46-.72 2.13-1.38.67-.67 1.08-1.34 1.38-2.13.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91-.31-.79-.72-1.46-1.38-2.13C21.32 1.35 20.65.94 19.86.63c-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0z"/><path d="M12 5.84A6.16 6.16 0 1 0 12 18.16 6.16 6.16 0 0 0 12 5.84zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8z"/><circle cx="18.41" cy="5.59" r="1.44"/></svg>
+  </a>
+  <button class="sr-btn sr-top" id="srTop" aria-label="回到頂部" title="回到頂部">
+    <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 15l6-6 6 6"/></svg>
+  </button>
+</div>
+
+<script>
+(function(){
+  var t=document.getElementById('srTop'); if(!t) return;
+  function upd(){ (window.pageYOffset||document.documentElement.scrollTop) > window.innerHeight ? t.classList.add('show') : t.classList.remove('show'); }
+  window.addEventListener('scroll', upd, {passive:true});
+  t.addEventListener('click', function(){ window.scrollTo({top:0,behavior:'smooth'}); });
+  upd();
+})();
+</script>
+
+</body>
+</html>
