@@ -219,6 +219,18 @@
       line-height: 1.8;
     }
     footer strong { color: white; }
+
+    /* ── 站台頁尾目錄（2026-09-16）── */
+    footer { background:#1a365d; color:rgba(255,255,255,0.62); padding:44px 24px 24px; font-size:13px; line-height:1.9; text-align:left; }
+    .foot-grid { max-width:900px; margin:0 auto; display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:30px; }
+    .foot-brand { font-size:17px; font-weight:800; color:#fff; margin-bottom:10px; }
+    .foot-rule { width:40px; height:2px; background:#c8a830; border-radius:2px; margin-bottom:14px; }
+    .foot-col h4 { font-size:13px; font-weight:700; color:#c8a830; margin-bottom:12px; letter-spacing:.5px; }
+    .foot-col a { display:block; color:rgba(255,255,255,0.68); text-decoration:none; margin-bottom:8px; }
+    .foot-col a:hover { color:#fff; }
+    .foot-bottom { max-width:900px; margin:30px auto 0; padding-top:18px; border-top:1px solid rgba(255,255,255,0.14); font-size:12px; color:rgba(255,255,255,0.45); line-height:1.8; }
+    @media (max-width:760px){ .foot-grid{ grid-template-columns:1fr 1fr; gap:24px; } }
+    @media (max-width:440px){ .foot-grid{ grid-template-columns:1fr; } }
   </style>
 </head>
 <body>
@@ -332,8 +344,45 @@
 </div>
 
 <footer>
-  <strong>日和聯合診所</strong>｜耳鼻喉科・中醫<br>
-  台南市鹽水區｜06-6520182
+  <div class="foot-grid">
+    <div class="foot-col">
+      <div class="foot-brand">日和聯合診所</div>
+      <div class="foot-rule"></div>
+      耳鼻喉科・中醫科<br>
+      台南市鹽水區中正路 45 號<br>
+      06-6520182
+    </div>
+    <div class="foot-col">
+      <h4>網站內容</h4>
+      <a href="../clinic-website/index.html">診所首頁</a>
+      <a href="../clinic-website/index.html#doctors">醫師介紹</a>
+      <a href="../clinic-website/index.html#hours">門診時間</a>
+      <a href="../vaccine-menu.html">疫苗專區</a>
+      <a href="../nasal-surgery-education.html">鼻部手術</a>
+      <a href="../snoring-adult-education.html">打鼾與睡眠</a>
+      <a href="../mounjaro-education.html">體重管理</a>
+    </div>
+    <div class="foot-col">
+      <h4>醫學筆記</h4>
+      <a href="../medical-notes.html#ear">耳科</a>
+      <a href="../medical-notes.html#nose">鼻科</a>
+      <a href="../medical-notes.html#throat">喉科</a>
+      <a href="../medical-notes.html#head-neck">頭頸</a>
+      <a href="../medical-notes.html#chronic">慢性病</a>
+      <a href="../medical-notes.html#pediatric">小兒常見疾病</a>
+    </div>
+    <div class="foot-col">
+      <h4>外部連結</h4>
+      <a href="https://lin.ee/ubEEzZv" target="_blank" rel="noopener">LINE 耳鼻喉科</a>
+      <a href="https://lin.ee/t6T6SqJ" target="_blank" rel="noopener">LINE 中醫</a>
+      <a href="https://www.facebook.com/profile.php?id=61584338163667" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://www.instagram.com/dr.jk347/" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    本站衛教資訊不能取代醫師面對面的診斷與治療。文章內容依發表當下的文獻整理，醫學建議可能隨新證據更新。<br>
+    © 2026 日和聯合診所
+  </div>
 </footer>
 
 </body>
