@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://jk347-byte.github.io/chi-agent/sitemap.xml
+Sitemap: https://rihe-clinic.tw/sitemap.xml
