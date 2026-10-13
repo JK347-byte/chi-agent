@@ -15,3 +15,5 @@ care-tracker/*.json
 .playwright-mcp/
 __pycache__/
 *.pyc
+*.log
+017_Stock/signal_state.json
