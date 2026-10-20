@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>喉嚨有白點就是細菌感染嗎？孩子發燒喉嚨痛，四種常見原因裡只有一種需要抗生素｜日和聯合診所</title>
+  <meta name="description" content="孩子發燒喉嚨痛、扁桃腺有白點，四種常見原因裡只有 A 群鏈球菌需要抗生素。腺病毒會以持續高燒、白血球與 CRP 上升模仿細菌感染，靠發燒天數或抽血數字判斷會錯。整理診間真正在看的徵象（咳嗽、淋巴結前頸或後頸、口腔潰瘍位置）、McIsaac 評分、A 群鏈球菌快篩的能力與限制，以及抗生素在做什麼、不在做什麼。">
+  <meta property="og:title" content="喉嚨有白點就是細菌感染嗎？孩子發燒喉嚨痛，四種常見原因裡只有一種需要抗生素｜日和聯合診所">
+  <meta property="og:description" content="孩子發燒喉嚨痛、扁桃腺有白點，四種常見原因裡只有 A 群鏈球菌需要抗生素。腺病毒會以持續高燒、白血球與 CRP 上升模仿細菌感染，靠發燒天數或抽血數字判斷會錯。整理診間真正在看的徵象（咳嗽、淋巴結前頸或後頸、口腔潰瘍位置）、McIsaac 評分、A 群鏈球菌快篩的能力與限制，以及抗生素在做什麼、不在做什麼。">
+  <meta property="og:type" content="article">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --sage: #7a8c5c;
+      --sage-dark: #5a6e38;
+      --gold: #c8a830;
+      --olive: #2e3318;
+      --cream: #faf8f0;
+      --text: #2d3748;
+      --muted: #718096;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, "Helvetica Neue", Arial, sans-serif;
+      color: var(--text);
+      background: white;
+      line-height: 1.8;
+    }
+
+    nav {
+      position: sticky; top: 0; background: white;
+      border-bottom: 1px solid #e2e8f0; z-index: 100;
+      padding: 0 24px; display: flex; align-items: center;
+      justify-content: space-between; height: 56px;
+    }
+    .nav-logo { font-size: 16px; font-weight: 700; color: #5a6e38; }
+    .nav-links { display: flex; gap: 24px; }
+    .nav-links a { font-size: 14px; color: var(--muted); text-decoration: none; }
+    .nav-links a:hover { color: var(--sage-dark); }
+    .nav-links a.active { color: var(--sage-dark); font-weight: 700; }
+
+    .article-header {
+      background: var(--cream);
+      padding: 40px 24px 32px;
+      text-align: center;
+    }
+    .article-tag {
+      display: inline-block;
+      background: rgba(122,140,92,0.15);
+      color: var(--sage-dark);
+      border-radius: 20px;
+      padding: 4px 14px;
+      font-size: 12px;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+      font-weight: 600;
+    }
+    .article-header h1 {
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--olive);
+      line-height: 1.5;
+      margin-bottom: 14px;
+    }
+    .article-meta {
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .article-meta strong { color: var(--sage-dark); }
+
+    .container { max-width: 680px; margin: 0 auto; padding: 32px 20px 60px; }
+
+    /* 內容目錄 */
+    .toc-box {
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 18px 22px;
+      margin-bottom: 28px;
+    }
+    .toc-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--olive);
+      margin-bottom: 10px;
+    }
+    .toc-list { list-style: none; }
+    .toc-list li { counter-increment: toc-counter; margin-bottom: 6px; font-size: 14px; }
+    .toc-list { counter-reset: toc-counter; }
+    .toc-list li a {
+      color: var(--text);
+      text-decoration: none;
+    }
+    .toc-list li a:hover { color: var(--sage-dark); }
+    .toc-list li a::before {
+      content: counter(toc-counter) "　";
+      color: var(--sage-dark);
+      font-weight: 700;
+    }
+
+    /* TL;DR / 直接答案區塊 — GEO關鍵：前200字內給具體結論 */
+    .tldr-box {
+      background: rgba(200,168,48,0.08);
+      border-left: 3px solid var(--gold);
+      border-radius: 4px;
+      padding: 18px 20px;
+      margin-bottom: 32px;
+      font-size: 15px;
+      color: var(--text);
+    }
+    .tldr-box ul { margin: 10px 0 10px 20px; }
+    .tldr-box li { margin-bottom: 4px; }
+    .article-body h2 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--olive);
+      margin: 36px 0 14px;
+      padding-top: 4px;
+      border-top: 2px solid #f0f0e8;
+      padding-top: 20px;
+    }
+    .article-body h2:first-child { border-top: none; padding-top: 0; margin-top: 0; }
+    .article-body p {
+      font-size: 15px;
+      color: var(--text);
+      margin-bottom: 14px;
+    }
+
+    /* H2下方的重點提醒色塊 */
+    .highlight-box {
+      background: rgba(122,140,92,0.08);
+      border-left: 3px solid var(--sage-dark);
+      border-radius: 4px;
+      padding: 14px 16px;
+      margin-bottom: 16px;
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+    .highlight-box .highlight-icon { font-size: 15px; line-height: 1.6; }
+    .highlight-box .highlight-text {
+      font-size: 14px;
+      color: var(--sage-dark);
+      font-weight: 600;
+      line-height: 1.6;
+    }
+
+    /* 圖表／標註圖片容器（Stage 2 選用）— 兩種並列元件，用哪種見下方HTML範例註解 */
+    .chart-box {
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 16px 12px 12px;
+      margin-bottom: 18px;
+      overflow-x: auto;
+    }
+    .chart-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--olive);
+      margin-bottom: 8px;
+      padding: 0 6px;
+    }
+    .chart-box svg { display: block; min-width: 520px; width: 100%; height: auto; }
+    .chart-note {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 6px;
+      padding: 0 6px;
+    }
+    /* 方案A：真實/AI生成照片＋SVG標籤疊加，用在.chart-box內，viewBox比照圖片再加左側標籤欄寬度 */
+    .annotated-img svg { min-width: 560px; }
+
+    /* 資料表格元件（2026-09-16 新增）— 比較表／判斷表通用 */
+    .data-table-box { margin-bottom: 20px; }
+    .data-table-cap {
+      background: var(--cream);
+      border: 1px solid #e2e8f0;
+      border-bottom: none;
+      border-radius: 8px 8px 0 0;
+      padding: 10px 14px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--olive);
+      text-align: center;
+    }
+    .data-table-wrap { overflow-x: auto; border-radius: 0 0 8px 8px; }
+    .data-table { border-collapse: collapse; width: 100%; min-width: 520px; font-size: 14px; }
+    .data-table thead th {
+      background: var(--sage-dark);
+      color: #fff;
+      font-weight: 700;
+      text-align: left;
+      padding: 11px 13px;
+      font-size: 13.5px;
+    }
+    .data-table th.rowhead, .data-table td.rowhead {
+      font-weight: 700;
+      color: var(--olive);
+      background: rgba(122,140,92,0.07);
+      white-space: nowrap;
+    }
+    .data-table td {
+      padding: 11px 13px;
+      border-bottom: 1px solid #e8eadf;
+      color: var(--text);
+      vertical-align: top;
+      line-height: 1.7;
+    }
+    .data-table tbody tr:nth-child(even) td { background: rgba(122,140,92,0.035); }
+    .data-table tbody tr:last-child td { border-bottom: none; }
+    /* 需要特別強調的那一列（一張表最多用一次）
+       只用底色區分，不加任何額外框線——框線不一致會干擾閱讀 */
+    .data-table tr.row-emphasis td {
+      background: rgba(200,168,48,0.13) !important;
+    }
+    .data-table-note { font-size: 11px; color: var(--muted); margin-top: 6px; padding: 0 2px; }
+
+    /* 參考文獻清單（2026-09-16 改版）— 編號、可點標題、DOI 獨立一行 */
+    .ref-list { margin: 8px 0 0 0; padding-left: 20px; }
+    .ref-list li { margin-bottom: 12px; line-height: 1.75; }
+    .ref-list a { color: var(--sage-dark); }
+    .ref-doi { display: block; font-size: 11px; color: var(--muted); margin-top: 2px; }
+
+    /* FAQ 區塊 — Q&A格式利於AI引擎抓取 */
+    .faq-section {
+      margin-top: 40px;
+      padding-top: 28px;
+      border-top: 2px solid #f0f0e8;
+    }
+    .faq-section h2 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--olive);
+      margin-bottom: 18px;
+    }
+    .faq-item { margin-bottom: 18px; }
+    .faq-q {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--sage-dark);
+      margin-bottom: 6px;
+    }
+    .faq-a {
+      font-size: 14px;
+      color: var(--text);
+    }
+
+    /* 結論區塊 — 跟內文H2段落明顯區隔，四邊框+底色，文字簡潔 */
+    .conclusion-box {
+      background: rgba(200,168,48,0.08);
+      border: 1px solid var(--gold);
+      border-radius: 8px;
+      padding: 24px 24px 22px;
+      margin-top: 40px;
+    }
+    .conclusion-box h2 {
+      font-size: 19px;
+      font-weight: 800;
+      color: var(--olive);
+      margin-bottom: 14px;
+      border-top: none;
+      padding-top: 0;
+    }
+    .conclusion-box ul { margin: 0 0 14px 20px; }
+    .conclusion-box li {
+      font-size: 15px;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+    .conclusion-cta {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--sage-dark);
+    }
+
+    /* 出處/文獻來源 */
+    .sources {
+      margin-top: 36px;
+      padding-top: 20px;
+      border-top: 1px solid #f0f0e8;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .sources-label { font-weight: 700; color: var(--sage-dark); margin-bottom: 6px; }
+
+    footer {
+      background: #1a365d;
+      color: rgba(255,255,255,0.6);
+      text-align: center;
+      padding: 32px 24px;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+    footer strong { color: white; }
+
+    /* 導覽列手機版（因加入「衛教」為 6 項） */
+    @media (max-width:640px){
+      nav { padding: 0 14px; }
+      .nav-logo { font-size: 14px; }
+      .nav-links { gap: 12px; }
+      .nav-links a { font-size: 12.5px; }
+    }
+
+    /* 延伸閱讀（條列式） */
+    .related-box { margin-top: 36px; padding-top: 22px; border-top: 2px solid #f0f0e8; }
+    .related-box h3 { font-size: 18px; font-weight: 800; color: var(--olive); margin-bottom: 12px; }
+    .related-list { margin: 0; padding-left: 20px; }
+    .related-list li { font-size: 15px; line-height: 1.75; margin-bottom: 10px; }
+    .related-list a { color: var(--sage-dark); text-decoration: none; font-weight: 600; }
+    .related-list a:hover { text-decoration: underline; }
+
+    /* 文末作者欄 */
+    .author-box { display:flex; gap:22px; align-items:center; background:var(--cream); border-left:3px solid var(--gold); border-radius:10px; padding:22px 24px; margin-top:36px; }
+    .author-photo { width:168px; height:168px; border-radius:10px; object-fit:cover; flex-shrink:0; }
+    .author-label { font-size:12px; font-weight:700; color:var(--gold); letter-spacing:1.5px; margin-bottom:5px; }
+    .author-name { font-size:21px; font-weight:800; color:var(--olive); margin-bottom:8px; }
+    .author-role { font-size:14px; color:var(--text); line-height:1.8; margin-bottom:10px; }
+    .author-link { font-size:14px; font-weight:700; color:var(--sage-dark); text-decoration:none; }
+    .author-link:hover { text-decoration:underline; }
+    @media (max-width:560px){
+      .author-box{ flex-direction:column; align-items:center; text-align:center; gap:16px; }
+      .author-photo{ width:210px; height:210px; }
+    }
+
+    /* 四欄頁尾 */
+    footer { background:#1a365d; color:rgba(255,255,255,0.62); padding:44px 24px 24px; font-size:13px; line-height:1.9; text-align:left; }
+    .foot-grid { max-width:900px; margin:0 auto; display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:30px; }
+    .foot-brand { font-size:17px; font-weight:800; color:#fff; margin-bottom:10px; }
+    .foot-rule { width:40px; height:2px; background:#c8a830; border-radius:2px; margin-bottom:14px; }
+    .foot-col h4 { font-size:13px; font-weight:700; color:#c8a830; margin-bottom:12px; letter-spacing:.5px; }
+    .foot-col a { display:block; color:rgba(255,255,255,0.68); text-decoration:none; margin-bottom:8px; }
+    .foot-col a:hover { color:#fff; }
+    .foot-bottom { max-width:900px; margin:30px auto 0; padding-top:18px; border-top:1px solid rgba(255,255,255,0.14); font-size:12px; color:rgba(255,255,255,0.45); line-height:1.8; }
+    @media (max-width:760px){ .foot-grid{ grid-template-columns:1fr 1fr; gap:24px; } }
+    @media (max-width:440px){ .foot-grid{ grid-template-columns:1fr; } }
+
+    /* ── 右側固定社群列（2026-09-16）── */
+    .social-rail { position:fixed; right:16px; top:50%; transform:translateY(-50%); display:flex; flex-direction:column; gap:10px; z-index:200; }
+    .sr-btn { width:48px; height:48px; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 2px 8px rgba(0,0,0,.12); transition:transform .15s, box-shadow .15s, opacity .18s; border:none; padding:0; cursor:pointer; text-decoration:none; opacity:.5; }
+    .sr-btn:hover { transform:translateY(-2px); box-shadow:0 5px 16px rgba(0,0,0,.26); opacity:1; }
+    .sr-btn svg { width:26px; height:26px; display:block; }
+    .sr-line { background:#06C755; }
+    .sr-fb   { background:#1877F2; }
+    .sr-ig   { background:linear-gradient(45deg,#F58529,#DD2A7B,#8134AF,#515BD4); }
+    .sr-top  { background:rgba(46,51,24,.78); opacity:0; pointer-events:none; transition:opacity .25s; }
+    .sr-top.show { opacity:.5; }
+    .sr-top.show { pointer-events:auto; }
+    @media (max-width:760px){
+      .social-rail { right:10px; top:auto; bottom:16px; transform:none; gap:8px; }
+      .sr-btn { width:40px; height:40px; box-shadow:0 2px 8px rgba(0,0,0,.22); }
+      .sr-btn svg { width:21px; height:21px; }
+    }
+
+    .hook-line { font-size:14px; color:var(--sage-dark); font-weight:600; margin:-18px 0 28px; padding:0 2px; }
+    .tldr-box { margin-bottom:14px; }
+  </style>
+<body>
+
+<nav>
+  <div class="nav-logo">日和聯合診所</div>
+  <div class="nav-links">
+    <a href="../clinic-website/index.html#doctors">醫師</a>
+    <a href="../clinic-website/index.html#services">服務</a>
+    <a href="../clinic-website/index.html#hours">時間</a>
+    <a href="../clinic-website/index.html#contact">聯絡</a>
+    <a href="../education.html">衛教</a>
+    <a href="../medical-notes.html" class="active">筆記</a>
+  </div>
+</nav>
+
+<div class="article-header">
+  <div class="article-tag">小兒常見疾病</div>
+  <h1>喉嚨有白點就是細菌感染嗎？孩子發燒喉嚨痛，四種常見原因裡只有一種需要抗生素</h1>
+  <div class="article-meta">詹士奇醫師撰文 · <strong>2026-10-21 最後更新</strong></div>
+</div>
+
+<div class="container">
+
+  <div class="hook-line">燒幾天、白血球多少、CRP 多高，這三個都分不出細菌和病毒。能分的是年齡、咳嗽、淋巴結長在哪、嘴巴裡破在哪。</div>
+
+  <div class="toc-box">
+    <div class="toc-header"><span>📑</span><span>內容目錄</span></div>
+    <ol class="toc-list">
+      <li><a href="#sec-1">孩子張開嘴有白點，為什麼我不會馬上開抗生素？</a></li>
+      <li><a href="#sec-2">燒很久、白血球高、CRP 高，就是細菌嗎？</a></li>
+      <li><a href="#sec-3">那我靠什麼判斷？年齡、咳嗽、淋巴結長在哪、嘴巴裡破在哪</a></li>
+      <li><a href="#sec-4">在診所，我能幫你做到什麼？</a></li>
+      <li><a href="#sec-5">確定是鏈球菌之後，抗生素在做什麼、不在做什麼</a></li>
+      <li><a href="#sec-6">哪些情況不要等門診，直接去大醫院</a></li>
+      <li><a href="#sec-concl">結論：今天晚上就能先看三件事</a></li>
+      <li><a href="#sec-faq">常見問題</a></li>
+    </ol>
+  </div>
+
+  <div class="tldr-box">
+    <ul>
+      <li>喉嚨痛的孩子裡，真正是 A 群鏈球菌的只佔少數，而且<strong>年紀越小、比例越低</strong>。多數孩子的喉嚨痛不需要抗生素。</li>
+      <li><strong>腺病毒會把「細菌感染」的每個指標都做出來</strong>：燒得久、白血球高、CRP 衝上去。靠發燒天數或抽血數字決定抗生素，會錯。</li>
+      <li>真正能分的是看得到的東西。有咳嗽流鼻水往病毒走；<strong>淋巴結在前頸偏鏈球菌、在後頸偏 EBV</strong>；水泡破在咽喉後半部是腸病毒，破在前面而且牙齦紅腫是單純疱疹。</li>
+      <li>快篩<strong>驗出陽性就相當可信，但陰性不等於沒有</strong>。而且健康的學齡兒童本來就有一部分帶著這隻菌，所以明顯是病毒的孩子不該驗。</li>
+      <li><strong>抗生素不會讓孩子退燒比較快</strong>（高度確定性的證據）。它在防的是扁桃腺周圍膿瘍與急性中耳炎。</li>
+    </ul>
+  </div>
+
+  <div class="article-body">
+
+    <h2 id="sec-1">孩子張開嘴有白點，為什麼我不會馬上開抗生素？</h2>
+
+    <p>門診最常見的場景之一。孩子發燒兩天，家長在家壓著舌頭用手機拍了照片，進診間第一句話是：醫師，他喉嚨有白白的東西，是不是要吃抗生素？</p>
+
+    <p>我理解這個問題背後的邏輯。白點看起來就像感染、像膿、像應該被殺掉的東西。</p>
+
+    <p>但白點本身不帶病因資訊。</p>
+
+    <div class="highlight-box">
+      <span class="highlight-icon">💡</span>
+      <span class="highlight-text">一份把數百篇研究合起來算的統合分析顯示，因為喉嚨痛走進診間的孩子當中，<strong>真正驗得出 A 群鏈球菌的只是少數</strong>，而且<strong>年紀越小、比例越低</strong>——學齡的孩子還算常見，學齡前就少了一大截。也就是說，<strong>大部分喉嚨痛的孩子不是鏈球菌引起的</strong>，這些孩子吃抗生素是白吃的。</span>
+    </div>
+
+    <p>那剩下的大多數是誰？在診間，讓扁桃腺出現白點或膿樣分泌物的常見原因主要有四個：</p>
+
+    <ul>
+      <li><strong>A 群鏈球菌</strong>　四個裡面唯一需要抗生素的</li>
+      <li><strong>腺病毒</strong>　最會偽裝成細菌的那一個</li>
+      <li><strong>EBV</strong>　也就是傳染性單核球症</li>
+      <li><strong>腸病毒</strong>　主要是疱疹性咽峽炎</li>
+    </ul>
+
+    <p>這篇要講的，就是我在診間怎麼把它們分開。</p>
+
+    <h2 id="sec-2">燒很久、白血球高、CRP 高，就是細菌嗎？</h2>
+
+    <p>如果白點不能用，那用什麼？很多人的下一個答案是燒很久就是細菌、抽血白血球高就是細菌、CRP 高就是細菌。</p>
+
+    <p>這三個我都不會單獨拿來決定。原因是腺病毒。</p>
+
+    <p>長庚兒童醫院整理過近五百名腺病毒感染的孩子，絕大多數是同一個血清型，年齡集中在學齡前。住院那一批的樣子長這樣。</p>
+
+    <div class="chart-box">
+      <div class="chart-title">圖一．腺病毒有多像細菌感染：三個「細菌指標」出現的比例</div>
+      <svg viewBox="0 0 760 290" xmlns="http://www.w3.org/2000/svg">
+        <line x1="210" y1="36" x2="210" y2="192" stroke="#cdd4bd" stroke-width="1.4"/>
+        <line x1="460" y1="36" x2="460" y2="192" stroke="#eceee4" stroke-width="1"/>
+        <line x1="710" y1="36" x2="710" y2="192" stroke="#eceee4" stroke-width="1"/>
+        <text x="210" y="27" font-size="12" fill="#718096" text-anchor="middle">0%</text>
+        <text x="460" y="27" font-size="12" fill="#718096" text-anchor="middle">50%</text>
+        <text x="710" y="27" font-size="12" fill="#718096" text-anchor="middle">100%</text>
+
+        <text x="200" y="69" font-size="14" font-weight="700" fill="#2e3318" text-anchor="end">發燒</text>
+        <rect x="210" y="48" width="500" height="32" rx="3" fill="#c65d5d"/>
+        <text x="698" y="69" font-size="14" font-weight="800" fill="#ffffff" text-anchor="end">100%</text>
+
+        <text x="200" y="121" font-size="14" font-weight="700" fill="#2e3318" text-anchor="end">CRP 超過 40 mg/L</text>
+        <rect x="210" y="100" width="402" height="32" rx="3" fill="#7a8c5c"/>
+        <text x="600" y="121" font-size="14" font-weight="800" fill="#ffffff" text-anchor="end">80.4%</text>
+
+        <text x="200" y="173" font-size="14" font-weight="700" fill="#2e3318" text-anchor="end">白血球超過 15,000</text>
+        <rect x="210" y="152" width="152" height="32" rx="3" fill="#a8b68c"/>
+        <text x="372" y="173" font-size="14" font-weight="800" fill="#2e3318" text-anchor="start">30.4%</text>
+
+        <rect x="210" y="206" width="500" height="62" rx="7" fill="#faf8f0" stroke="#c8a830" stroke-width="1.6"/>
+        <text x="232" y="232" font-size="13.5" font-weight="700" fill="#2e3318">同一批住院的孩子，平均發燒 6 天，而其中 64.0%</text>
+        <text x="232" y="254" font-size="13.5" font-weight="700" fill="#2e3318">從頭到尾沒有用過抗生素，結果都很好。</text>
+      </svg>
+      <div class="chart-note">資料來源：長庚兒童醫院 2004–2005 年腺病毒 3 型個案系列（住院 107 人；CRP 一項為實際受檢的 92 人中 74 人）。原作者的結論是：認識到腺病毒會以持續高燒、白血球上升、CRP 上升來模仿細菌感染，才能避免不必要的抗生素處方。</div>
+    </div>
+
+    <p>這三件事放在一起，看起來就是一個細菌感染。但它不需要抗生素。</p>
+
+    <p>所以「燒三天還沒退，是不是該吃抗生素了」這個問題，答案不在天數裡。</p>
+
+    <h2 id="sec-3">那我靠什麼判斷？年齡、咳嗽、淋巴結長在哪、嘴巴裡破在哪</h2>
+
+    <p>能分的是看得到、摸得到、問得出來的東西。</p>
+
+    <p><strong>有沒有咳嗽、流鼻水、眼睛紅。</strong>這三個往病毒走。鏈球菌咽喉炎的典型表現剛好是「沒有咳嗽」。</p>
+
+    <p><strong>淋巴結長在哪。</strong>這一項我覺得最被低估。鏈球菌腫的是前頸，紅、腫、壓了會痛。EBV 腫的是後頸，常常兩邊對稱，有時連腋下和鼠蹊都摸得到。</p>
+
+    <div class="highlight-box">
+      <span class="highlight-icon">💡</span>
+      <span class="highlight-text"><em>JAMA</em> 的一篇系統性回顧把這些徵象一個一個秤過：<strong>後頸淋巴結腫大</strong>和<strong>顎部出血點</strong>都明顯指向 EBV，其中顎部出血點的指向性又更強。反過來，<strong>脖子上完全摸不到淋巴結</strong>，幾乎就可以把 EBV 排除掉。同一篇也指出，喉嚨痛和疲倦這兩個「症狀」雖然幾乎人人都有，卻幾乎沒有鑑別力。</span>
+    </div>
+
+    <p><strong>嘴巴裡破在哪。</strong>這一項能一次分開兩個病，疱疹性咽峽炎跟單純性疱疹的齦口炎。</p>
+
+    <p>疱疹性咽峽炎的水泡和潰瘍在咽喉後半部，軟顎、咽峽、扁桃腺附近，<strong>不會侵犯牙齦</strong>。</p>
+
+    <p>單純性疱疹的齦口炎剛好相反，破在口腔前半部，而且<strong>牙齦會紅腫、容易出血</strong>。</p>
+
+    <div class="chart-box">
+      <div class="chart-title">圖二．四種病張開嘴看到的樣子：差別在「長什麼」和「長在哪」</div>
+      <div class="annotated-img">
+        <svg viewBox="0 0 1174 1028" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <rect x="0" y="0" width="580" height="32" rx="4" fill="#5a6e38"/>
+          <text x="12" y="22" font-size="16" font-weight="800" fill="#ffffff">① A 群鏈球菌</text>
+          <text x="568" y="22" font-size="14" font-weight="800" fill="#f0d878" text-anchor="end">需要抗生素</text>
+          <image x="0" y="36" width="580" height="434" xlink:href="images/sore-throat-1gas.jpg" href="images/sore-throat-1gas.jpg" preserveAspectRatio="xMidYMid slice"/>
+          <text x="0" y="492" font-size="13.5" fill="#2d3748">扁桃腺上是<tspan font-weight="800" fill="#2e3318">一塊一塊分開</tspan>的黃白色膿點，軟顎有<tspan font-weight="800" fill="#2e3318">細小出血點</tspan></text>
+
+          <rect x="594" y="0" width="580" height="32" rx="4" fill="#5a6e38"/>
+          <text x="606" y="22" font-size="16" font-weight="800" fill="#ffffff">② 腺病毒</text>
+          <text x="1162" y="22" font-size="14" font-weight="700" fill="#c9d4b4" text-anchor="end">不用抗生素</text>
+          <image x="594" y="36" width="580" height="434" xlink:href="images/sore-throat-2adeno.jpg" href="images/sore-throat-2adeno.jpg" preserveAspectRatio="xMidYMid slice"/>
+          <text x="594" y="492" font-size="13.5" fill="#2d3748">白色薄膜<tspan font-weight="800" fill="#2e3318">連成一片</tspan>鋪在扁桃腺上，軟顎紅但光滑、<tspan font-weight="800" fill="#2e3318">沒有出血點</tspan></text>
+
+          <rect x="0" y="524" width="580" height="32" rx="4" fill="#5a6e38"/>
+          <text x="12" y="546" font-size="16" font-weight="800" fill="#ffffff">③ EBV（傳染性單核球症）</text>
+          <text x="568" y="546" font-size="14" font-weight="700" fill="#c9d4b4" text-anchor="end">不用抗生素</text>
+          <image x="0" y="560" width="580" height="434" xlink:href="images/sore-throat-3ebv.jpg" href="images/sore-throat-3ebv.jpg" preserveAspectRatio="xMidYMid slice"/>
+          <text x="0" y="1016" font-size="13.5" fill="#2d3748">扁桃腺腫到<tspan font-weight="800" fill="#2e3318">幾乎碰在一起</tspan>，表面是厚厚的<tspan font-weight="800" fill="#2e3318">灰綠色</tspan>分泌物</text>
+
+          <rect x="594" y="524" width="580" height="32" rx="4" fill="#5a6e38"/>
+          <text x="606" y="546" font-size="16" font-weight="800" fill="#ffffff">④ 疱疹性咽峽炎（腸病毒）</text>
+          <text x="1162" y="546" font-size="14" font-weight="700" fill="#c9d4b4" text-anchor="end">不用抗生素</text>
+          <image x="594" y="560" width="580" height="434" xlink:href="images/sore-throat-4herp.jpg" href="images/sore-throat-4herp.jpg" preserveAspectRatio="xMidYMid slice"/>
+          <text x="594" y="1016" font-size="13.5" fill="#2d3748">水泡長在軟顎和扁桃腺<tspan font-weight="800" fill="#c65d5d">前面</tspan>，<tspan font-weight="800" fill="#2e3318">扁桃腺本身乾淨、沒有膿</tspan></text>
+        </svg>
+      </div>
+      <div class="chart-note">同一個角度、同一種打光，只有病灶不同。①②③ 的差別在扁桃腺表面「長什麼」，④ 的差別在「長在哪」——水泡在扁桃腺前方的軟顎與咽門弓上，扁桃腺本身是乾淨的，這是它跟前面三種最好分的地方。四張都是臨床徵象示意，AI 生成，非真實病人。</div>
+    </div>
+
+    <p><strong>年齡。</strong>五歲以下鏈球菌本來就少。三歲以下更少，而且表現常常不典型，比較像長期鼻塞流鼻水加上低燒，不像典型的化膿性咽喉炎。</p>
+
+    <table class="data-table">
+      <caption class="data-table-cap">表一　四種病怎麼分：診間真正在看的幾件事</caption>
+      <colgroup><col style="width:16%"><col style="width:21%"><col style="width:21%"><col style="width:21%"><col style="width:21%"></colgroup>
+      <thead><tr><th>看什麼</th><th>A 群鏈球菌</th><th>腺病毒</th><th>EBV</th><th>腸病毒（疱疹性咽峽炎）</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="rowhead">常見年齡</td>
+          <td>5 到 15 歲最多，3 歲以下少</td>
+          <td>學齡前最多</td>
+          <td>青少年與年輕成人；幼童多半無症狀</td>
+          <td>5 歲以下是重症高危險群</td>
+        </tr>
+        <tr>
+          <td class="rowhead">起病與發燒</td>
+          <td>突然發作，有發燒</td>
+          <td>高燒，<strong>平均 6 天</strong></td>
+          <td>緩慢，7 到 14 天逐漸加重</td>
+          <td>突發高燒</td>
+        </tr>
+        <tr>
+          <td class="rowhead">咳嗽、流鼻水</td>
+          <td><strong>通常沒有</strong></td>
+          <td>咳嗽與流鼻水都常見，眼睛可能紅</td>
+          <td>不明顯</td>
+          <td>不明顯</td>
+        </tr>
+        <tr>
+          <td class="rowhead">嘴巴裡看到什麼</td>
+          <td>扁桃腺紅腫化膿、顎部出血點</td>
+          <td>扁桃腺可有白色膜狀分泌物</td>
+          <td>扁桃腺很大、白或灰綠色分泌物、顎部出血點</td>
+          <td>咽喉<strong>後</strong>半部水泡與潰瘍，<strong>牙齦完好</strong></td>
+        </tr>
+        <tr>
+          <td class="rowhead">淋巴結</td>
+          <td><strong>前頸</strong>，紅腫壓痛</td>
+          <td>可能腫，不具特異性</td>
+          <td><strong>後頸</strong>，常兩側對稱</td>
+          <td>不特別</td>
+        </tr>
+        <tr>
+          <td class="rowhead">其他線索</td>
+          <td>頭痛、肚子痛、噁心嘔吐</td>
+          <td>白血球與 CRP 可以很高</td>
+          <td>明顯疲倦、脾臟腫大、肝指數上升</td>
+          <td>痛到不肯吃喝；可能合併手足口病的手腳臀部紅疹</td>
+        </tr>
+        <tr class="row-emphasis">
+          <td class="rowhead">要不要抗生素</td>
+          <td><strong>需要</strong></td>
+          <td>不需要</td>
+          <td>不需要</td>
+          <td>不需要</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="data-table-note">另一個常被混進來的是單純疱疹齦口炎：潰瘍在口腔<strong>前</strong>半部，而且牙齦紅腫容易出血，跟腸病毒的後半部、不犯牙齦剛好相反。</div>
+
+    <p>這幾件事其實有現成的計分方式。</p>
+
+    <table class="data-table">
+      <caption class="data-table-cap">表二　McIsaac 評分：五件事，每件一分</caption>
+      <colgroup><col style="width:72%"><col style="width:28%"></colgroup>
+      <thead><tr><th>評分項目</th><th>計分</th></tr></thead>
+      <tbody>
+        <tr><td class="rowhead">年齡 3 到 14 歲</td><td>＋1</td></tr>
+        <tr><td class="rowhead">體溫超過 38°C</td><td>＋1</td></tr>
+        <tr><td class="rowhead">沒有咳嗽</td><td>＋1</td></tr>
+        <tr><td class="rowhead">前頸淋巴結腫大而且壓痛</td><td>＋1</td></tr>
+        <tr><td class="rowhead">扁桃腺腫大或有膿樣分泌物</td><td>＋1</td></tr>
+      </tbody>
+    </table>
+    <div class="data-table-note">這是 Centor 評分加上年齡項的修正版。分數低（0 到 1 分）表示不必驗也不必治；中間（2 到 3 分）表示值得做快篩，陽性才治療；分數高才考慮直接處理。</div>
+
+    <div class="highlight-box">
+      <span class="highlight-icon">💡</span>
+      <span class="highlight-text">這套評分最早在五百多人的研究裡驗證過：它抓到鏈球菌的能力比醫師憑經驗判斷更好，而且<strong>在學齡兒童身上差距最大</strong>。更重要的是，照評分走之後<strong>初次的抗生素處方少了將近一半</strong>，而且沒有因此多用喉嚨培養。換句話說，用對工具可以同時做到「少開抗生素」和「少漏掉鏈球菌」，這兩件事不衝突。</span>
+    </div>
+
+    <h2 id="sec-4">在診所，我能幫你做到什麼？</h2>
+
+    <p>講完判斷，講檢驗。</p>
+
+    <p>診所有 A 群鏈球菌快速抗原篩檢。用棉棒在扁桃腺和咽後壁刷一下，幾分鐘出結果。</p>
+
+    <p>這支快篩的能力，Cochrane 把將近百篇研究、十萬人以上的資料合起來算過。它有兩個面向，要分開理解。</p>
+
+    <p><strong>驗出陽性就相當可信</strong>，可以直接開始治療。</p>
+
+    <p><strong>但陰性不等於沒有。</strong>每一批孩子裡，它還是會漏掉一小部分。所以兒童如果快篩陰性、臨床上卻還是很像，指引建議補一個喉嚨培養確認；成人陰性則不需要常規補培養。</p>
+
+    <p>但比這些都更重要的是反過來那一句：<strong>不是每個喉嚨痛的孩子都該驗。</strong></p>
+
+    <div class="highlight-box">
+      <span class="highlight-icon">💡</span>
+      <span class="highlight-text">同一份統合分析也算了<strong>完全沒有症狀的健康兒童</strong>的帶菌率，結果跟直覺不太一樣：帶菌這件事<strong>幾乎都集中在學齡階段</strong>，學齡前的幼兒反而很少。換句話說，<strong>最可能被拿去快篩的那個年齡層，剛好也是最可能只是帶菌的年齡層</strong>。所以一個流鼻水、咳嗽、眼睛紅的學齡孩子驗出陽性，很可能驗到的是他本來就帶著的那株菌，真正讓他不舒服的是病毒，結果吃了一輪不需要的抗生素。</span>
+    </div>
+
+    <h2 id="sec-5">確定是鏈球菌之後，抗生素在做什麼、不在做什麼</h2>
+
+    <p>假設快篩陽性，確定是鏈球菌了。接下來這段可能跟家長的期待不一樣。</p>
+
+    <p>Cochrane 把數十個試驗、上萬人的喉嚨痛資料合起來看，結論是：</p>
+
+    <p><strong>抗生素不會讓孩子退燒比較快。</strong>第三天的發燒，用藥組和沒用藥組沒有顯著差別，而且這是高度確定性的證據。</p>
+
+    <p>而且沒吃抗生素的那一組，<strong>絕大多數在一週內自己好了</strong>。</p>
+
+    <p>那它在做什麼？在防併發症。</p>
+
+    <ul>
+      <li>扁桃腺周圍膿瘍的機率<strong>大幅下降</strong>，這是證據等級最高的一項</li>
+      <li>急性中耳炎同樣<strong>明顯減少</strong></li>
+      <li>風濕熱也有降</li>
+    </ul>
+
+    <p><strong>為什麼是 amoxicillin，不是家長熟悉的日舒？</strong></p>
+
+    <p>成功大學醫院收集了十幾年、三百多株南台灣兒童身上的 A 群鏈球菌。紅黴素類的抗藥率<strong>在這十幾年裡大起大落</strong>——曾經一度降到幾乎驗不到，結果隔一年就衝回一半以上。</p>
+
+    <p>它靠不住，而鏈球菌對 penicillin 和 amoxicillin 幾乎沒有抗藥性問題。所以第一線是它們，日舒留給真正對盤尼西林嚴重過敏的孩子。</p>
+
+    <h2 id="sec-6">哪些情況不要等門診，直接去大醫院</h2>
+
+    <p>上面講的都是門診處理得完的事。有兩組狀況不要等。</p>
+
+    <div class="highlight-box">
+      <span class="highlight-icon">🚨</span>
+      <span class="highlight-text"><strong>氣道受阻或深頸部感染的訊號</strong>：聲音變得像嘴裡含著東西、口水流出來吞不下去、呼吸有雜音、必須前傾撐著身體才呼吸得順、嘴巴張不開、<strong>只有單側喉嚨痛而且越來越痛</strong>、看得到軟顎或咽壁鼓起來、脖子僵硬轉不動。這些要直接去有急診和耳鼻喉科的醫院。</span>
+    </div>
+
+    <div class="highlight-box">
+      <span class="highlight-icon">🚨</span>
+      <span class="highlight-text"><strong>腸病毒重症前兆（疾管署公布的四組）</strong>：嗜睡、意識不清、活力不佳、手腳無力／肌躍型抽搐（無故驚嚇或突然間全身肌肉收縮）／持續嘔吐／呼吸急促或心跳加快。出現任何一組，立刻送大醫院。感染後<strong>七天內</strong>都要盯著。</span>
+    </div>
+
+    <div class="conclusion-box" id="sec-concl">
+      <h2>結論：今天晚上就能先看三件事</h2>
+      <p>喉嚨有白點，先別急著要抗生素，也別急著拒絕。在來門診之前，你自己可以先看三件事。</p>
+      <p><strong>第一，有沒有咳嗽和流鼻水。</strong>有，往病毒想，先別預期會拿到抗生素。</p>
+      <p><strong>第二，摸脖子。</strong>前頸腫起來、壓了會痛，偏鏈球菌；後頸兩側對稱腫，偏 EBV。</p>
+      <p><strong>第三，用手電筒照一下嘴巴。</strong>水泡破在喉嚨深處、牙齦完好，是腸病毒；牙齦紅腫出血，是單純疱疹。</p>
+      <p>帶著這三樣來門診。如果看起來像鏈球菌，我會做快篩，幾分鐘就知道。陽性就開十天的 amoxicillin，而且告訴你為什麼要吃完；陰性而且像病毒，我會教你怎麼照顧、什麼時候要立刻回來。</p>
+      <p>多數孩子不會拿到抗生素。這不是沒在處理，是因為對的答案本來就是這樣。</p>
+      <div class="conclusion-cta">孩子發燒加上喉嚨痛，來門診讓我看一次，需要的時候當場做快篩。</div>
+    </div>
+    </div>
+
+    <div class="faq-section" id="sec-faq">
+      <h2>常見問題</h2>
+      <div class="faq-item">
+        <div class="faq-q">喉嚨有白點，一定是細菌感染嗎？</div>
+        <div class="faq-a">不一定。腺病毒、EBV、腸病毒都可以讓扁桃腺出現白點或膿樣分泌物。在診所就診的兒童當中，喉嚨痛真正驗出 A 群鏈球菌的只是少數，而且年紀越小比例越低。白點存在這件事本身，不能決定要不要用抗生素。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">快篩陰性，可是孩子還是一直燒，怎麼辦？</div>
+        <div class="faq-a">快篩陰性不等於完全排除，它還是會漏掉一小部分。如果臨床上很像鏈球菌（沒有咳嗽、前頸淋巴結腫痛、扁桃腺化膿、有發燒），兒童建議補一個喉嚨培養確認。反過來，如果孩子有明顯的咳嗽、流鼻水、眼睛紅，那更可能是病毒，燒好幾天也在預期之內——腺病毒本來就會燒上好一陣子。重點是看活力、意識、呼吸和進食，不是看溫度計上的天數。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">孩子以前吃 amoxicillin 出過疹子，是不是對盤尼西林過敏？</div>
+        <div class="faq-a">不一定。大型研究顯示，用抗生素的孩子整體出疹的機會確實比較高，但 amoxicillin 並沒有比其他抗生素更容易出疹。如果那一次發燒伴隨明顯疲倦、後頸淋巴結腫大、扁桃腺很大，當時很可能是 EBV 在作用，而不是對 amoxicillin 本身過敏。這件事值得找醫師重新評估，因為「盤尼西林過敏」這個標籤會限制以後的用藥選擇。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">抗生素要吃滿十天嗎？燒退了可以停嗎？</div>
+        <div class="faq-a">確定是 A 群鏈球菌的話，要吃滿。抗生素在退燒這件事上其實沒有效果（這點證據等級很高），它的價值在於把病原清乾淨、降低扁桃腺周圍膿瘍和中耳炎的機率，療程中斷就會失去這個保護。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">腸病毒有疫苗嗎？</div>
+        <div class="faq-a">有。台灣已經核准上市兩款腸病毒 A71 型疫苗，適用滿兩個月到未滿六歲，目前是自費，部分地方政府有補助方案。<strong>兩款的接種時程不一樣</strong>——都是打兩劑，但一款間隔至少 28 天，另一款間隔至少 56 天，而且未滿兩歲就開始打的孩子還要在一年後追加一劑，所以原則上建議同一個廠牌打完。要注意它只保護 A71 型，像克沙奇 A16、腸病毒 D68 這些型別不在範圍內，所以勤洗手還是得做。腸病毒的細節我會另外寫一篇。</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="related-box">
+    <h3>延伸閱讀</h3>
+    <ul class="related-list">
+      <li><a href="pediatric-osa-adenoid-hypertrophy-guide.html">孩子打呼很大聲，是睡得熟嗎？從白天坐不住到腺樣體肥大，兒童睡眠呼吸中止怎麼判斷</a></li>
+      <li><a href="pediatric-acute-otitis-media-guide.html">孩子耳朵痛是中耳炎嗎？什麼時候一定要吃抗生素？</a></li>
+      <li><a href="rsv-infant-bronchiolitis-parent-guide.html">RSV 呼吸道融合病毒：嬰幼兒細支氣管炎，爸媽該怎麼判斷與照顧</a></li>
+    </ul>
+  </div>
+
+  <div class="author-box">
+    <img class="author-photo" src="images/dr-chan-author.jpg" alt="詹士奇醫師">
+    <div>
+      <div class="author-label">本文作者</div>
+      <div class="author-name">詹士奇醫師</div>
+      <div class="author-role">耳鼻喉暨頭頸外科專科醫師<br>日和聯合診所院長</div>
+      <a class="author-link" href="../clinic-website/index.html#doctors">查看完整學經歷 →</a>
+    </div>
+  </div>
+
+  <div class="sources">
+    <div class="sources-label">參考文獻</div>
+    <p style="font-size:12px;color:#718096;margin:0 0 10px;line-height:1.7;">標題連到可免費取得的版本。第 1、3、4、5、7、8、9、10 筆為開放取用全文；第 2 筆（長庚腺病毒）與第 6 筆（<em>JAMA</em> 理學檢查）目前只有付費全文，連結指向 PubMed 摘要，本文引用自這兩篇的每一個數字都在該摘要內。</p>
+    <ol class="ref-list">
+      <li>Oliver J, Malliya Wadu E, Pierse N, et al. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5875889/" target="_blank" rel="noopener">Group A Streptococcus pharyngitis and pharyngeal carriage: a meta-analysis.</a> PLoS Negl Trop Dis. 2018;12(3):e0006335.（285 篇研究；高所得國家、自行就診情境的兒童 GAS 盛行率 28.5%，5–19 歲 36.8%、5 歲以下 14.2%；無症狀兒童帶菌率 10.5%，5–19 歲 11.2%、5 歲以下 3.1%）
+        <span class="ref-doi">DOI：10.1371/journal.pntd.0006335｜開放取用全文</span></li>
+      <li>Lin CH, Huang YC, Chiu CH, et al. <a href="https://pubmed.ncbi.nlm.nih.gov/17712464/" target="_blank" rel="noopener">A cluster of adenovirus serotype 3 infections in children in northern Taiwan: clinical features and laboratory findings.</a> J Microbiol Immunol Infect. 2007;40(4):302–309.（499 名腺病毒個案；發燒 100%、平均 6 天、白血球≥15,000 佔 30.4%、CRP&gt;40 mg/L 佔 80.4%；住院者 64.0% 未使用抗生素）
+        <span class="ref-doi">PMID：17712464</span></li>
+      <li>Cohen JF, Bertille N, Cohen R, Chalumeau M. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6457926/" target="_blank" rel="noopener">Rapid antigen detection test for group A streptococcus in children with pharyngitis.</a> Cochrane Database Syst Rev. 2016;7:CD010502.（98 篇、101,121 人；敏感度 85.6%、特異度 95.4%）
+        <span class="ref-doi">DOI：10.1002/14651858.CD010502.pub2</span></li>
+      <li>Spinks A, Glasziou PP, Del Mar CB. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8655103/" target="_blank" rel="noopener">Antibiotics for treatment of sore throat in children and adults.</a> Cochrane Database Syst Rev. 2021;12:CD000023.（29 試驗、15,337 例；第 3 天發燒無顯著差異；安慰劑組 82% 一週內痊癒；扁桃腺周圍膿瘍與急性中耳炎顯著下降）
+        <span class="ref-doi">DOI：10.1002/14651858.CD000023.pub5</span></li>
+      <li>McIsaac WJ, White D, Tannenbaum D, Low DE. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC1228750/" target="_blank" rel="noopener">A clinical score to reduce unnecessary antibiotic use in patients with sore throat.</a> CMAJ. 1998;158(1):75–83.（521 人；3–14 歲敏感度 96.9% 對醫師判斷 70.6%；初次抗生素處方減少 48%）
+        <span class="ref-doi">PMID：9475915</span></li>
+      <li>Ebell MH, Call M, Shinholser J, Gardner J. <a href="https://pubmed.ncbi.nlm.nih.gov/27115266/" target="_blank" rel="noopener">Does this patient have infectious mononucleosis? The Rational Clinical Examination systematic review.</a> JAMA. 2016;315(14):1502–1509.（後頸淋巴結腫大 LR+ 3.1、顎部出血點 LR+ 5.3、無淋巴結腫大 LR+ 0.23–0.44）
+        <span class="ref-doi">DOI：10.1001/jama.2016.2111</span></li>
+      <li>Shulman ST, Bisno AL, Clegg HW, et al. <a href="https://academic.oup.com/cid/article/55/10/e86/321183" target="_blank" rel="noopener">Clinical practice guideline for the diagnosis and management of group A streptococcal pharyngitis: 2012 update by the Infectious Diseases Society of America.</a> Clin Infect Dis. 2012;55(10):e86–e102.（penicillin／amoxicillin 為首選；兒童快篩陰性建議補喉嚨培養）
+        <span class="ref-doi">DOI：10.1093/cid/cis629</span></li>
+      <li>Chuang PK, Wang SM, Lin HC, et al. <a href="https://www.sciencedirect.com/science/article/pii/S1684118213001606" target="_blank" rel="noopener">The trend of macrolide resistance and emm types of group A streptococci from children at a medical center in southern Taiwan.</a> J Microbiol Immunol Infect. 2015;48(2):160–167.（301 株；紅黴素抗藥率 2000 年 53.1%、2010 年 0%、2011 年 65%）
+        <span class="ref-doi">DOI：10.1016/j.jmii.2013.08.015</span></li>
+      <li>Zhang R, Mao Z, Xu C, et al. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10269065/" target="_blank" rel="noopener">Association between antibiotic exposure and the risk of rash in children with infectious mononucleosis: a multicenter, retrospective cohort study.</a> Antimicrob Agents Chemother. 2023;67(6):e0024923.（14 家醫院、767 名兒童；抗生素整體 AOR 1.47（1.04–2.08），但 amoxicillin 相對其他抗生素未見風險增加）
+        <span class="ref-doi">DOI：10.1128/aac.00249-23｜開放取用全文</span></li>
+      <li>Womack J, Jimenez M. <a href="https://www.aafp.org/pubs/afp/issues/2015/0315/p372.html" target="_blank" rel="noopener">Common questions about infectious mononucleosis.</a> Am Fam Physician. 2015;91(6):372–376.（嗜異性抗體第一週偽陰性 25%、4 歲以下較不準；兒童呼吸道阻塞是 IM 住院最常見原因）
+        <span class="ref-doi">PMID：25822555</span></li>
+      <li>台灣兒童感染症醫學會．<a href="https://www.pids.org.tw/index.php?route=education/education&amp;path=140" target="_blank" rel="noopener">腸病毒 A71 型疫苗使用建議</a>（2026 年 7 月 24 日第三次修訂，2026 年 10 月 21 日查閱）。適用滿 2 個月至未滿 6 歲；兩款廠牌基礎劑分別為間隔至少 28 天與至少 56 天，後者未滿 2 歲起始接種者需於 1 年後追加 1 劑。</li>
+      <li>衛生福利部疾病管制署．<a href="https://www.cdc.gov.tw/Disease/SubIndex/m3zdUk3u9GJVvddeSnhkiA" target="_blank" rel="noopener">腸病毒感染併發重症</a>（2026 年 10 月 21 日查閱）。重症前兆四組病徵、感染後 7 日內觀察期、5 歲以下為重症高危險群。</li>
+    </ol>
+  </div>
+
+</div>
+
+<footer>
+  <div class="foot-grid">
+    <div class="foot-col">
+      <div class="foot-brand">日和聯合診所</div>
+      <div class="foot-rule"></div>
+      耳鼻喉科・中醫科<br>
+      台南市鹽水區中正路 45 號<br>
+      06-6520182
+    </div>
+    <div class="foot-col">
+      <h4>網站內容</h4>
+      <a href="../clinic-website/index.html#doctors">醫師介紹</a>
+      <a href="../clinic-website/index.html#services">服務項目</a>
+      <a href="../clinic-website/index.html#hours">門診時間</a>
+      <a href="../clinic-website/index.html#contact">聯絡我們</a>
+    </div>
+    <div class="foot-col">
+      <h4>醫學筆記</h4>
+      <a href="../medical-notes.html#ear">耳科</a>
+      <a href="../medical-notes.html#nose">鼻科</a>
+      <a href="../medical-notes.html#throat">喉科</a>
+      <a href="../medical-notes.html#head-neck">頭頸</a>
+      <a href="../medical-notes.html#chronic">慢性病</a>
+      <a href="../medical-notes.html#pediatric">小兒常見疾病</a>
+    </div>
+    <div class="foot-col">
+      <h4>外部連結</h4>
+      <a href="https://lin.ee/ubEEzZv" target="_blank" rel="noopener">LINE 耳鼻喉科</a>
+      <a href="https://lin.ee/t6T6SqJ" target="_blank" rel="noopener">LINE 中醫</a>
+      <a href="https://www.facebook.com/profile.php?id=61584338163667" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://www.instagram.com/dr.jk347/" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    本站衛教資訊不能取代醫師面對面的診斷與治療。文章內容依發表當下的文獻整理，醫學建議可能隨新證據更新。<br>
+    © 2026 日和聯合診所
+  </div>
+</footer>
+
+<div class="social-rail">
+  <a class="sr-btn sr-line" href="https://lin.ee/ubEEzZv" target="_blank" rel="noopener" aria-label="加入 LINE 好友（耳鼻喉科）" title="加入 LINE 好友（耳鼻喉科）">
+    <svg viewBox="0 0 24 24" fill="#fff" fill-rule="evenodd" aria-hidden="true"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+  </a>
+  <a class="sr-btn sr-fb" href="https://www.facebook.com/profile.php?id=61584338163667" target="_blank" rel="noopener" aria-label="Facebook 粉絲專頁" title="Facebook 粉絲專頁">
+    <svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M15.12 5.32H17V2.14A26.11 26.11 0 0 0 14.26 2C11.54 2 9.68 3.66 9.68 6.7v2.62H6.61v3.56h3.07V22h3.68v-9.12h3.06l.46-3.56h-3.52V7.05c0-1.05.28-1.73 1.76-1.73Z"/></svg>
+  </a>
+  <a class="sr-btn sr-ig" href="https://www.instagram.com/dr.jk347/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram">
+    <svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.31-1.46.72-2.13 1.38C1.35 2.68.94 3.35.63 4.14.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.31.79.72 1.46 1.38 2.13.67.67 1.34 1.08 2.13 1.38.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.79-.31 1.46-.72 2.13-1.38.67-.67 1.08-1.34 1.38-2.13.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91-.31-.79-.72-1.46-1.38-2.13C21.32 1.35 20.65.94 19.86.63c-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0z"/><path d="M12 5.84A6.16 6.16 0 1 0 12 18.16 6.16 6.16 0 0 0 12 5.84zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8z"/><circle cx="18.41" cy="5.59" r="1.44"/></svg>
+  </a>
+  <button class="sr-btn sr-top" id="srTop" aria-label="回到頂部" title="回到頂部">
+    <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 15l6-6 6 6"/></svg>
+  </button>
+</div>
+
+<script>
+(function(){
+  var t=document.getElementById('srTop'); if(!t) return;
+  function upd(){ (window.pageYOffset||document.documentElement.scrollTop) > window.innerHeight ? t.classList.add('show') : t.classList.remove('show'); }
+  window.addEventListener('scroll', upd, {passive:true});
+  t.addEventListener('click', function(){ window.scrollTo({top:0,behavior:'smooth'}); });
+  upd();
+})();
+</script>
+
+</body>
+</html>
