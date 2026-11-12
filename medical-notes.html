@@ -289,7 +289,16 @@
     }
   </style>
 
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QVDC8S9N38"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-QVDC8S9N38');
+</script>
 </head>
+
 <body>
 
 <nav>
@@ -330,11 +339,11 @@
   </div>
 
   <div class="filter-group">
-    <span class="filter-label">給誰看</span>
+    <span class="filter-label">類型</span>
     <div class="filter-row" id="audRow">
       <button class="filter-pill aud-pill active" data-aud="all">全部</button>
-      <button class="filter-pill aud-pill" data-aud="public">病人與家屬</button>
-      <button class="filter-pill aud-pill" data-aud="pro">醫療人員</button>
+      <button class="filter-pill aud-pill" data-aud="public">衛教長文</button>
+      <button class="filter-pill aud-pill" data-aud="pro">臨床筆記</button>
     </div>
   </div>
 
@@ -359,10 +368,10 @@
       <div class="note-excerpt">一句話摘要</div>
     </a>
     data-cat 對應「分類」篩選按鈕：ear／nose／throat／head-neck／chronic／pediatric
-    data-aud 對應「給誰看」篩選按鈕：
+    data-aud 對應「類型」篩選按鈕：
       public = 衛教長文，寫給病人與家屬（預設）
-      pro    = 臨床筆記，寫給醫療人員；此時 note-meta 要多加一個徽章：
-               <span class="note-pro">醫療人員</span>
+      pro    = 臨床筆記，寫給醫療同行；此時 note-meta 要多加一個徽章：
+               <span class="note-pro">臨床筆記</span>
   -->
   <div class="notes-list" id="notesList">
     <a class="note-item" data-aud="public" data-cat="pediatric" href="notes/pediatric-sore-throat-differential-guide.html">
@@ -396,7 +405,7 @@
       <div class="note-excerpt">臉歪不一定是貝爾氏麻痺。整理亨特氏症候群（耳部帶狀疱疹）的三大警訊、跟貝爾氏麻痺的鑑別、黃金72小時治療的重要性、後遺症追蹤，以及帶狀疱疹疫苗的預防效果與接種建議。</div>
     </a>
     <a class="note-item" data-aud="pro" data-cat="ear" href="notes/otomycosis-clinical-diagnosis-treatment-guide.html">
-      <div class="note-meta"><span class="note-tag">耳科</span><span class="note-pro">醫療人員</span><span>2026-09-01</span></div>
+      <div class="note-meta"><span class="note-tag">耳科</span><span class="note-pro">臨床筆記</span><span>2026-09-01</span></div>
       <div class="note-title">超越細菌性外耳炎：耳黴菌病（Otomycosis）的病原學、耳鏡鑑別與階梯式處置</div>
       <div class="note-excerpt">耳黴菌病佔外耳道感染約一到兩成，濕熱氣候更常見。整理Aspergillus與Candida的耳鏡表現差異、與細菌性外耳炎及外耳道癌的鑑別、以清創為核心的階梯式抗黴菌治療，以及耳膜穿孔與壞死性外耳炎的處置要點。</div>
     </a>
