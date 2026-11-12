@@ -165,6 +165,40 @@
       color: white;
     }
 
+    /* 篩選群組（讀者 / 分類 兩軸） */
+    .filter-group {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    .filter-group:last-of-type { margin-bottom: 28px; }
+    .filter-group .filter-row { margin-bottom: 0; }
+    .filter-label {
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: 1px;
+      white-space: nowrap;
+      margin-right: 2px;
+    }
+    .aud-pill.active {
+      background: var(--text);
+      border-color: var(--text);
+      color: white;
+    }
+    .note-pro {
+      background: rgba(45,55,72,0.10);
+      color: var(--text);
+      border-radius: 10px;
+      padding: 2px 10px;
+      font-weight: 600;
+    }
+    @media (max-width: 520px) {
+      .filter-group { align-items: flex-start; }
+      .filter-label { width: 100%; margin-bottom: 2px; }
+    }
+
     /* 筆記列表 */
     .notes-list { display: flex; flex-direction: column; }
     .note-item {
@@ -286,7 +320,7 @@
   <div class="hero-tag">MEDICAL NOTES</div>
   <h1>醫學筆記</h1>
   <div class="hero-divider"></div>
-  <p>醫師的閱讀與臨床思考紀錄<br>不定期更新，與想吸收知識的你分享</p>
+  <p>醫師的閱讀與臨床思考紀錄<br>衛教長文給病人與家屬，臨床筆記給醫療同行</p>
 </div>
 
 <div class="container">
@@ -295,7 +329,18 @@
     <input type="search" id="searchInput" placeholder="🔍 搜尋筆記關鍵字…">
   </div>
 
-  <div class="filter-row" id="filterRow">
+  <div class="filter-group">
+    <span class="filter-label">給誰看</span>
+    <div class="filter-row" id="audRow">
+      <button class="filter-pill aud-pill active" data-aud="all">全部</button>
+      <button class="filter-pill aud-pill" data-aud="public">病人與家屬</button>
+      <button class="filter-pill aud-pill" data-aud="pro">醫療人員</button>
+    </div>
+  </div>
+
+  <div class="filter-group">
+    <span class="filter-label">分類</span>
+    <div class="filter-row" id="filterRow">
     <button class="filter-pill active" data-cat="all">全部</button>
     <button class="filter-pill" data-cat="ear">耳科</button>
     <button class="filter-pill" data-cat="nose">鼻科</button>
@@ -303,194 +348,199 @@
     <button class="filter-pill" data-cat="head-neck">頭頸</button>
     <button class="filter-pill" data-cat="chronic">慢性病</button>
     <button class="filter-pill" data-cat="pediatric">小兒常見疾病</button>
+    </div>
   </div>
 
   <!--
     新增筆記時，在 .notes-list 裡複製一個 .note-item 區塊：
-    <a class="note-item" data-cat="ear" href="notes/檔名.html">
+    <a class="note-item" data-aud="public" data-cat="ear" href="notes/檔名.html">
       <div class="note-meta"><span class="note-tag">耳科</span><span>2026-01-01</span></div>
       <div class="note-title">標題</div>
       <div class="note-excerpt">一句話摘要</div>
     </a>
-    data-cat 對應上方篩選按鈕的 data-cat 值：ear／nose／throat／head-neck／chronic／pediatric
+    data-cat 對應「分類」篩選按鈕：ear／nose／throat／head-neck／chronic／pediatric
+    data-aud 對應「給誰看」篩選按鈕：
+      public = 衛教長文，寫給病人與家屬（預設）
+      pro    = 臨床筆記，寫給醫療人員；此時 note-meta 要多加一個徽章：
+               <span class="note-pro">醫療人員</span>
   -->
   <div class="notes-list" id="notesList">
-    <a class="note-item" data-cat="pediatric" href="notes/pediatric-sore-throat-differential-guide.html">
+    <a class="note-item" data-aud="public" data-cat="pediatric" href="notes/pediatric-sore-throat-differential-guide.html">
       <div class="note-meta"><span class="note-tag">小兒常見疾病</span><span>2026-10-21</span></div>
       <div class="note-title">喉嚨有白點就是細菌感染嗎？孩子發燒喉嚨痛，四種常見原因裡只有一種需要抗生素</div>
       <div class="note-excerpt">腺病毒會以持續高燒、白血球與 CRP 上升模仿細菌感染，所以靠發燒天數或抽血數字決定抗生素會錯。整理診間真正在看的徵象——咳嗽、淋巴結長在前頸或後頸、口腔潰瘍的位置——以及 McIsaac 評分、A 群鏈球菌快篩的能力與限制，和抗生素在做什麼、不在做什麼。</div>
     </a>
-    <a class="note-item" data-cat="pediatric" href="notes/pediatric-osa-adenoid-hypertrophy-guide.html">
+    <a class="note-item" data-aud="public" data-cat="pediatric" href="notes/pediatric-osa-adenoid-hypertrophy-guide.html">
       <div class="note-meta"><span class="note-tag">小兒常見疾病</span><span>2026-09-28</span></div>
       <div class="note-title">孩子打呼很大聲，是睡得熟嗎？從白天坐不住到腺樣體肥大，兒童睡眠呼吸中止怎麼判斷</div>
       <div class="note-excerpt">兒童睡眠呼吸中止的白天表現常是過動與注意力不集中，有時被誤認為過動症。會打呼的孩子多數並非睡眠呼吸中止，而扁桃腺看起來不大也可能造成阻塞。整理診所端的內視鏡評估、何時需要睡眠檢查、觀察與用藥，以及手術的適應症與風險。</div>
     </a>
-    <a class="note-item" data-cat="throat" href="notes/high-dose-influenza-vaccine-elderly-evidence-guide.html">
+    <a class="note-item" data-aud="public" data-cat="throat" href="notes/high-dose-influenza-vaccine-elderly-evidence-guide.html">
       <div class="note-meta"><span class="note-tag">感染與疫苗</span><span>2026-09-19</span></div>
       <div class="note-title">長輩的流感疫苗要「加強版」嗎？高劑量疫苗值不值得自費，先看懂這幾件事</div>
       <div class="note-excerpt">長輩打疫苗保護力較低是免疫老化造成的，不是疫苗品質有問題。整理高劑量疫苗與公費標準劑量的差別、大型研究在住院這件事上的誠實結果、哪些人比較值得考慮，以及台灣的公費資格。</div>
     </a>
-    <a class="note-item" data-cat="pediatric" href="notes/rsv-infant-bronchiolitis-parent-guide.html">
+    <a class="note-item" data-aud="public" data-cat="pediatric" href="notes/rsv-infant-bronchiolitis-parent-guide.html">
       <div class="note-meta"><span class="note-tag">小兒常見疾病</span><span>2026-09-16</span></div>
       <div class="note-title">專門給爸媽的 RSV 呼吸道融合病毒全指南：從症狀辨識、檢查到居家照護</div>
       <div class="note-excerpt">RSV 幾乎每個孩子兩歲前都會感染。台灣沒有固定流行季，全年都可能感染。整理感冒與細支氣管炎的分辨、醫院檢查、治療與預防，以及必須立刻就醫的警訊。</div>
     </a>
-    <a class="note-item" data-cat="nose" href="notes/unilateral-sinusitis-red-flag-guide.html">
+    <a class="note-item" data-aud="public" data-cat="nose" href="notes/unilateral-sinusitis-red-flag-guide.html">
       <div class="note-meta"><span class="note-tag">鼻科</span><span>2026-09-16</span></div>
       <div class="note-title">鼻竇炎只有一邊，要緊嗎？單側鼻塞背後的牙齒、黴菌與腫瘤問題</div>
       <div class="note-excerpt">慢性鼻竇炎通常是兩邊一起發作，只有一邊反而不尋常。整理單側鼻竇炎最常見的牙齒源頭、需要排除的腫瘤與黴菌問題、該做哪些檢查，以及什麼情況必須轉診醫院。</div>
     </a>
-    <a class="note-item" data-cat="ear" href="notes/ramsay-hunt-syndrome-bells-palsy-differential-guide.html">
+    <a class="note-item" data-aud="public" data-cat="ear" href="notes/ramsay-hunt-syndrome-bells-palsy-differential-guide.html">
       <div class="note-meta"><span class="note-tag">耳科</span><span>2026-09-05</span></div>
       <div class="note-title">耳朵痛、長水泡又臉歪，是貝爾氏麻痺還是更嚴重的亨特氏症候群？黃金72小時是關鍵</div>
       <div class="note-excerpt">臉歪不一定是貝爾氏麻痺。整理亨特氏症候群（耳部帶狀疱疹）的三大警訊、跟貝爾氏麻痺的鑑別、黃金72小時治療的重要性、後遺症追蹤，以及帶狀疱疹疫苗的預防效果與接種建議。</div>
     </a>
-    <a class="note-item" data-cat="ear" href="notes/otomycosis-clinical-diagnosis-treatment-guide.html">
-      <div class="note-meta"><span class="note-tag">耳科</span><span>2026-09-01</span></div>
+    <a class="note-item" data-aud="pro" data-cat="ear" href="notes/otomycosis-clinical-diagnosis-treatment-guide.html">
+      <div class="note-meta"><span class="note-tag">耳科</span><span class="note-pro">醫療人員</span><span>2026-09-01</span></div>
       <div class="note-title">超越細菌性外耳炎：耳黴菌病（Otomycosis）的病原學、耳鏡鑑別與階梯式處置</div>
       <div class="note-excerpt">耳黴菌病佔外耳道感染約一到兩成，濕熱氣候更常見。整理Aspergillus與Candida的耳鏡表現差異、與細菌性外耳炎及外耳道癌的鑑別、以清創為核心的階梯式抗黴菌治療，以及耳膜穿孔與壞死性外耳炎的處置要點。</div>
     </a>
-    <a class="note-item" data-cat="nose" href="notes/allergen-testing-ige-igg-guide.html">
+    <a class="note-item" data-aud="public" data-cat="nose" href="notes/allergen-testing-ige-igg-guide.html">
       <div class="note-meta"><span class="note-tag">鼻科</span><span>2026-08-30</span></div>
       <div class="note-title">反覆過敏、長期疲勞卻找不到原因？過敏原檢測（IgE/IgG）適合哪些人做、能查出什麼</div>
       <div class="note-excerpt">長期不明原因的疲勞、皮膚問題、腸胃症狀，可能跟過敏原有關。整理IgE急性與IgG慢性過敏原檢測的適用族群、檢測意義與後續飲食因應策略。</div>
     </a>
-    <a class="note-item" data-cat="chronic" href="notes/diabetic-kidney-disease-clinical-classification-guide.html">
+    <a class="note-item" data-aud="public" data-cat="chronic" href="notes/diabetic-kidney-disease-clinical-classification-guide.html">
       <div class="note-meta"><span class="note-tag">慢性病</span><span>2026-08-29</span></div>
       <div class="note-title">糖尿病腎病變完整解析：從DKD、NDKD分類到腎功能自然病程與現代治療</div>
       <div class="note-excerpt">糖尿病腎病變（DKD）是異質性極高的臨床推定診斷。整理DKD/NDKD/NA-DKD分類邏輯、腎功能自然病程三階段、eGFR與UACR雙軸評估、CKD分期，以及從線性模型到多靶點治療的觀念演進。</div>
     </a>
-    <a class="note-item" data-cat="head-neck" href="notes/adult-neck-mass-evaluation-guide.html">
+    <a class="note-item" data-aud="public" data-cat="head-neck" href="notes/adult-neck-mass-evaluation-guide.html">
       <div class="note-meta"><span class="note-tag">頭頸</span><span>2026-08-27</span></div>
       <div class="note-title">脖子摸到一顆腫塊要緊張嗎？成人單側頸部腫塊：危險信號、精準檢查與治療全指南</div>
       <div class="note-excerpt">成人單側頸部腫塊，40歲以上原則上要先假設是惡性直到排除。整理三大病因鑑別、危險紅旗徵象、檢查流程與抗生素試驗的界線。</div>
     </a>
-    <a class="note-item" data-cat="chronic" href="notes/helicobacter-pylori-diagnosis-treatment-guide.html">
+    <a class="note-item" data-aud="public" data-cat="chronic" href="notes/helicobacter-pylori-diagnosis-treatment-guide.html">
       <div class="note-meta"><span class="note-tag">慢性病</span><span>2026-08-22</span></div>
       <div class="note-title">胃痛、胃脹氣總是好不了？幽門螺旋桿菌的傳染途徑、檢查方式與治療完整指南</div>
       <div class="note-excerpt">幽門螺旋桿菌感染全球約半數人口，多數終身無症狀。整理傳染途徑、警訊症狀、檢查方式、2026最新14天鉍劑四聯療法與治療後覆驗重點。</div>
     </a>
-    <a class="note-item" data-cat="chronic" href="notes/helicobacter-pylori-special-populations-guide.html">
+    <a class="note-item" data-aud="public" data-cat="chronic" href="notes/helicobacter-pylori-special-populations-guide.html">
       <div class="note-meta"><span class="note-tag">慢性病</span><span>2026-08-22</span></div>
       <div class="note-title">小孩要驗幽門螺旋桿菌嗎？殺菌後逆流會惡化嗎？特殊情境完整解析</div>
       <div class="note-excerpt">孩子肚子痛需要驗菌嗎？殺菌後逆流會惡化嗎？整理幽門螺旋桿菌與兒童、胃食道逆流、貧血血小板低下的關聯，以及第一次殺菌失敗的二線救援治療。</div>
     </a>
-    <a class="note-item" data-cat="chronic" href="notes/diabetes-basics-diagnosis-treatment-guide.html">
+    <a class="note-item" data-aud="public" data-cat="chronic" href="notes/diabetes-basics-diagnosis-treatment-guide.html">
       <div class="note-meta"><span class="note-tag">慢性病</span><span>2026-08-22</span></div>
       <div class="note-title">糖尿病到底是什麼病？從定義、檢查診斷到治療與併發症，一次搞懂</div>
       <div class="note-excerpt">糖尿病是全身性代謝疾病，常常沒有明顯症狀。整理定義流行病學、診斷標準與檢查項目、藥物治療與低血糖預防、慢性併發症與急性高血糖危象重點。</div>
     </a>
-    <a class="note-item" data-cat="chronic" href="notes/diabetes-glycemic-control-paradigm-shift-guide.html">
+    <a class="note-item" data-aud="public" data-cat="chronic" href="notes/diabetes-glycemic-control-paradigm-shift-guide.html">
       <div class="note-meta"><span class="note-tag">慢性病</span><span>2026-08-21</span></div>
       <div class="note-title">糖尿病治療觀念大翻轉：從「血糖越低越好」到心腎體重一起顧，這些年到底變了什麼？</div>
       <div class="note-excerpt">糖尿病治療曾經只看血糖數字，後來發現控糖太嚴反而增加死亡風險。整理控糖觀念40年演進：從個人化目標值，到心臟腎臟體重一起治療的現代邏輯。</div>
     </a>
-    <a class="note-item" data-cat="chronic" href="notes/prediabetes-reversal-guide.html">
+    <a class="note-item" data-aud="public" data-cat="chronic" href="notes/prediabetes-reversal-guide.html">
       <div class="note-meta"><span class="note-tag">慢性病</span><span>2026-08-21</span></div>
       <div class="note-title">健檢報告寫著「糖尿病前期」，是快得糖尿病了嗎？其實這是能逆轉的黃金期</div>
       <div class="note-excerpt">糖尿病前期不是判決書，是可逆轉的黃金窗口。整理定義、逆轉方法、環境與壓力如何影響血糖，以及連續血糖監測這項新工具怎麼幫助你。</div>
     </a>
-    <a class="note-item" data-cat="chronic" href="notes/dyslipidemia-diagnosis-treatment-guide.html">
+    <a class="note-item" data-aud="public" data-cat="chronic" href="notes/dyslipidemia-diagnosis-treatment-guide.html">
       <div class="note-meta"><span class="note-tag">慢性病</span><span>2026-08-21</span></div>
       <div class="note-title">健檢紅字別驚慌！醫師教你看懂高血脂：抽血怎麼解讀、治療目標值多少才安全</div>
       <div class="note-excerpt">血脂異常盛行率約2到2.5成，多半沒有症狀。整理次發性病因鑑別、抽血新工具、2026最新PREVENT風險分級與LDL目標值、藥物選擇與長期追蹤重點。</div>
     </a>
-    <a class="note-item" data-cat="chronic" href="notes/hypertension-diagnosis-treatment-guide.html">
+    <a class="note-item" data-aud="public" data-cat="chronic" href="notes/hypertension-diagnosis-treatment-guide.html">
       <div class="note-meta"><span class="note-tag">慢性病</span><span>2026-08-20</span></div>
       <div class="note-title">高血壓不痛不癢，為什麼要在意？醫師教你看懂新版血壓標準、居家量測與長期控制重點</div>
       <div class="note-excerpt">高血壓多數沒有症狀，成人盛行率逼近五成。整理最新血壓分類標準、原發性續發性鑑別、居家量血壓正確方法與長期用藥追蹤重點。</div>
     </a>
-    <a class="note-item" data-cat="nose" href="notes/allergic-rhinitis-daily-care.html">
+    <a class="note-item" data-aud="public" data-cat="nose" href="notes/allergic-rhinitis-daily-care.html">
       <div class="note-meta"><span class="note-tag">鼻科</span><span>2026-08-18</span></div>
       <div class="note-title">打噴嚏、鼻塞總是好不了？過敏性鼻炎全指南：從精準檢查、分級治療到防範併發症</div>
       <div class="note-excerpt">過敏性鼻炎四大症狀持續數週、季節性反覆發作，跟感冒不同。整理鑑別診斷、皮膚測試與抽血、鼻噴劑分級治療與手術選項、常見併發症預防重點。</div>
     </a>
-    <a class="note-item" data-cat="throat" href="notes/covid19-summer-wave-treatment-vaccine-guide.html">
+    <a class="note-item" data-aud="public" data-cat="throat" href="notes/covid19-summer-wave-treatment-vaccine-guide.html">
       <div class="note-meta"><span class="note-tag">喉科</span><span>2026-08-15</span></div>
       <div class="note-title">新冠只是大號感冒嗎？醫師教你看懂重症風險、黃金5天用藥與新一代疫苗</div>
       <div class="note-excerpt">新冠重症率死亡率仍是流感3到5倍，快篩陽性後5到7天內用藥能降低近9成住院死亡風險。整理長新冠、高風險群與新一代疫苗重點。</div>
     </a>
-    <a class="note-item" data-cat="throat" href="notes/cough-hypersensitivity-syndrome-guide.html">
+    <a class="note-item" data-aud="public" data-cat="throat" href="notes/cough-hypersensitivity-syndrome-guide.html">
       <div class="note-meta"><span class="note-tag">喉科</span><span>2026-08-08</span></div>
       <div class="note-title">咳個不停，喉嚨總是癢？可能不是發炎，而是「咳嗽超敏感症候群」</div>
       <div class="note-excerpt">慢性咳嗽超過八週，排除鼻涕倒流、氣喘、胃食道逆流後仍咳不停，可能是咳嗽超敏感症候群。這篇整理症狀特徵、診斷邏輯與治療新選擇。</div>
     </a>
-    <a class="note-item" data-cat="chronic" href="notes/adult-asthma-cva-symbicort-mart-guide.html">
+    <a class="note-item" data-aud="public" data-cat="chronic" href="notes/adult-asthma-cva-symbicort-mart-guide.html">
       <div class="note-meta"><span class="note-tag">慢性病</span><span>2026-08-07</span></div>
       <div class="note-title">一直咳嗽卻不會喘，也算氣喘嗎？成人氣喘的診斷、吸必擴雙效治療與居家監控完整指南</div>
       <div class="note-excerpt">只咳不喘也可能是氣喘。這篇整理咳嗽變異型氣喘的辨識、吸必擴雙效吸入劑治療原理、ACT控制監測，以及惡化時的用藥調整與共病排除重點。</div>
     </a>
-    <a class="note-item" data-cat="ear" href="notes/necrotizing-otitis-externa-skull-base-osteomyelitis-guide.html">
+    <a class="note-item" data-aud="public" data-cat="ear" href="notes/necrotizing-otitis-externa-skull-base-osteomyelitis-guide.html">
       <div class="note-meta"><span class="note-tag">耳科</span><span>2026-08-06</span></div>
       <div class="note-title">耳朵痛到半夜睡不著，只是外耳炎嗎？糖尿病與免疫力低下者要當心的壞死性外耳炎與顱底骨髓炎</div>
       <div class="note-excerpt">壞死性外耳炎好發於糖尿病與免疫力低下族群，主因是綠膿桿菌感染，治療靠6到12週全身性抗生素而非手術。這篇整理警訊、確診檢查與追蹤重點。</div>
     </a>
-    <a class="note-item" data-cat="ear" href="notes/acute-otitis-externa-guide.html">
+    <a class="note-item" data-aud="public" data-cat="ear" href="notes/acute-otitis-externa-guide.html">
       <div class="note-meta"><span class="note-tag">耳科</span><span>2026-08-06</span></div>
       <div class="note-title">耳朵痛、癢又悶，是外耳炎嗎？「游水耳」的成因、正確用藥與危險警訊</div>
       <div class="note-excerpt">壓耳屏會劇痛，是外耳炎跟中耳炎最典型的分辨方式。這篇整理外耳炎的成因、游泳掏耳朵這兩大危險因子、跟黴菌感染／接觸性皮膚炎的鑑別，以及該提高警覺的紅旗訊號。</div>
     </a>
-    <a class="note-item" data-cat="chronic" href="notes/tadalafil-daily-dose-bph-ed-guide.html">
+    <a class="note-item" data-aud="public" data-cat="chronic" href="notes/tadalafil-daily-dose-bph-ed-guide.html">
       <div class="note-meta"><span class="note-tag">慢性病</span><span>2026-08-06</span></div>
       <div class="note-title">他達拉非每日低劑量，除了改善勃起功能，也能治療頻尿夜尿？</div>
       <div class="note-excerpt">每天5毫克的他達拉非不只用於改善勃起功能，也是攝護腺相關頻尿夜尿的處方選擇之一。這篇整理為什麼要每天吃、跟甲型阻斷劑機轉有何不同，以及需要注意的禁忌與副作用。</div>
     </a>
-    <a class="note-item" data-cat="ear" href="notes/adult-acute-otitis-media-guide.html">
+    <a class="note-item" data-aud="public" data-cat="ear" href="notes/adult-acute-otitis-media-guide.html">
       <div class="note-meta"><span class="note-tag">耳科</span><span>2026-08-01</span></div>
       <div class="note-title">耳朵悶痛、聽力變差，是中耳炎嗎？成人中耳炎為什麼不能像小孩一樣先觀察</div>
       <div class="note-excerpt">成人中耳炎不像兒童常能先觀察等待，確診後建議立即開始抗生素治療。這篇整理成因、跟中耳積水/外耳炎的鑑別方式，以及該立刻回診的併發症警訊。</div>
     </a>
-    <a class="note-item" data-cat="chronic" href="notes/tirzepatide-weight-regain-organ-protection-guide.html">
+    <a class="note-item" data-aud="public" data-cat="chronic" href="notes/tirzepatide-weight-regain-organ-protection-guide.html">
       <div class="note-meta"><span class="note-tag">慢性病</span><span>2026-07-30</span></div>
       <div class="note-title">猛健樂會復胖嗎？停藥因應與三高保護效果整理</div>
       <div class="note-excerpt">停藥後復胖是肥胖這種慢性復發性疾病的生理機制，不是意志力問題。這篇整理復胖後何時該重新介入、減量維持的做法，以及對血壓、血糖、血脂、脂肪肝、腎臟的保護效果。</div>
     </a>
-    <a class="note-item" data-cat="chronic" href="notes/tirzepatide-mechanism-trials-taiwan-dosing.html">
+    <a class="note-item" data-aud="public" data-cat="chronic" href="notes/tirzepatide-mechanism-trials-taiwan-dosing.html">
       <div class="note-meta"><span class="note-tag">慢性病</span><span>2026-07-30</span></div>
       <div class="note-title">猛健樂為什麼能減重？機轉、國際研究與台灣劑量觀察</div>
       <div class="note-excerpt">猛健樂是單一分子同時作用在GIP和GLP-1兩個受體，核准適應症分成第二型糖尿病與體重控制（BMI≥30，或BMI≥27合併共病）兩種。</div>
     </a>
-    <a class="note-item" data-cat="head-neck" href="notes/thyrotoxicosis-differential-diagnosis-guide.html">
+    <a class="note-item" data-aud="public" data-cat="head-neck" href="notes/thyrotoxicosis-differential-diagnosis-guide.html">
       <div class="note-meta"><span class="note-tag">頭頸</span><span>2026-07-26</span></div>
       <div class="note-title">甲狀腺指數紅字，一定是甲狀腺亢進嗎？醫師怎麼抓出真正病因</div>
       <div class="note-excerpt">甲狀腺指數過高，常見有葛瑞夫茲病、結節自主製造、甲狀腺發炎漏出三種病因，前兩者是真的過度製造，後者只是庫存漏出，治療方向完全不同。</div>
     </a>
-    <a class="note-item" data-cat="head-neck" href="notes/hyperthyroidism-graves-disease-treatment-guide.html">
+    <a class="note-item" data-aud="public" data-cat="head-neck" href="notes/hyperthyroidism-graves-disease-treatment-guide.html">
       <div class="note-meta"><span class="note-tag">頭頸</span><span>2026-07-26</span></div>
       <div class="note-title">甲狀腺亢進怎麼確診、怎麼選治療？從抽血檢查到藥物、放射碘、手術</div>
       <div class="note-excerpt">甲狀腺亢進不只是心跳快、容易流汗，放任不管可能造成心房顫動甚至心血管崩潰。這篇整理抽血怎麼看、最常見的葛瑞夫茲病，以及藥物、放射碘、手術三種療法怎麼選。</div>
     </a>
-    <a class="note-item" data-cat="ear" href="notes/bppv-benign-positional-vertigo-guide.html">
+    <a class="note-item" data-aud="public" data-cat="ear" href="notes/bppv-benign-positional-vertigo-guide.html">
       <div class="note-meta"><span class="note-tag">耳科</span><span>2026-07-25</span></div>
       <div class="note-title">躺下或起床天旋地轉，是耳石脫落嗎？良性陣發性姿勢性眩暈（BPPV）是什麼、怎麼治</div>
       <div class="note-excerpt">BPPV是內耳最常見的眩暈原因，美國每年560萬人次因頭暈求診，其中17-42%最終確診為BPPV。治療首選是耳石復位術，不是吃藥。</div>
     </a>
-    <a class="note-item" data-cat="pediatric" href="notes/pediatric-acute-otitis-media-guide.html">
+    <a class="note-item" data-aud="public" data-cat="pediatric" href="notes/pediatric-acute-otitis-media-guide.html">
       <div class="note-meta"><span class="note-tag">小兒常見疾病</span><span>2026-07-25</span></div>
       <div class="note-title">孩子耳朵痛是中耳炎嗎？什麼時候一定要吃抗生素？</div>
       <div class="note-excerpt">8-9成幼兒3歲前都得過中耳炎，但不是耳膜紅就代表確診，也不是每次都要馬上吃抗生素。哪些情況該立即用藥、哪些可以先觀察，這篇整理清楚。</div>
     </a>
-    <a class="note-item" data-cat="chronic" href="notes/diabetic-kidney-disease-glucose-myth.html">
+    <a class="note-item" data-aud="public" data-cat="chronic" href="notes/diabetic-kidney-disease-glucose-myth.html">
       <div class="note-meta"><span class="note-tag">慢性病</span><span>2026-07-25</span></div>
       <div class="note-title">糖尿病傷腎，只顧血糖就夠嗎？從蛋白尿迷思到護腎新藥物</div>
       <div class="note-excerpt">腎功能下降的糖尿病患者中，超過一半沒有蛋白尿。現在已有藥物能不依賴血糖數字，直接提供腎臟與心臟雙重保護。</div>
     </a>
-    <a class="note-item" data-cat="pediatric" href="notes/nasal-flu-vaccine-for-children.html">
+    <a class="note-item" data-aud="public" data-cat="pediatric" href="notes/nasal-flu-vaccine-for-children.html">
       <div class="note-meta"><span class="note-tag">小兒常見疾病</span><span>2026-07-25</span></div>
       <div class="note-title">鼻噴流感疫苗適合我的孩子嗎？效期、禁忌與注意事項</div>
       <div class="note-excerpt">鼻噴流感疫苗效期可達12個月，比傳統疫苗更長，但2歲以下、氣喘病史或免疫不全的孩子不適用。</div>
     </a>
-    <a class="note-item" data-cat="throat" href="notes/flu-vaccine-why-annual-and-how-to-choose.html">
+    <a class="note-item" data-aud="public" data-cat="throat" href="notes/flu-vaccine-why-annual-and-how-to-choose.html">
       <div class="note-meta"><span class="note-tag">喉科</span><span>2026-07-25</span></div>
       <div class="note-title">流感疫苗為什麼要年年打？從病毒變異到台灣怎麼選</div>
       <div class="note-excerpt">流感病毒每年都會漂變甚至轉移，去年的抗體認不出新病毒株，這就是要年年施打的原因。</div>
     </a>
-    <a class="note-item" data-cat="nose" href="notes/chronic-sinusitis-diagnosis-treatment.html">
+    <a class="note-item" data-aud="public" data-cat="nose" href="notes/chronic-sinusitis-diagnosis-treatment.html">
       <div class="note-meta"><span class="note-tag">鼻科</span><span>2026-07-25</span></div>
       <div class="note-title">長期鼻塞是慢性鼻竇炎嗎？診斷與治療新觀念</div>
       <div class="note-excerpt">鼻塞流鼻涕拖過12週，可能是慢性鼻竇炎。診斷不能只靠症狀，需要鼻內視鏡確認，2020年起改用發炎機制分類。</div>
     </a>
-    <a class="note-item" data-cat="nose" href="notes/acute-sinusitis-antibiotic-guide.html">
+    <a class="note-item" data-aud="public" data-cat="nose" href="notes/acute-sinusitis-antibiotic-guide.html">
       <div class="note-meta"><span class="note-tag">鼻科</span><span>2026-07-25</span></div>
       <div class="note-title">感冒併發鼻竇炎怎麼辦？急性鼻竇炎精準用藥指引</div>
       <div class="note-excerpt">感冒併發急性鼻竇炎不用急著吃抗生素，多數是病毒感染。症狀滿10天再觀察3-5天沒改善，才考慮Amoxicillin。</div>
@@ -545,7 +595,8 @@
 </footer>
 
 <script>
-  var pills = document.querySelectorAll('.filter-pill');
+  var catPills = document.querySelectorAll('#filterRow .filter-pill');
+  var audPills = document.querySelectorAll('#audRow .filter-pill');
   var items = document.querySelectorAll('.note-item');
   var searchInput = document.getElementById('searchInput');
   var emptyState = document.getElementById('emptyState');
@@ -553,14 +604,16 @@
   var emptyDesc = document.getElementById('emptyDesc');
 
   function applyFilters() {
-    var activeCat = document.querySelector('.filter-pill.active').dataset.cat;
+    var activeCat = document.querySelector('#filterRow .filter-pill.active').dataset.cat;
+    var activeAud = document.querySelector('#audRow .filter-pill.active').dataset.aud;
     var q = searchInput.value.trim().toLowerCase();
     var anyVisible = false;
 
     items.forEach(function (item) {
       var matchesCat = (activeCat === 'all' || item.dataset.cat === activeCat);
+      var matchesAud = (activeAud === 'all' || item.dataset.aud === activeAud);
       var matchesSearch = (q === '' || item.innerText.toLowerCase().indexOf(q) !== -1);
-      var show = matchesCat && matchesSearch;
+      var show = matchesCat && matchesAud && matchesSearch;
       item.style.display = show ? 'flex' : 'none';
       if (show) anyVisible = true;
     });
@@ -569,7 +622,10 @@
       emptyState.style.display = 'none';
     } else {
       emptyState.style.display = 'block';
-      if (q !== '' || activeCat !== 'all') {
+      if (q === '' && activeCat === 'all' && activeAud === 'pro') {
+        emptyTitle.textContent = '臨床筆記還在累積';
+        emptyDesc.innerHTML = '這一區收的是讀書會、文獻整理與門診個案思考，<br>寫給醫療同行看，陸續補上。';
+      } else if (q !== '' || activeCat !== 'all' || activeAud !== 'all') {
         emptyTitle.textContent = '沒有符合的筆記';
         emptyDesc.innerHTML = '試試其他關鍵字，或清除篩選條件。';
       } else {
@@ -579,25 +635,35 @@
     }
   }
 
-  pills.forEach(function (p) {
-    p.addEventListener('click', function () {
-      pills.forEach(function (x) { x.classList.remove('active'); });
-      p.classList.add('active');
-      applyFilters();
+  function bindPills(group) {
+    group.forEach(function (p) {
+      p.addEventListener('click', function () {
+        group.forEach(function (x) { x.classList.remove('active'); });
+        p.classList.add('active');
+        applyFilters();
+      });
     });
-  });
+  }
+  bindPills(catPills);
+  bindPills(audPills);
 
   searchInput.addEventListener('input', applyFilters);
 
-  // 支援從頁尾等外部連結帶分類進來，例如 medical-notes.html#nose
-  function applyHashCategory() {
-    var cat = (location.hash || '').replace('#', '');
-    if (!cat) return;
-    var target = document.querySelector('.filter-pill[data-cat="' + cat + '"]');
-    if (!target) return;
-    pills.forEach(function (x) { x.classList.remove('active'); });
+  function selectPill(group, selector) {
+    var target = document.querySelector(selector);
+    if (!target) return false;
+    group.forEach(function (x) { x.classList.remove('active'); });
     target.classList.add('active');
-    applyFilters();
+    return true;
+  }
+
+  // 支援從頁尾等外部連結帶篩選進來：#nose（分類）或 #pro／#public（讀者）
+  function applyHashCategory() {
+    var key = (location.hash || '').replace('#', '');
+    if (!key) return;
+    var hit = selectPill(audPills, '#audRow .filter-pill[data-aud="' + key + '"]')
+           || selectPill(catPills, '#filterRow .filter-pill[data-cat="' + key + '"]');
+    if (hit) applyFilters();
   }
   applyHashCategory();
   window.addEventListener('hashchange', applyHashCategory);
@@ -614,6 +680,10 @@
   var params = new URLSearchParams(window.location.search);
   var qParam = params.get('q');
   if (qParam) { searchInput.value = qParam; }
+  var audParam = params.get('aud');
+  if (audParam) { selectPill(audPills, '#audRow .filter-pill[data-aud="' + audParam + '"]'); }
+  var catParam = params.get('cat');
+  if (catParam) { selectPill(catPills, '#filterRow .filter-pill[data-cat="' + catParam + '"]'); }
   applyFilters();
 </script>
 
