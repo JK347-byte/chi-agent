@@ -41,6 +41,48 @@
     .nav-links a { font-size: 14px; color: var(--muted); text-decoration: none; }
     .nav-links a:hover { color: var(--sage-dark); }
     .nav-links a.active { color: var(--sage-dark); font-weight: 700; }
+    .nav-right { display: flex; align-items: center; gap: 20px; }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 22px;
+      line-height: 1;
+      cursor: pointer;
+      color: var(--text);
+      padding: 4px;
+    }
+
+    .nav-mobile-panel {
+      display: none;
+      flex-direction: column;
+      gap: 2px;
+      position: absolute;
+      top: 56px;
+      left: 0;
+      right: 0;
+      background: white;
+      border-bottom: 1px solid #e2e8f0;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      padding: 16px 24px 20px;
+      z-index: 99;
+    }
+    .nav-mobile-panel.open { display: flex; }
+    .nav-mobile-panel a {
+      font-size: 15px;
+      color: var(--text);
+      text-decoration: none;
+      padding: 10px 4px;
+      border-bottom: 1px solid #f0f4f8;
+    }
+    .nav-mobile-panel a:last-child { border-bottom: none; }
+    .nav-mobile-panel a.active { color: var(--sage-dark); font-weight: 700; }
+
+    @media (max-width: 700px) {
+      .nav-links { display: none; }
+      .nav-toggle { display: block; }
+    }
 
     .article-header {
       background: var(--cream);
@@ -300,15 +342,27 @@
 
 <nav>
   <div class="nav-logo">日和聯合診所</div>
-  <div class="nav-links">
-    <a href="../clinic-website/index.html#doctors">醫師</a>
-    <a href="../clinic-website/index.html#services">服務</a>
-    <a href="../clinic-website/index.html#hours">時間</a>
-    <a href="../clinic-website/index.html#contact">聯絡</a>
-    <a href="../education.html">衛教</a>
-    <a href="../medical-notes.html" class="active">筆記</a>
+  <div class="nav-right">
+    <div class="nav-links">
+      <a href="../clinic-website/index.html#doctors">醫師</a>
+      <a href="../clinic-website/index.html#services">服務</a>
+      <a href="../clinic-website/index.html#hours">時間</a>
+      <a href="../clinic-website/index.html#contact">聯絡</a>
+      <a href="../education.html">衛教</a>
+      <a href="../medical-notes.html" class="active">筆記</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="開啟選單">☰</button>
   </div>
 </nav>
+
+<div class="nav-mobile-panel" id="navMobilePanel">
+  <a href="../clinic-website/index.html#doctors">醫師</a>
+  <a href="../clinic-website/index.html#services">服務</a>
+  <a href="../clinic-website/index.html#hours">時間</a>
+  <a href="../clinic-website/index.html#contact">聯絡</a>
+  <a href="../education.html">衛教</a>
+  <a href="../medical-notes.html" class="active">筆記</a>
+</div>
 
 <div class="article-header">
   <div class="article-tag">鼻科</div>
@@ -481,6 +535,20 @@
   window.addEventListener('scroll', upd, {passive:true});
   t.addEventListener('click', function(){ window.scrollTo({top:0,behavior:'smooth'}); });
   upd();
+})();
+</script>
+
+<script>
+(function () {
+  var navToggle = document.getElementById('navToggle');
+  var navMobilePanel = document.getElementById('navMobilePanel');
+  if (!navToggle || !navMobilePanel) return;
+  navToggle.addEventListener('click', function () {
+    navMobilePanel.classList.toggle('open');
+  });
+  navMobilePanel.querySelectorAll('a').forEach(function (a) {
+    a.addEventListener('click', function () { navMobilePanel.classList.remove('open'); });
+  });
 })();
 </script>
 
